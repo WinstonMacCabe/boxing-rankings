@@ -48,7 +48,7 @@ const NOISE = `data:image/svg+xml,${encodeURIComponent(
   </svg>`
 )}`
 
-function FighterCard({ fighter, rank, isWorst, upcomingFight }: { fighter: BoxerRecord; rank: number; isWorst?: boolean; upcomingFight?: { headline: string; url: string; source: string } }) {
+function FighterCard({ fighter, rank, isWorst }: { fighter: BoxerRecord; rank: number; isWorst?: boolean }) {
   const cardRef = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
   const [imgLoaded, setImgLoaded] = useState(false)
@@ -203,27 +203,6 @@ function FighterCard({ fighter, rank, isWorst, upcomingFight }: { fighter: Boxer
             </div>
           </div>
 
-          {/* Upcoming fight notification */}
-          {upcomingFight && (
-            <a
-              href={upcomingFight.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block mt-2 pt-2 border-t text-left"
-              style={{ borderColor: '#c4b49a' }}
-              onClick={e => e.stopPropagation()}
-            >
-              <div className="flex items-start gap-1.5 px-0.5">
-                <span className="text-[10px] leading-none mt-0.5">🔔</span>
-                <span className="text-[10px] leading-tight line-clamp-2" style={{ color: '#5a4a3a', fontFamily: "'Times New Roman', Times, serif" }}>
-                  {upcomingFight.headline}
-                </span>
-              </div>
-              <p className="text-[8px] mt-0.5 px-0.5 tracking-wider uppercase" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', Times, serif" }}>
-                {upcomingFight.source}
-              </p>
-            </a>
-          )}
         </div>
       </div>
     </div>
@@ -261,11 +240,14 @@ export default function Home() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const fightMap = new Map<string, { headline: string; url: string; source: string }>()
+  const uniqueFights: { headline: string; url: string; source: string }[] = []
+  const seen = new Set<string>()
   if (upcomingFights) {
     for (const f of upcomingFights.fights) {
-      if (!fightMap.has(f.boxerName)) {
-        fightMap.set(f.boxerName, { headline: f.headline, url: f.url, source: f.source })
+      const key = f.headline + f.source
+      if (!seen.has(key)) {
+        seen.add(key)
+        uniqueFights.push({ headline: f.headline, url: f.url, source: f.source })
       }
     }
   }
@@ -341,6 +323,24 @@ export default function Home() {
 
       <main className="pt-16 pb-12">
         <div className="max-w-6xl mx-auto px-4">
+
+          {uniqueFights.length > 0 && (
+            <div className="mb-4 p-3 border flex flex-col gap-1.5" style={{ background: '#2a1f15', borderColor: '#5a4a3a' }}>
+              <div className="flex items-center gap-2">
+                <span className="text-xs leading-none">🔔</span>
+                <span className="text-[9px] font-bold tracking-[0.15em] uppercase" style={{ color: '#b8a890', fontFamily: "'Times New Roman', serif" }}>Fight News</span>
+              </div>
+              <div className="flex flex-wrap gap-x-4 gap-y-1">
+                {uniqueFights.map((f, i) => (
+                  <a key={i} href={f.url} target="_blank" rel="noopener noreferrer" className="text-[10px] leading-tight hover:underline" style={{ color: '#d4c4a8', fontFamily: "'Times New Roman', Times, serif" }}>
+                    {f.headline}
+                    <span className="text-[8px] ml-1 uppercase tracking-wider" style={{ color: '#7a6a5a' }}>({f.source})</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
           <div className="mb-4 flex gap-1.5 flex-wrap items-center">
             <span className="w-px h-5 mx-1" style={{ background: '#3a2a1a' }} />
             {(['best', 'worst'] as const).map(m => (
@@ -394,7 +394,7 @@ export default function Home() {
 
           <div className="grid gap-4 items-stretch" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))' }}>
             {filtered.map((fighter, i) => (
-              <FighterCard key={fighter.name} fighter={fighter} rank={i + 1} isWorst={viewMode === 'worst'} upcomingFight={fightMap.get(fighter.name)} />
+              <FighterCard key={fighter.name} fighter={fighter} rank={i + 1} isWorst={viewMode === 'worst'} />
             ))}
           </div>
 
