@@ -1,1 +1,26 @@
-{"lastUpdated":"","fights":[]}
+{
+  "lastUpdated": "2026-07-31T17:53:01.374Z",
+  "fights": [
+    {
+      "boxerName": "Floyd Mayweather Jr.",
+      "headline": "Mayweather Needn’t Reveal Records in Tyson, Pacquiao Case",
+      "url": "https://www.sportico.com/law/analysis/2026/floyd-mayweather-tyson-pacquiao-fights-financial-records-1234940477/",
+      "source": "Sportico.com",
+      "publishedAt": "2026-07-30T15:00:00Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "Claressa Shields blasts Jake Paul over MVP ban: 'I can go to any boxing event I want to go to'",
+      "url": "https://sports.yahoo.com/boxing/article/claressa-shields-blasts-jake-paul-over-mvp-ban-i-can-go-to-any-boxing-event-i-want-to-go-to-165631547.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-07-29T16:56:31Z"
+    },
+    {
+      "boxerName": "Devin Haney",
+      "headline": "Gary Russell Jr Claims Shakur Passed On Antuanne Fight",
+      "url": "https://www.boxingnews24.com/2026/07/gary-russell-jr-claims-shakur-passed-on-antuanne-fight/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-07-29T15:21:25Z"
+    }
+  ]
+}
