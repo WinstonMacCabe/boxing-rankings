@@ -43,7 +43,7 @@ async function main() {
   }
   console.log(`Checking news for ${rankedNames.size} ranked boxers...`)
 
-  const from = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]
+  const from = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]
 
   const params = new URLSearchParams({
     q: 'boxing',
@@ -86,20 +86,40 @@ async function main() {
     }
   }
 
+  let existing: UpcomingFightEntry[] = []
+  try {
+    const old = JSON.parse(await fs.readFile(OUTFILE, 'utf8')) as { fights?: UpcomingFightEntry[] }
+    existing = old.fights ?? []
+  } catch {
+    existing = []
+  }
+
+  const cutoff = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString()
+  const seen = new Set<string>()
+  const merged: UpcomingFightEntry[] = []
+  for (const f of [...fights, ...existing]) {
+    const key = f.url || (f.headline + f.source)
+    if (seen.has(key)) continue
+    if (f.publishedAt && f.publishedAt < cutoff) continue
+    seen.add(key)
+    merged.push(f)
+  }
+  merged.sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || ''))
+
   await fs.mkdir(DATA_DIR, { recursive: true })
   const out: UpcomingFightsData = {
     lastUpdated: new Date().toISOString(),
-    fights,
+    fights: merged,
   }
   await fs.writeFile(OUTFILE, JSON.stringify(out, null, 2))
 
-  console.log(`Found ${fights.length} articles mentioning ranked boxers.`)
-  if (fights.length > 0) {
-    const seen = new Set<string>()
-    for (const f of fights) {
-      if (!seen.has(f.boxerName)) {
+  console.log(`Found ${fights.length} new articles mentioning ranked boxers. Keeping ${merged.length} total (last 30 days).`)
+  if (merged.length > 0) {
+    const seenName = new Set<string>()
+    for (const f of merged) {
+      if (!seenName.has(f.boxerName)) {
         console.log(`  ${f.boxerName}: ${f.headline.slice(0, 80)}...`)
-        seen.add(f.boxerName)
+        seenName.add(f.boxerName)
       }
     }
   }

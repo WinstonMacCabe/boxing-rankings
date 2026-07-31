@@ -240,14 +240,14 @@ export default function Home() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const uniqueFights: { headline: string; url: string; source: string }[] = []
+  const uniqueFights: { headline: string; url: string; source: string; publishedAt: string }[] = []
   const seen = new Set<string>()
   if (upcomingFights) {
     for (const f of upcomingFights.fights) {
       const key = f.headline + f.source
       if (!seen.has(key)) {
         seen.add(key)
-        uniqueFights.push({ headline: f.headline, url: f.url, source: f.source })
+        uniqueFights.push({ headline: f.headline, url: f.url, source: f.source, publishedAt: f.publishedAt })
       }
     }
   }
@@ -334,7 +334,9 @@ export default function Home() {
                 {uniqueFights.map((f, i) => (
                   <a key={i} href={f.url} target="_blank" rel="noopener noreferrer" className="text-[10px] leading-tight hover:underline" style={{ color: '#d4c4a8', fontFamily: "'Times New Roman', Times, serif" }}>
                     {f.headline}
-                    <span className="text-[8px] ml-1 uppercase tracking-wider" style={{ color: '#7a6a5a' }}>({f.source})</span>
+                    <span className="text-[8px] ml-1 uppercase tracking-wider" style={{ color: '#7a6a5a' }}>
+                      {f.publishedAt ? new Date(f.publishedAt).toLocaleDateString() + ' ' : ''}({f.source})
+                    </span>
                   </a>
                 ))}
               </div>
