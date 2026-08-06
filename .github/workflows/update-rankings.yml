@@ -34,7 +34,6 @@ jobs:
           NOTIFY_EMAIL_FROM: ${{ secrets.NOTIFY_EMAIL_FROM }}
           NOTIFY_EMAIL_PASS: ${{ secrets.NOTIFY_EMAIL_PASS }}
           NOTIFY_EMAIL_TO: ${{ secrets.NOTIFY_EMAIL_TO }}
-          NOTIFY_SMS_EMAIL: ${{ secrets.NOTIFY_SMS_EMAIL }}
 
       - run: |
           git config user.name 'github-actions[bot]'

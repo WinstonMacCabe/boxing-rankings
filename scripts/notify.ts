@@ -45,7 +45,6 @@ async function main() {
   const from = process.env.NOTIFY_EMAIL_FROM
   const pass = process.env.NOTIFY_EMAIL_PASS
   const to = process.env.NOTIFY_EMAIL_TO
-  const smsTo = process.env.NOTIFY_SMS_EMAIL
 
   if (!from || !pass || !to) {
     console.log('Missing NOTIFY_EMAIL_* env vars. Skipping notification.')
@@ -65,15 +64,14 @@ async function main() {
     auth: { user: from, pass },
   })
 
-  const recipients = [to, smsTo].filter(Boolean) as string[]
   await transporter.sendMail({
     from,
-    to: recipients.join(', '),
+    to,
     subject: `Fight news (${newFights.length})`,
     text,
   })
 
-  console.log(`Sent notification for ${newFights.length} new article(s) to ${recipients.join(', ')}`)
+  console.log(`Sent notification for ${newFights.length} new article(s) to ${to}`)
 }
 
 main().catch(err => {
