@@ -1,6 +1,41 @@
 {
-  "lastUpdated": "2026-08-08T01:15:34.189Z",
+  "lastUpdated": "2026-08-09T01:21:48.988Z",
   "fights": [
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "Shields says fight with Price likely to take place in 2027",
+      "url": "https://www.detroitnews.com/story/sports/other/2026/08/07/shields-says-fight-with-price-likely-to-take-place-in-2027/91220965007/",
+      "source": "The Detroit News",
+      "publishedAt": "2026-08-07T21:53:24Z"
+    },
+    {
+      "boxerName": "Devin Haney",
+      "headline": "Bill Haney Wants Boots Ennis To Clear Out 154 Before Devin Fight",
+      "url": "https://www.boxingnews24.com/2026/08/bill-haney-wants-boots-ennis-to-clear-out-154-before-devin-fight/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-08-07T21:15:40Z"
+    },
+    {
+      "boxerName": "Etinosa Oliha",
+      "headline": "Zuffa Boxing 10 -- Aaron McKenna vs. Etinosa Oliha: Start time, fight card, predictions for event in Ireland",
+      "url": "https://www.cbssports.com/boxing/news/zuffa-boxing-10-aaron-mckenna-vs-etinosa-oliha-start-time-fight-card-date-predictions/",
+      "source": "CBS Sports",
+      "publishedAt": "2026-08-07T19:04:07Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "Price fight now likely to be held in 2027 - Shields",
+      "url": "https://www.bbc.com/sport/boxing/articles/cpvw7rkgkrjo?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
+      "source": "BBC News",
+      "publishedAt": "2026-08-07T12:21:39Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "Price fight now likely to be held in 2027 - Shields",
+      "url": "https://www.bbc.co.uk/sport/boxing/articles/cpvw7rkgkrjo",
+      "source": "BBC News",
+      "publishedAt": "2026-08-07T12:19:36Z"
+    },
     {
       "boxerName": "Devin Haney",
       "headline": "Mercado Says Keyshawn Davis Never Intended To Fight Devin Haney",
