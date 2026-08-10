@@ -1,6 +1,20 @@
 {
-  "lastUpdated": "2026-08-09T01:21:48.988Z",
+  "lastUpdated": "2026-08-10T01:22:30.888Z",
   "fights": [
+    {
+      "boxerName": "Devin Haney",
+      "headline": "‘Me And Devin Haney Are Never Going To Fight Because He Is Scared Of Me’ World Champion Slams Door On Big Fight",
+      "url": "https://www.forbes.com/sites/brianmazique/2026/08/08/me-and-devin-haney-are-never-going-to-fight-because-he-is-scared-of-me-world-champion-slams-door-on-big-fight/",
+      "source": "Forbes",
+      "publishedAt": "2026-08-08T17:30:45Z"
+    },
+    {
+      "boxerName": "Terence Crawford",
+      "headline": "'That's Literally The Dumbest Thing I've Ever Heard' Rolly Romero Calls Out Ryan Garcia For Comments About Terence Crawford",
+      "url": "https://www.forbes.com/sites/brianmazique/2026/08/08/thats-literally-the-dumbest-thing-ive-ever-heard-rolly-romero-calls-out-ryan-garcia-for-comments-about-terence-crawford/",
+      "source": "Forbes",
+      "publishedAt": "2026-08-08T12:00:53Z"
+    },
     {
       "boxerName": "Claressa Shields",
       "headline": "Shields says fight with Price likely to take place in 2027",
