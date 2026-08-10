@@ -1,12 +1,33 @@
 {
-  "lastUpdated": "2026-08-10T01:22:30.888Z",
+  "lastUpdated": "2026-08-10T15:50:40.616Z",
   "fights": [
+    {
+      "boxerName": "Terence Crawford",
+      "headline": "Terence Crawford Isn’t Really Retired, Believes Greg Hackett",
+      "url": "https://www.boxingnews24.com/2026/08/terence-crawford-isnt-really-retired-believes-greg-hackett/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-08-09T03:50:21Z"
+    },
+    {
+      "boxerName": "Devin Haney",
+      "headline": "Tim Bradley Thinks Haney’s Skills Scare Fighters, But Is It Really About Money?",
+      "url": "https://www.boxingnews24.com/2026/08/tim-bradley-thinks-haneys-skills-scare-fighters-but-is-it-really-about-money/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-08-09T02:59:24Z"
+    },
     {
       "boxerName": "Devin Haney",
       "headline": "‘Me And Devin Haney Are Never Going To Fight Because He Is Scared Of Me’ World Champion Slams Door On Big Fight",
       "url": "https://www.forbes.com/sites/brianmazique/2026/08/08/me-and-devin-haney-are-never-going-to-fight-because-he-is-scared-of-me-world-champion-slams-door-on-big-fight/",
       "source": "Forbes",
       "publishedAt": "2026-08-08T17:30:45Z"
+    },
+    {
+      "boxerName": "Devin Haney",
+      "headline": "‘Devin is scared of me’: Rolly Romero says Haney fight will never happen",
+      "url": "https://www.badlefthook.com/boxing-news/117783/rolly-romero-says-devi-haney-fight-will-never-happen",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-08-08T15:11:14Z"
     },
     {
       "boxerName": "Terence Crawford",
@@ -107,6 +128,13 @@
       "publishedAt": "2026-08-04T02:14:20Z"
     },
     {
+      "boxerName": "Devin Haney",
+      "headline": "‘That’s insane to me’: Teofimo Lopez surprised Keyshawn Davis declined Devin Haney title fight",
+      "url": "https://www.badlefthook.com/boxing-news/117718/teofimo-lopez-surprised-keyshawn-davis-declined-devin-haney-title-fight-boxing-news-2026",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-08-03T12:54:55Z"
+    },
+    {
       "boxerName": "Terence Crawford",
       "headline": "Terence Crawford Tells Claressa Shields to Leave Laila Ali Alone",
       "url": "https://www.complex.com/sports/a/jaelaniturnerwilliams/claressa-shields-laila-ali-terence-crawford-goat-debate",
@@ -119,6 +147,13 @@
       "url": "https://www.boxingnews24.com/2026/08/schofield-sr-offers-pay-cut-for-rescheduled-shakur-stevenson-fight/",
       "source": "Boxingnews24.com",
       "publishedAt": "2026-08-01T20:32:37Z"
+    },
+    {
+      "boxerName": "Devin Haney",
+      "headline": "Keyshawn Davis officially declines Devin Haney fight",
+      "url": "https://www.badlefthook.com/boxing-news/117644/keyshawn-davis-declines-devin-haney-fight-boxing-news-2026",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-08-01T12:03:23Z"
     },
     {
       "boxerName": "Terence Crawford",
@@ -170,6 +205,20 @@
       "publishedAt": "2026-07-31T00:05:19Z"
     },
     {
+      "boxerName": "Devin Haney",
+      "headline": "Devin Haney vs. Keyshawn Davis to be promoted by Top Rank after Teofimo Lopez's promotion loses purse bid",
+      "url": "https://sports.yahoo.com/boxing/article/devin-haney-vs-keyshawn-davis-to-be-promoted-by-top-rank-after-teofimo-lopezs-promotion-loses-purse-bid-165222573.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-07-30T16:52:22Z"
+    },
+    {
+      "boxerName": "Devin Haney",
+      "headline": "Top Rank wins Haney vs Davis purse bid, targets October 3",
+      "url": "https://www.badlefthook.com/boxing-news/117601/top-rank-wins-devin-haney-vs-keyshawn-davis-purse-bid-targets-october-3rd",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-07-30T16:05:42Z"
+    },
+    {
       "boxerName": "Floyd Mayweather Jr.",
       "headline": "Mayweather Needn’t Reveal Records in Tyson, Pacquiao Case",
       "url": "https://www.sportico.com/law/analysis/2026/floyd-mayweather-tyson-pacquiao-fights-financial-records-1234940477/",
@@ -189,6 +238,125 @@
       "url": "https://www.boxingnews24.com/2026/07/gary-russell-jr-claims-shakur-passed-on-antuanne-fight/",
       "source": "Boxingnews24.com",
       "publishedAt": "2026-07-29T15:21:25Z"
+    },
+    {
+      "boxerName": "Terence Crawford",
+      "headline": "Terence Crawford Warns Claressa Shields to Stop Chasing Laila Ali",
+      "url": "https://mediatakeout.com/terence-crawford-warns-claressa-shields-to-stop-chasing-laila-ali/",
+      "source": "Mediatakeout.com",
+      "publishedAt": "2026-07-29T11:44:51Z"
+    },
+    {
+      "boxerName": "Terence Crawford",
+      "headline": "Canelo Alvarez reflects on Terence Crawford loss: 'If your mind is not there, it's not the same'",
+      "url": "https://sports.yahoo.com/boxing/article/canelo-alvarez-reflects-on-terence-crawford-loss-if-your-mind-is-not-there-its-not-the-same-003215749.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-07-24T00:32:15Z"
+    },
+    {
+      "boxerName": "Devin Haney",
+      "headline": "Devin Haney agrees to multi-fight deal with DAZN, will fight Keyshawn Davis next",
+      "url": "https://sports.yahoo.com/boxing/article/devin-haney-agrees-to-multi-fight-deal-with-dazn-will-fight-keyshawn-davis-next-055003407.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-07-23T05:50:03Z"
+    },
+    {
+      "boxerName": "Terence Crawford",
+      "headline": "Canelo Alvarez continues to duck ‘not-Mexican’ David Benavidez – ‘He’s a Heavyweight’",
+      "url": "https://www.mmamania.com/boxing/459130/canelo-alvarez-continues-to-duck-not-mexican-david-benavidez-hes-a-heavyweight",
+      "source": "MMA Mania",
+      "publishedAt": "2026-07-23T00:41:59Z"
+    },
+    {
+      "boxerName": "Devin Haney",
+      "headline": "Ryan Garcia Claims Devin Haney Soiled Himself During Fight",
+      "url": "https://www.boxingnews24.com/2026/07/ryan-garcia-claims-devin-haney-soiled-himself-during-fight/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-07-22T16:24:44Z"
+    },
+    {
+      "boxerName": "Devin Haney",
+      "headline": "‘They need Devin Haney’: Eddie Hearn says Zuffa may have to dig deep make fight with Shakur Stevenson, talks Ryan Garcia vs Conor Benn",
+      "url": "https://www.badlefthook.com/boxing-news/117340/eddie-hearn-says-zuffa-must-dig-deep-for-shakur-stevenson-vs-devin-haney-talks-ryan-garcia-vs-conor-benn-boxing-news-2026",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-07-18T00:13:20Z"
+    },
+    {
+      "boxerName": "Devin Haney",
+      "headline": "Devin Haney Ordered to Pay $20K a Month in Child Support!",
+      "url": "https://mediatakeout.com/devin-haney-ordered-to-pay-20k-a-month-in-child-support/",
+      "source": "Mediatakeout.com",
+      "publishedAt": "2026-07-17T12:44:00Z"
+    },
+    {
+      "boxerName": "Devin Haney",
+      "headline": "Ryan Garcia Tells Devin Haney To ‘Hold That L For Eternity’",
+      "url": "https://www.boxingnews24.com/2026/07/ryan-garcia-tells-devin-haney-to-hold-that-l-for-eternity/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-07-17T03:35:47Z"
+    },
+    {
+      "boxerName": "Terence Crawford",
+      "headline": "Justin Gaethje loses Fighter of the Year ESPY to Terence Crawford",
+      "url": "https://www.mmafighting.com/ufc/499681/justin-gaethje-loses-fighter-of-the-year-espy-to-terence-crawford",
+      "source": "MMA Fighting",
+      "publishedAt": "2026-07-16T15:30:00Z"
+    },
+    {
+      "boxerName": "Devin Haney",
+      "headline": "Shakur Stevenson says he's 'verbally agreed' to fight Devin Haney in Zuffa Boxing debut: 'They want Devin'",
+      "url": "https://sports.yahoo.com/boxing/article/shakur-stevenson-says-hes-verbally-agreed-to-fight-devin-haney-in-zuffa-boxing-debut-they-want-devin-200122221.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-07-15T20:01:22Z"
+    },
+    {
+      "boxerName": "Devin Haney",
+      "headline": "‘His flaw is his biggest strength’: Gary Russell Jr explains why Devin Haney has edge over Tank Davis",
+      "url": "https://www.badlefthook.com/boxing-news/117281/gary-russell-jr-explains-why-devin-haney-has-edge-over-tank-davis-boxing-news-2026",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-07-15T13:46:11Z"
+    },
+    {
+      "boxerName": "Devin Haney",
+      "headline": "Shakur Stevenson Claims Haney Fight Is Signed on His End!",
+      "url": "https://mediatakeout.com/shakur-stevenson-claims-haney-fight-is-signed-on-his-end/",
+      "source": "Mediatakeout.com",
+      "publishedAt": "2026-07-15T12:32:00Z"
+    },
+    {
+      "boxerName": "Floyd Mayweather Jr.",
+      "headline": "Brett Okamoto says identical prediction of potential Mayweather-McGregor fight was a joke with Oscar Willis",
+      "url": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_3ae9e73c-021e-44e4-a266-8f62c1d8c013",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-07-13T18:00:47Z"
+    },
+    {
+      "boxerName": "Terence Crawford",
+      "headline": "Conor McGregor's Knee Was 'Never an Issue' Prior to UFC 329 Injury vs. Max Holloway, Coach Says - Bleacher Report",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=184437426",
+      "source": "Slashdot.org",
+      "publishedAt": "2026-07-13T08:52:25Z"
+    },
+    {
+      "boxerName": "Terence Crawford",
+      "headline": "Terence Crawford reacts to Conor McGregor's UFC 329 injury with brutal message",
+      "url": "https://www.sherdog.com/news/news/Terence-Crawford-reacts-to-Conor-McGregors-UFC-329-injury-with-brutal-message-201876",
+      "source": "Sherdog.com",
+      "publishedAt": "2026-07-13T05:37:12Z"
+    },
+    {
+      "boxerName": "Devin Haney",
+      "headline": "Devin Haney Calls Four-Division Champion Mikey Garcia ‘Basic’",
+      "url": "https://www.boxingnews24.com/2026/07/devin-haney-calls-four-division-champion-mikey-garcia-basic/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-07-12T01:56:54Z"
+    },
+    {
+      "boxerName": "Floyd Mayweather Jr.",
+      "headline": "Manny Pacquiao takes over Floyd Mayweather’s former Hollywood gym in brutal troll",
+      "url": "https://nypost.com/2026/07/11/us-news/pacquiao-prime-boxing-replaces-closed-mayweather-fitness-location-in-hollywood/",
+      "source": "New York Post",
+      "publishedAt": "2026-07-11T20:47:34Z"
     }
   ]
 }
