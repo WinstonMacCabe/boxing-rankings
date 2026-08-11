@@ -1,6 +1,20 @@
 {
-  "lastUpdated": "2026-08-10T15:50:40.616Z",
+  "lastUpdated": "2026-08-11T01:22:48.829Z",
   "fights": [
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "Is Tamm Thibeault a threat to Claressa Shields?",
+      "url": "https://www.badlefthook.com/womens-boxing-news-results/117828/is-tamm-thibeault-threat-claressa-shields-womens-boxing-news-2026",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-08-09T15:39:25Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "Claressa Shields, Teremoana, and Redneck Brawl 14: Boxing schedule and previews for August 12-15, 2026",
+      "url": "https://www.badlefthook.com/boxing-schedule/117824/how-to-watch-claressa-shields-teremoana-redneck-brawl-streaming-tv-schedule-boxing-news-2026",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-08-09T15:03:50Z"
+    },
     {
       "boxerName": "Terence Crawford",
       "headline": "Terence Crawford Isn’t Really Retired, Believes Greg Hackett",
@@ -14,6 +28,13 @@
       "url": "https://www.boxingnews24.com/2026/08/tim-bradley-thinks-haneys-skills-scare-fighters-but-is-it-really-about-money/",
       "source": "Boxingnews24.com",
       "publishedAt": "2026-08-09T02:59:24Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "Latto Clay Co Crashes Out After Charleston White Calls Her A ‘Side B***h Who Got Pregnant’ By 21 Savage: ‘Loud & Wrong, B***h Boy!’",
+      "url": "https://bossip.com/4613302/latto-clayco-drags-charleston-white-21-savage/",
+      "source": "Bossip",
+      "publishedAt": "2026-08-08T20:45:14Z"
     },
     {
       "boxerName": "Devin Haney",
@@ -59,6 +80,20 @@
     },
     {
       "boxerName": "Claressa Shields",
+      "headline": "Shields says fight with Price likely to take place in 2027",
+      "url": "https://www.channelnewsasia.com/sport/shields-says-fight-price-likely-take-place-in-2027-6306456",
+      "source": "CNA",
+      "publishedAt": "2026-08-07T13:46:50Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "Eva Marcille Tells Claressa Shields to ‘Keep It Cute’ Over Mz. Shyneka Attacks!",
+      "url": "https://mediatakeout.com/eva-marcille-tells-claressa-shields-to-keep-it-cute-over-mz-shyneka-attacks/",
+      "source": "Mediatakeout.com",
+      "publishedAt": "2026-08-07T12:28:00Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
       "headline": "Price fight now likely to be held in 2027 - Shields",
       "url": "https://www.bbc.com/sport/boxing/articles/cpvw7rkgkrjo?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
       "source": "BBC News",
@@ -91,6 +126,13 @@
       "url": "https://www.dailymail.com/tvshowbiz/article-16031395/Influencer-Lissie-Rhodes-gives-birth-second-child-two-years-forced-deny-love-child-Tommy-Fury-amid-unfounded-cheating-claims.html",
       "source": "Dailymail.com",
       "publishedAt": "2026-08-05T18:01:15Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "Claressa Shields Explodes on Mz Shyneka: “Me and You Not the Same”!!",
+      "url": "https://mediatakeout.com/claressa-shields-explodes-on-mz-shyneka-me-and-you-not-the-same/",
+      "source": "Mediatakeout.com",
+      "publishedAt": "2026-08-05T11:34:36Z"
     },
     {
       "boxerName": "Devin Haney",
@@ -140,6 +182,13 @@
       "url": "https://www.complex.com/sports/a/jaelaniturnerwilliams/claressa-shields-laila-ali-terence-crawford-goat-debate",
       "source": "Complex",
       "publishedAt": "2026-08-02T23:19:54Z"
+    },
+    {
+      "boxerName": "Oleksandr Usyk",
+      "headline": "Usyk opens up on Joshua friendship",
+      "url": "https://punchng.com/usyk-opens-up-on-joshua-friendship/",
+      "source": "The Punch",
+      "publishedAt": "2026-08-02T00:06:03Z"
     },
     {
       "boxerName": "Shakur Stevenson",
@@ -247,11 +296,53 @@
       "publishedAt": "2026-07-29T11:44:51Z"
     },
     {
+      "boxerName": "David Benavidez",
+      "headline": "David Benavidez Gets Easier Road To Undisputed Title",
+      "url": "https://www.boxingnews24.com/2026/07/david-benavidez-gets-easier-road-to-undisputed-title/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-07-29T01:31:04Z"
+    },
+    {
+      "boxerName": "Gervonta Davis",
+      "headline": "Dana White eyes Gervonta Davis signing after adding Shakur Stevenson",
+      "url": "https://www.sherdog.com/news/news/Dana-White-eyes-Gervonta-Davis-signing-after-adding-Shakur-Stevenson-202106",
+      "source": "Sherdog.com",
+      "publishedAt": "2026-07-28T05:58:32Z"
+    },
+    {
+      "boxerName": "Oleksandr Usyk",
+      "headline": "Usyk confirms next fight will be his 'last dance'",
+      "url": "https://www.bbc.co.uk/sport/boxing/videos/cvg0w097vwzo",
+      "source": "BBC News",
+      "publishedAt": "2026-07-25T19:14:06Z"
+    },
+    {
+      "boxerName": "Oleksandr Usyk",
+      "headline": "'One more last dance' - Usyk says retirement is near",
+      "url": "https://www.bbc.co.uk/sport/boxing/videos/cx2mgzl30plo",
+      "source": "BBC News",
+      "publishedAt": "2026-07-25T15:16:29Z"
+    },
+    {
+      "boxerName": "Shakur Stevenson",
+      "headline": "Ernesto Mercado Claims Shakur Stevenson Blocked Him",
+      "url": "https://www.boxingnews24.com/2026/07/ernesto-mercado-claims-shakur-stevenson-blocked-him/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-07-24T23:35:49Z"
+    },
+    {
       "boxerName": "Terence Crawford",
       "headline": "Canelo Alvarez reflects on Terence Crawford loss: 'If your mind is not there, it's not the same'",
       "url": "https://sports.yahoo.com/boxing/article/canelo-alvarez-reflects-on-terence-crawford-loss-if-your-mind-is-not-there-its-not-the-same-003215749.html",
       "source": "Yahoo Entertainment",
       "publishedAt": "2026-07-24T00:32:15Z"
+    },
+    {
+      "boxerName": "David Benavidez",
+      "headline": "Tim Tszyu Plans To Unleash Benavidez-Style Swarm On Spence",
+      "url": "https://www.boxingnews24.com/2026/07/tim-tszyu-plans-to-unleash-benavidez-style-swarm-on-spence/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-07-23T18:10:57Z"
     },
     {
       "boxerName": "Devin Haney",
@@ -275,11 +366,67 @@
       "publishedAt": "2026-07-22T16:24:44Z"
     },
     {
+      "boxerName": "Oleksandr Usyk",
+      "headline": "Oleksandr Usyk eyes Deontay Wilder for final fight, hints at Zuffa Boxing",
+      "url": "https://www.sherdog.com/news/news/Oleksandr-Usyk-eyes-Deontay-Wilder-for-final-fight-hints-at-Zuffa-Boxing-202002",
+      "source": "Sherdog.com",
+      "publishedAt": "2026-07-21T05:35:24Z"
+    },
+    {
+      "boxerName": "Shakur Stevenson",
+      "headline": "Shakur: Zuffa Promised Haney And Tank Davis Fights",
+      "url": "https://www.boxingnews24.com/2026/07/shakur-zuffa-promised-haney-and-tank-davis-fights/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-07-20T02:55:59Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "Claressa Shields Reacts to Adrien Broner's 45-Day Fitness Challenge",
+      "url": "https://www.complex.com/sports/a/treyalston/claressa-shields-adrien-broner-locked-thon-challenge",
+      "source": "Complex",
+      "publishedAt": "2026-07-20T01:42:12Z"
+    },
+    {
+      "boxerName": "Gervonta Davis",
+      "headline": "Shakur Stevenson Predicts Final Fight With Gervonta Davis",
+      "url": "https://www.complex.com/sports/a/bernadette-giacomazzo/gervonta-davis-shakur-stevenson-bold-take",
+      "source": "Complex",
+      "publishedAt": "2026-07-19T20:24:55Z"
+    },
+    {
+      "boxerName": "Oleksandr Usyk",
+      "headline": "Oleksandr Usyk Open To Fighting For Zuffa Boxing Title",
+      "url": "https://www.boxingnews24.com/2026/07/oleksandr-usyk-open-to-fighting-for-zuffa-boxing-title/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-07-18T01:46:46Z"
+    },
+    {
       "boxerName": "Devin Haney",
       "headline": "‘They need Devin Haney’: Eddie Hearn says Zuffa may have to dig deep make fight with Shakur Stevenson, talks Ryan Garcia vs Conor Benn",
       "url": "https://www.badlefthook.com/boxing-news/117340/eddie-hearn-says-zuffa-must-dig-deep-for-shakur-stevenson-vs-devin-haney-talks-ryan-garcia-vs-conor-benn-boxing-news-2026",
       "source": "Bad Left Hook",
       "publishedAt": "2026-07-18T00:13:20Z"
+    },
+    {
+      "boxerName": "Shakur Stevenson",
+      "headline": "Dana White Rips UFC Broadcast for Shakur Stevenson NBA Mix-Up",
+      "url": "https://www.complex.com/sports/a/bernadette-giacomazzo/dana-white-explodes-shakur-stevenson",
+      "source": "Complex",
+      "publishedAt": "2026-07-17T15:03:22Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "Claressa Shields still pursuing negotiations to face Lauren Price",
+      "url": "https://www.badlefthook.com/boxing-news/117331/claressa-shields-still-pursuing-negotiations-to-face-lauren-price-boxing-news-2026",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-07-17T14:30:12Z"
+    },
+    {
+      "boxerName": "Oleksandr Usyk",
+      "headline": "Jon Jones challenges Oleksandr Usyk to a cage fight: ‘I am not a boxer’",
+      "url": "https://www.mmamania.com/ufc-news/457718/jon-jones-challenges-oleksandr-usyk-to-a-cage-fight-i-am-not-a-boxer",
+      "source": "MMA Mania",
+      "publishedAt": "2026-07-17T13:08:11Z"
     },
     {
       "boxerName": "Devin Haney",
@@ -289,11 +436,25 @@
       "publishedAt": "2026-07-17T12:44:00Z"
     },
     {
+      "boxerName": "Oleksandr Usyk",
+      "headline": "Morning Report | Jon Jones shoots down Oleksandr Usyk talk, leaves door open for UFC return",
+      "url": "https://www.mmafighting.com/latest-news/499639/morning-report-jon-jones-shoots-down-oleksandr-usyk-talk-leaves-door-open-for-ufc-return",
+      "source": "MMA Fighting",
+      "publishedAt": "2026-07-17T12:00:00Z"
+    },
+    {
       "boxerName": "Devin Haney",
       "headline": "Ryan Garcia Tells Devin Haney To ‘Hold That L For Eternity’",
       "url": "https://www.boxingnews24.com/2026/07/ryan-garcia-tells-devin-haney-to-hold-that-l-for-eternity/",
       "source": "Boxingnews24.com",
       "publishedAt": "2026-07-17T03:35:47Z"
+    },
+    {
+      "boxerName": "Oleksandr Usyk",
+      "headline": "Jon Jones reveals the one way he’d fight Oleksandr Usyk",
+      "url": "https://www.sherdog.com/news/news/Jon-Jones-reveals-the-one-way-hed-fight-Oleksandr-Usyk-201941",
+      "source": "Sherdog.com",
+      "publishedAt": "2026-07-17T03:28:21Z"
     },
     {
       "boxerName": "Terence Crawford",
@@ -303,11 +464,39 @@
       "publishedAt": "2026-07-16T15:30:00Z"
     },
     {
+      "boxerName": "David Benavidez",
+      "headline": "David Benavidez Can’t Afford Another Five-Year Chase",
+      "url": "https://www.boxingnews24.com/2026/07/david-benavidez-cant-afford-another-five-year-chase/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-07-16T03:46:35Z"
+    },
+    {
+      "boxerName": "Shakur Stevenson",
+      "headline": "‘Pretty sure I’ll be on Ring and Zuffa cards’: Shakur Stevenson talks about new deal",
+      "url": "https://www.badlefthook.com/boxing-news/117307/shakur-stevenson-talks-about-new-zuffa-deal-boxing-news-2026",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-07-15T22:41:15Z"
+    },
+    {
+      "boxerName": "Oleksandr Usyk",
+      "headline": "How Deontay 'One-wish' Wilder became the object of Oleksandr Usyk’s obsession",
+      "url": "https://sports.yahoo.com/boxing/article/how-deontay-one-wish-wilder-became-the-object-of-oleksandr-usyks-obsession-201039599.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-07-15T20:10:39Z"
+    },
+    {
       "boxerName": "Devin Haney",
       "headline": "Shakur Stevenson says he's 'verbally agreed' to fight Devin Haney in Zuffa Boxing debut: 'They want Devin'",
       "url": "https://sports.yahoo.com/boxing/article/shakur-stevenson-says-hes-verbally-agreed-to-fight-devin-haney-in-zuffa-boxing-debut-they-want-devin-200122221.html",
       "source": "Yahoo Entertainment",
       "publishedAt": "2026-07-15T20:01:22Z"
+    },
+    {
+      "boxerName": "Shakur Stevenson",
+      "headline": "Shakur Says Garcia-Benn Ends ‘Fake Narratives’",
+      "url": "https://www.boxingnews24.com/2026/07/shakur-says-garcia-benn-ends-fake-narratives/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-07-15T18:35:19Z"
     },
     {
       "boxerName": "Devin Haney",
@@ -322,6 +511,27 @@
       "url": "https://mediatakeout.com/shakur-stevenson-claims-haney-fight-is-signed-on-his-end/",
       "source": "Mediatakeout.com",
       "publishedAt": "2026-07-15T12:32:00Z"
+    },
+    {
+      "boxerName": "Abdullah Mason",
+      "headline": "Floyd Schofield Sr. Says Abdullah Mason Rejected Fight",
+      "url": "https://www.boxingnews24.com/2026/07/floyd-schofield-sr-says-abdullah-mason-rejected-fight/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-07-15T03:24:31Z"
+    },
+    {
+      "boxerName": "Gervonta Davis",
+      "headline": "Shakur Stevenson Makes Bold Gervonta Davis Claim That Changes Everything",
+      "url": "https://sportsnaut.com/boxing/shakur-stevenson-gervonta-davis-last-fight-retirement-warning",
+      "source": "Sportsnaut",
+      "publishedAt": "2026-07-14T16:34:26Z"
+    },
+    {
+      "boxerName": "Shakur Stevenson",
+      "headline": "Shakur Stevenson discusses decision to sign with Zuffa Boxing: 'There is no hiding'",
+      "url": "https://www.cbssports.com/boxing/news/shakur-stevenson-zuffa-boxing-signing/",
+      "source": "CBS Sports",
+      "publishedAt": "2026-07-13T20:13:14Z"
     },
     {
       "boxerName": "Floyd Mayweather Jr.",
@@ -345,18 +555,88 @@
       "publishedAt": "2026-07-13T05:37:12Z"
     },
     {
+      "boxerName": "Shakur Stevenson",
+      "headline": "UFC thought Shakur Stevenson was an NBA player; Dana White had thoughts",
+      "url": "https://www.sherdog.com/news/news/UFC-thought-Shakur-Stevenson-was-an-NBA-player-Dana-White-had-thoughts-201869",
+      "source": "Sherdog.com",
+      "publishedAt": "2026-07-13T03:30:03Z"
+    },
+    {
+      "boxerName": "Shakur Stevenson",
+      "headline": "Dana White lights up UFC production staff for misidentifying boxing star Shakur Stevenson as an NBA player",
+      "url": "https://www.foxnews.com/outkick-sports/dana-white-ufc-production-staff-misidentifying-boxing-shakur-stevenson-nba-player",
+      "source": "Fox News",
+      "publishedAt": "2026-07-13T01:02:01Z"
+    },
+    {
+      "boxerName": "Shakur Stevenson",
+      "headline": "Dana White Sounds off on Shakur Stevenson UFC 329 Mix-Up",
+      "url": "https://biztoc.com/x/1f237814d64b2deb",
+      "source": "Biztoc.com",
+      "publishedAt": "2026-07-13T00:47:53Z"
+    },
+    {
+      "boxerName": "Shakur Stevenson",
+      "headline": "Jalen Williams Drops Hilarious 3-Word Message As UFC Broadcast Mistakes Shakur Stevenson For Thunder Star",
+      "url": "https://www.profootballnetwork.com/nba/jalen-williams-drops-hilarious-3-word-message-as-ufc-broadcast-mistakes-shakur-stevenson-for-thunder-star/?utm_medium=rss&amp;utm_source=nordot",
+      "source": "Pro Football Network",
+      "publishedAt": "2026-07-12T20:30:01Z"
+    },
+    {
+      "boxerName": "Shakur Stevenson",
+      "headline": "Dana White rips UFC broadcast team for misidentifying Shakur Stevenson as NBA player",
+      "url": "https://awfulannouncing.com/ufc/dana-white-rips-broadcast-team-shakur-stevenson.html",
+      "source": "Awful Announcing",
+      "publishedAt": "2026-07-12T17:00:50Z"
+    },
+    {
+      "boxerName": "Shakur Stevenson",
+      "headline": "Jalen Williams or Shakur Stevenson? UFC broadcast IDs boxer as OKC Thunder star",
+      "url": "https://www.oklahoman.com/story/sports/nba/thunder/2026/07/12/ufc-president-dana-white-rants-after-broadcast-mistakes-boxer-shakur-stevenson-for-okc-thunder-star/90892978007/",
+      "source": "Oklahoman.com",
+      "publishedAt": "2026-07-12T14:54:34Z"
+    },
+    {
+      "boxerName": "Shakur Stevenson",
+      "headline": "Jalen Williams or Shakur Stevenson? UFC broadcast IDs boxer as OKC Thunder star",
+      "url": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_816709b9-7804-4094-aab4-b3b5a43c9eb9",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-07-12T14:54:34Z"
+    },
+    {
+      "boxerName": "Shakur Stevenson",
+      "headline": "Dana White explodes at his own UFC broadcast team for confusing boxer Shakur Stevenson with NBA star",
+      "url": "https://www.dailymail.com/sport/mma/article-15971439/dana-white-ufc-broadcast-shakur-stevenson-error.html",
+      "source": "Dailymail.com",
+      "publishedAt": "2026-07-12T14:28:54Z"
+    },
+    {
+      "boxerName": "Shakur Stevenson",
+      "headline": "UFC botches Shakur Stevenson’s name in brutal broadcast mistake – ‘We’re the worst ever to do it’",
+      "url": "https://www.mmamania.com/ufc-329-mcgregor-vs-holloway-2/456734/ufc-botches-shakur-stevensons-name-in-brutal-broadcast-mistake-were-the-worst-ever-to-do-it",
+      "source": "MMA Mania",
+      "publishedAt": "2026-07-12T10:00:00Z"
+    },
+    {
+      "boxerName": "Shakur Stevenson",
+      "headline": "Dana White blows up on UFC production team after Shakur Stevenson gaffe: 'We are the worst ever to f***ing do it'",
+      "url": "https://sports.yahoo.com/mma/article/dana-white-blows-up-on-ufc-production-team-after-shakur-stevenson-gaffe-we-are-the-worst-ever-to-fing-do-it-070624541.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-07-12T07:06:24Z"
+    },
+    {
+      "boxerName": "Shakur Stevenson",
+      "headline": "Dana White is furious after UFC 329 broadcast mistook boxing champion for NBA star Jalen Williams",
+      "url": "https://www.hitc.com/dana-white-is-furious-after-ufc-329-broadcast-mistook-boxing-champion-for-nba-star-jalen-williams/",
+      "source": "HITC - Football, Gaming, Movies, TV, Music",
+      "publishedAt": "2026-07-12T05:47:40Z"
+    },
+    {
       "boxerName": "Devin Haney",
       "headline": "Devin Haney Calls Four-Division Champion Mikey Garcia ‘Basic’",
       "url": "https://www.boxingnews24.com/2026/07/devin-haney-calls-four-division-champion-mikey-garcia-basic/",
       "source": "Boxingnews24.com",
       "publishedAt": "2026-07-12T01:56:54Z"
-    },
-    {
-      "boxerName": "Floyd Mayweather Jr.",
-      "headline": "Manny Pacquiao takes over Floyd Mayweather’s former Hollywood gym in brutal troll",
-      "url": "https://nypost.com/2026/07/11/us-news/pacquiao-prime-boxing-replaces-closed-mayweather-fitness-location-in-hollywood/",
-      "source": "New York Post",
-      "publishedAt": "2026-07-11T20:47:34Z"
     }
   ]
 }
