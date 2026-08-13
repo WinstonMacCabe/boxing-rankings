@@ -1,6 +1,34 @@
 {
-  "lastUpdated": "2026-08-12T01:31:19.092Z",
+  "lastUpdated": "2026-08-13T01:33:21.454Z",
   "fights": [
+    {
+      "boxerName": "Laila Ali",
+      "headline": "Claressa Shields' fight stirs talk of Laila Ali, potential blockbuster",
+      "url": "https://www.usatoday.com/story/sports/boxing/2026/08/11/claressa-shields-fight-laila-ali-matchup/91256616007/",
+      "source": "USA Today",
+      "publishedAt": "2026-08-11T16:33:27Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "Claressa Shields ‘Surprised’ She’s Not Pregnant With Papoose’s Baby YET!",
+      "url": "https://mediatakeout.com/claressa-shields-surprised-shes-not-pregnant-with-papooses-baby-yet/",
+      "source": "Mediatakeout.com",
+      "publishedAt": "2026-08-11T12:23:13Z"
+    },
+    {
+      "boxerName": "Terence Crawford",
+      "headline": "Brian McIntyre reflects on career with Terence Crawford and more",
+      "url": "https://www.badlefthook.com/boxing-news/117864/brian-mcintyre-reflects-on-career-with-terence-crawford-and-more",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-08-11T12:11:03Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "Claressa Shields attracts high-profile rappers, famous boxers at fight",
+      "url": "https://www.usatoday.com/story/sports/boxing/2026/08/10/claressa-shields-glitz-glam-title-fight-saturday/91250964007/",
+      "source": "USA Today",
+      "publishedAt": "2026-08-11T02:06:06Z"
+    },
     {
       "boxerName": "Claressa Shields",
       "headline": "Claressa Shields Goes For Unified Titles In Another Division",
@@ -637,41 +665,6 @@
       "url": "https://sportsnaut.com/boxing/shakur-stevenson-gervonta-davis-last-fight-retirement-warning",
       "source": "Sportsnaut",
       "publishedAt": "2026-07-14T16:34:26Z"
-    },
-    {
-      "boxerName": "Shakur Stevenson",
-      "headline": "Shakur Stevenson discusses decision to sign with Zuffa Boxing: 'There is no hiding'",
-      "url": "https://www.cbssports.com/boxing/news/shakur-stevenson-zuffa-boxing-signing/",
-      "source": "CBS Sports",
-      "publishedAt": "2026-07-13T20:13:14Z"
-    },
-    {
-      "boxerName": "Floyd Mayweather Jr.",
-      "headline": "Brett Okamoto says identical prediction of potential Mayweather-McGregor fight was a joke with Oscar Willis",
-      "url": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_3ae9e73c-021e-44e4-a266-8f62c1d8c013",
-      "source": "Yahoo Entertainment",
-      "publishedAt": "2026-07-13T18:00:47Z"
-    },
-    {
-      "boxerName": "Terence Crawford",
-      "headline": "Conor McGregor's Knee Was 'Never an Issue' Prior to UFC 329 Injury vs. Max Holloway, Coach Says - Bleacher Report",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=184437426",
-      "source": "Slashdot.org",
-      "publishedAt": "2026-07-13T08:52:25Z"
-    },
-    {
-      "boxerName": "Terence Crawford",
-      "headline": "Terence Crawford reacts to Conor McGregor's UFC 329 injury with brutal message",
-      "url": "https://www.sherdog.com/news/news/Terence-Crawford-reacts-to-Conor-McGregors-UFC-329-injury-with-brutal-message-201876",
-      "source": "Sherdog.com",
-      "publishedAt": "2026-07-13T05:37:12Z"
-    },
-    {
-      "boxerName": "Shakur Stevenson",
-      "headline": "UFC thought Shakur Stevenson was an NBA player; Dana White had thoughts",
-      "url": "https://www.sherdog.com/news/news/UFC-thought-Shakur-Stevenson-was-an-NBA-player-Dana-White-had-thoughts-201869",
-      "source": "Sherdog.com",
-      "publishedAt": "2026-07-13T03:30:03Z"
     }
   ]
 }
