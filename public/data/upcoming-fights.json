@@ -1,6 +1,41 @@
 {
-  "lastUpdated": "2026-08-13T01:33:21.454Z",
+  "lastUpdated": "2026-08-14T01:30:21.101Z",
   "fights": [
+    {
+      "boxerName": "Gervonta Davis",
+      "headline": "Floyd Schofield vs Lucas Bahdi title fight planned for October 10",
+      "url": "https://www.badlefthook.com/boxing-news/117881/floyd-schofield-vs-lucas-bahdi-title-fight-planned-for-october-10th",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-08-13T01:23:52Z"
+    },
+    {
+      "boxerName": "Caroline Dubois (boxer)",
+      "headline": "Dubois unification moves closer as Turhan joins MVP",
+      "url": "https://www.bbc.com/sport/boxing/articles/ckg9pejzrvyo?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
+      "source": "BBC News",
+      "publishedAt": "2026-08-12T13:23:30Z"
+    },
+    {
+      "boxerName": "Caroline Dubois (boxer)",
+      "headline": "Dubois unification moves closer as Turhan joins MVP",
+      "url": "https://www.bbc.co.uk/sport/boxing/articles/ckg9pejzrvyo",
+      "source": "BBC News",
+      "publishedAt": "2026-08-12T13:23:25Z"
+    },
+    {
+      "boxerName": "Laila Ali",
+      "headline": "Laila Ali Snubs Ringside Invite to Claressa Shields’ Atlanta Fight",
+      "url": "https://mediatakeout.com/laila-ali-snubs-ringside-invite-to-claressa-shields-atlanta-fight/",
+      "source": "Mediatakeout.com",
+      "publishedAt": "2026-08-12T11:33:30Z"
+    },
+    {
+      "boxerName": "Shakur Stevenson",
+      "headline": "Teofimo Sr. Dismisses Shakur Stevenson’s Vacant-Belt Championships",
+      "url": "https://www.boxingnews24.com/2026/08/teofimo-sr-dismisses-shakur-stevensons-vacant-belt-championships/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-08-12T07:24:47Z"
+    },
     {
       "boxerName": "Laila Ali",
       "headline": "Claressa Shields' fight stirs talk of Laila Ali, potential blockbuster",
@@ -658,13 +693,6 @@
       "url": "https://www.boxingnews24.com/2026/07/floyd-schofield-sr-says-abdullah-mason-rejected-fight/",
       "source": "Boxingnews24.com",
       "publishedAt": "2026-07-15T03:24:31Z"
-    },
-    {
-      "boxerName": "Gervonta Davis",
-      "headline": "Shakur Stevenson Makes Bold Gervonta Davis Claim That Changes Everything",
-      "url": "https://sportsnaut.com/boxing/shakur-stevenson-gervonta-davis-last-fight-retirement-warning",
-      "source": "Sportsnaut",
-      "publishedAt": "2026-07-14T16:34:26Z"
     }
   ]
 }
