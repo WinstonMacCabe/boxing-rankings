@@ -1,6 +1,27 @@
 {
-  "lastUpdated": "2026-08-14T01:30:21.101Z",
+  "lastUpdated": "2026-08-15T01:02:00.002Z",
   "fights": [
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "Cris Cyborg cools retirement talk; remains interested in Ronda Rousey, Claressa Shields fights",
+      "url": "https://sports.yahoo.com/mma/article/cris-cyborg-cools-retirement-talk-remains-interested-in-ronda-rousey-claressa-shields-fights-195117394.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-08-13T19:51:17Z"
+    },
+    {
+      "boxerName": "Terence Crawford",
+      "headline": "Terence Crawford Return Rumors Put to Rest: ‘He Just Wants to Stay in Shape’",
+      "url": "https://mediatakeout.com/terence-crawford-return-rumors-put-to-rest-he-just-wants-to-stay-in-shape/",
+      "source": "Mediatakeout.com",
+      "publishedAt": "2026-08-13T10:26:00Z"
+    },
+    {
+      "boxerName": "Terence Crawford",
+      "headline": "Bernie Davis Sees Same William Zepeda Shakur Already Beat",
+      "url": "https://www.boxingnews24.com/2026/08/bernie-davis-sees-same-william-zepeda-shakur-already-beat/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-08-13T03:15:14Z"
+    },
     {
       "boxerName": "Gervonta Davis",
       "headline": "Floyd Schofield vs Lucas Bahdi title fight planned for October 10",
@@ -644,55 +665,6 @@
       "url": "https://www.boxingnews24.com/2026/07/david-benavidez-cant-afford-another-five-year-chase/",
       "source": "Boxingnews24.com",
       "publishedAt": "2026-07-16T03:46:35Z"
-    },
-    {
-      "boxerName": "Shakur Stevenson",
-      "headline": "‘Pretty sure I’ll be on Ring and Zuffa cards’: Shakur Stevenson talks about new deal",
-      "url": "https://www.badlefthook.com/boxing-news/117307/shakur-stevenson-talks-about-new-zuffa-deal-boxing-news-2026",
-      "source": "Bad Left Hook",
-      "publishedAt": "2026-07-15T22:41:15Z"
-    },
-    {
-      "boxerName": "Oleksandr Usyk",
-      "headline": "How Deontay 'One-wish' Wilder became the object of Oleksandr Usyk’s obsession",
-      "url": "https://sports.yahoo.com/boxing/article/how-deontay-one-wish-wilder-became-the-object-of-oleksandr-usyks-obsession-201039599.html",
-      "source": "Yahoo Entertainment",
-      "publishedAt": "2026-07-15T20:10:39Z"
-    },
-    {
-      "boxerName": "Devin Haney",
-      "headline": "Shakur Stevenson says he's 'verbally agreed' to fight Devin Haney in Zuffa Boxing debut: 'They want Devin'",
-      "url": "https://sports.yahoo.com/boxing/article/shakur-stevenson-says-hes-verbally-agreed-to-fight-devin-haney-in-zuffa-boxing-debut-they-want-devin-200122221.html",
-      "source": "Yahoo Entertainment",
-      "publishedAt": "2026-07-15T20:01:22Z"
-    },
-    {
-      "boxerName": "Shakur Stevenson",
-      "headline": "Shakur Says Garcia-Benn Ends ‘Fake Narratives’",
-      "url": "https://www.boxingnews24.com/2026/07/shakur-says-garcia-benn-ends-fake-narratives/",
-      "source": "Boxingnews24.com",
-      "publishedAt": "2026-07-15T18:35:19Z"
-    },
-    {
-      "boxerName": "Devin Haney",
-      "headline": "‘His flaw is his biggest strength’: Gary Russell Jr explains why Devin Haney has edge over Tank Davis",
-      "url": "https://www.badlefthook.com/boxing-news/117281/gary-russell-jr-explains-why-devin-haney-has-edge-over-tank-davis-boxing-news-2026",
-      "source": "Bad Left Hook",
-      "publishedAt": "2026-07-15T13:46:11Z"
-    },
-    {
-      "boxerName": "Devin Haney",
-      "headline": "Shakur Stevenson Claims Haney Fight Is Signed on His End!",
-      "url": "https://mediatakeout.com/shakur-stevenson-claims-haney-fight-is-signed-on-his-end/",
-      "source": "Mediatakeout.com",
-      "publishedAt": "2026-07-15T12:32:00Z"
-    },
-    {
-      "boxerName": "Abdullah Mason",
-      "headline": "Floyd Schofield Sr. Says Abdullah Mason Rejected Fight",
-      "url": "https://www.boxingnews24.com/2026/07/floyd-schofield-sr-says-abdullah-mason-rejected-fight/",
-      "source": "Boxingnews24.com",
-      "publishedAt": "2026-07-15T03:24:31Z"
     }
   ]
 }
