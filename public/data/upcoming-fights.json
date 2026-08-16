@@ -1,6 +1,55 @@
 {
-  "lastUpdated": "2026-08-15T01:02:00.002Z",
+  "lastUpdated": "2026-08-16T01:05:06.204Z",
   "fights": [
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "Boxing star Claressa Shields has it all. Well, expect for knockouts. Does that matter?",
+      "url": "https://www.usatoday.com/story/sports/boxing/2026/08/14/claressa-shields-knockouts-legacy/91312585007/",
+      "source": "USA Today",
+      "publishedAt": "2026-08-15T00:08:57Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "What time does Claressa Shields vs. Kaye Scott start? Live stream, price, full card, TV channel & more",
+      "url": "https://www.sportingnews.com/us/boxing/news/what-time-claressa-shields-vs-kaye-scott-start-live-stream-price-card/b39f1cd609511e5da100a4c3",
+      "source": "Sporting News",
+      "publishedAt": "2026-08-15T00:00:01Z"
+    },
+    {
+      "boxerName": "Shakur Stevenson",
+      "headline": "‘We both messed up’: Teofimo Lopez Jr and Sr have it out over loss to Shakur Stevenson",
+      "url": "https://www.badlefthook.com/boxing-news/117901/teofimo-lopez-jr-and-sr-have-it-out-over-loss-to-shakur-stevenson-boxing-news-2026",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-08-14T18:50:15Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "The 'GWOAT,' Claressa Shields, gets back in the ring Saturday night",
+      "url": "https://www.detroitnews.com/story/sports/other/2026/08/14/claressa-shields-ready-for-next-fight-vs-kaye-scott-in-atlanta/91302688007/",
+      "source": "The Detroit News",
+      "publishedAt": "2026-08-14T16:06:29Z"
+    },
+    {
+      "boxerName": "Devin Haney",
+      "headline": "Brian Norman Jr. Must Make Devin Haney Pay For Holding",
+      "url": "https://www.boxingnews24.com/2026/08/brian-norman-jr-must-make-devin-haney-pay-for-holding/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-08-14T15:01:35Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "Claressa Shields vs. Kaye Scott: How to watch, full fight card, streaming info and more",
+      "url": "https://sports.yahoo.com/boxing/article/claressa-shields-vs-kaye-scott-how-to-watch-full-fight-card-streaming-info-and-more-124500743.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-08-14T12:45:00Z"
+    },
+    {
+      "boxerName": "Devin Haney",
+      "headline": "Teofimo Lopez On Fighting His Close Friend Rolly Romero, Keyshawn Davis Turning Down $3 Million Devin Haney Fight, & How ‘Disrespect’ From Dana White Led To Him Signing With DAZN (Interview)",
+      "url": "https://brobible.com/sports/article/teofimo-lopez-rolly-romero-dazn/",
+      "source": "BroBible",
+      "publishedAt": "2026-08-14T10:10:42Z"
+    },
     {
       "boxerName": "Claressa Shields",
       "headline": "Cris Cyborg cools retirement talk; remains interested in Ronda Rousey, Claressa Shields fights",
@@ -651,20 +700,6 @@
       "url": "https://www.sherdog.com/news/news/Jon-Jones-reveals-the-one-way-hed-fight-Oleksandr-Usyk-201941",
       "source": "Sherdog.com",
       "publishedAt": "2026-07-17T03:28:21Z"
-    },
-    {
-      "boxerName": "Terence Crawford",
-      "headline": "Justin Gaethje loses Fighter of the Year ESPY to Terence Crawford",
-      "url": "https://www.mmafighting.com/ufc/499681/justin-gaethje-loses-fighter-of-the-year-espy-to-terence-crawford",
-      "source": "MMA Fighting",
-      "publishedAt": "2026-07-16T15:30:00Z"
-    },
-    {
-      "boxerName": "David Benavidez",
-      "headline": "David Benavidez Can’t Afford Another Five-Year Chase",
-      "url": "https://www.boxingnews24.com/2026/07/david-benavidez-cant-afford-another-five-year-chase/",
-      "source": "Boxingnews24.com",
-      "publishedAt": "2026-07-16T03:46:35Z"
     }
   ]
 }
