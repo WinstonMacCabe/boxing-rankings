@@ -1,6 +1,20 @@
 {
-  "lastUpdated": "2026-08-18T18:44:45.652Z",
+  "lastUpdated": "2026-08-18T23:50:17.776Z",
   "fights": [
+    {
+      "boxerName": "David Benavidez",
+      "headline": "Fans Blast David Benavidez For Easy Cieślak Defense Over Jai Opetaia",
+      "url": "https://www.boxingnews24.com/2026/08/fans-blast-david-benavidez-for-easy-cieslak-defense-over-jai-opetaia/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-08-17T22:31:13Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "Boxer Claressa Shields Dominates Kaye Scott In Middleweight Clash",
+      "url": "https://hiphopwired.com/3062782/claressa-shields-kaye-scott-middleweight-clash/",
+      "source": "Hip-Hop Wired",
+      "publishedAt": "2026-08-17T22:15:02Z"
+    },
     {
       "boxerName": "Claressa Shields",
       "headline": "Claressa Shields Stops Scott In the Sixth, Is Lauren Price Next?",
@@ -791,13 +805,6 @@
       "url": "https://www.complex.com/sports/a/treyalston/claressa-shields-adrien-broner-locked-thon-challenge",
       "source": "Complex",
       "publishedAt": "2026-07-20T01:42:12Z"
-    },
-    {
-      "boxerName": "Gervonta Davis",
-      "headline": "Shakur Stevenson Predicts Final Fight With Gervonta Davis",
-      "url": "https://www.complex.com/sports/a/bernadette-giacomazzo/gervonta-davis-shakur-stevenson-bold-take",
-      "source": "Complex",
-      "publishedAt": "2026-07-19T20:24:55Z"
     }
   ]
 }
