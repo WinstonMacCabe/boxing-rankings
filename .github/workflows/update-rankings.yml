@@ -31,12 +31,14 @@ jobs:
           NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
 
       - run: npm run update-news
+        continue-on-error: true
         env:
           NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
           FIGHTER_LIMIT: ${{ inputs.fighter_limit || '' }}
 
       - name: Notify new fight news
         run: npm run notify
+        continue-on-error: true
         env:
           NOTIFY_EMAIL_FROM: ${{ secrets.NOTIFY_EMAIL_FROM }}
           NOTIFY_EMAIL_PASS: ${{ secrets.NOTIFY_EMAIL_PASS }}
