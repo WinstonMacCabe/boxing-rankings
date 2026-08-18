@@ -144,10 +144,15 @@ async function main() {
     .sort((a, b) => (b.secondaryScore ?? 0) - (a.secondaryScore ?? 0))
     .slice(0, 50)
 
-  await writeRankings(ranked, worstRanked, secondaryRanked)
+  const secondaryWorstRanked = allWithWins
+    .filter(f => f.imageUrl && (f.secondaryScore ?? 0) > 0)
+    .sort((a, b) => (a.secondaryScore ?? 0) - (b.secondaryScore ?? 0))
+    .slice(0, 50)
+
+  await writeRankings(ranked, worstRanked, secondaryRanked, secondaryWorstRanked)
 
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(1)
-  console.log(`\nDone! ${ranked.length} undefeated, ${worstRanked.length} winless, ${secondaryRanked.length} secondary boxers ranked.`)
+  console.log(`\nDone! ${ranked.length} undefeated, ${worstRanked.length} winless, ${secondaryRanked.length} secondary, ${secondaryWorstRanked.length} secondary worst boxers ranked.`)
   console.log(`Total time: ${elapsed}s`)
   if (ranked.length > 0) {
     console.log(`Top 10 best: ${ranked.slice(0, 10).map(f => `${f.name} (${f.wins}-${f.losses}-${f.draws})`).join(', ')}`)

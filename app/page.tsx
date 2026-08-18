@@ -229,7 +229,7 @@ export default function Home() {
   const [search, setSearch] = useState('')
   const [sortBy, setSortBy] = useState<'wins' | 'kos' | 'weight'>('wins')
   const [genderFilter, setGenderFilter] = useState<'all' | Gender>('all')
-  const [viewMode, setViewMode] = useState<'best' | 'worst' | 'secondary'>('best')
+  const [viewMode, setViewMode] = useState<'best' | 'worst' | 'secondary' | 'secondaryWorst'>('best')
   const [headerBlur, setHeaderBlur] = useState(false)
 
   useEffect(() => {
@@ -264,13 +264,14 @@ export default function Home() {
     }
   }
 
-  const source = viewMode === 'best' ? (data?.fighters ?? []) : viewMode === 'secondary' ? (data?.secondary ?? []) : (data?.worst ?? [])
+  const source = viewMode === 'best' ? (data?.fighters ?? []) : viewMode === 'secondary' ? (data?.secondary ?? []) : viewMode === 'secondaryWorst' ? (data?.secondaryWorst ?? []) : (data?.worst ?? [])
   const filtered = source
     .filter(f => genderFilter === 'all' || f.gender === genderFilter)
     .filter(f => cleanName(f.name).toLowerCase().includes(search.toLowerCase()))
     .sort((a, b) => {
       if (viewMode === 'worst') return b.losses - a.losses || a.draws - b.draws || a.name.localeCompare(b.name)
       if (viewMode === 'secondary') return (b.secondaryScore ?? 0) - (a.secondaryScore ?? 0)
+      if (viewMode === 'secondaryWorst') return (a.secondaryScore ?? 0) - (b.secondaryScore ?? 0)
       if (sortBy === 'wins') return b.wins - a.wins || a.draws - b.draws || b.kos - a.kos || a.name.localeCompare(b.name)
       if (sortBy === 'kos') return b.kos - a.kos
       return (weightSortValue(a.weightClass) - weightSortValue(b.weightClass)) || b.wins - a.wins
@@ -358,7 +359,7 @@ export default function Home() {
 
           <div className="mb-4 flex gap-1.5 flex-wrap items-center">
             <span className="w-px h-5 mx-1" style={{ background: '#3a2a1a' }} />
-            {(['best', 'worst', 'secondary'] as const).map(m => (
+            {(['best', 'worst', 'secondary', 'secondaryWorst'] as const).map(m => (
               <button
                 key={m}
                 onClick={() => setViewMode(m)}
@@ -370,11 +371,11 @@ export default function Home() {
                   border: `1px solid ${viewMode === m ? '#5a4a3a' : '#3a2a1a'}`,
                 }}
               >
-                {m === 'best' ? 'Best' : m === 'worst' ? 'Worst' : 'Secondary'}
+                {m === 'best' ? 'Best' : m === 'worst' ? 'Worst' : m === 'secondary' ? 'Secondary' : 'Sec. Worst'}
               </button>
             ))}
             <span className="w-px h-5 mx-1" style={{ background: '#3a2a1a' }} />
-            {viewMode !== 'secondary' && (
+            {viewMode !== 'secondary' && viewMode !== 'secondaryWorst' && (
               <>
                 {(['wins', 'kos', 'weight'] as const).map(s => (
                   <button
@@ -413,7 +414,7 @@ export default function Home() {
 
           <div className="grid gap-4 items-stretch" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))' }}>
             {filtered.map((fighter, i) => (
-              <FighterCard key={fighter.name} fighter={fighter} rank={i + 1} isWorst={viewMode === 'worst'} isSecondary={viewMode === 'secondary'} />
+              <FighterCard key={fighter.name} fighter={fighter} rank={i + 1} isWorst={viewMode === 'worst'} isSecondary={viewMode === 'secondary' || viewMode === 'secondaryWorst'} />
             ))}
           </div>
 

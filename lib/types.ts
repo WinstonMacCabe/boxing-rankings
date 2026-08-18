@@ -22,6 +22,7 @@ export interface RankingsData {
   fighters: BoxerRecord[]
   worst?: BoxerRecord[]
   secondary?: BoxerRecord[]
+  secondaryWorst?: BoxerRecord[]
 }
 
 export interface WikipediaInfobox {
