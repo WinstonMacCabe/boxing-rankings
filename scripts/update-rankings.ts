@@ -111,11 +111,13 @@ async function main() {
 
   // Secondary ranking: all fighters with wins, scored by C3 formula
   // wins/(losses+1)^1.5 + ln(totalFights) - ln(losses+1)
+  // Filters out >384 wins to exclude amateur records
   const allWithWins: BoxerRecord[] = []
   for (const [name, record] of allRecords) {
     if (record.wins === 0) continue
 
     const wins = record.wins!
+    if (wins > 384) continue
     const losses = record.losses ?? 0
     const total = record.total!
     const secondaryScore = Math.log(wins / Math.pow(losses + 1, 1.5)) + Math.log(total) - Math.log(losses + 1)
