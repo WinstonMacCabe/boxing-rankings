@@ -115,9 +115,9 @@ async function main() {
   for (const [name, record] of allRecords) {
     if (record.wins === 0) continue
 
-    const wins = record.wins
-    const losses = record.losses
-    const total = record.total
+    const wins = record.wins!
+    const losses = record.losses ?? 0
+    const total = record.total!
     const secondaryScore = Math.log(wins / Math.pow(losses + 1, 1.5)) + Math.log(total) - Math.log(losses + 1)
 
     allWithWins.push({
