@@ -41,6 +41,7 @@ async function main() {
 
   const undefeated: BoxerRecord[] = []
   const winless: BoxerRecord[] = []
+  const allRecords = new Map<string, BoxerStats>()
   let processed = 0
   const total = pageNames.length
 
@@ -56,6 +57,8 @@ async function main() {
 
       if (!record) continue
       if (record.total === null || record.wins === null) continue
+
+      allRecords.set(name, record)
 
       // Best: undefeated, >= 10 wins
       if (record.losses === 0 && record.wins >= 10) {
@@ -106,16 +109,52 @@ async function main() {
     .sort((a, b) => b.losses - a.losses || a.draws - b.draws || a.name.localeCompare(b.name))
     .map((f, i) => ({ ...f, previousRank: prevWorstRank.get(f.name) || undefined }))
 
-  await writeRankings(ranked, worstRanked)
+  // Secondary ranking: all fighters with wins, scored by C3 formula
+  // wins/(losses+1)^1.5 + ln(totalFights) - ln(losses+1)
+  const allWithWins: BoxerRecord[] = []
+  for (const [name, record] of allRecords) {
+    if (record.wins === 0) continue
+
+    const wins = record.wins
+    const losses = record.losses
+    const total = record.total
+    const secondaryScore = Math.log(wins / Math.pow(losses + 1, 1.5)) + Math.log(total) - Math.log(losses + 1)
+
+    allWithWins.push({
+      name,
+      total,
+      wins,
+      kos: record.kos ?? 0,
+      losses,
+      draws: record.draws,
+      nationality: record.nationality,
+      weightClass: record.weightClass || undefined,
+      imageUrl: record.imageUrl || undefined,
+      gender: pageMap.get(name),
+      wikipediaUrl: `https://en.wikipedia.org/wiki/${encodeURIComponent(name.replace(/ /g, '_'))}`,
+      lastUpdated: new Date().toISOString(),
+      secondaryScore,
+    })
+  }
+
+  const secondaryRanked = allWithWins
+    .filter(f => f.imageUrl && (f.secondaryScore ?? 0) > 0)
+    .sort((a, b) => (b.secondaryScore ?? 0) - (a.secondaryScore ?? 0))
+    .slice(0, 50)
+
+  await writeRankings(ranked, worstRanked, secondaryRanked)
 
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(1)
-  console.log(`\nDone! ${ranked.length} undefeated, ${worstRanked.length} winless boxers ranked.`)
+  console.log(`\nDone! ${ranked.length} undefeated, ${worstRanked.length} winless, ${secondaryRanked.length} secondary boxers ranked.`)
   console.log(`Total time: ${elapsed}s`)
   if (ranked.length > 0) {
     console.log(`Top 10 best: ${ranked.slice(0, 10).map(f => `${f.name} (${f.wins}-${f.losses}-${f.draws})`).join(', ')}`)
   }
   if (worstRanked.length > 0) {
     console.log(`Top 10 worst: ${worstRanked.slice(0, 10).map(f => `${f.name} (${f.wins}-${f.losses}-${f.draws})`).join(', ')}`)
+  }
+  if (secondaryRanked.length > 0) {
+    console.log(`Top 10 secondary: ${secondaryRanked.slice(0, 10).map(f => `${f.name} (${f.wins}-${f.losses}-${f.draws}) [${(f.secondaryScore ?? 0).toFixed(2)}]`).join(', ')}`)
   }
 }
 

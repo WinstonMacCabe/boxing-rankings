@@ -14,12 +14,14 @@ export interface BoxerRecord {
   weightClass?: string
   imageUrl?: string
   previousRank?: number
+  secondaryScore?: number
 }
 
 export interface RankingsData {
   lastUpdated: string
   fighters: BoxerRecord[]
   worst?: BoxerRecord[]
+  secondary?: BoxerRecord[]
 }
 
 export interface WikipediaInfobox {
