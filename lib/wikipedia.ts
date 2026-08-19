@@ -34,24 +34,6 @@ function stripWikiMarkup(text: string): string {
     .trim()
 }
 
-function cleanNotesText(text: string): string {
-  let result = text
-  result = result.replace(/\[\[(?:[^\]|]*\|)?([^\]]*)\]\]/g, '$1')
-  result = result.replace(/'''/g, '')
-  result = result.replace(/''/g, '')
-  result = result.replace(/<br\s*\/?>/gi, ' ')
-  result = result.replace(/<ref[^>]*\/>/g, '')
-  result = result.replace(/<ref[^>]*>[\s\S]*?<\/ref>/g, '')
-  result = result.replace(/<[^>]+>/g, '')
-  result = result.replace(/\{\{small\|([\s\S]*?)\}\}/gi, '$1')
-  result = result.replace(/\{\{abbr\|([^|]*)\|[^}]*\}\}/g, '$1')
-  result = result.replace(/\{\{nowrap\|([\s\S]*?)\}\}/gi, '$1')
-  result = result.replace(/\{\{[^}]*\}\}/g, '')
-  result = result.replace(/&nbsp;/g, ' ')
-  result = result.replace(/\s+/g, ' ')
-  return result.trim()
-}
-
 interface ParsedInfobox {
   total: number | null
   wins: number | null
@@ -368,12 +350,6 @@ export interface BoxerStats {
   birthDate: string
 }
 
-export interface FightRow {
-  result: 'win' | 'loss' | 'draw'
-  opponent: string
-  notes: string
-}
-
 function parseBoxingRecordSummary(wikitext: string): { wins: number; losses: number; draws: number } | null {
   const start = wikitext.indexOf('{{BoxingRecordSummary')
   if (start < 0) return null
@@ -517,7 +493,7 @@ export async function fetchBoxerRecord(name: string): Promise<BoxerStats | null>
   return processRecord(wikitext)
 }
 
-export async function fetchPageWikitext(title: string): Promise<string | null> {
+async function fetchPageWikitext(title: string): Promise<string | null> {
   const params = new URLSearchParams({
     action: 'query',
     prop: 'revisions',
@@ -599,116 +575,5 @@ export async function fetchBoxerRecords(titles: string[]): Promise<Map<string, B
   }
 
   return results
-}
-
-export function parseProfessionalRecordTable(wikitext: string): FightRow[] {
-  const rows: FightRow[] = []
-
-  const sectionMatch = wikitext.match(/==\s*Professional boxing record\s*==/)
-  if (!sectionMatch) return rows
-
-  const sectionStart = sectionMatch.index!
-  const sectionWikitext = wikitext.slice(sectionStart)
-
-  const tableStart = sectionWikitext.indexOf('{|')
-  if (tableStart < 0) return rows
-
-  let depth = 0
-  let tableEnd = tableStart
-  for (let i = tableStart; i < sectionWikitext.length; i++) {
-    if (sectionWikitext[i] === '{' && sectionWikitext[i + 1] === '|') { depth++; i++ }
-    else if (sectionWikitext[i] === '|' && sectionWikitext[i + 1] === '}') {
-      depth--
-      i++
-      if (depth === 0) { tableEnd = i + 1; break }
-    }
-  }
-
-  const table = sectionWikitext.slice(tableStart, tableEnd)
-
-  const rowRegex = /\|-\n\|(\d+)\n\|([\s\S]*?)(?=\n\|-|\n\}\})/g
-  let match: RegExpExecArray | null
-
-  while ((match = rowRegex.exec(table)) !== null) {
-    const rowContent = match[2]
-    const cells = rowContent.split(/\n\|/)
-
-    if (cells.length < 4) continue
-
-    const resultCell = cells[0].trim()
-    let result: 'win' | 'loss' | 'draw' = 'win'
-    if (resultCell.includes('Loss') || resultCell.includes('{{no2}}')) result = 'loss'
-    else if (resultCell.includes('Draw') || resultCell.includes('{{draw}}')) result = 'draw'
-    else if (!resultCell.includes('Win') && !resultCell.includes('{{yes2}}')) continue
-
-    let opponentRaw = cells[2].trim()
-    opponentRaw = opponentRaw.replace(/^style="[^"]*"\|/, '').trim()
-    const linkMatch = opponentRaw.match(/\[\[(?:[^\]|]*\|)?([^\]]+)\]\]/)
-    const opponent = linkMatch ? linkMatch[1].trim() : stripWikiMarkup(opponentRaw).trim()
-
-    let notes = ''
-    if (cells.length >= 9) {
-      notes = cells[8].trim()
-      notes = notes.replace(/^style="[^"]*"\|/, '').trim()
-      notes = cleanNotesText(notes)
-    }
-
-    if (opponent) {
-      rows.push({ result, opponent, notes })
-    }
-  }
-
-  return rows
-}
-
-const MAJOR_ORGS = ['WBA', 'WBC', 'WBO', 'IBF']
-
-export function scoreBoxingNotes(notes: string): number {
-  if (!notes) return 0
-
-  const orgPattern = MAJOR_ORGS.join('|')
-  const orgRegex = new RegExp(`\\b(${orgPattern})\\b`, 'gi')
-  const orgMatches = notes.match(orgRegex)
-  if (!orgMatches || orgMatches.length === 0) return 0
-
-  const lower = notes.toLowerCase()
-  let score = 0
-
-  if (/\bunified?\b/.test(lower)) {
-    score += 25 * orgMatches.length
-  } else if (/\bretained?\b/.test(lower) || /\bdefended?\b/.test(lower)) {
-    score += 15 * orgMatches.length
-  } else if (/\bwon\b/.test(lower)) {
-    score += 10 * orgMatches.length
-  }
-
-  if (/\blost?\b/.test(lower)) {
-    score -= 10 * orgMatches.length
-  }
-
-  return score
-}
-
-function normalizeFighterName(name: string): string {
-  return name
-    .replace(/\s*\(boxer\)\s*$/i, '')
-    .replace(/\s*\(fighter\)\s*$/i, '')
-    .trim()
-    .toLowerCase()
-}
-
-export function countOpponentsBeaten(rows: FightRow[], nameSet: Set<string>): number {
-  const beaten = new Set<string>()
-  for (const row of rows) {
-    if (row.result !== 'win') continue
-    const normalized = normalizeFighterName(row.opponent)
-    for (const name of nameSet) {
-      if (normalizeFighterName(name) === normalized) {
-        beaten.add(name)
-        break
-      }
-    }
-  }
-  return beaten.size
 }
 

@@ -1,5 +1,5 @@
 import { getAllBoxerPages } from '../lib/categories'
-import { fetchBoxerRecords, fetchPageWikitext, parseProfessionalRecordTable, scoreBoxingNotes, countOpponentsBeaten } from '../lib/wikipedia'
+import { fetchBoxerRecords } from '../lib/wikipedia'
 import type { BoxerStats } from '../lib/wikipedia'
 import { readRankings, writeRankings } from '../lib/storage'
 import type { BoxerRecord, Gender } from '../lib/types'
@@ -27,7 +27,6 @@ async function main() {
   }
 
   // Read previous rankings for rank-change tracking
-  // Only count fighters that would appear in the current filtered view
   const previous = await readRankings()
   const prevBestRank = new Map<string, number>()
   const prevWorstRank = new Map<string, number>()
@@ -109,9 +108,8 @@ async function main() {
     .sort((a, b) => b.losses - a.losses || a.draws - b.draws || a.name.localeCompare(b.name))
     .map((f, i) => ({ ...f, previousRank: prevWorstRank.get(f.name) || undefined }))
 
-  // Secondary ranking: all fighters with wins, scored by C3 formula
-  // ln(wins/(losses+1)) + ln(totalFights) - ln(losses+1) = ln(wins*total) - 2*ln(losses+1)
-  // Filters out >384 wins to exclude amateur records
+  // Secondary ranking: score = wins / max(losses, 1)
+  // Undefeated fighters rank higher when scores are equal
   // Fighters over 60 years old still appear but don't count toward top 50
   const currentYear = new Date().getFullYear()
   const allWithWins: BoxerRecord[] = []
@@ -119,10 +117,9 @@ async function main() {
     if (record.wins === 0) continue
 
     const wins = record.wins!
-    if (wins > 384) continue
     const losses = record.losses ?? 0
     const total = record.total!
-    const secondaryScore = Math.log(wins / (losses + 1)) + Math.log(total) - Math.log(losses + 1)
+    const secondaryScore = wins / Math.max(losses, 1)
 
     const birthYear = record.birthDate ? parseInt(record.birthDate, 10) : null
     const age = birthYear ? currentYear - birthYear : null
@@ -147,11 +144,15 @@ async function main() {
     })
   }
 
-  // Secondary: sorted by score, walk until we have 50 non-seniors
-  // Seniors that appear before the 50th non-senior stay in the list
+  // Secondary: sorted by score, then undefeated, then KOs
+  // Walk until we have 50 non-seniors
   const allScored = allWithWins
     .filter(f => f.imageUrl && (f.secondaryScore ?? 0) > 0)
-    .sort((a, b) => (b.secondaryScore ?? 0) - (a.secondaryScore ?? 0) || (b.kos ?? 0) - (a.kos ?? 0))
+    .sort((a, b) =>
+      (b.secondaryScore ?? 0) - (a.secondaryScore ?? 0) ||
+      (a.losses === 0 && b.losses > 0 ? -1 : a.losses > 0 && b.losses === 0 ? 1 : 0) ||
+      (b.kos ?? 0) - (a.kos ?? 0)
+    )
   const secondaryRanked: BoxerRecord[] = []
   let nonSeniorCount = 0
   for (const f of allScored) {
@@ -160,68 +161,7 @@ async function main() {
     if (nonSeniorCount >= 50) break
   }
 
-  // Second sweep: parse professional boxing record tables for secondary fighters
-  // Score based on opponents beaten from the list and title notes
-  console.log(`\nStep 3: Second sweep - parsing professional records for ${secondaryRanked.length} fighters...`)
-  const secondaryNames = new Set(secondaryRanked.map(f => f.name))
-  const SECONDARY_BATCH = 10
-  let sweepProcessed = 0
-  for (let i = 0; i < secondaryRanked.length; i += SECONDARY_BATCH) {
-    const batch = secondaryRanked.slice(i, i + SECONDARY_BATCH)
-    const wikitexts = await Promise.all(
-      batch.map(f => fetchPageWikitext(f.name.replace(/\s*\(boxer\)\s*$/i, '').replace(/ /g, '_')))
-    )
-    for (let j = 0; j < batch.length; j++) {
-      const f = batch[j]
-      let wikitext = wikitexts[j]
-      if (!wikitext) continue
-
-      let rows = parseProfessionalRecordTable(wikitext)
-
-      // If no rows found, check for {{Main|...}} template pointing to a career article
-      if (rows.length === 0) {
-        const mainMatch = wikitext.match(/\{\{Main\|([^}|]+)/)
-        if (mainMatch) {
-          const articleTitle = mainMatch[1].trim()
-          const careerWikitext = await fetchPageWikitext(articleTitle.replace(/ /g, '_'))
-          if (careerWikitext) {
-            rows = parseProfessionalRecordTable(careerWikitext)
-          }
-        }
-      }
-
-      if (rows.length === 0) continue
-
-      const opponentsBeaten = countOpponentsBeaten(rows, secondaryNames)
-      let titleScore = 0
-      for (const row of rows) {
-        titleScore += scoreBoxingNotes(row.notes)
-      }
-
-      f.opponentsBeaten = opponentsBeaten
-      f.titleScore = titleScore
-      const baseScore = f.secondaryScore ?? 0
-      f.secondaryScore = baseScore + (opponentsBeaten * 10) + titleScore
-
-      sweepProcessed++
-      if (sweepProcessed % 10 === 0) {
-        process.stdout.write(`\r  Second sweep: ${sweepProcessed}/${secondaryRanked.length}`)
-      }
-    }
-    await delay(200)
-  }
-  console.log(`\n  Second sweep complete: ${secondaryRanked.length} fighters scored`)
-
-  // Re-sort by final score and re-apply 50 non-senior walk
-  secondaryRanked.sort((a, b) => (b.secondaryScore ?? 0) - (a.secondaryScore ?? 0) || (b.kos ?? 0) - (a.kos ?? 0))
-  const rescoredSecondary: BoxerRecord[] = []
-  nonSeniorCount = 0
-  for (const f of secondaryRanked) {
-    rescoredSecondary.push(f)
-    if (!f.isSenior) nonSeniorCount++
-    if (nonSeniorCount >= 50) break
-  }
-
+  // Secondary worst: lowest 50 non-senior, then append all seniors
   const eligibleWorst = allWithWins
     .filter(f => f.imageUrl && (f.secondaryScore ?? 0) > 0 && !f.isSenior)
     .sort((a, b) => (a.secondaryScore ?? 0) - (b.secondaryScore ?? 0) || (a.kos ?? 0) - (b.kos ?? 0))
@@ -230,10 +170,10 @@ async function main() {
     .sort((a, b) => (a.secondaryScore ?? 0) - (b.secondaryScore ?? 0) || (a.kos ?? 0) - (b.kos ?? 0))
   const secondaryWorstRanked = [...eligibleWorst.slice(0, 50), ...seniorsWorst]
 
-  await writeRankings(ranked, worstRanked, rescoredSecondary, secondaryWorstRanked)
+  await writeRankings(ranked, worstRanked, secondaryRanked, secondaryWorstRanked)
 
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(1)
-  console.log(`\nDone! ${ranked.length} undefeated, ${worstRanked.length} winless, ${rescoredSecondary.length} secondary, ${secondaryWorstRanked.length} secondary worst boxers ranked.`)
+  console.log(`\nDone! ${ranked.length} undefeated, ${worstRanked.length} winless, ${secondaryRanked.length} secondary, ${secondaryWorstRanked.length} secondary worst boxers ranked.`)
   console.log(`Total time: ${elapsed}s`)
   if (ranked.length > 0) {
     console.log(`Top 10 best: ${ranked.slice(0, 10).map(f => `${f.name} (${f.wins}-${f.losses}-${f.draws})`).join(', ')}`)
@@ -241,8 +181,8 @@ async function main() {
   if (worstRanked.length > 0) {
     console.log(`Top 10 worst: ${worstRanked.slice(0, 10).map(f => `${f.name} (${f.wins}-${f.losses}-${f.draws})`).join(', ')}`)
   }
-  if (rescoredSecondary.length > 0) {
-    console.log(`Top 10 secondary: ${rescoredSecondary.slice(0, 10).map(f => `${f.name} (${f.wins}-${f.losses}-${f.draws}) [${(f.secondaryScore ?? 0).toFixed(2)} ob=${f.opponentsBeaten ?? 0} ts=${f.titleScore ?? 0}]`).join(', ')}`)
+  if (secondaryRanked.length > 0) {
+    console.log(`Top 10 secondary: ${secondaryRanked.slice(0, 10).map(f => `${f.name} (${f.wins}-${f.losses}-${f.draws}) [${(f.secondaryScore ?? 0).toFixed(2)}]`).join(', ')}`)
   }
 }
 

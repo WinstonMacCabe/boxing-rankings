@@ -190,24 +190,6 @@ function FighterCard({ fighter, rank, isWorst, isSecondary }: { fighter: BoxerRe
                     <span className="text-base font-bold leading-none" style={{ color: '#3a2a1a' }}>{fighter.kos}</span>
                     <span className="text-[10px] uppercase tracking-[0.08em] mt-0.5" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', Times, serif" }}>KO</span>
                   </span>
-                  {fighter.opponentsBeaten != null && fighter.opponentsBeaten > 0 && (
-                    <>
-                      <span className="text-lg leading-none" style={{ color: '#c4b49a' }}>|</span>
-                      <span className="flex flex-col items-center">
-                        <span className="text-base font-bold leading-none" style={{ color: '#3a2a1a' }}>{fighter.opponentsBeaten}</span>
-                        <span className="text-[10px] uppercase tracking-[0.08em] mt-0.5" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', Times, serif" }}>BWS</span>
-                      </span>
-                    </>
-                  )}
-                  {fighter.titleScore != null && fighter.titleScore > 0 && (
-                    <>
-                      <span className="text-lg leading-none" style={{ color: '#c4b49a' }}>|</span>
-                      <span className="flex flex-col items-center">
-                        <span className="text-base font-bold leading-none" style={{ color: '#3a2a1a' }}>{fighter.titleScore}</span>
-                        <span className="text-[10px] uppercase tracking-[0.08em] mt-0.5" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', Times, serif" }}>TTL</span>
-                      </span>
-                    </>
-                  )}
                 </>
               ) : (
                 <>
