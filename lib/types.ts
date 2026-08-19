@@ -15,6 +15,8 @@ export interface BoxerRecord {
   imageUrl?: string
   previousRank?: number
   secondaryScore?: number
+  birthDate?: string
+  isSenior?: boolean
 }
 
 export interface RankingsData {

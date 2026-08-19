@@ -44,6 +44,7 @@ interface ParsedInfobox {
   nationality: string
   weightClass: string
   image: string
+  birthDate: string
 }
 
 function extractWeightClass(raw: string): string {
@@ -171,6 +172,7 @@ function parseWikitextInfobox(wikitext: string): ParsedInfobox {
     nationality: '',
     weightClass: '',
     image: '',
+    birthDate: '',
   }
 
   // First extract stats from boxing-specific infobox
@@ -269,7 +271,7 @@ function parseWikitextInfobox(wikitext: string): ParsedInfobox {
     }
   }
 
-  // Parse person infobox for image and nationality
+  // Parse person infobox for image, nationality, and birth date
   if (personInfobox) {
     const lines = personInfobox.split('\n')
     for (const line of lines) {
@@ -277,10 +279,16 @@ function parseWikitextInfobox(wikitext: string): ParsedInfobox {
       const image = params.get('image')
       const nat = params.get('nationality')
       const birthPlace = params.get('birth_place')
+      const rawBirthDate = params.get('birth_date')
 
       if (image && !result.image) {
         const url = parseImageUrl(image)
         if (url) result.image = url
+      }
+
+      if (rawBirthDate && !result.birthDate) {
+        const yearMatch = rawBirthDate.match(/(\d{4})/)
+        if (yearMatch) result.birthDate = yearMatch[1]
       }
 
       if (nat && !result.nationality) {
@@ -333,6 +341,7 @@ export interface BoxerStats {
   nationality: string
   weightClass: string
   imageUrl: string
+  birthDate: string
 }
 
 function parseBoxingRecordSummary(wikitext: string): { wins: number; losses: number; draws: number } | null {
@@ -468,6 +477,7 @@ function processRecord(wikitext: string): BoxerStats | null {
     nationality: infobox.nationality,
     weightClass: infobox.weightClass,
     imageUrl,
+    birthDate: infobox.birthDate,
   }
 }
 
