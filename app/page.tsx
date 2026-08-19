@@ -144,9 +144,6 @@ function FighterCard({ fighter, rank, isWorst, isSecondary }: { fighter: BoxerRe
           <span className="font-bold font-mono tracking-tight leading-none" style={{ fontSize: '1.75rem', color: '#1a0f0a' }}>
             {rank === 1 ? '#1' : rank === 2 ? '#2' : rank === 3 ? '#3' : `#${rank}`}
           </span>
-          {fighter.isSenior && (
-            <span className="ml-1.5 text-[10px] font-bold px-1.5 py-0.5 rounded" style={{ background: '#8a7a6a', color: '#ddd0b8' }}>60+</span>
-          )}
           {rankChange > 0 && (
             <span className="ml-1.5 text-sm font-bold" style={{ color: '#2a7a2a' }}>▲{rankChange}</span>
           )}
@@ -273,14 +270,8 @@ export default function Home() {
     .filter(f => cleanName(f.name).toLowerCase().includes(search.toLowerCase()))
     .sort((a, b) => {
       if (viewMode === 'worst') return b.losses - a.losses || a.draws - b.draws || a.name.localeCompare(b.name)
-      if (viewMode === 'secondary') {
-        if (a.isSenior !== b.isSenior) return a.isSenior ? 1 : -1
-        return (b.secondaryScore ?? 0) - (a.secondaryScore ?? 0)
-      }
-      if (viewMode === 'secondaryWorst') {
-        if (a.isSenior !== b.isSenior) return a.isSenior ? 1 : -1
-        return (a.secondaryScore ?? 0) - (b.secondaryScore ?? 0)
-      }
+      if (viewMode === 'secondary') return (b.secondaryScore ?? 0) - (a.secondaryScore ?? 0)
+      if (viewMode === 'secondaryWorst') return (a.secondaryScore ?? 0) - (b.secondaryScore ?? 0)
       if (sortBy === 'wins') return b.wins - a.wins || a.draws - b.draws || b.kos - a.kos || a.name.localeCompare(b.name)
       if (sortBy === 'kos') return b.kos - a.kos
       return (weightSortValue(a.weightClass) - weightSortValue(b.weightClass)) || b.wins - a.wins

@@ -147,16 +147,15 @@ async function main() {
     })
   }
 
-  // Secondary: top 50 non-senior, then append all seniors
-  const eligible = allWithWins
-    .filter(f => f.imageUrl && (f.secondaryScore ?? 0) > 0 && !f.isSenior)
+  // Secondary: sorted by score, take enough to include seniors in top 50
+  // Seniors stay in their correct score position (no special sorting)
+  // Only non-seniors count toward the 50 for NewsAPI
+  const allScored = allWithWins
+    .filter(f => f.imageUrl && (f.secondaryScore ?? 0) > 0)
     .sort((a, b) => (b.secondaryScore ?? 0) - (a.secondaryScore ?? 0))
-  const seniors = allWithWins
-    .filter(f => f.imageUrl && (f.secondaryScore ?? 0) > 0 && f.isSenior)
-    .sort((a, b) => (b.secondaryScore ?? 0) - (a.secondaryScore ?? 0))
-  const secondaryRanked = [...eligible.slice(0, 50), ...seniors]
+  // Take extra to account for seniors that don't count
+  const secondaryRanked = allScored.slice(0, 70)
 
-  // Secondary worst: lowest 50 non-senior, then append all seniors
   const eligibleWorst = allWithWins
     .filter(f => f.imageUrl && (f.secondaryScore ?? 0) > 0 && !f.isSenior)
     .sort((a, b) => (a.secondaryScore ?? 0) - (b.secondaryScore ?? 0))
