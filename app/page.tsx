@@ -218,6 +218,12 @@ function FighterCard({ fighter, rank, isWorst, isSecondary }: { fighter: BoxerRe
                 {fighter.nationality || ''}
               </span>
             </div>
+
+            {isSecondary && (
+              <p className="text-[9px] tracking-[0.05em] mt-1" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', Times, serif" }}>
+                {(fighter.secondaryScore ?? 0)} Wikipedia opponents beaten
+              </p>
+            )}
           </div>
 
         </div>
