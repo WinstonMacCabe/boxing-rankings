@@ -151,7 +151,7 @@ async function main() {
   // Seniors that appear before the 50th non-senior stay in the list
   const allScored = allWithWins
     .filter(f => f.imageUrl && (f.secondaryScore ?? 0) > 0)
-    .sort((a, b) => (b.secondaryScore ?? 0) - (a.secondaryScore ?? 0))
+    .sort((a, b) => (b.secondaryScore ?? 0) - (a.secondaryScore ?? 0) || (b.kos ?? 0) - (a.kos ?? 0))
   const secondaryRanked: BoxerRecord[] = []
   let nonSeniorCount = 0
   for (const f of allScored) {
@@ -162,10 +162,10 @@ async function main() {
 
   const eligibleWorst = allWithWins
     .filter(f => f.imageUrl && (f.secondaryScore ?? 0) > 0 && !f.isSenior)
-    .sort((a, b) => (a.secondaryScore ?? 0) - (b.secondaryScore ?? 0))
+    .sort((a, b) => (a.secondaryScore ?? 0) - (b.secondaryScore ?? 0) || (a.kos ?? 0) - (b.kos ?? 0))
   const seniorsWorst = allWithWins
     .filter(f => f.imageUrl && (f.secondaryScore ?? 0) > 0 && f.isSenior)
-    .sort((a, b) => (a.secondaryScore ?? 0) - (b.secondaryScore ?? 0))
+    .sort((a, b) => (a.secondaryScore ?? 0) - (b.secondaryScore ?? 0) || (a.kos ?? 0) - (b.kos ?? 0))
   const secondaryWorstRanked = [...eligibleWorst.slice(0, 50), ...seniorsWorst]
 
   await writeRankings(ranked, worstRanked, secondaryRanked, secondaryWorstRanked)

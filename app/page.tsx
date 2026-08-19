@@ -270,8 +270,8 @@ export default function Home() {
     .filter(f => cleanName(f.name).toLowerCase().includes(search.toLowerCase()))
     .sort((a, b) => {
       if (viewMode === 'worst') return b.losses - a.losses || a.draws - b.draws || a.name.localeCompare(b.name)
-      if (viewMode === 'secondary') return (b.secondaryScore ?? 0) - (a.secondaryScore ?? 0)
-      if (viewMode === 'secondaryWorst') return (a.secondaryScore ?? 0) - (b.secondaryScore ?? 0)
+      if (viewMode === 'secondary') return (b.secondaryScore ?? 0) - (a.secondaryScore ?? 0) || (b.kos ?? 0) - (a.kos ?? 0)
+      if (viewMode === 'secondaryWorst') return (a.secondaryScore ?? 0) - (b.secondaryScore ?? 0) || (a.kos ?? 0) - (b.kos ?? 0)
       if (sortBy === 'wins') return b.wins - a.wins || a.draws - b.draws || b.kos - a.kos || a.name.localeCompare(b.name)
       if (sortBy === 'kos') return b.kos - a.kos
       return (weightSortValue(a.weightClass) - weightSortValue(b.weightClass)) || b.wins - a.wins

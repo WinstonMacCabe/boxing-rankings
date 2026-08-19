@@ -247,16 +247,17 @@ function parseWikitextInfobox(wikitext: string): ParsedInfobox {
             if (!isNaN(n)) result.no_contests = n
           } else if (key === 'nationality') {
             if (!result.nationality) result.nationality = value
-          } else if (key === 'birth_date') {
-            if (!result.birthDate) {
-              const yearMatch = value.match(/(\d{4})/)
-              if (yearMatch) result.birthDate = yearMatch[1]
-            }
           } else if (key === 'birth_place') {
             // handled below
           } else if (key === 'image') {
             // handled from person infobox
           }
+        }
+        // Extract birth year from raw value BEFORE stripWikiMarkup blanks it
+        if (key === 'birth_date' && !result.birthDate) {
+          const rawVal = rest.slice(valStart, valEnd).trim()
+          const yearMatch = rawVal.match(/(\d{4})/)
+          if (yearMatch) result.birthDate = yearMatch[1]
         }
       }
 
