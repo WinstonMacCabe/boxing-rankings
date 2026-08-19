@@ -17,6 +17,8 @@ export interface BoxerRecord {
   secondaryScore?: number
   birthDate?: string
   isSenior?: boolean
+  opponentsBeaten?: number
+  titleScore?: number
 }
 
 export interface RankingsData {
