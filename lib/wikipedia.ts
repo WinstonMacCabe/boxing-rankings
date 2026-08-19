@@ -433,12 +433,12 @@ function hasRecordTable(wikitext: string): boolean {
 }
 
 function countQualityWins(wikitext: string): number {
-  const recordHeader = wikitext.match(/={2,}\s*(Professional\s+)?(Boxing\s+)?record\s*={2,}/i)
+  const recordHeader = wikitext.match(/={2,}\s*Professional\s+(boxing\s+)?record\s*={2,}/i)
   if (!recordHeader) return 0
 
   const headerEnd = recordHeader.index! + recordHeader[0].length
   const remaining = wikitext.slice(headerEnd)
-  const endMatch = remaining.match(/\n={2,}\s+[A-Z]/)
+  const endMatch = remaining.match(/\n={2,}\s*[A-Z]/)
   const endIndex = endMatch && endMatch.index !== undefined ? headerEnd + endMatch.index : wikitext.length
   const section = wikitext.slice(headerEnd, endIndex)
 
