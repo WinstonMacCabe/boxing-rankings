@@ -108,8 +108,9 @@ async function main() {
     .sort((a, b) => b.losses - a.losses || a.draws - b.draws || a.name.localeCompare(b.name))
     .map((f, i) => ({ ...f, previousRank: prevWorstRank.get(f.name) || undefined }))
 
-  // Secondary ranking: score = wins / max(losses, 1)
-  // Undefeated fighters rank higher when scores are equal
+  // Secondary ranking: score = quality wins (wins against Wikipedia-linked opponents)
+  // Old formula: wins / max(losses, 1) — kept in git history for reference
+  // Tiebreaker: quality wins → undefeated → KOs
   // Fighters over 60 years old still appear but don't count toward top 50
   const currentYear = new Date().getFullYear()
   const allWithWins: BoxerRecord[] = []
@@ -119,7 +120,7 @@ async function main() {
     const wins = record.wins!
     const losses = record.losses ?? 0
     const total = record.total!
-    const secondaryScore = wins / Math.max(losses, 1)
+    const secondaryScore = record.qualityWins
 
     const birthYear = record.birthDate ? parseInt(record.birthDate, 10) : null
     const age = birthYear ? currentYear - birthYear : null
@@ -144,7 +145,7 @@ async function main() {
     })
   }
 
-  // Secondary: sorted by score, then undefeated, then KOs
+  // Secondary: sorted by quality wins, then undefeated, then KOs
   // Walk until we have 50 non-seniors
   const allScored = allWithWins
     .filter(f => f.imageUrl && (f.secondaryScore ?? 0) > 0)

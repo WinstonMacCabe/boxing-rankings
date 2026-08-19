@@ -182,6 +182,11 @@ function FighterCard({ fighter, rank, isWorst, isSecondary }: { fighter: BoxerRe
               ) : isSecondary ? (
                 <>
                   <span className="flex flex-col items-center">
+                    <span className="text-base font-bold leading-none" style={{ color: '#3a2a1a' }}>{fighter.secondaryScore}</span>
+                    <span className="text-[10px] uppercase tracking-[0.08em] mt-0.5" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', Times, serif" }}>QW</span>
+                  </span>
+                  <span className="text-lg leading-none" style={{ color: '#c4b49a' }}>|</span>
+                  <span className="flex flex-col items-center">
                     <span className="text-base font-bold leading-none" style={{ color: '#3a2a1a' }}>{fighter.wins}-{fighter.losses}</span>
                     <span className="text-[10px] uppercase tracking-[0.08em] mt-0.5" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', Times, serif" }}>W-L</span>
                   </span>
