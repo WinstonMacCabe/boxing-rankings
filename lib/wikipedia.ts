@@ -442,17 +442,14 @@ function countQualityWins(wikitext: string): number {
   const endIndex = endMatch && endMatch.index !== undefined ? headerEnd + endMatch.index : wikitext.length
   const section = wikitext.slice(headerEnd, endIndex)
 
-  const tableStart = section.indexOf('{|')
-  const tableEnd = section.indexOf('|}')
-  if (tableStart === -1 || tableEnd === -1) return 0
-
-  const table = section.slice(tableStart, tableEnd + 2)
-  const rows = table.split(/\n\|-/)
+  const rows = section.split(/\n\|-/)
 
   let qualityWins = 0
   for (const row of rows) {
     if (!/\bWin\b/i.test(row)) continue
-    if (/\[\[.*?\]\]/.test(row)) qualityWins++
+    const cells = row.split(/\n\|/).map(c => c.trim()).filter(Boolean)
+    const opponentCell = cells[3] || ''
+    if (/\[\[.+?\]\]/.test(opponentCell)) qualityWins++
   }
   return qualityWins
 }
