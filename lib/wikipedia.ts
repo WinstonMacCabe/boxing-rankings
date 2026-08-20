@@ -178,7 +178,7 @@ function parseWikitextInfobox(wikitext: string): ParsedInfobox {
   // First extract stats from boxing-specific infobox
   const boxerInfobox = extractInfobox(wikitext, ['{{Infobox boxer', '{{Infobox martial artist'])
   // Then extract image/nationality from person infobox (wraps boxer infobox)
-  const personInfobox = extractInfobox(wikitext, ['{{Infobox person'])
+  const personInfobox = extractInfobox(wikitext, ['{{Infobox person', '{{Infobox officeholder', '{{Infobox military'])
 
   let rawWeight = ''
 
