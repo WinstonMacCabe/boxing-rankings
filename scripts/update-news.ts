@@ -37,7 +37,7 @@ async function main() {
   }
 
   const rankings = await readRankings()
-  const fighters = rankings.thirdary ?? []
+  const fighters = (rankings.thirdary ?? []).filter(f => !f.isSenior).slice(0, 50)
   const rankedNames = new Set(fighters.map(f => f.name))
   console.log(`Checking news for ${rankedNames.size} thirdary-ranked boxers...`)
 
