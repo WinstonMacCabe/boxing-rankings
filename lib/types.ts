@@ -15,6 +15,7 @@ export interface BoxerRecord {
   imageUrl?: string
   previousRank?: number
   secondaryScore?: number
+  thirdaryScore?: number
   birthDate?: string
   isSenior?: boolean
 }
@@ -25,6 +26,8 @@ export interface RankingsData {
   worst?: BoxerRecord[]
   secondary?: BoxerRecord[]
   secondaryWorst?: BoxerRecord[]
+  thirdary?: BoxerRecord[]
+  thirdaryWorst?: BoxerRecord[]
 }
 
 export interface WikipediaInfobox {

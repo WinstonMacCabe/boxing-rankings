@@ -48,7 +48,7 @@ const NOISE = `data:image/svg+xml,${encodeURIComponent(
   </svg>`
 )}`
 
-function FighterCard({ fighter, rank, isWorst, isSecondary }: { fighter: BoxerRecord; rank: number; isWorst?: boolean; isSecondary?: boolean }) {
+function FighterCard({ fighter, rank, isWorst, isSecondary, isThird }: { fighter: BoxerRecord; rank: number; isWorst?: boolean; isSecondary?: boolean; isThird?: boolean }) {
   const cardRef = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
   const [imgLoaded, setImgLoaded] = useState(false)
@@ -196,6 +196,23 @@ function FighterCard({ fighter, rank, isWorst, isSecondary }: { fighter: BoxerRe
                     <span className="text-[10px] uppercase tracking-[0.08em] mt-0.5" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', Times, serif" }}>KO</span>
                   </span>
                 </>
+              ) : isThird ? (
+                <>
+                  <span className="flex flex-col items-center">
+                    <span className="text-base font-bold leading-none" style={{ color: '#3a2a1a' }}>{(fighter.thirdaryScore ?? 0) >= 100 ? Math.round(fighter.thirdaryScore ?? 0) : (fighter.thirdaryScore ?? 0).toFixed(1)}</span>
+                    <span className="text-[10px] uppercase tracking-[0.08em] mt-0.5" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', Times, serif" }}>W/L</span>
+                  </span>
+                  <span className="text-lg leading-none" style={{ color: '#c4b49a' }}>|</span>
+                  <span className="flex flex-col items-center">
+                    <span className="text-base font-bold leading-none" style={{ color: '#3a2a1a' }}>{fighter.wins}-{fighter.losses}</span>
+                    <span className="text-[10px] uppercase tracking-[0.08em] mt-0.5" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', Times, serif" }}>W-L</span>
+                  </span>
+                  <span className="text-lg leading-none" style={{ color: '#c4b49a' }}>|</span>
+                  <span className="flex flex-col items-center">
+                    <span className="text-base font-bold leading-none" style={{ color: '#3a2a1a' }}>{fighter.kos}</span>
+                    <span className="text-[10px] uppercase tracking-[0.08em] mt-0.5" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', Times, serif" }}>KO</span>
+                  </span>
+                </>
               ) : (
                 <>
                   <span className="flex flex-col items-center">
@@ -240,7 +257,7 @@ export default function Home() {
   const [search, setSearch] = useState('')
   const [sortBy, setSortBy] = useState<'wins' | 'kos' | 'weight'>('wins')
   const [genderFilter, setGenderFilter] = useState<'all' | Gender>('all')
-  const [viewMode, setViewMode] = useState<'best' | 'worst' | 'secondary' | 'secondaryWorst'>('best')
+  const [viewMode, setViewMode] = useState<'best' | 'worst' | 'secondary' | 'secondaryWorst' | 'third' | 'thirdWorst'>('best')
   const [headerBlur, setHeaderBlur] = useState(false)
 
   useEffect(() => {
@@ -275,7 +292,7 @@ export default function Home() {
     }
   }
 
-  const source = viewMode === 'best' ? (data?.fighters ?? []) : viewMode === 'secondary' ? (data?.secondary ?? []) : viewMode === 'secondaryWorst' ? (data?.secondaryWorst ?? []) : (data?.worst ?? [])
+  const source = viewMode === 'best' ? (data?.fighters ?? []) : viewMode === 'secondary' ? (data?.secondary ?? []) : viewMode === 'secondaryWorst' ? (data?.secondaryWorst ?? []) : viewMode === 'third' ? (data?.thirdary ?? []) : viewMode === 'thirdWorst' ? (data?.thirdaryWorst ?? []) : (data?.worst ?? [])
   const filtered = source
     .filter(f => genderFilter === 'all' || f.gender === genderFilter)
     .filter(f => cleanName(f.name).toLowerCase().includes(search.toLowerCase()))
@@ -283,6 +300,8 @@ export default function Home() {
       if (viewMode === 'worst') return b.losses - a.losses || a.draws - b.draws || a.name.localeCompare(b.name)
       if (viewMode === 'secondary') return (b.secondaryScore ?? 0) - (a.secondaryScore ?? 0) || (b.kos ?? 0) - (a.kos ?? 0)
       if (viewMode === 'secondaryWorst') return (a.secondaryScore ?? 0) - (b.secondaryScore ?? 0) || (a.kos ?? 0) - (b.kos ?? 0)
+      if (viewMode === 'third') return (b.thirdaryScore ?? 0) - (a.thirdaryScore ?? 0) || (b.kos ?? 0) - (a.kos ?? 0)
+      if (viewMode === 'thirdWorst') return (a.thirdaryScore ?? 0) - (b.thirdaryScore ?? 0) || (a.kos ?? 0) - (b.kos ?? 0)
       if (sortBy === 'wins') return b.wins - a.wins || a.draws - b.draws || b.kos - a.kos || a.name.localeCompare(b.name)
       if (sortBy === 'kos') return b.kos - a.kos
       return (weightSortValue(a.weightClass) - weightSortValue(b.weightClass)) || b.wins - a.wins
@@ -370,7 +389,7 @@ export default function Home() {
 
           <div className="mb-4 flex gap-1.5 flex-wrap items-center">
             <span className="w-px h-5 mx-1" style={{ background: '#3a2a1a' }} />
-            {(['best', 'worst', 'secondary', 'secondaryWorst'] as const).map(m => (
+            {(['best', 'worst', 'secondary', 'secondaryWorst', 'third', 'thirdWorst'] as const).map(m => (
               <button
                 key={m}
                 onClick={() => setViewMode(m)}
@@ -382,11 +401,11 @@ export default function Home() {
                   border: `1px solid ${viewMode === m ? '#5a4a3a' : '#3a2a1a'}`,
                 }}
               >
-                {m === 'best' ? 'Best' : m === 'worst' ? 'Worst' : m === 'secondary' ? 'Secondary' : 'Sec. Worst'}
+                {m === 'best' ? 'Best' : m === 'worst' ? 'Worst' : m === 'secondary' ? 'Secondary' : m === 'secondaryWorst' ? 'Sec. Worst' : m === 'third' ? 'Third' : 'Third. Worst'}
               </button>
             ))}
             <span className="w-px h-5 mx-1" style={{ background: '#3a2a1a' }} />
-            {viewMode !== 'secondary' && viewMode !== 'secondaryWorst' && (
+            {viewMode !== 'secondary' && viewMode !== 'secondaryWorst' && viewMode !== 'third' && viewMode !== 'thirdWorst' && (
               <>
                 {(['wins', 'kos', 'weight'] as const).map(s => (
                   <button
@@ -425,7 +444,7 @@ export default function Home() {
 
           <div className="grid gap-4 items-stretch" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))' }}>
             {filtered.map((fighter, i) => (
-              <FighterCard key={fighter.name} fighter={fighter} rank={i + 1} isWorst={viewMode === 'worst'} isSecondary={viewMode === 'secondary' || viewMode === 'secondaryWorst'} />
+              <FighterCard key={fighter.name} fighter={fighter} rank={i + 1} isWorst={viewMode === 'worst'} isSecondary={viewMode === 'secondary' || viewMode === 'secondaryWorst'} isThird={viewMode === 'third' || viewMode === 'thirdWorst'} />
             ))}
           </div>
 

@@ -171,10 +171,67 @@ async function main() {
     .sort((a, b) => (a.secondaryScore ?? 0) - (b.secondaryScore ?? 0) || (a.kos ?? 0) - (b.kos ?? 0))
   const secondaryWorstRanked = [...eligibleWorst.slice(0, 50), ...seniorsWorst]
 
-  await writeRankings(ranked, worstRanked, secondaryRanked, secondaryWorstRanked)
+  // Thirdary ranking: score = wins / max(losses, 1). Undefeated = wins.
+  // Exclude fighters with >384 wins. Tiebreaker: most KOs.
+  // 50 non-seniors + all seniors above 50th non-senior
+  const allThirdary: BoxerRecord[] = []
+  for (const [name, record] of allRecords) {
+    if (record.wins === 0 || (record.wins ?? 0) > 384) continue
+
+    const wins = record.wins!
+    const losses = record.losses ?? 0
+    const total = record.total!
+    const thirdaryScore = losses === 0 ? wins : wins / losses
+
+    const birthYear = record.birthDate ? parseInt(record.birthDate, 10) : null
+    const age = birthYear ? currentYear - birthYear : null
+    const isSenior = age !== null && age > 60
+
+    allThirdary.push({
+      name,
+      total,
+      wins,
+      kos: record.kos ?? 0,
+      losses,
+      draws: record.draws,
+      nationality: record.nationality,
+      weightClass: record.weightClass || undefined,
+      imageUrl: record.imageUrl || undefined,
+      gender: pageMap.get(name),
+      wikipediaUrl: `https://en.wikipedia.org/wiki/${encodeURIComponent(name.replace(/ /g, '_'))}`,
+      lastUpdated: new Date().toISOString(),
+      thirdaryScore,
+      birthDate: record.birthDate || undefined,
+      isSenior,
+    })
+  }
+
+  const allThirdaryScored = allThirdary
+    .filter(f => f.imageUrl && (f.thirdaryScore ?? 0) > 0)
+    .sort((a, b) =>
+      (b.thirdaryScore ?? 0) - (a.thirdaryScore ?? 0) ||
+      (b.kos ?? 0) - (a.kos ?? 0)
+    )
+  const thirdaryRanked: BoxerRecord[] = []
+  let thirdNonSeniorCount = 0
+  for (const f of allThirdaryScored) {
+    thirdaryRanked.push(f)
+    if (!f.isSenior) thirdNonSeniorCount++
+    if (thirdNonSeniorCount >= 50) break
+  }
+
+  const thirdEligibleWorst = allThirdary
+    .filter(f => f.imageUrl && (f.thirdaryScore ?? 0) > 0 && !f.isSenior)
+    .sort((a, b) => (a.thirdaryScore ?? 0) - (b.thirdaryScore ?? 0) || (a.kos ?? 0) - (b.kos ?? 0))
+  const thirdSeniorsWorst = allThirdary
+    .filter(f => f.imageUrl && (f.thirdaryScore ?? 0) > 0 && f.isSenior)
+    .sort((a, b) => (a.thirdaryScore ?? 0) - (b.thirdaryScore ?? 0) || (a.kos ?? 0) - (b.kos ?? 0))
+  const thirdaryWorstRanked = [...thirdEligibleWorst.slice(0, 50), ...thirdSeniorsWorst]
+
+  await writeRankings(ranked, worstRanked, secondaryRanked, secondaryWorstRanked, thirdaryRanked, thirdaryWorstRanked)
 
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(1)
-  console.log(`\nDone! ${ranked.length} undefeated, ${worstRanked.length} winless, ${secondaryRanked.length} secondary, ${secondaryWorstRanked.length} secondary worst boxers ranked.`)
+  console.log(`\nDone! ${ranked.length} undefeated, ${worstRanked.length} winless, ${secondaryRanked.length} secondary, ${secondaryWorstRanked.length} secondary worst, ${thirdaryRanked.length} thirdary, ${thirdaryWorstRanked.length} thirdary worst boxers ranked.`)
   console.log(`Total time: ${elapsed}s`)
   if (ranked.length > 0) {
     console.log(`Top 10 best: ${ranked.slice(0, 10).map(f => `${f.name} (${f.wins}-${f.losses}-${f.draws})`).join(', ')}`)

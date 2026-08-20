@@ -37,17 +37,16 @@ async function main() {
   }
 
   const rankings = await readRankings()
-  const limit = parseInt(process.env.FIGHTER_LIMIT || '', 10)
-  const fighters = Number.isFinite(limit) && limit > 0 ? rankings.fighters.slice(0, limit) : rankings.fighters
+  const fighters = rankings.thirdary ?? []
   const rankedNames = new Set(fighters.map(f => f.name))
-  console.log(`Checking news for ${rankedNames.size} ranked boxers...`)
+  console.log(`Checking news for ${rankedNames.size} thirdary-ranked boxers...`)
 
   const from = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]
 
   const cleanName = (n: string) => n.replace(/\s*\([^)]*\)\s*$/, '').trim()
 
   const queries: { q: string; fighter: string | null }[] = []
-  if (fighters.length === rankings.fighters.length) queries.push({ q: 'boxing', fighter: null })
+  queries.push({ q: 'boxing', fighter: null })
   for (const f of fighters) queries.push({ q: cleanName(f.name), fighter: f.name })
 
   const allArticles: { article: NewsArticle; fighter: string | null }[] = []
