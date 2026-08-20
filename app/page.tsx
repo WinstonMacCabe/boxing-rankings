@@ -199,11 +199,6 @@ function FighterCard({ fighter, rank, isWorst, isSecondary, isThird }: { fighter
               ) : isThird ? (
                 <>
                   <span className="flex flex-col items-center">
-                    <span className="text-base font-bold leading-none" style={{ color: '#3a2a1a' }}>{(fighter.thirdaryScore ?? 0) >= 100 ? Math.round(fighter.thirdaryScore ?? 0) : (fighter.thirdaryScore ?? 0).toFixed(1)}</span>
-                    <span className="text-[10px] uppercase tracking-[0.08em] mt-0.5" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', Times, serif" }}>W/L</span>
-                  </span>
-                  <span className="text-lg leading-none" style={{ color: '#c4b49a' }}>|</span>
-                  <span className="flex flex-col items-center">
                     <span className="text-base font-bold leading-none" style={{ color: '#3a2a1a' }}>{fighter.wins}-{fighter.losses}</span>
                     <span className="text-[10px] uppercase tracking-[0.08em] mt-0.5" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', Times, serif" }}>W-L</span>
                   </span>
