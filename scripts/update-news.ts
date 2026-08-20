@@ -46,7 +46,6 @@ async function main() {
   const cleanName = (n: string) => n.replace(/\s*\([^)]*\)\s*$/, '').trim()
 
   const queries: { q: string; fighter: string | null }[] = []
-  queries.push({ q: 'boxing', fighter: null })
   for (const f of fighters) queries.push({ q: cleanName(f.name), fighter: f.name })
 
   const allArticles: { article: NewsArticle; fighter: string | null }[] = []
