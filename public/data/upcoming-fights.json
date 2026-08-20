@@ -1,6 +1,34 @@
 {
-  "lastUpdated": "2026-08-18T23:50:17.776Z",
+  "lastUpdated": "2026-08-20T00:18:17.427Z",
   "fights": [
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Negotiations between RTÉ and Katie Taylor fight promoters in critical 48-hour period",
+      "url": "https://www.thejournal.ie/katie-taylor-rte-croke-park-fight-7134195-Aug2026/",
+      "source": "TheJournal.ie",
+      "publishedAt": "2026-08-18T13:04:30Z"
+    },
+    {
+      "boxerName": "Naoya Inoue",
+      "headline": "‘Do you really want to fight Bam?’: Robert Garcia says there’s been no movement on a fight with Naoya Inoue",
+      "url": "https://www.badlefthook.com/boxing-news/117999/robert-garcia-says-theres-been-no-movement-on-fight-with-naoya-inoue-boxing-news-2026",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-08-18T12:10:54Z"
+    },
+    {
+      "boxerName": "Floyd Mayweather Jr.",
+      "headline": "Floyd Mayweather strikes promotional partnership with Nashville's Country Box",
+      "url": "https://www.tennessean.com/story/sports/boxing/2026/08/18/floyd-mayweathers-boxing-promotion-partners-nashville-country-box/91307576007/",
+      "source": "Tennessean",
+      "publishedAt": "2026-08-18T10:03:28Z"
+    },
+    {
+      "boxerName": "David Benavidez",
+      "headline": "David Benavidez return eyed for December 12, could meet Michal Cieslak",
+      "url": "https://www.badlefthook.com/boxing-news/117996/david-benavidez-return-eyed-for-december-12th-could-meet-michal-cieslak",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-08-18T04:21:35Z"
+    },
     {
       "boxerName": "David Benavidez",
       "headline": "Fans Blast David Benavidez For Easy Cieślak Defense Over Jai Opetaia",
@@ -541,6 +569,20 @@
       "publishedAt": "2026-08-03T12:54:55Z"
     },
     {
+      "boxerName": "Gene Tunney",
+      "headline": "Did The Long Count Cost Jack Dempsey The Heavyweight Title?",
+      "url": "https://www.boxingnews24.com/2026/08/did-the-long-count-cost-jack-dempsey-the-heavyweight-title/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-08-03T06:10:24Z"
+    },
+    {
+      "boxerName": "Dmitry Bivol",
+      "headline": "How Much Has A Year Of Inactivity Hurt Artur Beterbiev?",
+      "url": "https://www.boxingnews24.com/2026/08/how-much-has-a-year-of-inactivity-hurt-artur-beterbiev/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-08-03T03:22:23Z"
+    },
+    {
       "boxerName": "Terence Crawford",
       "headline": "Terence Crawford Tells Claressa Shields to Leave Laila Ali Alone",
       "url": "https://www.complex.com/sports/a/jaelaniturnerwilliams/claressa-shields-laila-ali-terence-crawford-goat-debate",
@@ -702,6 +744,13 @@
       "publishedAt": "2026-07-26T22:42:42Z"
     },
     {
+      "boxerName": "Gene Tunney",
+      "headline": "Gene Tunney Halts Tom Heeney In Final Championship Defense",
+      "url": "https://www.boxingnews24.com/2026/07/gene-tunney-halts-tom-heeney-in-final-championship-defense/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-07-26T06:53:00Z"
+    },
+    {
       "boxerName": "Oleksandr Usyk",
       "headline": "Usyk confirms next fight will be his 'last dance'",
       "url": "https://www.bbc.co.uk/sport/boxing/videos/cvg0w097vwzo",
@@ -784,27 +833,6 @@
       "url": "https://www.sherdog.com/news/news/Oleksandr-Usyk-eyes-Deontay-Wilder-for-final-fight-hints-at-Zuffa-Boxing-202002",
       "source": "Sherdog.com",
       "publishedAt": "2026-07-21T05:35:24Z"
-    },
-    {
-      "boxerName": "Tommy Fury",
-      "headline": "Molly-Mae Hague poses in a bikini just six weeks after giving birth to son Midas as she whisks newborn off on his first holiday via private jet",
-      "url": "https://www.dailymail.com/tvshowbiz/article-15990767/Molly-Mae-Hague-poses-bikini-just-six-weeks-giving-birth-son-Midas-whisks-newborn-holiday-private-jet.html",
-      "source": "Dailymail.com",
-      "publishedAt": "2026-07-20T13:35:00Z"
-    },
-    {
-      "boxerName": "Shakur Stevenson",
-      "headline": "Shakur: Zuffa Promised Haney And Tank Davis Fights",
-      "url": "https://www.boxingnews24.com/2026/07/shakur-zuffa-promised-haney-and-tank-davis-fights/",
-      "source": "Boxingnews24.com",
-      "publishedAt": "2026-07-20T02:55:59Z"
-    },
-    {
-      "boxerName": "Claressa Shields",
-      "headline": "Claressa Shields Reacts to Adrien Broner's 45-Day Fitness Challenge",
-      "url": "https://www.complex.com/sports/a/treyalston/claressa-shields-adrien-broner-locked-thon-challenge",
-      "source": "Complex",
-      "publishedAt": "2026-07-20T01:42:12Z"
     }
   ]
 }
