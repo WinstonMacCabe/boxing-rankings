@@ -1,6 +1,62 @@
 {
-  "lastUpdated": "2026-08-20T14:20:31.441Z",
+  "lastUpdated": "2026-08-22T01:01:29.422Z",
   "fights": [
+    {
+      "boxerName": "Terence Crawford",
+      "headline": "Who is Terence Crawford’s Partner? What to Know About Alindra Person and His Seven Children",
+      "url": "https://timesofindia.indiatimes.com/sports/international-sports/who-is-terence-crawfords-partner-what-to-know-about-alindra-person-and-his-seven-children/articleshow/133385694.cms",
+      "source": "The Times of India",
+      "publishedAt": "2026-08-20T18:09:31Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Amanda Serrano and Katie Taylor proved women's boxing could be big. Can it stay that way without them?",
+      "url": "https://sports.yahoo.com/boxing/article/amanda-serrano-and-katie-taylor-proved-womens-boxing-could-be-big-can-it-stay-that-way-without-them-140000257.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-08-20T13:06:07Z"
+    },
+    {
+      "boxerName": "Shakur Stevenson",
+      "headline": "Teofimo Lopez Jr. and father confront their strained partnership ahead of Rolly Romero bout: 'It's all my fault'",
+      "url": "https://sports.yahoo.com/boxing/article/teofimo-lopez-and-father-confront-their-strained-partnership-ahead-of-rolly-romero-its-all-my-fault-130000506.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-08-20T13:00:00Z"
+    },
+    {
+      "boxerName": "Vitali Klitschko",
+      "headline": "Death toll from Kyiv attack climbs to 12",
+      "url": "https://biztoc.com/x/813e7b3cc9d561a6",
+      "source": "Biztoc.com",
+      "publishedAt": "2026-08-20T08:27:07Z"
+    },
+    {
+      "boxerName": "Vitali Klitschko",
+      "headline": "Russian attack on Kyiv kills at least 12, damages children’s hospital, says city mayor | CNN",
+      "url": "https://www.cnn.com/2026/08/20/europe/russia-ukraine-kyiv-attack-intl-hnk",
+      "source": "CNN",
+      "publishedAt": "2026-08-20T06:56:53Z"
+    },
+    {
+      "boxerName": "Vitali Klitschko",
+      "headline": "Russia unleashes 'massive attack' on Kyiv, killing at least five",
+      "url": "https://www.bbc.com/news/articles/c98vzmden5yo",
+      "source": "BBC News",
+      "publishedAt": "2026-08-20T01:43:36Z"
+    },
+    {
+      "boxerName": "Vitali Klitschko",
+      "headline": "Fires, damage reported across Kyiv",
+      "url": "https://biztoc.com/x/bd225f80d11c1749",
+      "source": "Biztoc.com",
+      "publishedAt": "2026-08-19T22:22:03Z"
+    },
+    {
+      "boxerName": "Vitali Klitschko",
+      "headline": "Kyiv under ballistic missile attack",
+      "url": "https://biztoc.com/x/879ce29ada3dbdb5",
+      "source": "Biztoc.com",
+      "publishedAt": "2026-08-19T21:22:40Z"
+    },
     {
       "boxerName": "Katie Taylor",
       "headline": "RTÉ to broadcast Katie Taylor’s fight in Croke Park",
@@ -910,27 +966,6 @@
       "url": "https://sports.yahoo.com/boxing/article/devin-haney-agrees-to-multi-fight-deal-with-dazn-will-fight-keyshawn-davis-next-055003407.html",
       "source": "Yahoo Entertainment",
       "publishedAt": "2026-07-23T05:50:03Z"
-    },
-    {
-      "boxerName": "Terence Crawford",
-      "headline": "Canelo Alvarez continues to duck ‘not-Mexican’ David Benavidez – ‘He’s a Heavyweight’",
-      "url": "https://www.mmamania.com/boxing/459130/canelo-alvarez-continues-to-duck-not-mexican-david-benavidez-hes-a-heavyweight",
-      "source": "MMA Mania",
-      "publishedAt": "2026-07-23T00:41:59Z"
-    },
-    {
-      "boxerName": "Devin Haney",
-      "headline": "Ryan Garcia Claims Devin Haney Soiled Himself During Fight",
-      "url": "https://www.boxingnews24.com/2026/07/ryan-garcia-claims-devin-haney-soiled-himself-during-fight/",
-      "source": "Boxingnews24.com",
-      "publishedAt": "2026-07-22T16:24:44Z"
-    },
-    {
-      "boxerName": "Dmitry Bivol",
-      "headline": "Eddie Hearn Signals Dmitry Bivol Will Bypass WBO Mandatory To Finalize Beterbiev Rematch",
-      "url": "https://www.boxingnews24.com/2026/07/eddie-hearn-signals-dmitry-bivol-will-bypass-wbo-mandatory-to-finalize-beterbiev-rematch/",
-      "source": "Boxingnews24.com",
-      "publishedAt": "2026-07-21T20:47:02Z"
     }
   ]
 }
