@@ -1,6 +1,13 @@
 {
-  "lastUpdated": "2026-08-22T01:01:29.422Z",
+  "lastUpdated": "2026-08-23T01:07:48.794Z",
   "fights": [
+    {
+      "boxerName": "Naoya Inoue",
+      "headline": "Naoya Inoue Builds Toward Bam Rodriguez Fight",
+      "url": "https://www.boxingnews24.com/2026/08/naoya-inoue-builds-toward-bam-rodriguez-fight/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-08-21T03:12:29Z"
+    },
     {
       "boxerName": "Terence Crawford",
       "headline": "Who is Terence Crawford’s Partner? What to Know About Alindra Person and His Seven Children",
@@ -938,34 +945,6 @@
       "url": "https://www.the-independent.com/arts-entertainment/tv/news/tommy-fury-molly-mae-hague-breast-milk-bambi-b3020847.html",
       "source": "The-independent.com",
       "publishedAt": "2026-07-24T11:16:22Z"
-    },
-    {
-      "boxerName": "Terence Crawford",
-      "headline": "Canelo Alvarez reflects on Terence Crawford loss: 'If your mind is not there, it's not the same'",
-      "url": "https://sports.yahoo.com/boxing/article/canelo-alvarez-reflects-on-terence-crawford-loss-if-your-mind-is-not-there-its-not-the-same-003215749.html",
-      "source": "Yahoo Entertainment",
-      "publishedAt": "2026-07-24T00:32:15Z"
-    },
-    {
-      "boxerName": "Tommy Fury",
-      "headline": "Tommy Fury makes bizarre claim his 'arms doubled in size' after drinking Molly-Mae Hague's breast milk",
-      "url": "https://www.dailymail.com/tvshowbiz/article-16000835/Tommy-Fury-makes-bizarre-claim-arms-doubled-size-drinking-Molly-Mae-Hagues-breast-milk.html",
-      "source": "Dailymail.com",
-      "publishedAt": "2026-07-23T19:47:04Z"
-    },
-    {
-      "boxerName": "David Benavidez",
-      "headline": "Tim Tszyu Plans To Unleash Benavidez-Style Swarm On Spence",
-      "url": "https://www.boxingnews24.com/2026/07/tim-tszyu-plans-to-unleash-benavidez-style-swarm-on-spence/",
-      "source": "Boxingnews24.com",
-      "publishedAt": "2026-07-23T18:10:57Z"
-    },
-    {
-      "boxerName": "Devin Haney",
-      "headline": "Devin Haney agrees to multi-fight deal with DAZN, will fight Keyshawn Davis next",
-      "url": "https://sports.yahoo.com/boxing/article/devin-haney-agrees-to-multi-fight-deal-with-dazn-will-fight-keyshawn-davis-next-055003407.html",
-      "source": "Yahoo Entertainment",
-      "publishedAt": "2026-07-23T05:50:03Z"
     }
   ]
 }
