@@ -14,7 +14,6 @@ export interface BoxerRecord {
   weightClass?: string
   imageUrl?: string
   previousRank?: number
-  secondaryScore?: number
   thirdaryScore?: number
   birthDate?: string
   isSenior?: boolean
@@ -24,8 +23,6 @@ export interface RankingsData {
   lastUpdated: string
   fighters: BoxerRecord[]
   worst?: BoxerRecord[]
-  secondary?: BoxerRecord[]
-  secondaryWorst?: BoxerRecord[]
   thirdary?: BoxerRecord[]
   thirdaryWorst?: BoxerRecord[]
 }

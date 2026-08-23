@@ -15,14 +15,12 @@ export async function readRankings(): Promise<RankingsData> {
   }
 }
 
-export async function writeRankings(fighters: BoxerRecord[], worst: BoxerRecord[] = [], secondary: BoxerRecord[] = [], secondaryWorst: BoxerRecord[] = [], thirdary: BoxerRecord[] = [], thirdaryWorst: BoxerRecord[] = []): Promise<void> {
+export async function writeRankings(fighters: BoxerRecord[], worst: BoxerRecord[] = [], thirdary: BoxerRecord[] = [], thirdaryWorst: BoxerRecord[] = []): Promise<void> {
   await fs.mkdir(DATA_DIR, { recursive: true })
   const data: RankingsData = {
     lastUpdated: new Date().toISOString(),
     fighters,
     worst: worst.length > 0 ? worst : undefined,
-    secondary: secondary.length > 0 ? secondary : undefined,
-    secondaryWorst: secondaryWorst.length > 0 ? secondaryWorst : undefined,
     thirdary: thirdary.length > 0 ? thirdary : undefined,
     thirdaryWorst: thirdaryWorst.length > 0 ? thirdaryWorst : undefined,
   }
