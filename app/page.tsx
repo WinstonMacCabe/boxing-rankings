@@ -48,7 +48,7 @@ const NOISE = `data:image/svg+xml,${encodeURIComponent(
   </svg>`
 )}`
 
-function FighterCard({ fighter, rank, isWorst, isThird }: { fighter: BoxerRecord; rank: number; isWorst?: boolean; isThird?: boolean }) {
+function FighterCard({ fighter, rank, isWorst, isBest }: { fighter: BoxerRecord; rank: number; isWorst?: boolean; isBest?: boolean }) {
   const cardRef = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
   const [imgLoaded, setImgLoaded] = useState(false)
@@ -179,7 +179,7 @@ function FighterCard({ fighter, rank, isWorst, isThird }: { fighter: BoxerRecord
                     <span className="text-[10px] uppercase tracking-[0.08em] mt-0.5" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', Times, serif" }}>FTS</span>
                   </span>
                 </>
-              ) : isThird ? (
+              ) : isBest ? (
                 <>
                   <span className="flex flex-col items-center">
                     <span className="text-base font-bold leading-none" style={{ color: '#3a2a1a' }}>{fighter.wins}-{fighter.losses}</span>
@@ -230,7 +230,8 @@ export default function Home() {
   const [search, setSearch] = useState('')
   const [sortBy, setSortBy] = useState<'wins' | 'kos' | 'weight'>('wins')
   const [genderFilter, setGenderFilter] = useState<'all' | Gender>('all')
-  const [viewMode, setViewMode] = useState<'best' | 'worst' | 'third' | 'thirdWorst'>('third')
+  const [viewMode, setViewMode] = useState<'best' | 'worst' | 'archivedBest' | 'archivedWorst'>('best')
+  const [showArchived, setShowArchived] = useState(false)
   const [headerBlur, setHeaderBlur] = useState(false)
   const [newsExpanded, setNewsExpanded] = useState(false)
 
@@ -266,14 +267,14 @@ export default function Home() {
     }
   }
 
-  const source = viewMode === 'best' ? (data?.fighters ?? []) : viewMode === 'third' ? (data?.thirdary ?? []) : viewMode === 'thirdWorst' ? (data?.thirdaryWorst ?? []) : (data?.worst ?? [])
+  const source = viewMode === 'best' ? (data?.thirdary ?? []) : viewMode === 'worst' ? (data?.thirdaryWorst ?? []) : viewMode === 'archivedBest' ? (data?.fighters ?? []) : (data?.worst ?? [])
   const filtered = source
     .filter(f => genderFilter === 'all' || f.gender === genderFilter)
     .filter(f => cleanName(f.name).toLowerCase().includes(search.toLowerCase()))
     .sort((a, b) => {
-      if (viewMode === 'worst') return b.losses - a.losses || a.draws - b.draws || a.name.localeCompare(b.name)
-      if (viewMode === 'third') return (b.thirdaryScore ?? 0) - (a.thirdaryScore ?? 0) || a.losses - b.losses || (b.kos ?? 0) - (a.kos ?? 0)
-      if (viewMode === 'thirdWorst') return (a.thirdaryScore ?? 0) - (b.thirdaryScore ?? 0) || b.losses - a.losses || (a.kos ?? 0) - (b.kos ?? 0)
+      if (viewMode === 'best') return (b.thirdaryScore ?? 0) - (a.thirdaryScore ?? 0) || a.losses - b.losses || (b.kos ?? 0) - (a.kos ?? 0)
+      if (viewMode === 'worst') return (a.thirdaryScore ?? 0) - (b.thirdaryScore ?? 0) || b.losses - a.losses || (a.kos ?? 0) - (b.kos ?? 0)
+      if (viewMode === 'archivedWorst') return b.losses - a.losses || a.draws - b.draws || a.name.localeCompare(b.name)
       if (sortBy === 'wins') return b.wins - a.wins || a.draws - b.draws || b.kos - a.kos || a.name.localeCompare(b.name)
       if (sortBy === 'kos') return b.kos - a.kos
       return (weightSortValue(a.weightClass) - weightSortValue(b.weightClass)) || b.wins - a.wins
@@ -365,13 +366,14 @@ export default function Home() {
             </div>
           )}
 
-          <div className="mb-4 flex gap-1.5 flex-wrap items-center">
-            <span className="w-px h-5 mx-1" style={{ background: '#3a2a1a' }} />
-            {(['best', 'worst', 'third', 'thirdWorst'] as const).map(m => (
+          {/* Main tabs: Best + Worst */}
+          <div className="mb-4 flex gap-2 flex-wrap items-center">
+            <span className="w-px h-7 mx-1" style={{ background: '#3a2a1a' }} />
+            {(['best', 'worst'] as const).map(m => (
               <button
                 key={m}
                 onClick={() => setViewMode(m)}
-                className="px-2.5 py-1 text-[9px] font-bold tracking-[0.15em] uppercase transition-all"
+                className="px-4 py-2 text-[11px] font-bold tracking-[0.15em] uppercase transition-all"
                 style={{
                   fontFamily: "'Times New Roman', serif",
                   background: viewMode === m ? '#3a2a1a' : 'transparent',
@@ -379,17 +381,57 @@ export default function Home() {
                   border: `1px solid ${viewMode === m ? '#5a4a3a' : '#3a2a1a'}`,
                 }}
               >
-                {m === 'best' ? 'Best' : m === 'worst' ? 'Worst' : m === 'third' ? 'Third' : 'Third. Worst'}
+                {m === 'best' ? 'Best' : 'Worst'}
               </button>
             ))}
-            <span className="w-px h-5 mx-1" style={{ background: '#3a2a1a' }} />
-            {viewMode !== 'third' && viewMode !== 'thirdWorst' && (
+
+            {/* Archived Rankings toggle */}
+            <button
+              onClick={() => { setShowArchived(!showArchived); if (showArchived) setViewMode('best') }}
+              className="px-4 py-2 text-[11px] font-bold tracking-[0.15em] uppercase transition-all"
+              style={{
+                fontFamily: "'Times New Roman', serif",
+                background: showArchived ? '#4a3a2a' : 'transparent',
+                color: showArchived ? '#ddd0b8' : '#5a4a3a',
+                border: `1px solid #3a2a1a`,
+              }}
+            >
+              Archived
+            </button>
+
+            {/* Archived sub-tabs */}
+            {showArchived && (
+              <>
+                <span className="w-px h-7 mx-1" style={{ background: '#3a2a1a' }} />
+                {(['archivedBest', 'archivedWorst'] as const).map(m => (
+                  <button
+                    key={m}
+                    onClick={() => setViewMode(m)}
+                    className="px-4 py-2 text-[11px] font-bold tracking-[0.15em] uppercase transition-all"
+                    style={{
+                      fontFamily: "'Times New Roman', serif",
+                      background: viewMode === m ? '#3a2a1a' : 'transparent',
+                      color: viewMode === m ? '#ddd0b8' : '#5a4a3a',
+                      border: `1px solid ${viewMode === m ? '#5a4a3a' : '#3a2a1a'}`,
+                      opacity: 0.7,
+                    }}
+                  >
+                    {m === 'archivedBest' ? 'Undefeated' : 'Winless'}
+                  </button>
+                ))}
+              </>
+            )}
+
+            <span className="w-px h-7 mx-1" style={{ background: '#3a2a1a' }} />
+
+            {/* Sort options: always show for best/worst, plus weight for best */}
+            {viewMode === 'best' && (
               <>
                 {(['wins', 'kos', 'weight'] as const).map(s => (
                   <button
                     key={s}
                     onClick={() => setSortBy(s)}
-                    className="px-2.5 py-1 text-[9px] font-bold tracking-[0.15em] uppercase transition-all"
+                    className="px-4 py-2 text-[11px] font-bold tracking-[0.15em] uppercase transition-all"
                     style={{
                       fontFamily: "'Times New Roman', serif",
                       background: sortBy === s ? '#3a2a1a' : 'transparent',
@@ -400,14 +442,37 @@ export default function Home() {
                     {s === 'wins' ? 'Wins' : s === 'kos' ? 'KO' : 'Weight'}
                   </button>
                 ))}
-                <span className="w-px mx-1 self-stretch" style={{ background: '#3a2a1a' }} />
+                <span className="w-px h-7 mx-1" style={{ background: '#3a2a1a' }} />
               </>
             )}
+            {(viewMode === 'archivedBest' || viewMode === 'archivedWorst') && (
+              <>
+                {(['wins', 'kos', 'weight'] as const).map(s => (
+                  <button
+                    key={s}
+                    onClick={() => setSortBy(s)}
+                    className="px-4 py-2 text-[11px] font-bold tracking-[0.15em] uppercase transition-all"
+                    style={{
+                      fontFamily: "'Times New Roman', serif",
+                      background: sortBy === s ? '#3a2a1a' : 'transparent',
+                      color: sortBy === s ? '#ddd0b8' : '#5a4a3a',
+                      border: `1px solid ${sortBy === s ? '#5a4a3a' : '#3a2a1a'}`,
+                      opacity: 0.7,
+                    }}
+                  >
+                    {s === 'wins' ? 'Wins' : s === 'kos' ? 'KO' : 'Weight'}
+                  </button>
+                ))}
+                <span className="w-px h-7 mx-1" style={{ background: '#3a2a1a' }} />
+              </>
+            )}
+
+            {/* Gender filter */}
             {(['all', 'male', 'female'] as const).map(g => (
               <button
                 key={g}
                 onClick={() => setGenderFilter(g)}
-                className="px-2.5 py-1 text-[9px] font-bold tracking-[0.15em] uppercase transition-all"
+                className="px-4 py-2 text-[11px] font-bold tracking-[0.15em] uppercase transition-all"
                 style={{
                   fontFamily: "'Times New Roman', serif",
                   background: genderFilter === g ? '#3a2a1a' : 'transparent',
@@ -422,7 +487,7 @@ export default function Home() {
 
           <div className="grid gap-4 items-stretch" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))' }}>
             {filtered.map((fighter, i) => (
-              <FighterCard key={fighter.name} fighter={fighter} rank={i + 1} isWorst={viewMode === 'worst'} isThird={viewMode === 'third' || viewMode === 'thirdWorst'} />
+              <FighterCard key={fighter.name} fighter={fighter} rank={i + 1} isWorst={viewMode === 'worst' || viewMode === 'archivedWorst'} isBest={viewMode === 'best' || viewMode === 'archivedBest'} />
             ))}
           </div>
 
