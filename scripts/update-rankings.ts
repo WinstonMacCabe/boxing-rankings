@@ -108,7 +108,7 @@ async function main() {
     .sort((a, b) => b.losses - a.losses || a.draws - b.draws || a.name.localeCompare(b.name))
     .map((f, i) => ({ ...f, previousRank: prevWorstRank.get(f.name) || undefined }))
 
-  const currentYear = new Date().getFullYear()
+  const now = new Date()
 
   // Thirdary ranking: score = wins / max(losses, 1). Undefeated = wins.
   // Exclude fighters with >384 wins. Tiebreaker: most KOs.
@@ -122,9 +122,20 @@ async function main() {
     const total = record.total!
     const thirdaryScore = losses === 0 ? wins : wins / losses
 
-    const birthYear = record.birthDate ? parseInt(record.birthDate, 10) : null
-    const age = birthYear ? currentYear - birthYear : null
-    const isSenior = age !== null && age > 50
+    let age: number | null = null
+    if (record.birthDate) {
+      const parts = record.birthDate.split('-')
+      const birthYear = parseInt(parts[0], 10)
+      if (parts.length === 3) {
+        const birthMonth = parseInt(parts[1], 10)
+        const birthDay = parseInt(parts[2], 10)
+        const birthdayThisYear = new Date(now.getFullYear(), birthMonth - 1, birthDay)
+        age = now >= birthdayThisYear ? now.getFullYear() - birthYear : now.getFullYear() - birthYear - 1
+      } else {
+        age = now.getFullYear() - birthYear
+      }
+    }
+    const isSenior = age !== null && age >= 50
 
     allThirdary.push({
       name,

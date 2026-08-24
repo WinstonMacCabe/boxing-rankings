@@ -259,8 +259,13 @@ function parseWikitextInfobox(wikitext: string): ParsedInfobox {
         // Extract birth year from raw value BEFORE stripWikiMarkup blanks it
         if (key === 'birth_date' && !result.birthDate) {
           const rawVal = rest.slice(valStart, valEnd).trim()
-          const yearMatch = rawVal.match(/(\d{4})/)
-          if (yearMatch) result.birthDate = yearMatch[1]
+          const fullDateMatch = rawVal.match(/\{\{birth date[^}]*\|(\d{4})\|(\d{1,2})\|(\d{1,2})/)
+          if (fullDateMatch) {
+            result.birthDate = `${fullDateMatch[1]}-${fullDateMatch[2].padStart(2, '0')}-${fullDateMatch[3].padStart(2, '0')}`
+          } else {
+            const yearMatch = rawVal.match(/(\d{4})/)
+            if (yearMatch) result.birthDate = yearMatch[1]
+          }
         }
       }
 
@@ -296,8 +301,13 @@ function parseWikitextInfobox(wikitext: string): ParsedInfobox {
       }
 
       if (rawBirthDate && !result.birthDate) {
-        const yearMatch = rawBirthDate.match(/(\d{4})/)
-        if (yearMatch) result.birthDate = yearMatch[1]
+        const fullDateMatch = rawBirthDate.match(/\{\{birth date[^}]*\|(\d{4})\|(\d{1,2})\|(\d{1,2})/)
+        if (fullDateMatch) {
+          result.birthDate = `${fullDateMatch[1]}-${fullDateMatch[2].padStart(2, '0')}-${fullDateMatch[3].padStart(2, '0')}`
+        } else {
+          const yearMatch = rawBirthDate.match(/(\d{4})/)
+          if (yearMatch) result.birthDate = yearMatch[1]
+        }
       }
 
       if (nat && !result.nationality) {
