@@ -231,7 +231,6 @@ export default function Home() {
   const [sortBy, setSortBy] = useState<'wins' | 'kos' | 'weight'>('wins')
   const [genderFilter, setGenderFilter] = useState<'all' | Gender>('all')
   const [viewMode, setViewMode] = useState<'best' | 'worst' | 'archivedBest' | 'archivedWorst'>('best')
-  const [showArchived, setShowArchived] = useState(false)
   const [headerBlur, setHeaderBlur] = useState(false)
   const [newsExpanded, setNewsExpanded] = useState(false)
 
@@ -267,17 +266,28 @@ export default function Home() {
     }
   }
 
+  const isArchived = viewMode === 'archivedBest' || viewMode === 'archivedWorst'
+
+  function switchView(mode: typeof viewMode) {
+    setViewMode(mode)
+    setSortBy('wins')
+  }
+
   const source = viewMode === 'best' ? (data?.thirdary ?? []) : viewMode === 'worst' ? (data?.thirdaryWorst ?? []) : viewMode === 'archivedBest' ? (data?.fighters ?? []) : (data?.worst ?? [])
   const filtered = source
     .filter(f => genderFilter === 'all' || f.gender === genderFilter)
     .filter(f => cleanName(f.name).toLowerCase().includes(search.toLowerCase()))
     .sort((a, b) => {
-      if (viewMode === 'best') return (b.thirdaryScore ?? 0) - (a.thirdaryScore ?? 0) || a.losses - b.losses || (b.kos ?? 0) - (a.kos ?? 0)
+      if (viewMode === 'best') {
+        if (sortBy === 'weight') return (weightSortValue(a.weightClass) - weightSortValue(b.weightClass)) || (b.thirdaryScore ?? 0) - (a.thirdaryScore ?? 0)
+        if (sortBy === 'kos') return (b.kos ?? 0) - (a.kos ?? 0) || (b.thirdaryScore ?? 0) - (a.thirdaryScore ?? 0)
+        return (b.thirdaryScore ?? 0) - (a.thirdaryScore ?? 0) || a.losses - b.losses || (b.kos ?? 0) - (a.kos ?? 0)
+      }
       if (viewMode === 'worst') return (a.thirdaryScore ?? 0) - (b.thirdaryScore ?? 0) || b.losses - a.losses || (a.kos ?? 0) - (b.kos ?? 0)
       if (viewMode === 'archivedWorst') return b.losses - a.losses || a.draws - b.draws || a.name.localeCompare(b.name)
-      if (sortBy === 'wins') return b.wins - a.wins || a.draws - b.draws || b.kos - a.kos || a.name.localeCompare(b.name)
-      if (sortBy === 'kos') return b.kos - a.kos
-      return (weightSortValue(a.weightClass) - weightSortValue(b.weightClass)) || b.wins - a.wins
+      if (sortBy === 'weight') return (weightSortValue(a.weightClass) - weightSortValue(b.weightClass)) || b.wins - a.wins
+      if (sortBy === 'kos') return b.kos - a.kos || b.wins - a.wins
+      return b.wins - a.wins || a.draws - b.draws || b.kos - a.kos || a.name.localeCompare(b.name)
     })
 
   if (loading) {
@@ -372,7 +382,7 @@ export default function Home() {
             {(['best', 'worst'] as const).map(m => (
               <button
                 key={m}
-                onClick={() => setViewMode(m)}
+                onClick={() => switchView(m)}
                 className="px-4 py-2 text-[11px] font-bold tracking-[0.15em] uppercase transition-all"
                 style={{
                   fontFamily: "'Times New Roman', serif",
@@ -385,28 +395,28 @@ export default function Home() {
               </button>
             ))}
 
-            {/* Archived Rankings toggle */}
+            {/* Archived toggle — switches to archivedBest/archivedWorst */}
             <button
-              onClick={() => { setShowArchived(!showArchived); if (showArchived) setViewMode('best') }}
+              onClick={() => switchView(isArchived ? 'best' : 'archivedBest')}
               className="px-4 py-2 text-[11px] font-bold tracking-[0.15em] uppercase transition-all"
               style={{
                 fontFamily: "'Times New Roman', serif",
-                background: showArchived ? '#4a3a2a' : 'transparent',
-                color: showArchived ? '#ddd0b8' : '#5a4a3a',
-                border: `1px solid #3a2a1a`,
+                background: isArchived ? '#3a2a1a' : 'transparent',
+                color: isArchived ? '#ddd0b8' : '#5a4a3a',
+                border: `1px solid ${isArchived ? '#5a4a3a' : '#3a2a1a'}`,
               }}
             >
               Archived
             </button>
 
             {/* Archived sub-tabs */}
-            {showArchived && (
+            {isArchived && (
               <>
                 <span className="w-px h-7 mx-1" style={{ background: '#3a2a1a' }} />
                 {(['archivedBest', 'archivedWorst'] as const).map(m => (
                   <button
                     key={m}
-                    onClick={() => setViewMode(m)}
+                    onClick={() => switchView(m)}
                     className="px-4 py-2 text-[11px] font-bold tracking-[0.15em] uppercase transition-all"
                     style={{
                       fontFamily: "'Times New Roman', serif",
@@ -424,8 +434,8 @@ export default function Home() {
 
             <span className="w-px h-7 mx-1" style={{ background: '#3a2a1a' }} />
 
-            {/* Sort options: always show for best/worst, plus weight for best */}
-            {viewMode === 'best' && (
+            {/* Sort options: show for best and archivedBest */}
+            {(viewMode === 'best' || viewMode === 'archivedBest') && (
               <>
                 {(['wins', 'kos', 'weight'] as const).map(s => (
                   <button
@@ -437,27 +447,6 @@ export default function Home() {
                       background: sortBy === s ? '#3a2a1a' : 'transparent',
                       color: sortBy === s ? '#ddd0b8' : '#5a4a3a',
                       border: `1px solid ${sortBy === s ? '#5a4a3a' : '#3a2a1a'}`,
-                    }}
-                  >
-                    {s === 'wins' ? 'Wins' : s === 'kos' ? 'KO' : 'Weight'}
-                  </button>
-                ))}
-                <span className="w-px h-7 mx-1" style={{ background: '#3a2a1a' }} />
-              </>
-            )}
-            {(viewMode === 'archivedBest' || viewMode === 'archivedWorst') && (
-              <>
-                {(['wins', 'kos', 'weight'] as const).map(s => (
-                  <button
-                    key={s}
-                    onClick={() => setSortBy(s)}
-                    className="px-4 py-2 text-[11px] font-bold tracking-[0.15em] uppercase transition-all"
-                    style={{
-                      fontFamily: "'Times New Roman', serif",
-                      background: sortBy === s ? '#3a2a1a' : 'transparent',
-                      color: sortBy === s ? '#ddd0b8' : '#5a4a3a',
-                      border: `1px solid ${sortBy === s ? '#5a4a3a' : '#3a2a1a'}`,
-                      opacity: 0.7,
                     }}
                   >
                     {s === 'wins' ? 'Wins' : s === 'kos' ? 'KO' : 'Weight'}
