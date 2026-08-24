@@ -229,6 +229,7 @@ export default function Home() {
   const [error, setError] = useState('')
   const [search, setSearch] = useState('')
   const [sortBy, setSortBy] = useState<'wins' | 'kos' | 'weight'>('wins')
+  const [weightFilter, setWeightFilter] = useState<string | null>(null)
   const [genderFilter, setGenderFilter] = useState<'all' | Gender>('all')
   const [viewMode, setViewMode] = useState<'best' | 'worst' | 'archivedBest' | 'archivedWorst'>('best')
   const [headerBlur, setHeaderBlur] = useState(false)
@@ -271,12 +272,16 @@ export default function Home() {
   function switchView(mode: typeof viewMode) {
     setViewMode(mode)
     setSortBy('wins')
+    setWeightFilter(null)
   }
 
   const source = viewMode === 'best' ? (data?.thirdary ?? []) : viewMode === 'worst' ? (data?.thirdaryWorst ?? []) : viewMode === 'archivedBest' ? (data?.fighters ?? []) : (data?.worst ?? [])
-  const filtered = source
+  const preFiltered = source
     .filter(f => genderFilter === 'all' || f.gender === genderFilter)
     .filter(f => cleanName(f.name).toLowerCase().includes(search.toLowerCase()))
+  const availableWeightClasses = [...new Set(preFiltered.map(f => f.weightClass).filter((wc): wc is string => !!wc))].sort((a, b) => weightSortValue(a) - weightSortValue(b))
+  const filtered = preFiltered
+    .filter(f => !weightFilter || f.weightClass === weightFilter)
     .sort((a, b) => {
       if (viewMode === 'best') {
         if (sortBy === 'weight') return (weightSortValue(a.weightClass) - weightSortValue(b.weightClass)) || (b.thirdaryScore ?? 0) - (a.thirdaryScore ?? 0)
@@ -440,7 +445,7 @@ export default function Home() {
                 {(['wins', 'kos', 'weight'] as const).map(s => (
                   <button
                     key={s}
-                    onClick={() => setSortBy(s)}
+                    onClick={() => { setSortBy(s); if (s !== 'weight') setWeightFilter(null) }}
                     className="px-4 py-2 text-[11px] font-bold tracking-[0.15em] uppercase transition-all"
                     style={{
                       fontFamily: "'Times New Roman', serif",
@@ -473,6 +478,40 @@ export default function Home() {
               </button>
             ))}
           </div>
+
+          {/* Weight class sub-filter row */}
+          {sortBy === 'weight' && availableWeightClasses.length > 0 && (
+            <div className="mb-4 flex gap-1.5 flex-wrap items-center">
+              <span className="w-px h-6 mx-1" style={{ background: '#3a2a1a' }} />
+              <button
+                onClick={() => setWeightFilter(null)}
+                className="px-3 py-1.5 text-[10px] font-bold tracking-[0.15em] uppercase transition-all"
+                style={{
+                  fontFamily: "'Times New Roman', serif",
+                  background: !weightFilter ? '#3a2a1a' : 'transparent',
+                  color: !weightFilter ? '#ddd0b8' : '#5a4a3a',
+                  border: `1px solid ${!weightFilter ? '#5a4a3a' : '#3a2a1a'}`,
+                }}
+              >
+                All
+              </button>
+              {availableWeightClasses.map(wc => (
+                <button
+                  key={wc}
+                  onClick={() => setWeightFilter(weightFilter === wc ? null : wc)}
+                  className="px-3 py-1.5 text-[10px] font-bold tracking-[0.15em] uppercase transition-all"
+                  style={{
+                    fontFamily: "'Times New Roman', serif",
+                    background: weightFilter === wc ? '#3a2a1a' : 'transparent',
+                    color: weightFilter === wc ? '#ddd0b8' : '#5a4a3a',
+                    border: `1px solid ${weightFilter === wc ? '#5a4a3a' : '#3a2a1a'}`,
+                  }}
+                >
+                  {wc}
+                </button>
+              ))}
+            </div>
+          )}
 
           <div className="grid gap-4 items-stretch" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))' }}>
             {filtered.map((fighter, i) => (
