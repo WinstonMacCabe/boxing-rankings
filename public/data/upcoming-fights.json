@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-23T01:07:48.794Z",
+  "lastUpdated": "2026-08-24T01:03:43.570Z",
   "fights": [
     {
       "boxerName": "Naoya Inoue",
@@ -478,6 +478,34 @@
       "publishedAt": "2026-08-09T12:28:54Z"
     },
     {
+      "boxerName": "Etinosa Oliha",
+      "headline": "Boxer Aaron McKenna crowned middleweight world champion in Dublin",
+      "url": "https://www.the42.ie/aaron-mckenna-30-7125457-Aug2026/",
+      "source": "The42",
+      "publishedAt": "2026-08-09T11:30:47Z"
+    },
+    {
+      "boxerName": "Etinosa Oliha",
+      "headline": "McKenna claims IFB middleweight title in Dublin",
+      "url": "https://www.bbc.com/sport/boxing/articles/czrj0g551rgo?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
+      "source": "BBC News",
+      "publishedAt": "2026-08-09T09:14:55Z"
+    },
+    {
+      "boxerName": "Etinosa Oliha",
+      "headline": "McKenna claims IFB middleweight title in Dublin",
+      "url": "https://www.bbc.co.uk/sport/boxing/articles/czrj0g551rgo",
+      "source": "BBC News",
+      "publishedAt": "2026-08-09T09:14:50Z"
+    },
+    {
+      "boxerName": "Etinosa Oliha",
+      "headline": "'My dream is now reality' - new world champion McKenna",
+      "url": "https://www.rte.ie/sport/boxing/2026/0809/1587131-my-dream-is-now-reality-new-world-champion-mckenna/",
+      "source": "RTE",
+      "publishedAt": "2026-08-09T08:35:51Z"
+    },
+    {
       "boxerName": "Terence Crawford",
       "headline": "Terence Crawford Isn’t Really Retired, Believes Greg Hackett",
       "url": "https://www.boxingnews24.com/2026/08/terence-crawford-isnt-really-retired-believes-greg-hackett/",
@@ -490,6 +518,27 @@
       "url": "https://www.boxingnews24.com/2026/08/tim-bradley-thinks-haneys-skills-scare-fighters-but-is-it-really-about-money/",
       "source": "Boxingnews24.com",
       "publishedAt": "2026-08-09T02:59:24Z"
+    },
+    {
+      "boxerName": "Etinosa Oliha",
+      "headline": "Highlights! McKenna Wins IBF Title, Walsh Remains Undefeated In Ireland",
+      "url": "https://www.mmamania.com/zuffa-boxing-news/463273/highlights-aaron-mckenna-wins-ibf-title-callum-walsh-remains-undefeated-zuffa-boxing-10",
+      "source": "MMA Mania",
+      "publishedAt": "2026-08-08T22:56:51Z"
+    },
+    {
+      "boxerName": "Etinosa Oliha",
+      "headline": "Ireland’s Aaron McKenna claims middleweight world title in Dublin",
+      "url": "https://www.irishtimes.com/sport/boxing/2026/08/08/irelands-aaron-mckenna-claims-middleweight-world-title-in-dublin/",
+      "source": "The Irish Times",
+      "publishedAt": "2026-08-08T22:44:09Z"
+    },
+    {
+      "boxerName": "Etinosa Oliha",
+      "headline": "McKenna shines to become world champion on homecoming",
+      "url": "https://www.rte.ie/sport/boxing/2026/0808/1587101-mckenna-shines-to-become-world-champion-on-homecoming/",
+      "source": "RTE",
+      "publishedAt": "2026-08-08T22:35:41Z"
     },
     {
       "boxerName": "Claressa Shields",
@@ -518,6 +567,20 @@
       "url": "https://www.forbes.com/sites/brianmazique/2026/08/08/thats-literally-the-dumbest-thing-ive-ever-heard-rolly-romero-calls-out-ryan-garcia-for-comments-about-terence-crawford/",
       "source": "Forbes",
       "publishedAt": "2026-08-08T12:00:53Z"
+    },
+    {
+      "boxerName": "Etinosa Oliha",
+      "headline": "Aaron McKenna vs. Etinosa Oliha live results, round-by-round updates, ring walks, start time for Zuffa Boxing 10",
+      "url": "https://sports.yahoo.com/boxing/live/aaron-mckenna-vs-etinosa-oliha-live-results-round-by-round-updates-ring-walks-start-time-for-zuffa-boxing-10-060000870.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-08-08T06:00:00Z"
+    },
+    {
+      "boxerName": "Etinosa Oliha",
+      "headline": "Aaron McKenna vs Etinosa Oliha live results, highlights, and reactions",
+      "url": "https://www.badlefthook.com/live-boxing-updates/117778/aaron-mckenna-vs-etinosa-oliha-live-results-highlights-reactions-zuffa-boxing-news-2026",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-08-08T05:00:00Z"
     },
     {
       "boxerName": "Claressa Shields",
@@ -814,6 +877,13 @@
       "publishedAt": "2026-07-30T15:00:00Z"
     },
     {
+      "boxerName": "Canelo Álvarez",
+      "headline": "Canelo Álvarez says there's \"not much left\" for him to do in boxing",
+      "url": "https://www.cbsnews.com/news/boxer-canelo-alvarez-reflects-on-when-he-will-retire/",
+      "source": "CBS News",
+      "publishedAt": "2026-07-30T13:49:35Z"
+    },
+    {
       "boxerName": "Vitali Klitschko",
       "headline": "Russia is attacking kyiv with ballistic missiles, according to mayor vitali klitschko and the ukrainian air force",
       "url": "https://cryptobriefing.com/russia-is-attacking-kyiv-with-ballistic-missiles-according-to-mayor-vitali/",
@@ -931,20 +1001,6 @@
       "url": "https://www.bbc.co.uk/sport/boxing/videos/cx2mgzl30plo",
       "source": "BBC News",
       "publishedAt": "2026-07-25T15:16:29Z"
-    },
-    {
-      "boxerName": "Shakur Stevenson",
-      "headline": "Ernesto Mercado Claims Shakur Stevenson Blocked Him",
-      "url": "https://www.boxingnews24.com/2026/07/ernesto-mercado-claims-shakur-stevenson-blocked-him/",
-      "source": "Boxingnews24.com",
-      "publishedAt": "2026-07-24T23:35:49Z"
-    },
-    {
-      "boxerName": "Tommy Fury",
-      "headline": "Tommy Fury claims drinking Molly-Mae’s breast milk led to body changes: ‘It was fantastic’",
-      "url": "https://www.the-independent.com/arts-entertainment/tv/news/tommy-fury-molly-mae-hague-breast-milk-bambi-b3020847.html",
-      "source": "The-independent.com",
-      "publishedAt": "2026-07-24T11:16:22Z"
     }
   ]
 }
