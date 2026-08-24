@@ -232,6 +232,7 @@ export default function Home() {
   const [genderFilter, setGenderFilter] = useState<'all' | Gender>('all')
   const [viewMode, setViewMode] = useState<'best' | 'worst' | 'third' | 'thirdWorst'>('third')
   const [headerBlur, setHeaderBlur] = useState(false)
+  const [newsExpanded, setNewsExpanded] = useState(false)
 
   useEffect(() => {
     Promise.all([
@@ -271,8 +272,8 @@ export default function Home() {
     .filter(f => cleanName(f.name).toLowerCase().includes(search.toLowerCase()))
     .sort((a, b) => {
       if (viewMode === 'worst') return b.losses - a.losses || a.draws - b.draws || a.name.localeCompare(b.name)
-      if (viewMode === 'third') return (b.thirdaryScore ?? 0) - (a.thirdaryScore ?? 0) || (b.kos ?? 0) - (a.kos ?? 0)
-      if (viewMode === 'thirdWorst') return (a.thirdaryScore ?? 0) - (b.thirdaryScore ?? 0) || (a.kos ?? 0) - (b.kos ?? 0)
+      if (viewMode === 'third') return (b.thirdaryScore ?? 0) - (a.thirdaryScore ?? 0) || a.losses - b.losses || (b.kos ?? 0) - (a.kos ?? 0)
+      if (viewMode === 'thirdWorst') return (a.thirdaryScore ?? 0) - (b.thirdaryScore ?? 0) || b.losses - a.losses || (a.kos ?? 0) - (b.kos ?? 0)
       if (sortBy === 'wins') return b.wins - a.wins || a.draws - b.draws || b.kos - a.kos || a.name.localeCompare(b.name)
       if (sortBy === 'kos') return b.kos - a.kos
       return (weightSortValue(a.weightClass) - weightSortValue(b.weightClass)) || b.wins - a.wins
@@ -341,20 +342,26 @@ export default function Home() {
 
           {uniqueFights.length > 0 && (
             <div className="mb-4 p-3 border flex flex-col gap-1.5" style={{ background: '#2a1f15', borderColor: '#5a4a3a' }}>
-              <div className="flex items-center gap-2">
+              <button
+                onClick={() => setNewsExpanded(!newsExpanded)}
+                className="flex items-center gap-2 cursor-pointer text-left"
+              >
                 <span className="text-xs leading-none">🔔</span>
                 <span className="text-[9px] font-bold tracking-[0.15em] uppercase" style={{ color: '#b8a890', fontFamily: "'Times New Roman', serif" }}>Fight News</span>
-              </div>
-              <div className="flex flex-wrap gap-x-4 gap-y-1">
-                {uniqueFights.map((f, i) => (
-                  <a key={i} href={f.url} target="_blank" rel="noopener noreferrer" className="text-[10px] leading-tight hover:underline" style={{ color: '#d4c4a8', fontFamily: "'Times New Roman', Times, serif" }}>
-                    {f.headline}
-                    <span className="text-[8px] ml-1 uppercase tracking-wider" style={{ color: '#7a6a5a' }}>
-                      {f.publishedAt ? new Date(f.publishedAt).toLocaleDateString() + ' ' : ''}({f.source})
-                    </span>
-                  </a>
-                ))}
-              </div>
+                <span className="text-[8px] ml-auto" style={{ color: '#7a6a5a' }}>{newsExpanded ? '▲' : '▼'} {uniqueFights.length}</span>
+              </button>
+              {newsExpanded && (
+                <div className="flex flex-wrap gap-x-4 gap-y-1">
+                  {uniqueFights.map((f, i) => (
+                    <a key={i} href={f.url} target="_blank" rel="noopener noreferrer" className="text-[10px] leading-tight hover:underline" style={{ color: '#d4c4a8', fontFamily: "'Times New Roman', Times, serif" }}>
+                      {f.headline}
+                      <span className="text-[8px] ml-1 uppercase tracking-wider" style={{ color: '#7a6a5a' }}>
+                        {f.publishedAt ? new Date(f.publishedAt).toLocaleDateString() + ' ' : ''}({f.source})
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
           )}
 

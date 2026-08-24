@@ -141,6 +141,8 @@ function parseParamLine(line: string): Map<string, string> {
   return params
 }
 
+const BLOCKED_IMAGES = /Med[\s_]*\d*\.png|Generic_belt_icon\.svg|Olympic[\s_]*rings\.svg|Boxbelt|Medal[\s_]|Ribbon[\s_]|File-icon|Shoulder_mark|Flag_of|Badge|Logo|Coat_of_arms|Icon/i
+
 function parseImageUrl(rawImage: string): string {
   if (!rawImage) return ''
   let cleaned = rawImage
@@ -158,6 +160,7 @@ function parseImageUrl(rawImage: string): string {
   // Reject if no recognizable or displayable image extension
   // Skip tif/tiff — browsers cannot render them
   if (!/\.(jpg|jpeg|png|gif|svg|webp)$/i.test(cleaned)) return ''
+  if (BLOCKED_IMAGES.test(cleaned)) return ''
   return `https://en.wikipedia.org/wiki/Special:FilePath/${encodeURIComponent(cleaned.replace(/ /g, '_'))}`
 }
 

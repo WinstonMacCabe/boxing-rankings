@@ -149,6 +149,7 @@ async function main() {
     .filter(f => f.imageUrl && (f.thirdaryScore ?? 0) > 0)
     .sort((a, b) =>
       (b.thirdaryScore ?? 0) - (a.thirdaryScore ?? 0) ||
+      a.losses - b.losses ||
       (b.kos ?? 0) - (a.kos ?? 0)
     )
   const thirdaryRanked: BoxerRecord[] = []
@@ -161,10 +162,10 @@ async function main() {
 
   const thirdEligibleWorst = allThirdary
     .filter(f => f.imageUrl && (f.thirdaryScore ?? 0) > 0 && !f.isSenior)
-    .sort((a, b) => (a.thirdaryScore ?? 0) - (b.thirdaryScore ?? 0) || (a.kos ?? 0) - (b.kos ?? 0))
+    .sort((a, b) => (a.thirdaryScore ?? 0) - (b.thirdaryScore ?? 0) || b.losses - a.losses || (a.kos ?? 0) - (b.kos ?? 0))
   const thirdSeniorsWorst = allThirdary
     .filter(f => f.imageUrl && (f.thirdaryScore ?? 0) > 0 && f.isSenior)
-    .sort((a, b) => (a.thirdaryScore ?? 0) - (b.thirdaryScore ?? 0) || (a.kos ?? 0) - (b.kos ?? 0))
+    .sort((a, b) => (a.thirdaryScore ?? 0) - (b.thirdaryScore ?? 0) || b.losses - a.losses || (a.kos ?? 0) - (b.kos ?? 0))
   const thirdaryWorstRanked = [...thirdEligibleWorst.slice(0, 50), ...thirdSeniorsWorst]
 
   await writeRankings(ranked, worstRanked, thirdaryRanked, thirdaryWorstRanked)
