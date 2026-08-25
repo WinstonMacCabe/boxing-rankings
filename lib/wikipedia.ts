@@ -607,6 +607,40 @@ export async function fetchBoxerRecords(titles: string[]): Promise<Map<string, B
       if (!results.has(title)) results.set(title, null)
     }
 
+    // Fallback: fetch pageimages for fighters with no imageUrl
+    const missingImage = batch.filter(t => {
+      const r = results.get(t)
+      return r && !r.imageUrl
+    })
+    if (missingImage.length > 0) {
+      try {
+        const imgParams = new URLSearchParams({
+          action: 'query',
+          prop: 'pageimages',
+          piprop: 'thumbnail',
+          pithumbsize: '300',
+          titles: missingImage.join('|'),
+          format: 'json',
+          origin: '*',
+        })
+        const imgRes = await fetch(`${API_URL}?${imgParams.toString()}`, {
+          headers: { 'User-Agent': USER_AGENT },
+        })
+        if (imgRes.ok) {
+          const imgData = await imgRes.json() as any
+          const imgPages = imgData?.query?.pages ?? {}
+          for (const [, p] of Object.entries(imgPages) as any[]) {
+            if (p.title && p.thumbnail?.source) {
+              const existing = results.get(p.title)
+              if (existing && !existing.imageUrl) {
+                results.set(p.title, { ...existing, imageUrl: p.thumbnail.source })
+              }
+            }
+          }
+        }
+      } catch { }
+    }
+
     await new Promise(r => setTimeout(r, 200))
   }
 
