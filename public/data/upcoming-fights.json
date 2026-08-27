@@ -1,6 +1,13 @@
 {
-  "lastUpdated": "2026-08-25T15:22:45.296Z",
+  "lastUpdated": "2026-08-27T06:48:54.588Z",
   "fights": [
+    {
+      "boxerName": "Paul Williams (boxer)",
+      "headline": "The Cheap Seats S06E19 1080p WEB-DL H264-7VFr33104D",
+      "url": "https://post.rlsbb.cc/the-cheap-seats-s06e19-1080p-web-dl-h264-7vfr33104d/",
+      "source": "Rlsbb.cc",
+      "publishedAt": "2026-08-25T15:09:13Z"
+    },
     {
       "boxerName": "Naoya Inoue",
       "headline": "Naoya Inoue Builds Toward Bam Rodriguez Fight",
@@ -952,20 +959,6 @@
       "url": "https://www.bbc.co.uk/sport/boxing/articles/cddj25lzg00o",
       "source": "BBC News",
       "publishedAt": "2026-07-28T14:36:54Z"
-    },
-    {
-      "boxerName": "Gervonta Davis",
-      "headline": "Dana White eyes Gervonta Davis signing after adding Shakur Stevenson",
-      "url": "https://www.sherdog.com/news/news/Dana-White-eyes-Gervonta-Davis-signing-after-adding-Shakur-Stevenson-202106",
-      "source": "Sherdog.com",
-      "publishedAt": "2026-07-28T05:58:32Z"
-    },
-    {
-      "boxerName": "Tommy Fury",
-      "headline": "Molly-Mae Hague and Tommy Fury look happier than ever in heart-warming family photos with daughter Bambi and newborn son Midas during Athens getaway",
-      "url": "https://www.dailymail.com/tvshowbiz/article-16006637/Molly-Mae-Hague-Tommy-Fury-look-happier-heart-warming-family-photos-daughter-Bambi-newborn-son-Midas-Athens-getaway.html",
-      "source": "Dailymail.com",
-      "publishedAt": "2026-07-26T22:42:42Z"
     }
   ]
 }
