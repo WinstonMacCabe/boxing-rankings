@@ -11,6 +11,10 @@ on:
         required: false
         default: 0
 
+concurrency:
+  group: rank-update
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
