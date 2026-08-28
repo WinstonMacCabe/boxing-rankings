@@ -1,6 +1,20 @@
 {
-  "lastUpdated": "2026-08-27T06:48:54.588Z",
+  "lastUpdated": "2026-08-28T02:16:52.891Z",
   "fights": [
+    {
+      "boxerName": "Terence Crawford",
+      "headline": "Zelensky cuddles adorable puppy given to him by former American boxer Terence Crawford",
+      "url": "https://nypost.com/2026/08/26/world-news/zelensky-cuddles-puppy-starting-new-volley-in-ukraines-war-of-visuals-against-russia/",
+      "source": "New York Post",
+      "publishedAt": "2026-08-27T01:22:05Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Katie Taylor Vs. Flora Pili Full Card, Date, Time And How To Watch",
+      "url": "https://www.forbes.com/sites/brianmazique/2026/08/26/katie-taylor-vs-flora-pili-full-card-date-time-and-how-to-watch/",
+      "source": "Forbes",
+      "publishedAt": "2026-08-26T09:09:37Z"
+    },
     {
       "boxerName": "Paul Williams (boxer)",
       "headline": "The Cheap Seats S06E19 1080p WEB-DL H264-7VFr33104D",
@@ -938,27 +952,6 @@
       "url": "https://mediatakeout.com/terence-crawford-warns-claressa-shields-to-stop-chasing-laila-ali/",
       "source": "Mediatakeout.com",
       "publishedAt": "2026-07-29T11:44:51Z"
-    },
-    {
-      "boxerName": "David Benavidez",
-      "headline": "David Benavidez Gets Easier Road To Undisputed Title",
-      "url": "https://www.boxingnews24.com/2026/07/david-benavidez-gets-easier-road-to-undisputed-title/",
-      "source": "Boxingnews24.com",
-      "publishedAt": "2026-07-29T01:31:04Z"
-    },
-    {
-      "boxerName": "Caroline Dubois (boxer)",
-      "headline": "‘Very disappointing’: Caroline Dubois hasn’t managed to land unification fight",
-      "url": "https://www.badlefthook.com/boxing-news/117585/caroline-dubois-hasnt-managed-to-land-unification-fight-boxing-news-2026",
-      "source": "Bad Left Hook",
-      "publishedAt": "2026-07-28T21:10:52Z"
-    },
-    {
-      "boxerName": "Caroline Dubois (boxer)",
-      "headline": "World champion Dubois splits with trainer McGuigan",
-      "url": "https://www.bbc.co.uk/sport/boxing/articles/cddj25lzg00o",
-      "source": "BBC News",
-      "publishedAt": "2026-07-28T14:36:54Z"
     }
   ]
 }
