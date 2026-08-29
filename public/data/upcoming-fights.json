@@ -1,6 +1,20 @@
 {
-  "lastUpdated": "2026-08-28T02:16:52.891Z",
+  "lastUpdated": "2026-08-29T00:13:11.266Z",
   "fights": [
+    {
+      "boxerName": "Dmitry Bivol",
+      "headline": "Dmitry Bivol to defend unified titles against Callum Smith; Sebastian Fundora, Jermall Charlo returns announced",
+      "url": "https://sports.yahoo.com/boxing/article/dmitry-bivol-to-defend-unified-titles-against-callum-smith-sebastian-fundora-jermall-charlo-returns-announced-185901611.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-08-27T18:59:01Z"
+    },
+    {
+      "boxerName": "Devin Haney",
+      "headline": "Teofimo Lopez dismisses WBA's Jack Catterall mandatory, rules out fighting Devin Haney for now",
+      "url": "https://sports.yahoo.com/boxing/article/teofimo-lopez-dismisses-wbas-jack-catterall-mandatory-rules-out-fighting-devin-haney-for-now-024747880.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-08-27T02:47:47Z"
+    },
     {
       "boxerName": "Terence Crawford",
       "headline": "Zelensky cuddles adorable puppy given to him by former American boxer Terence Crawford",
@@ -903,55 +917,6 @@
       "url": "https://www.cbsnews.com/news/boxer-canelo-alvarez-reflects-on-when-he-will-retire/",
       "source": "CBS News",
       "publishedAt": "2026-07-30T13:49:35Z"
-    },
-    {
-      "boxerName": "Vitali Klitschko",
-      "headline": "Russia is attacking kyiv with ballistic missiles, according to mayor vitali klitschko and the ukrainian air force",
-      "url": "https://cryptobriefing.com/russia-is-attacking-kyiv-with-ballistic-missiles-according-to-mayor-vitali/",
-      "source": "Crypto Briefing",
-      "publishedAt": "2026-07-29T23:10:56Z"
-    },
-    {
-      "boxerName": "Vitali Klitschko",
-      "headline": "Kyiv under missile attack after Zelensky's warning",
-      "url": "https://biztoc.com/x/fb54641fc8c9759f",
-      "source": "Biztoc.com",
-      "publishedAt": "2026-07-29T23:01:43Z"
-    },
-    {
-      "boxerName": "Vitali Klitschko",
-      "headline": "Explosions heard in Kyiv following Russian missile attack",
-      "url": "https://www.israelnationalnews.com/flashes/690826",
-      "source": "Israelnationalnews.com",
-      "publishedAt": "2026-07-29T22:54:40Z"
-    },
-    {
-      "boxerName": "Vitali Klitschko",
-      "headline": "Russia attacking Kyiv with ballistic missiles, mayor says | CNN",
-      "url": "https://www.cnn.com/2026/07/29/europe/ukraine-kyiv-missile-attack-latam-intl",
-      "source": "CNN",
-      "publishedAt": "2026-07-29T22:52:12Z"
-    },
-    {
-      "boxerName": "Claressa Shields",
-      "headline": "Claressa Shields blasts Jake Paul over MVP ban: 'I can go to any boxing event I want to go to'",
-      "url": "https://sports.yahoo.com/boxing/article/claressa-shields-blasts-jake-paul-over-mvp-ban-i-can-go-to-any-boxing-event-i-want-to-go-to-165631547.html",
-      "source": "Yahoo Entertainment",
-      "publishedAt": "2026-07-29T16:56:31Z"
-    },
-    {
-      "boxerName": "Devin Haney",
-      "headline": "Gary Russell Jr Claims Shakur Passed On Antuanne Fight",
-      "url": "https://www.boxingnews24.com/2026/07/gary-russell-jr-claims-shakur-passed-on-antuanne-fight/",
-      "source": "Boxingnews24.com",
-      "publishedAt": "2026-07-29T15:21:25Z"
-    },
-    {
-      "boxerName": "Terence Crawford",
-      "headline": "Terence Crawford Warns Claressa Shields to Stop Chasing Laila Ali",
-      "url": "https://mediatakeout.com/terence-crawford-warns-claressa-shields-to-stop-chasing-laila-ali/",
-      "source": "Mediatakeout.com",
-      "publishedAt": "2026-07-29T11:44:51Z"
     }
   ]
 }
