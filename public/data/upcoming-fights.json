@@ -1,12 +1,33 @@
 {
-  "lastUpdated": "2026-08-29T00:13:11.266Z",
+  "lastUpdated": "2026-08-30T00:12:39.701Z",
   "fights": [
+    {
+      "boxerName": "Filip Hrgović",
+      "headline": "Itauma battles Hrgović for IBF heavyweight title",
+      "url": "https://punchng.com/itauma-battles-hrgovic-for-ibf-heavyweight-title/",
+      "source": "The Punch",
+      "publishedAt": "2026-08-28T23:11:17Z"
+    },
+    {
+      "boxerName": "Terence Crawford",
+      "headline": "TERRILL GETS SHORT-NOTICE TITLE SHOT AGAINST BKB HEAVYWEIGHT WORLD CHAMPION TRUJILLO AT BKB 58: MIAMI",
+      "url": "https://sports.yahoo.com/articles/terrill-gets-short-notice-title-020005076.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-08-28T02:00:05Z"
+    },
     {
       "boxerName": "Dmitry Bivol",
       "headline": "Dmitry Bivol to defend unified titles against Callum Smith; Sebastian Fundora, Jermall Charlo returns announced",
       "url": "https://sports.yahoo.com/boxing/article/dmitry-bivol-to-defend-unified-titles-against-callum-smith-sebastian-fundora-jermall-charlo-returns-announced-185901611.html",
       "source": "Yahoo Entertainment",
       "publishedAt": "2026-08-27T18:59:01Z"
+    },
+    {
+      "boxerName": "Filip Hrgović",
+      "headline": "Moses Itauma vs. Filip Hrgović press conference quotes and fight prediction",
+      "url": "https://sports.yahoo.com/articles/moses-itauma-vs-filip-hrgovi-182648080.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-08-27T18:26:48Z"
     },
     {
       "boxerName": "Devin Haney",
@@ -590,6 +611,13 @@
       "publishedAt": "2026-08-08T17:30:45Z"
     },
     {
+      "boxerName": "Agit Kabayel",
+      "headline": "Moses Itauma Names Kabayel Before Passing Hrgovic Test",
+      "url": "https://www.boxingnews24.com/2026/08/moses-itauma-names-kabayel-before-passing-hrgovic-test/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-08-08T16:47:23Z"
+    },
+    {
       "boxerName": "Devin Haney",
       "headline": "‘Devin is scared of me’: Rolly Romero says Haney fight will never happen",
       "url": "https://www.badlefthook.com/boxing-news/117783/rolly-romero-says-devi-haney-fight-will-never-happen",
@@ -882,41 +910,6 @@
       "url": "https://www.forbes.com/sites/brianmazique/2026/07/30/claressa-shields-vs-kaye-scott-full-card-date-location-and-viewing-info/",
       "source": "Forbes",
       "publishedAt": "2026-07-31T02:11:41Z"
-    },
-    {
-      "boxerName": "Shakur Stevenson",
-      "headline": "Jose ‘Rayo’ Valenzuela Believes Nobody Wants Him",
-      "url": "https://www.boxingnews24.com/2026/07/jose-valenzuela-believes-nobody-wants-him/",
-      "source": "Boxingnews24.com",
-      "publishedAt": "2026-07-31T00:05:19Z"
-    },
-    {
-      "boxerName": "Devin Haney",
-      "headline": "Devin Haney vs. Keyshawn Davis to be promoted by Top Rank after Teofimo Lopez's promotion loses purse bid",
-      "url": "https://sports.yahoo.com/boxing/article/devin-haney-vs-keyshawn-davis-to-be-promoted-by-top-rank-after-teofimo-lopezs-promotion-loses-purse-bid-165222573.html",
-      "source": "Yahoo Entertainment",
-      "publishedAt": "2026-07-30T16:52:22Z"
-    },
-    {
-      "boxerName": "Devin Haney",
-      "headline": "Top Rank wins Haney vs Davis purse bid, targets October 3",
-      "url": "https://www.badlefthook.com/boxing-news/117601/top-rank-wins-devin-haney-vs-keyshawn-davis-purse-bid-targets-october-3rd",
-      "source": "Bad Left Hook",
-      "publishedAt": "2026-07-30T16:05:42Z"
-    },
-    {
-      "boxerName": "Floyd Mayweather Jr.",
-      "headline": "Mayweather Needn’t Reveal Records in Tyson, Pacquiao Case",
-      "url": "https://www.sportico.com/law/analysis/2026/floyd-mayweather-tyson-pacquiao-fights-financial-records-1234940477/",
-      "source": "Sportico.com",
-      "publishedAt": "2026-07-30T15:00:00Z"
-    },
-    {
-      "boxerName": "Canelo Álvarez",
-      "headline": "Canelo Álvarez says there's \"not much left\" for him to do in boxing",
-      "url": "https://www.cbsnews.com/news/boxer-canelo-alvarez-reflects-on-when-he-will-retire/",
-      "source": "CBS News",
-      "publishedAt": "2026-07-30T13:49:35Z"
     }
   ]
 }
