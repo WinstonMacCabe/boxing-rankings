@@ -1,12 +1,33 @@
 {
-  "lastUpdated": "2026-08-30T00:12:39.701Z",
+  "lastUpdated": "2026-08-31T00:31:24.580Z",
   "fights": [
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "'She was one of the lads' - Memories of Katie Taylor",
+      "url": "https://www.rte.ie/sport/boxing/2026/0829/1589680-she-was-one-of-the-lads-memories-of-katie-taylor/",
+      "source": "RTE",
+      "publishedAt": "2026-08-29T16:22:55Z"
+    },
+    {
+      "boxerName": "Naoya Inoue",
+      "headline": "【愕然】井上尚弥さんの金の使い方、逆にすごい･････(※画像あり)",
+      "url": "http://world-fusigi.net/archives/11103499.html",
+      "source": "World-fusigi.net",
+      "publishedAt": "2026-08-29T06:35:07Z"
+    },
     {
       "boxerName": "Filip Hrgović",
       "headline": "Itauma battles Hrgović for IBF heavyweight title",
       "url": "https://punchng.com/itauma-battles-hrgovic-for-ibf-heavyweight-title/",
       "source": "The Punch",
       "publishedAt": "2026-08-28T23:11:17Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Profitable Croke Park Taylor made for entertaining masses",
+      "url": "https://www.rte.ie/sport/boxing/2026/0828/1589611-profitable-croke-park-taylor-made-for-entertaining-masses/",
+      "source": "RTE",
+      "publishedAt": "2026-08-28T15:07:51Z"
     },
     {
       "boxerName": "Terence Crawford",
@@ -861,55 +882,6 @@
       "url": "https://www.dw.com/en/ukraine-russia-hits-kyiv-with-deadly-missile-strikes/a-78198568",
       "source": "DW (English)",
       "publishedAt": "2026-08-01T00:53:00Z"
-    },
-    {
-      "boxerName": "Vitali Klitschko",
-      "headline": "Blasts rock Kyiv during another ballistic attack",
-      "url": "https://biztoc.com/x/e77ed8c51ef522b7",
-      "source": "Biztoc.com",
-      "publishedAt": "2026-07-31T23:52:56Z"
-    },
-    {
-      "boxerName": "Terence Crawford",
-      "headline": "Terence Crawford Sees Trouble For Lamont Roach Against Zepeda",
-      "url": "https://www.boxingnews24.com/2026/07/terence-crawford-sees-trouble-for-lamont-roach-against-zepeda/",
-      "source": "Boxingnews24.com",
-      "publishedAt": "2026-07-31T22:22:54Z"
-    },
-    {
-      "boxerName": "Shakur Stevenson",
-      "headline": "Montirex Goes Behind the Grind",
-      "url": "https://www.highsnobiety.com/p/montirex-for-the-moments/",
-      "source": "Highsnobiety",
-      "publishedAt": "2026-07-31T14:18:05Z"
-    },
-    {
-      "boxerName": "Claressa Shields",
-      "headline": "Claressa Shields Shuts Down Claims She’s Dating “Remy Ma’s Husband”",
-      "url": "https://mediatakeout.com/claressa-shields-shuts-down-claims-shes-dating-remy-mas-husband/",
-      "source": "Mediatakeout.com",
-      "publishedAt": "2026-07-31T10:18:00Z"
-    },
-    {
-      "boxerName": "Terence Crawford",
-      "headline": "Stephen Espinoza Says Terence Crawford Never Ducked Jaron Ennis",
-      "url": "https://www.boxingnews24.com/2026/07/stephen-espinoza-says-terence-crawford-never-ducked-jaron-ennis/",
-      "source": "Boxingnews24.com",
-      "publishedAt": "2026-07-31T06:20:00Z"
-    },
-    {
-      "boxerName": "Devin Haney",
-      "headline": "Dan Rafael: Keyshawn Davis Team Misread Haney Purse Bid",
-      "url": "https://www.boxingnews24.com/2026/07/dan-rafael-keyshawn-davis-team-misread-haney-purse-bid/",
-      "source": "Boxingnews24.com",
-      "publishedAt": "2026-07-31T03:04:11Z"
-    },
-    {
-      "boxerName": "Claressa Shields",
-      "headline": "Claressa Shields Vs. Kaye Scott Full Card: Date, Location And Viewing Info",
-      "url": "https://www.forbes.com/sites/brianmazique/2026/07/30/claressa-shields-vs-kaye-scott-full-card-date-location-and-viewing-info/",
-      "source": "Forbes",
-      "publishedAt": "2026-07-31T02:11:41Z"
     }
   ]
 }
