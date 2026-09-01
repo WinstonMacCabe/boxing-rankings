@@ -2,12 +2,10 @@ import { getAllBoxerPages } from '../lib/categories'
 import { fetchBoxerRecords } from '../lib/wikipedia'
 import type { BoxerStats } from '../lib/wikipedia'
 import { readRankings, writeRankings } from '../lib/storage'
-import type { BoxerRecord, Gender, WbaChampion } from '../lib/types'
-import { fetchWbaChampions } from '../lib/wba'
+import type { BoxerRecord } from '../lib/types'
 
 const BATCH_SIZE = 50
 const BATCH_DELAY = 100
-const MIN_LOSSES_FOR_WORST = 10
 
 function delay(ms: number): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, ms))
@@ -27,20 +25,11 @@ async function main() {
     return
   }
 
-  // Read previous rankings for rank-change tracking
+  // Read previous rankings for frozen (archived + WBA champions) lists
   const previous = await readRankings()
-  const prevBestRank = new Map<string, number>()
-  const prevWorstRank = new Map<string, number>()
-  previous.fighters
-    .filter(f => f.imageUrl)
-    .forEach((f, i) => prevBestRank.set(f.name, i + 1))
-  ;(previous.worst ?? [])
-    .forEach((f, i) => prevWorstRank.set(f.name, i + 1))
 
   console.log(`\nStep 2: Fetching records for all ${pageMap.size} boxers...`)
 
-  const undefeated: BoxerRecord[] = []
-  const winless: BoxerRecord[] = []
   const allRecords = new Map<string, BoxerStats>()
   let processed = 0
   const total = pageNames.length
@@ -59,55 +48,10 @@ async function main() {
       if (record.total === null || record.wins === null) continue
 
       allRecords.set(name, record)
-
-      // Best: undefeated, >= 10 wins
-      if (record.losses === 0 && record.wins >= 10) {
-        undefeated.push({
-          name,
-          total: record.total,
-          wins: record.wins,
-          kos: record.kos ?? 0,
-          losses: record.losses,
-          draws: record.draws,
-          nationality: record.nationality,
-          weightClass: record.weightClass || undefined,
-          imageUrl: record.imageUrl || undefined,
-          gender: pageMap.get(name),
-          wikipediaUrl: `https://en.wikipedia.org/wiki/${encodeURIComponent(name.replace(/ /g, '_'))}`,
-          lastUpdated: new Date().toISOString(),
-        })
-      }
-
-      // Worst: winless, >= threshold losses
-      if (record.wins === 0 && record.losses >= MIN_LOSSES_FOR_WORST) {
-        winless.push({
-          name,
-          total: record.total,
-          wins: record.wins,
-          kos: record.kos ?? 0,
-          losses: record.losses,
-          draws: record.draws,
-          nationality: record.nationality,
-          weightClass: record.weightClass || undefined,
-          imageUrl: record.imageUrl || undefined,
-          gender: pageMap.get(name),
-          wikipediaUrl: `https://en.wikipedia.org/wiki/${encodeURIComponent(name.replace(/ /g, '_'))}`,
-          lastUpdated: new Date().toISOString(),
-        })
-      }
     }
 
     await delay(BATCH_DELAY)
   }
-
-  const ranked = undefeated
-    .filter(f => f.imageUrl)
-    .sort((a, b) => b.wins - a.wins || a.draws - b.draws || b.kos - a.kos || a.name.localeCompare(b.name))
-    .map((f, i) => ({ ...f, previousRank: prevBestRank.get(f.name) || undefined }))
-
-  const worstRanked = winless
-    .sort((a, b) => b.losses - a.losses || a.draws - b.draws || a.name.localeCompare(b.name))
-    .map((f, i) => ({ ...f, previousRank: prevWorstRank.get(f.name) || undefined }))
 
   const now = new Date()
 
@@ -180,27 +124,17 @@ async function main() {
     .sort((a, b) => (a.thirdaryScore ?? 0) - (b.thirdaryScore ?? 0) || b.losses - a.losses || (a.kos ?? 0) - (b.kos ?? 0))
   const thirdaryWorstRanked = [...thirdEligibleWorst.slice(0, 50), ...thirdSeniorsWorst]
 
-  await writeRankings(ranked, worstRanked, thirdaryRanked, thirdaryWorstRanked)
+  // Archived rankings (best + worst) are frozen — preserved from previous run
+  const archivedBest = previous.fighters
+  const archivedWorst = previous.worst ?? []
+  // WBA champions view is static — preserved from previous run
+  const wbaChampions = previous.wbaChampions ?? []
 
-  let wbaChampions: WbaChampion[] = []
-  try {
-    wbaChampions = await fetchWbaChampions()
-    console.log(`\nFetched ${wbaChampions.length} WBA champions.`)
-  } catch (err) {
-    console.warn('Failed to fetch WBA champions:', err)
-  }
-  wbaChampions = wbaChampions.length > 0 ? wbaChampions : (previous.wbaChampions ?? [])
-  await writeRankings(ranked, worstRanked, thirdaryRanked, thirdaryWorstRanked, wbaChampions)
+  await writeRankings(archivedBest, archivedWorst, thirdaryRanked, thirdaryWorstRanked, wbaChampions)
 
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(1)
-  console.log(`\nDone! ${ranked.length} undefeated, ${worstRanked.length} winless, ${thirdaryRanked.length} thirdary, ${thirdaryWorstRanked.length} thirdary worst boxers ranked.`)
+  console.log(`\nDone! ${archivedBest.length} archived best, ${archivedWorst.length} archived worst, ${thirdaryRanked.length} thirdary, ${thirdaryWorstRanked.length} thirdary worst boxers ranked.`)
   console.log(`Total time: ${elapsed}s`)
-  if (ranked.length > 0) {
-    console.log(`Top 10 best: ${ranked.slice(0, 10).map(f => `${f.name} (${f.wins}-${f.losses}-${f.draws})`).join(', ')}`)
-  }
-  if (worstRanked.length > 0) {
-    console.log(`Top 10 worst: ${worstRanked.slice(0, 10).map(f => `${f.name} (${f.wins}-${f.losses}-${f.draws})`).join(', ')}`)
-  }
   if (thirdaryRanked.length > 0) {
     console.log(`Top 10 thirdary: ${thirdaryRanked.slice(0, 10).map(f => `${f.name} (${f.wins}-${f.losses}-${f.draws}) [${(f.thirdaryScore ?? 0).toFixed(2)}]`).join(', ')}`)
   }
