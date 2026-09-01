@@ -2,7 +2,8 @@ import { getAllBoxerPages } from '../lib/categories'
 import { fetchBoxerRecords } from '../lib/wikipedia'
 import type { BoxerStats } from '../lib/wikipedia'
 import { readRankings, writeRankings } from '../lib/storage'
-import type { BoxerRecord, Gender } from '../lib/types'
+import type { BoxerRecord, Gender, WbaChampion } from '../lib/types'
+import { fetchWbaChampions } from '../lib/wba'
 
 const BATCH_SIZE = 50
 const BATCH_DELAY = 100
@@ -180,6 +181,16 @@ async function main() {
   const thirdaryWorstRanked = [...thirdEligibleWorst.slice(0, 50), ...thirdSeniorsWorst]
 
   await writeRankings(ranked, worstRanked, thirdaryRanked, thirdaryWorstRanked)
+
+  let wbaChampions: WbaChampion[] = []
+  try {
+    wbaChampions = await fetchWbaChampions()
+    console.log(`\nFetched ${wbaChampions.length} WBA champions.`)
+  } catch (err) {
+    console.warn('Failed to fetch WBA champions:', err)
+  }
+  wbaChampions = wbaChampions.length > 0 ? wbaChampions : (previous.wbaChampions ?? [])
+  await writeRankings(ranked, worstRanked, thirdaryRanked, thirdaryWorstRanked, wbaChampions)
 
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(1)
   console.log(`\nDone! ${ranked.length} undefeated, ${worstRanked.length} winless, ${thirdaryRanked.length} thirdary, ${thirdaryWorstRanked.length} thirdary worst boxers ranked.`)

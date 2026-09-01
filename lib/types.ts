@@ -25,6 +25,21 @@ export interface RankingsData {
   worst?: BoxerRecord[]
   thirdary?: BoxerRecord[]
   thirdaryWorst?: BoxerRecord[]
+  wbaChampions?: WbaChampion[]
+}
+
+export interface WbaChampion {
+  name: string
+  weightClass: string
+  status?: string
+  lineage: string
+  reignStart: string
+  reignEnd?: string
+  reigning: boolean
+  reignDays: number
+  reignLabel: string
+  defenses: number
+  wikipediaUrl: string
 }
 
 export interface WikipediaInfobox {

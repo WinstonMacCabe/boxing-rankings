@@ -1,6 +1,6 @@
 import * as fs from 'fs/promises'
 import * as path from 'path'
-import type { RankingsData, BoxerRecord, UpcomingFightsData } from './types'
+import type { RankingsData, BoxerRecord, UpcomingFightsData, WbaChampion } from './types'
 
 const DATA_DIR = path.join(process.cwd(), 'public', 'data')
 const DATA_FILE = path.join(DATA_DIR, 'rankings.json')
@@ -15,7 +15,7 @@ export async function readRankings(): Promise<RankingsData> {
   }
 }
 
-export async function writeRankings(fighters: BoxerRecord[], worst: BoxerRecord[] = [], thirdary: BoxerRecord[] = [], thirdaryWorst: BoxerRecord[] = []): Promise<void> {
+export async function writeRankings(fighters: BoxerRecord[], worst: BoxerRecord[] = [], thirdary: BoxerRecord[] = [], thirdaryWorst: BoxerRecord[] = [], wbaChampions: WbaChampion[] = []): Promise<void> {
   await fs.mkdir(DATA_DIR, { recursive: true })
   const data: RankingsData = {
     lastUpdated: new Date().toISOString(),
@@ -23,6 +23,7 @@ export async function writeRankings(fighters: BoxerRecord[], worst: BoxerRecord[
     worst: worst.length > 0 ? worst : undefined,
     thirdary: thirdary.length > 0 ? thirdary : undefined,
     thirdaryWorst: thirdaryWorst.length > 0 ? thirdaryWorst : undefined,
+    wbaChampions: wbaChampions.length > 0 ? wbaChampions : undefined,
   }
   await fs.writeFile(DATA_FILE, JSON.stringify(data, null, 2), 'utf-8')
 }

@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState, useRef } from 'react'
-import type { RankingsData, BoxerRecord, Gender, UpcomingFightsData } from '@/lib/types'
+import type { RankingsData, BoxerRecord, Gender, UpcomingFightsData, WbaChampion } from '@/lib/types'
 import { getCountryFlag } from '@/lib/flags'
 
 const WEIGHT_ORDER: Record<string, number> = {
@@ -222,6 +222,130 @@ function FighterCard({ fighter, rank, isWorst, isBest }: { fighter: BoxerRecord;
   )
 }
 
+function formatReign(days: number): string {
+  const years = Math.floor(days / 365)
+  const months = Math.floor((days % 365) / 30)
+  const rem = days % 30
+  if (years > 0) return `${years} yr${years > 1 ? 's' : ''}${months > 0 ? ` ${months} mo` : ''}`
+  if (months > 0) return `${months} mo${months > 1 ? 's' : ''}${rem > 0 ? ` ${rem} d` : ''}`
+  return `${days} d`
+}
+
+function ChampionCard({ champion, rank }: { champion: WbaChampion; rank: number }) {
+  const cardRef = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const el = cardRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true)
+          observer.unobserve(el)
+        }
+      },
+      { threshold: 0.05, rootMargin: '0px 0px -60px 0px' }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  const isSecondary = champion.lineage.startsWith('Secondary')
+
+  return (
+      <div
+        ref={cardRef}
+        className={`
+          h-full
+          transition-all duration-700 ease-out
+          ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
+        `}
+        style={{ transitionDelay: `${Math.min(rank * 20, 200)}ms` }}
+      >
+      <div
+        className="relative cursor-pointer hover:scale-[1.02] transition-transform duration-500 h-full flex flex-col"
+        style={{
+          background: '#ddd0b8',
+          border: isSecondary ? '1px dashed #b8a890' : '1px solid #b8a890',
+          boxShadow: '0 3px 12px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.06)',
+        }}
+        onClick={() => window.open(champion.wikipediaUrl, '_blank')}
+      >
+        {isSecondary && (
+          <div className="absolute top-2 right-2 z-20 px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-[0.12em]" style={{ background: 'rgba(26,21,16,0.85)', color: '#ddd0b8', fontFamily: "'Times New Roman', serif" }}>
+            Secondary
+          </div>
+        )}
+        {champion.reigning && (
+          <div className="absolute top-2 left-2 z-20 px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-[0.12em]" style={{ background: 'rgba(42,122,42,0.9)', color: '#fff' }}>
+            Reigning
+          </div>
+        )}
+
+        {/* Noise texture */}
+        <div className="absolute inset-0 pointer-events-none z-10" style={{
+          backgroundImage: `url('${NOISE}')`,
+          backgroundRepeat: 'repeat',
+          mixBlendMode: 'multiply',
+        }} />
+
+        {/* Vignette */}
+        <div className="absolute inset-0 pointer-events-none z-10" style={{
+          background: 'radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.06) 100%)',
+        }} />
+
+        {/* Reign duration hero */}
+        <div className="flex flex-col items-center justify-center pt-5 pb-3" style={{ background: '#1a1510' }}>
+          <span className="font-bold font-mono tracking-tight leading-none" style={{ fontSize: '2rem', color: '#ddd0b8' }}>
+            {formatReign(champion.reignDays)}
+          </span>
+          <span className="mt-1.5" style={{ fontSize: '0.75rem', color: '#5a4a3a', fontFamily: "'Times New Roman', serif" }}>
+            {champion.reignLabel}
+          </span>
+        </div>
+
+        {/* Rank - just below hero */}
+        <div className="pt-3 pb-1 text-center">
+          <span className="font-bold font-mono tracking-tight leading-none" style={{ fontSize: '1.25rem', color: '#1a0f0a' }}>
+            {rank === 1 ? '#1' : rank === 2 ? '#2' : rank === 3 ? '#3' : `#${rank}`}
+          </span>
+          <span className="ml-2 text-xs font-bold uppercase tracking-[0.1em]" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', serif" }}>
+            Longest Reign
+          </span>
+        </div>
+
+        {/* Info section */}
+        <div className="px-5 pb-4 pt-2 text-center flex-1 flex flex-col justify-between">
+          <div className="space-y-1.5">
+            <h2 className="text-sm font-bold uppercase tracking-[0.04em] leading-tight" style={{ color: '#2a1f15', fontFamily: "'Times New Roman', Times, serif" }}>
+              {champion.name}
+            </h2>
+
+            {champion.status && (
+              <p className="text-[10px] uppercase tracking-[0.1em] font-bold" style={{ color: '#6a4a2a', fontFamily: "'Times New Roman', Times, serif" }}>
+                {champion.status}
+              </p>
+            )}
+
+            <div className="flex items-center justify-center gap-4 font-mono" style={{ color: '#5a4a3a' }}>
+              <span className="flex flex-col items-center">
+                <span className="text-base font-bold leading-none tracking-[0.05em]" style={{ color: '#3a2a1a' }}>{champion.weightClass}</span>
+                <span className="text-[10px] uppercase tracking-[0.08em] mt-0.5" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', Times, serif" }}>{champion.lineage}</span>
+              </span>
+              <span className="text-lg leading-none" style={{ color: '#c4b49a' }}>|</span>
+              <span className="flex flex-col items-center">
+                <span className="text-base font-bold leading-none" style={{ color: '#3a2a1a' }}>{champion.defenses}</span>
+                <span className="text-[10px] uppercase tracking-[0.08em] mt-0.5" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', Times, serif" }}>DEFENSES</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function Home() {
   const [data, setData] = useState<RankingsData | null>(null)
   const [upcomingFights, setUpcomingFights] = useState<UpcomingFightsData | null>(null)
@@ -231,7 +355,7 @@ export default function Home() {
   const [sortBy, setSortBy] = useState<'wins' | 'kos' | 'weight'>('wins')
   const [weightFilter, setWeightFilter] = useState<string | null>(null)
   const [genderFilter, setGenderFilter] = useState<'all' | Gender>('all')
-  const [viewMode, setViewMode] = useState<'best' | 'worst' | 'archivedBest' | 'archivedWorst'>('best')
+  const [viewMode, setViewMode] = useState<'best' | 'worst' | 'archivedBest' | 'archivedWorst' | 'champions'>('best')
   const [headerBlur, setHeaderBlur] = useState(false)
   const [newsExpanded, setNewsExpanded] = useState(false)
 
@@ -268,11 +392,13 @@ export default function Home() {
   }
 
   const isArchived = viewMode === 'archivedBest' || viewMode === 'archivedWorst'
+  const isChampions = viewMode === 'champions'
 
   function switchView(mode: typeof viewMode) {
     setViewMode(mode)
     setSortBy('wins')
     setWeightFilter(null)
+    setGenderFilter('all')
   }
 
   const source = viewMode === 'best' ? (data?.thirdary ?? []) : viewMode === 'worst' ? (data?.thirdaryWorst ?? []) : viewMode === 'archivedBest' ? (data?.fighters ?? []) : (data?.worst ?? [])
@@ -294,6 +420,8 @@ export default function Home() {
       if (sortBy === 'kos') return b.kos - a.kos || b.wins - a.wins
       return b.wins - a.wins || a.draws - b.draws || b.kos - a.kos || a.name.localeCompare(b.name)
     })
+  const filteredChampions = (data?.wbaChampions ?? [])
+    .filter(c => c.name.toLowerCase().includes(search.toLowerCase()))
 
   if (loading) {
     return (
@@ -381,10 +509,10 @@ export default function Home() {
             </div>
           )}
 
-          {/* Main tabs: Best + Worst */}
+          {/* Main tabs: Best + Worst + Champions */}
           <div className="mb-4 flex gap-2 flex-wrap items-center">
             <span className="w-px h-7 mx-1" style={{ background: '#3a2a1a' }} />
-            {(['best', 'worst'] as const).map(m => (
+            {(['best', 'worst', 'champions'] as const).map(m => (
               <button
                 key={m}
                 onClick={() => switchView(m)}
@@ -396,7 +524,7 @@ export default function Home() {
                   border: `1px solid ${viewMode === m ? '#5a4a3a' : '#3a2a1a'}`,
                 }}
               >
-                {m === 'best' ? 'Best' : 'Worst'}
+                {m === 'best' ? 'Best' : m === 'worst' ? 'Worst' : 'Champions'}
               </button>
             ))}
 
@@ -462,7 +590,7 @@ export default function Home() {
             )}
 
             {/* Gender filter */}
-            {(['all', 'male', 'female'] as const).map(g => (
+            {!isChampions && (['all', 'male', 'female'] as const).map(g => (
               <button
                 key={g}
                 onClick={() => setGenderFilter(g)}
@@ -480,7 +608,7 @@ export default function Home() {
           </div>
 
           {/* Weight class sub-filter row */}
-          {sortBy === 'weight' && availableWeightClasses.length > 0 && (
+          {!isChampions && sortBy === 'weight' && availableWeightClasses.length > 0 && (
             <div className="mb-4 flex gap-1.5 flex-wrap items-center">
               <span className="w-px h-6 mx-1" style={{ background: '#3a2a1a' }} />
               <button
@@ -513,18 +641,41 @@ export default function Home() {
             </div>
           )}
 
-          <div className="grid gap-4 items-stretch" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))' }}>
-            {filtered.map((fighter, i) => (
-              <FighterCard key={fighter.name} fighter={fighter} rank={i + 1} isWorst={viewMode === 'worst' || viewMode === 'archivedWorst'} isBest={viewMode === 'best' || viewMode === 'archivedBest'} />
-            ))}
-          </div>
-
-          {filtered.length === 0 && (
-            <div className="text-center py-16">
-              <p className="text-xs tracking-widest uppercase" style={{ color: '#5a4a3a', fontFamily: "'Times New Roman', serif" }}>
-                No fighters match your search.
-              </p>
-            </div>
+          {isChampions ? (
+            <>
+              <div className="mb-4 p-3 border" style={{ background: 'rgba(26,21,16,0.5)', borderColor: '#3a2a1a' }}>
+                <p className="text-[9px] tracking-[0.2em] uppercase" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', serif" }}>
+                  WBA World Champions &middot; all weight classes &middot; ranked by longest reign
+                </p>
+              </div>
+              <div className="grid gap-4 items-stretch" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))' }}>
+                {filteredChampions.map((champion, i) => (
+                  <ChampionCard key={champion.name + champion.reignStart} champion={champion} rank={i + 1} />
+                ))}
+              </div>
+              {filteredChampions.length === 0 && (
+                <div className="text-center py-16">
+                  <p className="text-xs tracking-widest uppercase" style={{ color: '#5a4a3a', fontFamily: "'Times New Roman', serif" }}>
+                    No champions match your search.
+                  </p>
+                </div>
+              )}
+            </>
+          ) : (
+            <>
+              <div className="grid gap-4 items-stretch" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))' }}>
+                {filtered.map((fighter, i) => (
+                  <FighterCard key={fighter.name} fighter={fighter} rank={i + 1} isWorst={viewMode === 'worst' || viewMode === 'archivedWorst'} isBest={viewMode === 'best' || viewMode === 'archivedBest'} />
+                ))}
+              </div>
+              {filtered.length === 0 && (
+                <div className="text-center py-16">
+                  <p className="text-xs tracking-widest uppercase" style={{ color: '#5a4a3a', fontFamily: "'Times New Roman', serif" }}>
+                    No fighters match your search.
+                  </p>
+                </div>
+              )}
+            </>
           )}
 
           <footer className="mt-10 text-center">
