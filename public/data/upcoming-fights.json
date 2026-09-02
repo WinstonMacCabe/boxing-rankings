@@ -1,6 +1,69 @@
 {
-  "lastUpdated": "2026-09-01T00:30:17.442Z",
+  "lastUpdated": "2026-09-02T00:31:35.239Z",
   "fights": [
+    {
+      "boxerName": "Floyd Mayweather Jr.",
+      "headline": "Floyd Mayweather Jr. brings fighting spirit to legal arena",
+      "url": "https://www.abajournal.com/news/article/floyd-mayweather-jr-brings-his-fighting-spirit-to-the-legal-arena",
+      "source": "Abajournal.com",
+      "publishedAt": "2026-08-31T16:47:00Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Team Ireland Euro squad taking inspiration from Taylor",
+      "url": "https://www.rte.ie/sport/boxing/2026/0831/1589855-team-ireland-euro-squad-taking-inspiration-from-taylor/",
+      "source": "RTE",
+      "publishedAt": "2026-08-31T15:33:08Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Katie Taylor v Flora Pili: Ringwalk time, TV details, ticket news",
+      "url": "https://www.irishtimes.com/sport/boxing/2026/08/31/katie-taylor-v-flora-pili-ringwalk-time-tv-details-ticket-news/",
+      "source": "The Irish Times",
+      "publishedAt": "2026-08-31T14:38:34Z"
+    },
+    {
+      "boxerName": "Mike Lee (boxer)",
+      "headline": "The End EPA Abuse Act targets regulatory overreach and the climate hysteria baked into onerous regulations",
+      "url": "https://www.activistpost.com/the-end-epa-abuse-act-targets-regulatory-overreach-and-the-climate-hysteria-baked-into-onerous-regulations/",
+      "source": "Activistpost.com",
+      "publishedAt": "2026-08-31T13:00:00Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "‘Inspiring a generation’: Barry Keoghan narrates Katie Taylor’s journey in countdown to big fight",
+      "url": "https://www.thejournal.ie/barry-keoghan-narrates-katie-taylors-journey-in-countdown-to-big-fight-7147329-Aug2026/",
+      "source": "TheJournal.ie",
+      "publishedAt": "2026-08-31T10:24:13Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Taylor v Pili - all you need to know",
+      "url": "https://www.bbc.com/sport/boxing/articles/c2kwjxweqpno?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
+      "source": "BBC News",
+      "publishedAt": "2026-08-31T07:04:52Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Taylor v Pili - all you need to know",
+      "url": "https://www.bbc.co.uk/sport/boxing/articles/c2kwjxweqpno",
+      "source": "BBC News",
+      "publishedAt": "2026-08-31T07:03:41Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Ali 'The Greatest' but Maguire the latest to win in Croke Park",
+      "url": "https://www.bbc.com/sport/boxing/articles/cj4k4kx7rk5o?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
+      "source": "BBC News",
+      "publishedAt": "2026-08-31T07:00:52Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Ali 'The Greatest' but Maguire the latest to win in Croke Park",
+      "url": "https://www.bbc.co.uk/sport/boxing/articles/cj4k4kx7rk5o",
+      "source": "BBC News",
+      "publishedAt": "2026-08-31T07:00:47Z"
+    },
     {
       "boxerName": "Katie Taylor",
       "headline": "Must-watch: This emotional promo for Katie Taylor’s farewell bout will give you chills",
@@ -896,13 +959,6 @@
       "url": "https://www.boxingnews24.com/2026/08/how-much-has-a-year-of-inactivity-hurt-artur-beterbiev/",
       "source": "Boxingnews24.com",
       "publishedAt": "2026-08-03T03:22:23Z"
-    },
-    {
-      "boxerName": "Terence Crawford",
-      "headline": "Terence Crawford Tells Claressa Shields to Leave Laila Ali Alone",
-      "url": "https://www.complex.com/sports/a/jaelaniturnerwilliams/claressa-shields-laila-ali-terence-crawford-goat-debate",
-      "source": "Complex",
-      "publishedAt": "2026-08-02T23:19:54Z"
     }
   ]
 }
