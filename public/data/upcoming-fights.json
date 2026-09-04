@@ -1,6 +1,76 @@
 {
-  "lastUpdated": "2026-09-03T00:30:22.243Z",
+  "lastUpdated": "2026-09-04T00:35:23.694Z",
   "fights": [
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "The Katie Generation: Inside Ireland's boxing gyms, Katie Taylor's greatest legacy is everywhere",
+      "url": "https://sports.yahoo.com/boxing/article/the-katie-generation-inside-irelands-boxing-gyms-katie-taylors-greatest-legacy-is-everywhere-flora-pili-000448844.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-03T00:04:48Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Katie Taylor’s final open workout shows a glimpse of her remarkable legacy",
+      "url": "https://www.irishtimes.com/sport/boxing/2026/09/02/katie-taylors-final-open-workout-shows-a-glimpse-of-her-remarkable-legacy/",
+      "source": "The Irish Times",
+      "publishedAt": "2026-09-02T20:52:45Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "'40 is the new 30' - Taylor limbers up in public workout",
+      "url": "https://www.rte.ie/sport/boxing/2026/0902/1590140-40-is-the-new-30-taylor-limbers-up-in-public-workout/",
+      "source": "RTE",
+      "publishedAt": "2026-09-02T20:48:45Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Katie Taylor embracing retirement ahead of Croke Park farewell: 'It's not bittersweet for me, it's just sweet'",
+      "url": "https://sports.yahoo.com/boxing/article/katie-taylor-embracing-retirement-ahead-of-croke-park-farewell-its-not-bittersweet-for-me-its-just-sweet-172926907.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-02T17:29:26Z"
+    },
+    {
+      "boxerName": "Dmitry Bivol",
+      "headline": "Hearn Disputes Kremlev’s Bivol-Beterbiev Trilogy Offer Claim",
+      "url": "https://www.boxingnews24.com/2026/09/hearn-disputes-kremlevs-bivol-beterbiev-trilogy-offer-claim/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-09-02T16:49:36Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Taylor reveals how close she came to quitting boxing",
+      "url": "https://www.rte.ie/sport/boxing/2026/0902/1590059-taylor-reveals-how-close-she-came-to-quitting-boxing/",
+      "source": "RTE",
+      "publishedAt": "2026-09-02T10:47:33Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "'This ring-walk, I truly believe it will be one of the greatest moments the sport has ever seen'",
+      "url": "https://www.the42.ie/eddie-hearn-8-7149790-Sep2026/",
+      "source": "The42",
+      "publishedAt": "2026-09-02T10:22:49Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Five moments that shaped Taylor's legendary career",
+      "url": "https://www.bbc.com/sport/boxing/articles/cp30z57kq0ro?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
+      "source": "BBC News",
+      "publishedAt": "2026-09-02T06:58:36Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Five moments that shaped Taylor's legendary career",
+      "url": "https://www.bbc.co.uk/sport/boxing/articles/cp30z57kq0ro",
+      "source": "BBC News",
+      "publishedAt": "2026-09-02T06:58:31Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Taylor vs. Pili Start Time, Full Fight Card",
+      "url": "https://www.mmamania.com/boxing/468970/katie-taylor-vs-flora-pili-full-fight-card-dazn-ppv-start-time-once-upon-a-time",
+      "source": "MMA Mania",
+      "publishedAt": "2026-09-02T03:00:00Z"
+    },
     {
       "boxerName": "Katie Taylor",
       "headline": "Taylor reflects on 'legacy' ahead of fairytale ending",
@@ -973,48 +1043,6 @@
       "url": "https://www.boxingnews24.com/2026/08/shakur-stevenson-closes-door-on-devin-haney-bout-forever/",
       "source": "Boxingnews24.com",
       "publishedAt": "2026-08-05T02:41:40Z"
-    },
-    {
-      "boxerName": "Vitali Klitschko",
-      "headline": "Report: Russian attack on Kyiv leaves multi-story residential building ablaze",
-      "url": "https://www.israelnationalnews.com/flashes/691180",
-      "source": "Israelnationalnews.com",
-      "publishedAt": "2026-08-04T22:41:28Z"
-    },
-    {
-      "boxerName": "Vitali Klitschko",
-      "headline": "Kyiv under ballistic missile attack",
-      "url": "https://biztoc.com/x/0a903ffc5a04ab19",
-      "source": "Biztoc.com",
-      "publishedAt": "2026-08-04T22:10:34Z"
-    },
-    {
-      "boxerName": "David Benavidez",
-      "headline": "Jai Opetaia Fires Shot At David Benavidez After Fight Vs Noel Mikaelian Announced For Zuffa Boxing Championship",
-      "url": "https://brobible.com/sports/article/jai-opetaia-david-benavidez-noel-mikaelian/",
-      "source": "BroBible",
-      "publishedAt": "2026-08-04T21:22:28Z"
-    },
-    {
-      "boxerName": "Shakur Stevenson",
-      "headline": "Robert Garcia Ready To Pursue Shakur Stevenson Mandatory Position For Raymond Muratalla",
-      "url": "https://www.boxingnews24.com/2026/08/robert-garcia-ready-to-pursue-shakur-stevenson-mandatory-position-for-raymond-muratalla/",
-      "source": "Boxingnews24.com",
-      "publishedAt": "2026-08-04T20:16:58Z"
-    },
-    {
-      "boxerName": "Devin Haney",
-      "headline": "Gustavo Olivieri Says Devin Haney Has Merit For WBO Super Champion Status",
-      "url": "https://www.boxingnews24.com/2026/08/gustavo-olivieri-says-devin-haney-has-merit-for-wbo-super-champion-status/",
-      "source": "Boxingnews24.com",
-      "publishedAt": "2026-08-04T09:48:59Z"
-    },
-    {
-      "boxerName": "Keyshawn Davis",
-      "headline": "Andy Cruz Wants Keyshawn Davis Fight, Says He’s Protecting His Record",
-      "url": "https://www.boxingnews24.com/2026/08/andy-cruz-wants-keyshawn-davis-fight-says-hes-protecting-his-record/",
-      "source": "Boxingnews24.com",
-      "publishedAt": "2026-08-04T02:14:20Z"
     }
   ]
 }
