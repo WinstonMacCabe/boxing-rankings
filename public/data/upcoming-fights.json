@@ -1,6 +1,132 @@
 {
-  "lastUpdated": "2026-09-04T00:35:23.694Z",
+  "lastUpdated": "2026-09-05T04:39:41.134Z",
   "fights": [
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Lee: Trailblazer Taylor will want to 'go out with a bang'",
+      "url": "https://www.rte.ie/sport/boxing/2026/0903/1590265-lee-trailblazer-taylor-will-want-to-go-out-with-a-bang/",
+      "source": "RTE",
+      "publishedAt": "2026-09-03T20:11:57Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Katie Taylor’s career in pictures: The highs and lows of a life between the ropes",
+      "url": "https://www.irishtimes.com/sport/boxing/2026/09/03/katie-taylors-career-in-pictures-the-highs-and-lows-of-a-life-between-the-ropes/",
+      "source": "The Irish Times",
+      "publishedAt": "2026-09-03T16:03:43Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "The ghosts of Croke Park",
+      "url": "https://sports.yahoo.com/boxing/article/the-ghosts-of-croke-park-katie-taylor-vs-flora-pili-133000312.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-03T13:30:00Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Westlife to perform at Katie Taylor’s Croke Park farewell fight",
+      "url": "https://www.irishtimes.com/culture/music/2026/09/03/westlife-to-perform-at-katie-taylors-croke-park-farewell-fight/",
+      "source": "The Irish Times",
+      "publishedAt": "2026-09-03T11:54:36Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Meet Deirdre Gogarty, the boxing champ who inspired Katie Taylor",
+      "url": "https://www.rte.ie/brainstorm/2026/0903/1590035-deirdre-gogarty-katie-taylor-boxing-women-ireland-letter-inspiration/",
+      "source": "RTE",
+      "publishedAt": "2026-09-03T11:18:42Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Katie Taylor makes a dream come true for a Dublin girl ahead of her Croke Park bout",
+      "url": "https://www.the42.ie/katie-taylor-103-7150803-Sep2026/",
+      "source": "The42",
+      "publishedAt": "2026-09-03T10:53:30Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Westlife to perform at Katie Taylor’s farewell fight in Croke Park",
+      "url": "https://www.thejournal.ie/westlife-to-perform-at-katie-taylors-farewell-fight-in-croke-park-7151224-Sep2026/",
+      "source": "TheJournal.ie",
+      "publishedAt": "2026-09-03T10:10:45Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Will you watch the Katie Taylor fight this weekend?",
+      "url": "https://www.thejournal.ie/katie-taylor-flora-pili-fight-croke-park-poll-7151097-Sep2026/",
+      "source": "TheJournal.ie",
+      "publishedAt": "2026-09-03T09:42:35Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Katie Taylor's Croke Park finale: All you need to know",
+      "url": "https://www.rte.ie/sport/boxing/2026/0903/1590186-katie-taylors-croke-park-finale-all-you-need-to-know/",
+      "source": "RTE",
+      "publishedAt": "2026-09-03T09:32:05Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Westlife confirmed for Katie Taylor's Croke Park farewell",
+      "url": "https://www.rte.ie/entertainment/2026/0903/1590183-westlife-confirmed-for-katie-taylors-croke-park-farewell/",
+      "source": "RTE",
+      "publishedAt": "2026-09-03T09:22:36Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "'Dear Katie, how far we have come...' - Taylor gets reply from her hero",
+      "url": "https://www.bbc.com/sport/boxing/articles/cx2zj2rg8e5o?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
+      "source": "BBC News",
+      "publishedAt": "2026-09-03T07:39:48Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "'Dear Katie, how far we have come...' - Taylor gets reply from her hero",
+      "url": "https://www.bbc.co.uk/sport/boxing/articles/cx2zj2rg8e5o",
+      "source": "BBC News",
+      "publishedAt": "2026-09-03T07:29:30Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "'You couldn't make Taylor's story up' - Hearn",
+      "url": "https://www.bbc.com/sport/boxing/articles/cdx5qgxrrr6o?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
+      "source": "BBC News",
+      "publishedAt": "2026-09-03T07:05:19Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "'You couldn't make Taylor's story up' - Hearn",
+      "url": "https://www.bbc.co.uk/sport/boxing/articles/cdx5qgxrrr6o",
+      "source": "BBC News",
+      "publishedAt": "2026-09-03T07:05:14Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Katie Taylor’s last fight will be an emotional farewell for a quietly defiant pioneer",
+      "url": "https://www.irishtimes.com/sport/boxing/2026/09/03/katie-taylors-last-fight-will-be-an-emotional-farewell-for-a-quietly-defiant-pioneer/",
+      "source": "The Irish Times",
+      "publishedAt": "2026-09-03T07:00:00Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "'I grew up watching you' - women's boxing honours Taylor",
+      "url": "https://www.bbc.co.uk/sport/boxing/videos/cpq02p5j383o",
+      "source": "BBC News",
+      "publishedAt": "2026-09-03T05:21:39Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "‘The greatest fighting heart’: Bartley Madden, Croke Park’s last Irish boxing headliner",
+      "url": "https://www.irishtimes.com/sport/boxing/2026/09/03/the-greatest-fighting-heart-bartley-madden-croke-parks-last-irish-boxing-headliner/",
+      "source": "The Irish Times",
+      "publishedAt": "2026-09-03T05:00:00Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Emotional Eddie Hearn reveals why he was in 'floods of tears' in build-up to Katie Taylor's retirement fight - and predicts event could be the biggest of ALL time",
+      "url": "https://www.dailymail.com/sport/boxing/article-16099189/Emotional-Eddie-Hearn-reveals-floods-tears-build-Katie-Taylors-retirement-fight-predicts-event-biggest-time.html",
+      "source": "Dailymail.com",
+      "publishedAt": "2026-09-03T01:00:49Z"
+    },
     {
       "boxerName": "Katie Taylor",
       "headline": "The Katie Generation: Inside Ireland's boxing gyms, Katie Taylor's greatest legacy is everywhere",
@@ -1015,34 +1141,6 @@
       "url": "https://www.bbc.com/sport/boxing/articles/cgq5z7xkkngo?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
       "source": "BBC News",
       "publishedAt": "2026-08-06T10:11:45Z"
-    },
-    {
-      "boxerName": "Tommy Fury",
-      "headline": "Influencer Lissie Rhodes gives birth to second child two years after she was forced to deny she had a love child with Tommy Fury amid unfounded cheating claims",
-      "url": "https://www.dailymail.com/tvshowbiz/article-16031395/Influencer-Lissie-Rhodes-gives-birth-second-child-two-years-forced-deny-love-child-Tommy-Fury-amid-unfounded-cheating-claims.html",
-      "source": "Dailymail.com",
-      "publishedAt": "2026-08-05T18:01:15Z"
-    },
-    {
-      "boxerName": "Claressa Shields",
-      "headline": "Claressa Shields Explodes on Mz Shyneka: “Me and You Not the Same”!!",
-      "url": "https://mediatakeout.com/claressa-shields-explodes-on-mz-shyneka-me-and-you-not-the-same/",
-      "source": "Mediatakeout.com",
-      "publishedAt": "2026-08-05T11:34:36Z"
-    },
-    {
-      "boxerName": "Tommy Fury",
-      "headline": "Tommy Fury astonished as Molly-Mae Hague spends £350 on the weekly food shop for her and Bambi but he caters for himself because he can't stand her junk food",
-      "url": "https://www.dailymail.com/tvshowbiz/article-16030091/Tommy-Fury-Molly-Mae-Hague-350-weekly-food-shop.html",
-      "source": "Dailymail.com",
-      "publishedAt": "2026-08-05T10:20:52Z"
-    },
-    {
-      "boxerName": "Devin Haney",
-      "headline": "Shakur Stevenson Closes Door On Devin Haney Bout Forever",
-      "url": "https://www.boxingnews24.com/2026/08/shakur-stevenson-closes-door-on-devin-haney-bout-forever/",
-      "source": "Boxingnews24.com",
-      "publishedAt": "2026-08-05T02:41:40Z"
     }
   ]
 }
