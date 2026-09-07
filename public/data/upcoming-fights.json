@@ -1,6 +1,321 @@
 {
-  "lastUpdated": "2026-09-06T00:30:32.829Z",
+  "lastUpdated": "2026-09-07T00:31:30.800Z",
   "fights": [
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Katie Taylor Defeats Flora Pili!",
+      "url": "https://www.boxingnews24.com/2026/09/katie-taylor-defeats-flora-pili/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-09-06T00:29:39Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "'One of the best' - boxing world reacts to Taylor's farewell win",
+      "url": "https://www.bbc.com/sport/boxing/articles/czxzygrgd19o?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
+      "source": "BBC News",
+      "publishedAt": "2026-09-05T23:51:33Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "'One of the best' - boxing world reacts to Taylor's farewell win",
+      "url": "https://www.bbc.co.uk/sport/boxing/articles/czxzygrgd19o",
+      "source": "BBC News",
+      "publishedAt": "2026-09-05T23:48:55Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "A pioneer until the end: Katie Taylor’s historic boxing journey ends with emotional Croke Park farewell",
+      "url": "https://www.sportingnews.com/us/boxing/news/pioneer-katie-taylor-boxing-journey-ends-croke-park/1928724bbeb658bc70853dcc",
+      "source": "Sporting News",
+      "publishedAt": "2026-09-05T23:39:52Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Tears, blood & triumph - Taylor's iconic career in pictures",
+      "url": "https://www.bbc.com/sport/boxing/articles/c5ykl9wd7zko?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
+      "source": "BBC News",
+      "publishedAt": "2026-09-05T22:55:53Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Tears, blood & triumph - Taylor's iconic career in pictures",
+      "url": "https://www.bbc.co.uk/sport/boxing/articles/c5ykl9wd7zko",
+      "source": "BBC News",
+      "publishedAt": "2026-09-05T22:55:47Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Eternal Katie Taylor does it her own way to the last as she defeats Pili in Croke Park farewell",
+      "url": "https://www.irishtimes.com/sport/boxing/2026/09/05/eternal-katie-taylor-does-it-her-own-way-to-the-last-as-she-defeats-pili-in-croke-park-farewell/",
+      "source": "The Irish Times",
+      "publishedAt": "2026-09-05T22:54:10Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "‘I’m crying’: Katie Taylor’s legendary career ends with emotional outpouring from boxing world",
+      "url": "https://sports.yahoo.com/boxing/article/im-crying-katie-taylors-legendary-career-ends-with-emotional-outpouring-from-boxing-world-flora-pili-fight-224304052.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-05T22:43:04Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Highlights! Taylor Ends Career In Iconic Fashion, Becomes Three-Time Undisputed Champion",
+      "url": "https://www.mmamania.com/boxing/469853/highlights-katie-taylor-dominates-flora-pili-ends-storied-boxing-career-as-three-time-undisputed-champion-video",
+      "source": "MMA Mania",
+      "publishedAt": "2026-09-05T22:41:30Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Taylor's Croker swansong ends in triumph",
+      "url": "https://www.rte.ie/sport/boxing/2026/0905/1590460-taylors-croker-swansong-ends-in-triumph/",
+      "source": "RTE",
+      "publishedAt": "2026-09-05T22:32:40Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Emotional Taylor 'blown away' by Croke Park reception",
+      "url": "https://www.rte.ie/sport/boxing/2026/0905/1590461-emotional-taylor-blown-away-by-croke-park-reception/",
+      "source": "RTE",
+      "publishedAt": "2026-09-05T22:32:13Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Katie Taylor dominates Flora Pili in emotional farewell fight",
+      "url": "https://www.mmafighting.com/boxing/508900/katie-taylor-dominates-flora-pili-in-emotional-farewell-fight",
+      "source": "MMA Fighting",
+      "publishedAt": "2026-09-05T22:17:25Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Taylor beats Pili by unanimous decision to bow out as undisputed champion",
+      "url": "https://www.channelnewsasia.com/sport/taylor-beats-pili-unanimous-decision-bow-out-undisputed-champion-6365156",
+      "source": "CNA",
+      "publishedAt": "2026-09-05T22:10:09Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Katie Taylor puts on Croke Park show to retire as three-time undisputed champion",
+      "url": "https://www.the42.ie/katie-taylor-107-7153929-Sep2026/",
+      "source": "The42",
+      "publishedAt": "2026-09-05T22:09:26Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Taylor crowns career in stylish Croke Park triumph",
+      "url": "https://www.bbc.com/sport/boxing/articles/clyeg4n8l98o?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
+      "source": "BBC News",
+      "publishedAt": "2026-09-05T21:53:46Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Katie Taylor is crowned undisputed champion for a THIRD time with unanimous decision victory over Flora Pili - as Irish boxing icon, 40, enjoys fairytale end to her career in front of 82,000 fans at sold-out Croke Park",
+      "url": "https://www.dailymail.com/sport/boxing/article-16108397/Katie-Taylor-crowned-undisputed-champion-win-Flora-Pili-Irish-boxing-icon-fairytale-end-career-Croke-Park.html",
+      "source": "Dailymail.com",
+      "publishedAt": "2026-09-05T21:47:20Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Taylor crowns career in stylish Croke Park triumph",
+      "url": "https://www.bbc.co.uk/sport/boxing/articles/clyeg4n8l98o",
+      "source": "BBC News",
+      "publishedAt": "2026-09-05T21:47:12Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Taylor makes dominant start against Pili in farewell fight",
+      "url": "https://www.bbc.com/sport/boxing/live/cqg7k2gl1907t?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
+      "source": "BBC News",
+      "publishedAt": "2026-09-05T21:11:38Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "For the women in Croke Park, Katie Taylor's biggest night of all is more than a boxing match",
+      "url": "https://www.thejournal.ie/katie-taylor-croke-park-fight-3-7153896-Sep2026/",
+      "source": "TheJournal.ie",
+      "publishedAt": "2026-09-05T20:40:28Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Katie Taylor vs. Flora Pili Live Results, Updates, Highlights From 2026 Title Fight",
+      "url": "https://nesn.com/boxing/news/katie-taylor-vs-flora-pili-results-updates-highlights/45d35b7b143250a15cba5bcb",
+      "source": "NESN",
+      "publishedAt": "2026-09-05T20:15:01Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "‘We’ll never get a woman like Katie Taylor again’: Fans look forward to Croke Park clash",
+      "url": "https://www.irishtimes.com/ireland/2026/09/05/well-never-get-a-woman-like-katie-taylor-again-fans-look-forward-to-croke-park-clash/",
+      "source": "The Irish Times",
+      "publishedAt": "2026-09-05T19:47:44Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "LIVE: Katie Taylor v Flora Pili, Croke Park farewell",
+      "url": "https://www.the42.ie/katie-taylor-flora-pili-liveblog-7153715-Sep2026/",
+      "source": "The42",
+      "publishedAt": "2026-09-05T18:00:30Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Katie Taylor At Croke Park: What Tonight Means For Ireland",
+      "url": "https://www.forbes.com/sites/gemmaallen/2026/09/05/katie-taylor-at-croke-park-what-tonight-means-for-ireland/",
+      "source": "Forbes",
+      "publishedAt": "2026-09-05T17:57:17Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Katie Taylor v Flora Pili: Live updates as Irish star closes out career at a packed Croke Park",
+      "url": "https://www.irishtimes.com/sport/boxing/2026/09/05/katie-taylor-v-flora-pili-live-updates-as-irish-star-closes-out-career-at-a-packed-croke-park/",
+      "source": "The Irish Times",
+      "publishedAt": "2026-09-05T17:52:02Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Thousands of fans gather ahead of Katie Taylor's much-awaited fight in Croke Park",
+      "url": "https://www.thejournal.ie/katie-taylor-fans-gather-croke-park-7153716-Sep2026/",
+      "source": "TheJournal.ie",
+      "publishedAt": "2026-09-05T17:01:00Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Katie Taylor vs. Flora Pili live results update",
+      "url": "https://sports.yahoo.com/articles/katie-taylor-vs-flora-pili-154840366.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-05T15:48:40Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "'An Irish woman like never before' - celebs share messages of support before Katie Taylor's big fight",
+      "url": "https://www.thejournal.ie/celebrities-wish-katie-taylor-good-luck-7153613-Sep2026/",
+      "source": "TheJournal.ie",
+      "publishedAt": "2026-09-05T15:40:06Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Katie Taylor vs. Flora Pili live results, updates, highlights from 2026 boxing fight",
+      "url": "https://www.sportingnews.com/us/boxing/news/katie-taylor-vs-flora-pili-live-results-2026-boxing/46bb96d248e5e0781d6731ce",
+      "source": "Sporting News",
+      "publishedAt": "2026-09-05T14:00:02Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Retirement Match: Here’s How to Watch Katie Taylor vs. Flora Pili Boxing Live Online",
+      "url": "https://variety.com/2026/shopping/news/how-to-watch-katie-taylor-vs-flora-pili-boxing-live-sept-2026-online-1236850092/",
+      "source": "Variety",
+      "publishedAt": "2026-09-05T14:00:00Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Where to watch Katie Taylor vs. Flora Pili: Live stream, TV channel & start time for 2026 boxing fight",
+      "url": "https://www.sportingnews.com/us/boxing/news/watch-katie-taylor-vs-flora-pili-live-stream-channel-start-time/690b75d625c28052ba172fcd",
+      "source": "Sporting News",
+      "publishedAt": "2026-09-05T10:30:01Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Katie Taylor vs. Flora Pili live round-by-round updates",
+      "url": "https://www.mmafighting.com/boxing/508546/katie-taylor-vs-flora-pili-live-round-by-round-updates-boxing",
+      "source": "MMA Fighting",
+      "publishedAt": "2026-09-05T09:30:00Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Taylor vs. Pili Results: Live updates of the undercard and main event",
+      "url": "https://www.mmafighting.com/boxing/508537/taylor-vs-pili-results-live-updates-of-the-undercard-and-main-event-boxing",
+      "source": "MMA Fighting",
+      "publishedAt": "2026-09-05T09:00:00Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "The 9 at 9: Saturday",
+      "url": "https://www.thejournal.ie/9-at-9-saturday-227-7153394-Sep2026/",
+      "source": "TheJournal.ie",
+      "publishedAt": "2026-09-05T07:53:53Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Taylor v Pili - Irish icon's farewell fight predictions",
+      "url": "https://www.bbc.com/sport/boxing/articles/crl6x9ey2e8o?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
+      "source": "BBC News",
+      "publishedAt": "2026-09-05T06:37:08Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Taylor v Pili - Irish icon's farewell fight predictions",
+      "url": "https://www.bbc.co.uk/sport/boxing/articles/crl6x9ey2e8o",
+      "source": "BBC News",
+      "publishedAt": "2026-09-05T06:37:02Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "'Seeing every boxing gym in the country packed with female fighters... that's the legacy I want': KATIE TAYLOR reflects on changing the face of her sport as she prepares to bids farewell in front of 82,000 at Croke Park",
+      "url": "https://www.dailymail.com/sport/boxing/article-16102141/legacy-KATIE-TAYLOR-prepare-farewell-Croke-Park.html",
+      "source": "Dailymail.com",
+      "publishedAt": "2026-09-05T06:00:52Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Katie Taylor vs. Flora Pili live results, round-by-round updates, ring walks, start time for today's retirement fight",
+      "url": "https://sports.yahoo.com/boxing/live/katie-taylor-vs-flora-pili-live-results-round-by-round-updates-ring-walks-start-time-for-todays-retirement-fight-060000431.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-05T06:00:00Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Bray ready to cheer on Katie Taylor in final fight",
+      "url": "https://www.rte.ie/news/ireland/2026/0905/1590378-katie-taylor/",
+      "source": "RTE",
+      "publishedAt": "2026-09-05T06:00:00Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Katie Taylor vs Flora Pili: Live blog, round-by-round and results",
+      "url": "https://www.badlefthook.com/live-boxing-updates/118441/katie-taylor-vs-flora-pili-live-blog-round-by-round-results-dazn-boxing-news-2026",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-09-05T06:00:00Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Bray ready to cheer on Katie Taylor in final fight",
+      "url": "https://www.rte.ie/news/ireland/2026/0905/1590378-katie-taylor-bray/",
+      "source": "RTE",
+      "publishedAt": "2026-09-05T06:00:00Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "From transport to timings: Everything you need to know about Katie Taylor’s Croke Park fight",
+      "url": "https://www.thejournal.ie/heres-what-you-need-to-know-about-katie-taylors-croke-park-bout-7150140-Sep2026/",
+      "source": "TheJournal.ie",
+      "publishedAt": "2026-09-05T05:30:44Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Adam Olaniyan: Jobstown heavyweight dreams of undisputed success and becoming a cowboy",
+      "url": "https://www.irishtimes.com/sport/boxing/2026/09/05/adam-olaniyan-jobstown-heavyweight-dreams-of-undisputed-success-and-becoming-a-cowboy/",
+      "source": "The Irish Times",
+      "publishedAt": "2026-09-05T05:00:01Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "How to Watch Katie Taylor vs. Flora Pili: Live Stream, Start Time & Full Fight Card",
+      "url": "https://nesn.com/boxing/news/watch-katie-taylor-vs-flora-pili-stream-start-time-fight-card/341e2c94d10e6efdf00e3cc9",
+      "source": "NESN",
+      "publishedAt": "2026-09-05T05:00:01Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Everything about Katie Taylor’s career was impossible. Until she did it",
+      "url": "https://www.irishtimes.com/sport/boxing/2026/09/05/everything-about-katie-taylors-career-was-impossible-until-she-did-it/",
+      "source": "The Irish Times",
+      "publishedAt": "2026-09-05T05:00:00Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "‘I want to be like Katie’: In the shadow of Croke Park, Katie Taylor’s legacy is clear",
+      "url": "https://www.irishtimes.com/ireland/2026/09/05/i-want-to-be-like-katie-in-the-shadow-of-croke-park-katie-taylors-legacy-is-clear/",
+      "source": "The Irish Times",
+      "publishedAt": "2026-09-05T05:00:00Z"
+    },
     {
       "boxerName": "Katie Taylor",
       "headline": "Fans at Katie Taylor’s weigh-in left in no doubt the champ is ready to rumble",
@@ -1197,62 +1512,6 @@
       "url": "https://www.badlefthook.com/live-boxing-updates/117778/aaron-mckenna-vs-etinosa-oliha-live-results-highlights-reactions-zuffa-boxing-news-2026",
       "source": "Bad Left Hook",
       "publishedAt": "2026-08-08T05:00:00Z"
-    },
-    {
-      "boxerName": "Claressa Shields",
-      "headline": "Shields says fight with Price likely to take place in 2027",
-      "url": "https://www.detroitnews.com/story/sports/other/2026/08/07/shields-says-fight-with-price-likely-to-take-place-in-2027/91220965007/",
-      "source": "The Detroit News",
-      "publishedAt": "2026-08-07T21:53:24Z"
-    },
-    {
-      "boxerName": "Devin Haney",
-      "headline": "Bill Haney Wants Boots Ennis To Clear Out 154 Before Devin Fight",
-      "url": "https://www.boxingnews24.com/2026/08/bill-haney-wants-boots-ennis-to-clear-out-154-before-devin-fight/",
-      "source": "Boxingnews24.com",
-      "publishedAt": "2026-08-07T21:15:40Z"
-    },
-    {
-      "boxerName": "Lauren Price",
-      "headline": "Flight attendant accused of 'racist, unprovoked' attack after referring to group of black student athletes as 'YOU PEOPLE' and swatting phone out of mom's hand",
-      "url": "https://www.dailymail.com/news/article-16036813/flight-attendant-sun-country-airlines-racism-allegation-black-students.html",
-      "source": "Dailymail.com",
-      "publishedAt": "2026-08-07T20:43:30Z"
-    },
-    {
-      "boxerName": "Etinosa Oliha",
-      "headline": "Zuffa Boxing 10 -- Aaron McKenna vs. Etinosa Oliha: Start time, fight card, predictions for event in Ireland",
-      "url": "https://www.cbssports.com/boxing/news/zuffa-boxing-10-aaron-mckenna-vs-etinosa-oliha-start-time-fight-card-date-predictions/",
-      "source": "CBS Sports",
-      "publishedAt": "2026-08-07T19:04:07Z"
-    },
-    {
-      "boxerName": "Claressa Shields",
-      "headline": "Shields says fight with Price likely to take place in 2027",
-      "url": "https://www.channelnewsasia.com/sport/shields-says-fight-price-likely-take-place-in-2027-6306456",
-      "source": "CNA",
-      "publishedAt": "2026-08-07T13:46:50Z"
-    },
-    {
-      "boxerName": "Claressa Shields",
-      "headline": "Eva Marcille Tells Claressa Shields to ‘Keep It Cute’ Over Mz. Shyneka Attacks!",
-      "url": "https://mediatakeout.com/eva-marcille-tells-claressa-shields-to-keep-it-cute-over-mz-shyneka-attacks/",
-      "source": "Mediatakeout.com",
-      "publishedAt": "2026-08-07T12:28:00Z"
-    },
-    {
-      "boxerName": "Claressa Shields",
-      "headline": "Price fight now likely to be held in 2027 - Shields",
-      "url": "https://www.bbc.com/sport/boxing/articles/cpvw7rkgkrjo?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
-      "source": "BBC News",
-      "publishedAt": "2026-08-07T12:21:39Z"
-    },
-    {
-      "boxerName": "Claressa Shields",
-      "headline": "Price fight now likely to be held in 2027 - Shields",
-      "url": "https://www.bbc.co.uk/sport/boxing/articles/cpvw7rkgkrjo",
-      "source": "BBC News",
-      "publishedAt": "2026-08-07T12:19:36Z"
     }
   ]
 }
