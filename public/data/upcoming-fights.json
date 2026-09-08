@@ -1,6 +1,132 @@
 {
-  "lastUpdated": "2026-09-07T00:31:30.800Z",
+  "lastUpdated": "2026-09-08T00:31:29.749Z",
   "fights": [
+    {
+      "boxerName": "Oleksandr Usyk",
+      "headline": "Fury hits out at 'coward' Joshua in foul-mouthed tirade",
+      "url": "https://www.rte.ie/sport/boxing/2026/0906/1590518-fury-hits-out-at-coward-joshua-in-foul-mouthed-tirade/",
+      "source": "RTE",
+      "publishedAt": "2026-09-06T21:58:49Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "How much do you know about boxing?",
+      "url": "https://www.thejournal.ie/boxing-katie-taylor-quiz-7151322-Sep2026/",
+      "source": "TheJournal.ie",
+      "publishedAt": "2026-09-06T21:00:39Z"
+    },
+    {
+      "boxerName": "Oleksandr Usyk",
+      "headline": "Tyson Fury calls for Oleksandr Usyk trilogy after Anthony Joshua fight stalls",
+      "url": "https://sports.yahoo.com/articles/tyson-fury-calls-oleksandr-usyk-201125094.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-06T20:11:25Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Conor McGregor hails Katie Taylor with social media spree",
+      "url": "https://sports.yahoo.com/articles/conor-mcgregor-hails-katie-taylor-180000609.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-06T18:00:00Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "For one last night, Ireland belonged to Katie Taylor — a farewell fit for the greatest of all time",
+      "url": "https://sports.yahoo.com/boxing/article/for-one-last-night-ireland-belonged-to-katie-taylor-a-farewell-fit-for-the-greatest-of-all-time-171001304.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-06T17:10:01Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Croke Park for Katie Taylor’s fight made Madison Square Garden look like the boxing gym in Bray",
+      "url": "https://www.irishtimes.com/sport/boxing/2026/09/06/croke-park-for-katie-taylors-fight-made-madison-square-garden-look-like-the-boxing-gym-in-bray/",
+      "source": "The Irish Times",
+      "publishedAt": "2026-09-06T15:14:20Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "As Katie Taylor bowed out of her boxing career, the Bray crowd cheered on their hometown hero",
+      "url": "https://www.thejournal.ie/katie-taylor-bray-3-7154141-Sep2026/",
+      "source": "TheJournal.ie",
+      "publishedAt": "2026-09-06T11:48:32Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "The occasion rises to Katie Taylor as she nails final act on a night like no other at Croke Park",
+      "url": "https://www.irishtimes.com/sport/boxing/2026/09/06/the-occasion-rises-to-katie-taylor-as-she-nails-final-act-on-a-night-like-no-other-at-croke-park/",
+      "source": "The Irish Times",
+      "publishedAt": "2026-09-06T11:26:19Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Katie Taylor: ‘I’m ending my career on top ... I’m ending as the undisputed champion’",
+      "url": "https://www.irishtimes.com/sport/boxing/2026/09/06/katie-taylor-im-ending-my-career-on-top-im-ending-as-the-undisputed-champion/",
+      "source": "The Irish Times",
+      "publishedAt": "2026-09-06T11:26:19Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Katie Taylor bows out as three-time undisputed champion",
+      "url": "https://www.leedsunited.com/en/news/katie-taylor-bows-out-as-three-time-undisputed-champion",
+      "source": "Leedsunited.com",
+      "publishedAt": "2026-09-06T09:28:00Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "The 9 at 9: Sunday",
+      "url": "https://www.thejournal.ie/9-at-9-sunday-217-7154195-Sep2026/",
+      "source": "TheJournal.ie",
+      "publishedAt": "2026-09-06T07:56:09Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Farewell win at Croke park 'highlight of my career' - Taylor",
+      "url": "https://www.bbc.co.uk/sport/boxing/videos/c17jryd1npjo",
+      "source": "BBC News",
+      "publishedAt": "2026-09-06T07:46:04Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Ireland’s boxing great Katie Taylor bows out as undisputed champion",
+      "url": "https://www.aljazeera.com/sports/2026/9/6/irelands-boxing-great-katie-taylor-bows-out-as-undisputed-champion",
+      "source": "Al Jazeera English",
+      "publishedAt": "2026-09-06T07:37:00Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "'Did ya enjoy that?' - Taylor revels in perfect ending",
+      "url": "https://www.rte.ie/sport/boxing/2026/0906/1590467-did-ya-enjoy-that-taylor-revels-in-perfect-ending/",
+      "source": "RTE",
+      "publishedAt": "2026-09-06T07:32:51Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Taylor's 'dream ending to a dream career'",
+      "url": "https://www.bbc.com/sport/boxing/articles/c5yjr8pp0jwo?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
+      "source": "BBC News",
+      "publishedAt": "2026-09-06T06:24:39Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Taylor's 'dream ending to a dream career'",
+      "url": "https://www.bbc.co.uk/sport/boxing/articles/c5yjr8pp0jwo",
+      "source": "BBC News",
+      "publishedAt": "2026-09-06T06:24:34Z"
+    },
+    {
+      "boxerName": "Mike Lee (boxer)",
+      "headline": "Mike Lee Defends Elon Musk's Wealth Amid Criticism",
+      "url": "https://biztoc.com/x/60ac064cfd20d7b6",
+      "source": "Biztoc.com",
+      "publishedAt": "2026-09-06T04:45:35Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Undisputed boxing queen Katie Taylor ends career in style",
+      "url": "https://www.rediff.com/sports/report/undisputed-boxing-queen-katie-taylor-ends-career-in-style/20260906.htm",
+      "source": "Rediff.com",
+      "publishedAt": "2026-09-06T04:13:09Z"
+    },
     {
       "boxerName": "Katie Taylor",
       "headline": "Katie Taylor Defeats Flora Pili!",
@@ -1442,76 +1568,6 @@
       "url": "https://www.boxingnews24.com/2026/08/tim-bradley-thinks-haneys-skills-scare-fighters-but-is-it-really-about-money/",
       "source": "Boxingnews24.com",
       "publishedAt": "2026-08-09T02:59:24Z"
-    },
-    {
-      "boxerName": "Etinosa Oliha",
-      "headline": "Highlights! McKenna Wins IBF Title, Walsh Remains Undefeated In Ireland",
-      "url": "https://www.mmamania.com/zuffa-boxing-news/463273/highlights-aaron-mckenna-wins-ibf-title-callum-walsh-remains-undefeated-zuffa-boxing-10",
-      "source": "MMA Mania",
-      "publishedAt": "2026-08-08T22:56:51Z"
-    },
-    {
-      "boxerName": "Etinosa Oliha",
-      "headline": "Ireland’s Aaron McKenna claims middleweight world title in Dublin",
-      "url": "https://www.irishtimes.com/sport/boxing/2026/08/08/irelands-aaron-mckenna-claims-middleweight-world-title-in-dublin/",
-      "source": "The Irish Times",
-      "publishedAt": "2026-08-08T22:44:09Z"
-    },
-    {
-      "boxerName": "Etinosa Oliha",
-      "headline": "McKenna shines to become world champion on homecoming",
-      "url": "https://www.rte.ie/sport/boxing/2026/0808/1587101-mckenna-shines-to-become-world-champion-on-homecoming/",
-      "source": "RTE",
-      "publishedAt": "2026-08-08T22:35:41Z"
-    },
-    {
-      "boxerName": "Claressa Shields",
-      "headline": "Latto Clay Co Crashes Out After Charleston White Calls Her A ‘Side B***h Who Got Pregnant’ By 21 Savage: ‘Loud & Wrong, B***h Boy!’",
-      "url": "https://bossip.com/4613302/latto-clayco-drags-charleston-white-21-savage/",
-      "source": "Bossip",
-      "publishedAt": "2026-08-08T20:45:14Z"
-    },
-    {
-      "boxerName": "Devin Haney",
-      "headline": "‘Me And Devin Haney Are Never Going To Fight Because He Is Scared Of Me’ World Champion Slams Door On Big Fight",
-      "url": "https://www.forbes.com/sites/brianmazique/2026/08/08/me-and-devin-haney-are-never-going-to-fight-because-he-is-scared-of-me-world-champion-slams-door-on-big-fight/",
-      "source": "Forbes",
-      "publishedAt": "2026-08-08T17:30:45Z"
-    },
-    {
-      "boxerName": "Agit Kabayel",
-      "headline": "Moses Itauma Names Kabayel Before Passing Hrgovic Test",
-      "url": "https://www.boxingnews24.com/2026/08/moses-itauma-names-kabayel-before-passing-hrgovic-test/",
-      "source": "Boxingnews24.com",
-      "publishedAt": "2026-08-08T16:47:23Z"
-    },
-    {
-      "boxerName": "Devin Haney",
-      "headline": "‘Devin is scared of me’: Rolly Romero says Haney fight will never happen",
-      "url": "https://www.badlefthook.com/boxing-news/117783/rolly-romero-says-devi-haney-fight-will-never-happen",
-      "source": "Bad Left Hook",
-      "publishedAt": "2026-08-08T15:11:14Z"
-    },
-    {
-      "boxerName": "Terence Crawford",
-      "headline": "'That's Literally The Dumbest Thing I've Ever Heard' Rolly Romero Calls Out Ryan Garcia For Comments About Terence Crawford",
-      "url": "https://www.forbes.com/sites/brianmazique/2026/08/08/thats-literally-the-dumbest-thing-ive-ever-heard-rolly-romero-calls-out-ryan-garcia-for-comments-about-terence-crawford/",
-      "source": "Forbes",
-      "publishedAt": "2026-08-08T12:00:53Z"
-    },
-    {
-      "boxerName": "Etinosa Oliha",
-      "headline": "Aaron McKenna vs. Etinosa Oliha live results, round-by-round updates, ring walks, start time for Zuffa Boxing 10",
-      "url": "https://sports.yahoo.com/boxing/live/aaron-mckenna-vs-etinosa-oliha-live-results-round-by-round-updates-ring-walks-start-time-for-zuffa-boxing-10-060000870.html",
-      "source": "Yahoo Entertainment",
-      "publishedAt": "2026-08-08T06:00:00Z"
-    },
-    {
-      "boxerName": "Etinosa Oliha",
-      "headline": "Aaron McKenna vs Etinosa Oliha live results, highlights, and reactions",
-      "url": "https://www.badlefthook.com/live-boxing-updates/117778/aaron-mckenna-vs-etinosa-oliha-live-results-highlights-reactions-zuffa-boxing-news-2026",
-      "source": "Bad Left Hook",
-      "publishedAt": "2026-08-08T05:00:00Z"
     }
   ]
 }
