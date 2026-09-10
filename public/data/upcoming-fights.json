@@ -1,6 +1,41 @@
 {
-  "lastUpdated": "2026-09-09T00:31:15.986Z",
+  "lastUpdated": "2026-09-10T00:31:31.862Z",
   "fights": [
+    {
+      "boxerName": "Oleksandr Usyk",
+      "headline": "Oleksandr Usyk responds to Tyson Fury call out",
+      "url": "https://sports.yahoo.com/articles/oleksandr-usyk-responds-tyson-fury-202807600.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-08T20:28:07Z"
+    },
+    {
+      "boxerName": "Laila Ali",
+      "headline": "Laila Ali’s favorite books all leave her feeling like a ‘better person’",
+      "url": "https://pagesix.com/2026/09/08/lifestyle/laila-ali-shares-her-six-favorite-books/",
+      "source": "Page Six",
+      "publishedAt": "2026-09-08T14:00:00Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "UFC news: Major Conor McGregor-Croke Park 'final fight' teased",
+      "url": "https://clutchpoints.com/ufc/ufc-news-major-conor-mcgregor-croke-park-fight-teased",
+      "source": "ClutchPoints",
+      "publishedAt": "2026-09-08T13:07:44Z"
+    },
+    {
+      "boxerName": "Oleksandr Usyk",
+      "headline": "Usyk Sends Clear Message to Tyson Fury: I’m Not Your Backup Plan",
+      "url": "https://easysportz.com/usyk-sends-clear-message-to-tyson-fury-im-not-your-backup-plan/",
+      "source": "Easysportz.com",
+      "publishedAt": "2026-09-08T02:08:17Z"
+    },
+    {
+      "boxerName": "Oleksandr Usyk",
+      "headline": "Heavyweight Boxing: Oleksandr Usyk Camp Delivers Bad News to Tyson Fury as Anthony Joshua Talks Stall",
+      "url": "https://heavy.com/sports/boxing/heavyweight-boxing-oleksandr-usyk-camp-tyson-fury-anthony-joshua-fight/",
+      "source": "Heavy.com",
+      "publishedAt": "2026-09-08T01:57:05Z"
+    },
     {
       "boxerName": "Oleksandr Usyk",
       "headline": "Fury says Joshua fight off, calls out Usyk",
@@ -1568,20 +1603,6 @@
       "url": "https://www.forbes.com/sites/brianmazique/2026/08/10/claressa-shields-vs-kaye-scott-full-card-start-time-and-how-to-watch/",
       "source": "Forbes",
       "publishedAt": "2026-08-11T00:35:26Z"
-    },
-    {
-      "boxerName": "Vitali Klitschko",
-      "headline": "Kyiv reports Russian missile strikes",
-      "url": "https://biztoc.com/x/4a9663cbe09d9656",
-      "source": "Biztoc.com",
-      "publishedAt": "2026-08-10T21:53:31Z"
-    },
-    {
-      "boxerName": "Abdullah Mason",
-      "headline": "Abdullah Mason vs William Zepeda Is The Fight TNT Needs",
-      "url": "https://www.boxingnews24.com/2026/08/abdullah-mason-vs-william-zepeda-is-the-fight-tnt-needs/",
-      "source": "Boxingnews24.com",
-      "publishedAt": "2026-08-10T17:20:08Z"
     }
   ]
 }
