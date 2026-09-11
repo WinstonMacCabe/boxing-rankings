@@ -37,27 +37,57 @@ async function main() {
   }
 
   const rankings = await readRankings()
-  const fighters = (rankings.thirdary ?? []).filter(f => !f.isSenior).slice(0, 50)
+  const allFightersMap = new Map<string, any>()
+  const lists = [
+    rankings.thirdary,
+    rankings.fighters
+  ]
+  for (const list of lists) {
+    if (!list) continue
+    for (const f of list as any[]) {
+      if (!f.isSenior && !allFightersMap.has(f.name)) {
+        allFightersMap.set(f.name, f)
+      }
+    }
+  }
+  const fighters = Array.from(allFightersMap.values())
   const rankedNames = new Set(fighters.map(f => f.name))
-  console.log(`Checking news for ${rankedNames.size} thirdary-ranked boxers...`)
+  console.log(`Checking news for ${rankedNames.size} featured active boxers...`)
 
   const from = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]
-
   const cleanName = (n: string) => n.replace(/\s*\([^)]*\)\s*$/, '').trim()
-
-  const queries: { q: string; fighter: string | null }[] = []
-  for (const f of fighters) queries.push({ q: cleanName(f.name), fighter: f.name })
 
   const allArticles: { article: NewsArticle; fighter: string | null }[] = []
   let failures = 0
-  for (const { q, fighter } of queries) {
+  let queriesCount = 0
+
+  let currentBatch: string[] = []
+  let currentLen = 0
+  const batches: string[] = []
+
+  for (const f of fighters) {
+    const term = `"${cleanName(f.name)}"`
+    const addedLen = term.length + (currentBatch.length > 0 ? 4 : 0)
+    if (currentLen + addedLen > 500) {
+      batches.push(currentBatch.join(' OR '))
+      currentBatch = [term]
+      currentLen = term.length
+    } else {
+      currentBatch.push(term)
+      currentLen += addedLen
+    }
+  }
+  if (currentBatch.length > 0) batches.push(currentBatch.join(' OR '))
+
+  for (const q of batches) {
+    queriesCount++
     const params = new URLSearchParams({
       q,
       from,
       language: 'en',
       sortBy: 'publishedAt',
       pageSize: '100',
-      apiKey: NEWS_API_KEY,
+      apiKey: NEWS_API_KEY || '',
     })
     try {
       const res = await fetch(`${API_URL}?${params}`)
@@ -72,7 +102,7 @@ async function main() {
       } else {
         const data = await res.json() as { articles?: NewsArticle[] }
         for (const a of data.articles ?? []) {
-          if (a.url) allArticles.push({ article: a, fighter })
+          if (a.url) allArticles.push({ article: a, fighter: null })
         }
       }
     } catch (err) {
@@ -86,7 +116,7 @@ async function main() {
     console.error('No articles fetched from News API. Leaving existing data untouched.')
     process.exit(1)
   }
-  console.log(`Fetched ${allArticles.length} articles from ${queries.length} queries (${failures} failed)`)
+  console.log(`Fetched ${allArticles.length} articles from ${queriesCount} queries (${failures} failed)`)
 
   const fights: UpcomingFightEntry[] = []
   const seenArticle = new Set<string>()
