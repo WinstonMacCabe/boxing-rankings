@@ -111,13 +111,8 @@ async function main() {
       a.losses - b.losses ||
       (b.kos ?? 0) - (a.kos ?? 0)
     )
-  const thirdaryRanked: BoxerRecord[] = []
-  let thirdNonSeniorCount = 0
-  for (const f of allThirdaryScored) {
-    thirdaryRanked.push(f)
-    if (!f.isSenior) thirdNonSeniorCount++
-    if (thirdNonSeniorCount >= 50) break
-  }
+  // No fighter cap — BOXING_MIN_SCORE filter determines inclusion
+  const thirdaryRanked: BoxerRecord[] = allThirdaryScored
 
   const thirdEligibleWorst = allThirdary
     .filter(f => f.imageUrl && (f.thirdaryScore ?? 0) > 0 && !f.isSenior)
