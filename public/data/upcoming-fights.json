@@ -1,12 +1,152 @@
 {
-  "lastUpdated": "2026-09-11T16:03:00.102Z",
+  "lastUpdated": "2026-09-11T16:22:04.142Z",
   "fights": [
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "Angelina Jolie makes rare comment about raising her 6 children to be ‘individuals’ - Page Six",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=185586336",
+      "source": "Slashdot.org",
+      "publishedAt": "2026-09-10T15:32:58Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Ryan Garcia vs. Conor Benn fight preview: Tale of the tape, fighter records, stats, what's at stake",
+      "url": "https://www.cbssports.com/boxing/news/ryan-garcia-conor-benn-fight-preview-tale-of-the-tape-records/",
+      "source": "CBS Sports",
+      "publishedAt": "2026-09-10T15:21:40Z"
+    },
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "Angelina Jolie Shares Rare Insight Into Raising Her, Brad Pitt's 6 Chi",
+      "url": "https://www.eonline.com/news/1435921/angelina-jolie-shares-rare-insight-into-raising-her-brad-pitts-6-children",
+      "source": "Eonline.com",
+      "publishedAt": "2026-09-10T15:14:23Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Conor Benn hits out at 'spoiled brat' Ryan Garcia ahead of Las Vegas world title showdown - as Brit dismisses concerns over huge weight cut on eve of clash with 'insecure' rival",
+      "url": "https://www.dailymail.com/sport/boxing/article-16117943/conor-benn-ryan-garcia-las-vegas.html",
+      "source": "Dailymail.com",
+      "publishedAt": "2026-09-10T15:00:49Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Ryan Garcia explains why he skipped pre-fight faceoff with Conor Benn",
+      "url": "https://www.mmafighting.com/boxing/509431/ryan-garcia-explains-why-he-skipped-pre-fight-faceoff-with-conor-benn",
+      "source": "MMA Fighting",
+      "publishedAt": "2026-09-10T14:00:00Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Ryan Garcia believes he's matured as a person and fighter: 'I feel like this is the start of my era'",
+      "url": "https://www.cbssports.com/boxing/news/ryan-garcia-fight-maturity-conor-benn/",
+      "source": "CBS Sports",
+      "publishedAt": "2026-09-10T13:43:21Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Ryan Garcia and Conor Benn are more alike than they'll ever admit",
+      "url": "https://sports.yahoo.com/boxing/article/ryan-garcia-and-conor-benn-are-more-alike-than-theyll-ever-admit-130000473.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-10T13:00:00Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Off-White Partners With Everlast to Dress Conor Benn for His Welterweight Challenge Against Ryan Garcia",
+      "url": "http://wwd.com/fashion-news/sportswear/conor-benn-ryan-garcia-offwhite-everlane-outfit-1239204539/",
+      "source": "WWD",
+      "publishedAt": "2026-09-10T13:00:00Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Ryan Garcia vs Conor Benn: Tony Bellew warns champion",
+      "url": "https://sports.yahoo.com/articles/ryan-garcia-vs-conor-benn-124603738.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-10T12:46:03Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "‘Too much for him’: Ryan Garcia says Conor Benn will get overwhelmed in the ring",
+      "url": "https://www.badlefthook.com/boxing-news/118585/ryan-garcia-says-conor-benn-will-get-overwhelmed-in-the-ring-boxing-news-2026",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-09-10T12:04:09Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Ryan Garcia doesn’t want to ‘hear any crybaby s—t’ from Conor Benn over weight issues",
+      "url": "https://www.mmamania.com/boxing/470806/ryan-garcia-doesnt-want-to-hear-any-crybaby-s-t-from-conor-benn-over-weight-issues",
+      "source": "MMA Mania",
+      "publishedAt": "2026-09-10T12:00:00Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Benn does not deserve world title shot - Garcia",
+      "url": "https://www.bbc.com/sport/boxing/articles/cevwzgj9vkyo?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
+      "source": "BBC News",
+      "publishedAt": "2026-09-10T10:15:37Z"
+    },
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "Quote of the day by Brad Pitt: ‘I want it to be worthy enough of a story to leave the family’, Oscar-winning Hollywood hunk's lesson on creating a life worth remembering",
+      "url": "https://economictimes.indiatimes.com/magazines/panache/quote-of-the-day-by-brad-pitt-i-want-it-to-be-worthy-enough-of-a-story-to-leave-the-family-oscar-winning-hollywood-hunks-lesson-on-creating-a-life-worth-remembering/articleshow/134000985.cms",
+      "source": "The Times of India",
+      "publishedAt": "2026-09-10T10:08:55Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Benn does not deserve world title shot - Garcia",
+      "url": "https://www.bbc.co.uk/sport/boxing/articles/cevwzgj9vkyo",
+      "source": "BBC News",
+      "publishedAt": "2026-09-10T09:56:33Z"
+    },
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "Brad Pitt Has 16 Roommates. There’s a Smart Marketing Lesson Behind the Absurdity",
+      "url": "https://biztoc.com/x/b0b379bd309eb705",
+      "source": "Biztoc.com",
+      "publishedAt": "2026-09-10T09:16:13Z"
+    },
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "Brad Pitt Believes His Performance In This 80% RT Movie Had One Major Flaw",
+      "url": "https://collider.com/brad-pitt-a-river-runs-through-it-performance-flaw/",
+      "source": "Collider.com",
+      "publishedAt": "2026-09-10T09:01:50Z"
+    },
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "Quote of the day by Brad Pitt: 'When I got untethered from the comfort of religion, it wasn't a loss of faith for me, it was a discovery of...' - Why letting go of familiar beliefs can sometimes lead to a deeper understanding of who you are",
+      "url": "https://economictimes.indiatimes.com/news/international/us/quote-of-the-day-by-brad-pitt-when-i-got-untethered-from-the-comfort-of-religion-it-wasnt-a-loss-of-faith-for-me-it-was-a-discovery-of-why-letting-go-of-familiar-beliefs-can-sometimes-lead-to-a-deeper-understanding-of-who-you-are/articleshow/133998351.cms",
+      "source": "The Times of India",
+      "publishedAt": "2026-09-10T08:21:00Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Benn 'dragged down to pits of hell' by weight cut",
+      "url": "https://www.bbc.com/sport/boxing/articles/cx2z9lvp0wgo?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
+      "source": "BBC News",
+      "publishedAt": "2026-09-10T06:20:41Z"
+    },
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "Brad Pitt looks hipster-chic in tattered outfit at Heart of the Beast screening after being humiliated by kids",
+      "url": "https://www.dailymail.com/tvshowbiz/article-16119505/Brad-Pitt-hipster-Heart-Beast-screening-humiliated-kids.html",
+      "source": "Dailymail.com",
+      "publishedAt": "2026-09-10T03:54:44Z"
+    },
     {
       "boxerName": "Terence Crawford",
       "headline": "Terence Crawford teases Boots Ennis with comeback fight offer days after tense exchange",
       "url": "https://sports.yahoo.com/boxing/article/terence-crawford-teases-boots-ennis-with-comeback-fight-offer-days-after-tense-exchange-032805126.html",
       "source": "Yahoo Entertainment",
       "publishedAt": "2026-09-10T03:28:05Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Ryan Garcia explains skipping scheduled face-off with Conor Benn",
+      "url": "https://www.usatoday.com/story/sports/boxing/2026/09/09/ryan-garcia-explains-skipping-face-off-conor-benn/91683623007/",
+      "source": "USA Today",
+      "publishedAt": "2026-09-10T02:33:27Z"
     },
     {
       "boxerName": "Terence Crawford",
@@ -16,11 +156,193 @@
       "publishedAt": "2026-09-10T01:45:02Z"
     },
     {
+      "boxerName": "Ryan Garcia",
+      "headline": "Ryan Garcia explains why Conor Benn's 'more Mexican' comment will backfire",
+      "url": "https://mmajunkie.usatoday.com/story/sports/boxing/2026/09/09/boxing-ryan-garcia-interview-conor-benn-more-mexican-backfire/91682753007/",
+      "source": "USA Today",
+      "publishedAt": "2026-09-09T23:40:55Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Conor Benn is ready for his championship moment against Ryan Garcia",
+      "url": "https://www.thesportingtribune.com/2026/09/09/conor-benn-is-ready-for-championship-moment",
+      "source": "Thesportingtribune.com",
+      "publishedAt": "2026-09-09T23:36:27Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Garcia vs Benn: Briton Conor Benn 'dragged down to pits of hell' by weight cut - BBC",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=185570306",
+      "source": "Slashdot.org",
+      "publishedAt": "2026-09-09T22:32:55Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Conor Benn admits weight cut to 147 pounds is like going through ‘the pits of hell’ but promises he’ll make it",
+      "url": "https://www.mmafighting.com/boxing/509409/conor-benn-admits-weight-cut-to-147-pounds-is-like-going-through-the-pits-of-hell-but-promises-hell-make-it",
+      "source": "MMA Fighting",
+      "publishedAt": "2026-09-09T22:00:00Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Conor Benn’s manager claims Garcia is ‘rattled’ and makes bold prediction",
+      "url": "https://sports.yahoo.com/articles/conor-benn-manager-claims-garcia-215826354.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-09T21:58:26Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Ryan Garcia vs Conor Benn fight preview, predictions, and analysis: Who will win?",
+      "url": "https://www.badlefthook.com/boxing-predictions/118578/ryan-garcia-vs-conor-benn-fight-preview-predictions-analysis-who-wins-zuffa-boxing-news-2026",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-09-09T21:08:11Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Conor Benn gone through 'pits of hell' in weight cut for Ryan Garcia boxing fight",
+      "url": "https://mmajunkie.usatoday.com/story/sports/boxing/2026/09/09/conor-benn-details-pits-of-hell-weight-cut-ryan-garcia-boxing/91679341007/",
+      "source": "USA Today",
+      "publishedAt": "2026-09-09T21:07:13Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Benn 'dragged down to pits of hell' by weight cut",
+      "url": "https://www.bbc.co.uk/sport/boxing/articles/cx2z9lvp0wgo",
+      "source": "BBC News",
+      "publishedAt": "2026-09-09T20:23:19Z"
+    },
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "Angelina Jolie brags about raising 'individuals' as her kids humiliate Brad Pitt by dropping his name",
+      "url": "https://www.dailymail.com/tvshowbiz/article-16118359/angelina-jolie-brags-raising-individuals-kids-humiliate-brad-pitt.html",
+      "source": "Dailymail.com",
+      "publishedAt": "2026-09-09T19:33:25Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Ryan Garcia and Conor Benn are thriving in boxing's villain economy",
+      "url": "https://sports.yahoo.com/boxing/article/ryan-garcia-and-conor-benn-are-thriving-in-boxings-villain-economy-192000293.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-09T19:20:00Z"
+    },
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "Disheveled Brad Pitt chats to 16 dog roommates as he exposes bleary morning routine in bonkers ad",
+      "url": "https://www.dailymail.com/tvshowbiz/article-16117613/disheveled-brad-pitt-chats-dog-roommates-bleary-morning-routine.html",
+      "source": "Dailymail.com",
+      "publishedAt": "2026-09-09T17:12:45Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Video: Ryan Garcia vs. Conor Benn media day live stream",
+      "url": "https://mmajunkie.usatoday.com/story/sports/ufc/2026/09/09/ryan-garcia-vs-conor-benn-media-day-live-stream/91663586007/",
+      "source": "USA Today",
+      "publishedAt": "2026-09-09T17:00:44Z"
+    },
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "Hollywood heroes meet 1980s photo trend: Tom Cruise to Brad Pitt to Leonardo DiCaprio, netizens reimagine stars as vintage ’80s heroes using latest AI prompt",
+      "url": "https://economictimes.indiatimes.com/magazines/panache/hollywood-heroes-meet-1980s-photo-trend-tom-cruise-to-brad-pitt-to-leonardo-dicaprio-netizens-reimagine-stars-as-vintage-80s-heroes-using-latest-ai-prompt/articleshow/133972934.cms",
+      "source": "The Times of India",
+      "publishedAt": "2026-09-09T15:34:20Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "‘Dragged down to hell’: Conor Benn admits to tough weight cut for Ryan Garcia title fight",
+      "url": "https://www.badlefthook.com/boxing-news/118571/conor-benn-admits-to-tough-weight-cut-for-ryan-garcia-title-fight-boxing-news-2026",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-09-09T14:11:25Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Dana White reacts to latest Tyson Fury-Anthony Joshua drama: ‘You don’t have to be f****** rocket scientists to see what’s going on here’",
+      "url": "https://www.mmafighting.com/ufc/509327/dana-white-reacts-to-latest-tyson-fury-anthony-joshua-drama-you-dont-have-to-be-f-rocket-scientists-to-see-whats-going-on-here",
+      "source": "MMA Fighting",
+      "publishedAt": "2026-09-09T14:00:00Z"
+    },
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "Why Brad Pitt is trading Hollywood for Nashville for his latest blockbuster movie premiere",
+      "url": "https://pagesix.com/2026/09/09/hollywood/why-brad-pitt-is-trading-hollywood-for-nashville-for-his-latest-blockbuster-movie-premiere/",
+      "source": "Page Six",
+      "publishedAt": "2026-09-09T13:45:00Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "‘I’m getting paid to beat up a beginner’: Ryan Garcia says Conor Benn not on his level",
+      "url": "https://www.badlefthook.com/boxing-news/118563/ryan-garcia-says-conor-benn-not-on-his-level-boxing-news-2026",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-09-09T13:28:55Z"
+    },
+    {
       "boxerName": "Oleksandr Usyk",
       "headline": "Tyson Fury teases trilogy Oleksandr Usyk fight; Social media banter continues",
       "url": "https://clutchpoints.com/celebrity/tyson-fury-trilogy-oleksandr-usyk-fight-social-media-banter-continues",
       "source": "ClutchPoints",
       "publishedAt": "2026-09-09T12:18:02Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "A car in the gym? At home with Conor Benn",
+      "url": "https://www.bbc.co.uk/sport/boxing/videos/c2kw1zedx25o",
+      "source": "BBC News",
+      "publishedAt": "2026-09-09T10:59:59Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Ryan Garcia heads into Conor Benn fight as boxing's most divisive star | Opinion",
+      "url": "https://www.usatoday.com/story/sports/boxing/2026/09/09/ryan-garcia-conor-benn-fight-controversy-history/91650453007/",
+      "source": "USA Today",
+      "publishedAt": "2026-09-09T10:08:29Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "What to know about Ryan Garcia's WBC title fight defense vs Conor Benn",
+      "url": "https://www.tennessean.com/story/sports/boxing/2026/09/09/ryan-garcia-mario-barrios-wbc-title-fight-time-watch-undercard/91612299007/",
+      "source": "Tennessean",
+      "publishedAt": "2026-09-09T10:05:20Z"
+    },
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "A Full Timeline of Brad Pitt's Kids Dropping His Last Name — as They Seek to Distance Themselves From Hollywood Star",
+      "url": "https://okmagazine.com/p/brad-pitt-children-dropping-his-last-name-complete-timeline/",
+      "source": "OK!",
+      "publishedAt": "2026-09-09T09:30:00Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "'Bottling it' - Garcia no-show for first Benn face-off",
+      "url": "https://www.bbc.com/sport/boxing/articles/c3eqz7qvg42o?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
+      "source": "BBC News",
+      "publishedAt": "2026-09-09T07:08:49Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "'Bottling it' - Garcia no-show for first Benn face-off",
+      "url": "https://www.bbc.co.uk/sport/boxing/articles/c3eqz7qvg42o",
+      "source": "BBC News",
+      "publishedAt": "2026-09-09T07:08:45Z"
+    },
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "Gwyneth Paltrow Crushed on Brad Pitt Watching Thelma & Louise, Then Got Cast Opposite Him in Se7en and Had “A Love At First Sight Thing” on Set",
+      "url": "https://thoughtcatalog.com/nadia-santiago/2026/09/gwyneth-paltrow-crushed-on-brad-pitt-watching-thelma-louise-then-got-cast-opposite-him-in-se7en-and-had-a-love-at-first-sight-thing-on-set/",
+      "source": "Thoughtcatalog.com",
+      "publishedAt": "2026-09-09T07:00:00Z"
+    },
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "Gwyneth Paltrow explains why she felt 'extra shame' over end of Brad Pitt relationship",
+      "url": "https://www.perthnow.com.au/entertainment/celebrity-gossip/gwyneth-paltrow-explains-why-she-felt-extra-shame-over-end-of-brad-pitt-relationship-c-22846268",
+      "source": "PerthNow",
+      "publishedAt": "2026-09-09T06:20:27Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Ryan Garcia blows off face-off with Conor Benn ahead of title fight",
+      "url": "https://www.usatoday.com/story/sports/boxing/2026/09/09/ryan-garcia-skips-conor-benn-faceoff-welterweight-title-fight/91669464007/",
+      "source": "USA Today",
+      "publishedAt": "2026-09-09T05:36:03Z"
     },
     {
       "boxerName": "Oleksandr Usyk",
@@ -30,11 +352,109 @@
       "publishedAt": "2026-09-09T05:27:01Z"
     },
     {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "Brad Pitt Chats With Dogs in Hilarious New De’Longhi Espresso Maker Ad – Watch Now!",
+      "url": "https://www.justjared.com/2026/09/08/brad-pitt-chats-with-dogs-in-hilarious-new-delonghi-espresso-maker-ad-watch-now/",
+      "source": "Just Jared",
+      "publishedAt": "2026-09-09T03:45:06Z"
+    },
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "Gwyneth Paltrow details the 'shame' she felt when her age-gap romance with Brad Pitt imploded in the 90s",
+      "url": "https://www.dailymail.com/tvshowbiz/article-16116233/gwyneth-paltrow-brad-pitt-romance-split-90s.html",
+      "source": "Dailymail.com",
+      "publishedAt": "2026-09-09T03:20:54Z"
+    },
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "Gwyneth Paltrow Details How Brad Pitt Crush Turned Into a Relationship",
+      "url": "https://www.eonline.com/news/1435869/gwyneth-paltrow-details-brad-pitt-relationship-why-they-broke-up",
+      "source": "Eonline.com",
+      "publishedAt": "2026-09-09T03:00:57Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Conor Benn Questions Ryan Garcia’s Faceoff Absence",
+      "url": "https://www.boxingnews24.com/2026/09/conor-benn-questions-ryan-garcias-faceoff-absence/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-09-09T02:57:30Z"
+    },
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "NASCAR: Bristol Motor Speedway Race Gets a Surprise With Brad Pitt",
+      "url": "https://heavy.com/sports/nascar/nascar-bristol-motor-speedway-race-gets-a-surprise-with-brad-pitt/",
+      "source": "Heavy.com",
+      "publishedAt": "2026-09-09T01:09:59Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "TKO Group, Zuffa Boxing issued cease-and-desist by Don King over Jai Opetaia vs. Noel Mikaelian",
+      "url": "https://sports.yahoo.com/boxing/article/tko-group-zuffa-boxing-issued-cease-and-desist-by-don-king-over-jai-opetaia-vs-noel-mikaelian-ryan-garcia-conor-benn-203030338.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-08T20:30:30Z"
+    },
+    {
       "boxerName": "Oleksandr Usyk",
       "headline": "Oleksandr Usyk responds to Tyson Fury call out",
       "url": "https://sports.yahoo.com/articles/oleksandr-usyk-responds-tyson-fury-202807600.html",
       "source": "Yahoo Entertainment",
       "publishedAt": "2026-09-08T20:28:07Z"
+    },
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "Gwyneth Paltrow Recalls Brad Pitt Romance: ‘Love at First Sight’",
+      "url": "https://extratv.com/2026/09/08/gwyneth-paltrow-recalls-brad-pitt-romance-love-at-first-sight/",
+      "source": "Extra",
+      "publishedAt": "2026-09-08T20:19:01Z"
+    },
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "Gwyneth Paltrow Says Relationship With Brad Pitt Was 'Love at 1st Sight'",
+      "url": "https://www.usmagazine.com/celebrity-news/news/gwyneth-paltrow-says-brad-pitt-romance-was-love-at-1st-sight/",
+      "source": "Us Weekly",
+      "publishedAt": "2026-09-08T19:14:58Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Ryan Garcia Calls Conor Benn an ‘Amateur’ Again Ahead of Title Fight",
+      "url": "https://www.complex.com/sports/a/maggie-ekberg/ryan-garcia-conor-benn-amateur-emily-austin",
+      "source": "Complex",
+      "publishedAt": "2026-09-08T18:49:24Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Abel Sanchez raises major weight concern about Conor Benn ahead of Garcia fight",
+      "url": "https://sports.yahoo.com/articles/abel-sanchez-raises-major-weight-182606977.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-08T18:26:06Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Ryan Garcia backed by Mike Tyson against Conor Benn as weight concerns create another major question before fight night",
+      "url": "https://timesofindia.indiatimes.com/sports/international-sports/ryan-garcia-backed-by-mike-tyson-against-conor-benn-as-weight-concerns-create-another-major-question-before-fight-night/articleshow/133935629.cms",
+      "source": "The Times of India",
+      "publishedAt": "2026-09-08T17:33:00Z"
+    },
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "Gwyneth Paltrow makes rare comment on ending ‘heady’ romance with ex Brad Pitt",
+      "url": "https://pagesix.com/2026/09/08/celebrity-news/gwyneth-paltrow-makes-rare-comment-on-ending-heady-romance-with-ex-brad-pitt/",
+      "source": "Page Six",
+      "publishedAt": "2026-09-08T16:56:06Z"
+    },
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "Brad Pitt to serve as a grand marshal for the NASCAR Bristol Night Race",
+      "url": "https://www.tennessean.com/story/sports/nascar/2026/09/08/brad-pitt-nascar-bristol-night-race-grand-marshal/91657254007/",
+      "source": "Tennessean",
+      "publishedAt": "2026-09-08T15:38:49Z"
+    },
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "Brad Pitt to Serve as Grand Marshal at NASCAR’s ‘Bass Pro Shops Night Race’ in Bristol!",
+      "url": "https://www.justjared.com/2026/09/08/brad-pitt-to-serve-as-grand-marshal-at-nascars-bass-pro-shops-night-race-in-bristol/",
+      "source": "Just Jared",
+      "publishedAt": "2026-09-08T14:59:13Z"
     },
     {
       "boxerName": "Laila Ali",
@@ -49,6 +469,62 @@
       "url": "https://clutchpoints.com/ufc/ufc-news-major-conor-mcgregor-croke-park-fight-teased",
       "source": "ClutchPoints",
       "publishedAt": "2026-09-08T13:07:44Z"
+    },
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "Watch Brad Pitt Talk to Dogs in New De’Longhi Espresso Maker Ad Campaign (EXCLUSIVE)",
+      "url": "https://variety.com/2026/biz/columns/brad-pitt-talk-dogs-delonghi-espresso-maker-ad-1236853440/",
+      "source": "Variety",
+      "publishedAt": "2026-09-08T13:00:00Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Abel Sanchez not convinced Conor Benn will effectively make weight for Ryan Garcia fight",
+      "url": "https://www.badlefthook.com/boxing-news/118537/abel-sanchez-not-convinced-conor-benn-will-effectively-make-weight-for-ryan-garcia-fight-boxing-news-2026",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-09-08T12:29:48Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Conor Benn net worth 2026: Inside the British boxer’s earnings, wealth, career, and more ahead of upcoming Ryan Garcia bout",
+      "url": "https://timesofindia.indiatimes.com/sports/international-sports/conor-benn-net-worth-2026-inside-the-british-boxers-earnings-wealth-career-and-more-ahead-of-upcoming-ryan-garcia-bout/articleshow/133922203.cms",
+      "source": "The Times of India",
+      "publishedAt": "2026-09-08T12:04:24Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "‘I’m coming with mean intentions’: Ryan Garcia looking for statement win over Conor Benn",
+      "url": "https://www.badlefthook.com/boxing-news/118534/ryan-garcia-looking-for-statement-win-over-conor-benn-boxing-news-2026",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-09-08T11:37:09Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Zuffa Running UFC, WWE Playbook in Attempt to Mainstream Boxing, Again",
+      "url": "https://www.johnwallstreet.com/p/zuffa-running-ufc-wwe-playbook-in-attempt-to-mainstream-boxing-again",
+      "source": "Johnwallstreet.com",
+      "publishedAt": "2026-09-08T09:30:00Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Garcia v Benn - all you need to know",
+      "url": "https://www.bbc.com/sport/boxing/articles/cy0z5pej8dlo?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
+      "source": "BBC News",
+      "publishedAt": "2026-09-08T06:46:38Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Garcia v Benn - all you need to know",
+      "url": "https://www.bbc.co.uk/sport/boxing/articles/cy0z5pej8dlo",
+      "source": "BBC News",
+      "publishedAt": "2026-09-08T06:46:33Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Eddie Hearn blames TKO for Tyson Fury-Anthony Joshua fight deadlock",
+      "url": "https://www.sherdog.com/news/news/Eddie-Hearn-blames-TKO-for-Tyson-FuryAnthony-Joshua-fight-deadlock-202711",
+      "source": "Sherdog.com",
+      "publishedAt": "2026-09-08T06:12:20Z"
     },
     {
       "boxerName": "Oleksandr Usyk",
@@ -93,6 +569,20 @@
       "publishedAt": "2026-09-07T21:33:33Z"
     },
     {
+      "boxerName": "Ryan Garcia",
+      "headline": "Conor Benn reflects on Eubank Jr rivalry: ‘It was spiteful, it was personal’",
+      "url": "https://sports.yahoo.com/articles/conor-benn-reflects-eubank-jr-183717287.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-07T18:37:17Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Ryan Garcia vs. Conor Benn fight: Five storylines to follow for welterweight title showdown in Zuffa Boxing",
+      "url": "https://www.cbssports.com/boxing/news/ryan-garcia-vs-conor-benn-fight-storylines-welterweight-title-zuffa-boxing/",
+      "source": "CBS Sports",
+      "publishedAt": "2026-09-07T18:19:50Z"
+    },
+    {
       "boxerName": "Katie Taylor",
       "headline": "Conor McGregor makes surprise Katie Taylor request after Croke Park retirement as his own stadium dream grows",
       "url": "https://timesofindia.indiatimes.com/sports/international-sports/conor-mcgregor-makes-surprise-katie-taylor-request-after-croke-park-retirement-as-his-own-stadium-dream-grows/articleshow/133892581.cms",
@@ -135,6 +625,13 @@
       "publishedAt": "2026-09-07T13:20:45Z"
     },
     {
+      "boxerName": "Ryan Garcia",
+      "headline": "Ryan Garcia vs Conor Benn: Date and time in UK, USA, venue, everything you need to know about the title fight",
+      "url": "https://timesofindia.indiatimes.com/sports/international-sports/ryan-garcia-vs-conor-benn-date-and-time-in-uk-usa-venue-everything-you-need-to-know-about-the-title-fight/articleshow/133881775.cms",
+      "source": "The Times of India",
+      "publishedAt": "2026-09-07T12:44:04Z"
+    },
+    {
       "boxerName": "Katie Taylor",
       "headline": "Taylor's finale brings peak TV audience of 1.6 million",
       "url": "https://www.rte.ie/sport/boxing/2026/0907/1590597-taylors-finale-brings-tv-audience-peak-of-1-6-million/",
@@ -149,11 +646,53 @@
       "publishedAt": "2026-09-07T12:15:33Z"
     },
     {
+      "boxerName": "Tyson Fury",
+      "headline": "Eddie Hearn shuts down Tyson Fury’s claims of Anthony Joshua “Pulling Out” of their fight as Gypsy King’s “Joshua has s**t his pants” Instagram video goes viral",
+      "url": "https://timesofindia.indiatimes.com/sports/international-sports/eddie-hearn-shuts-down-tyson-furys-claims-of-anthony-joshua-pulling-out-of-their-fight-as-gypsy-kings-joshua-has-st-his-pants-instagram-video-goes-viral/articleshow/133879943.cms",
+      "source": "The Times of India",
+      "publishedAt": "2026-09-07T11:59:19Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Ryan Garcia vs Conor Benn: Robert Garcia makes his pick",
+      "url": "https://sports.yahoo.com/articles/ryan-garcia-vs-conor-benn-110020024.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-07T11:00:20Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Fury claims Joshua fight is off, calls for another Usyk rematch",
+      "url": "https://www.aljazeera.com/sports/2026/9/7/fury-claims-joshua-fight-is-off-calls-for-another-usyk-rematch",
+      "source": "Al Jazeera English",
+      "publishedAt": "2026-09-07T10:42:34Z"
+    },
+    {
       "boxerName": "Oleksandr Usyk",
       "headline": "Fury claims Joshua bout is off, calls for Usyk trilogy",
       "url": "https://www.vanguardngr.com/2026/09/fury-claims-joshua-bout-is-off-calls-for-usyk-trilogy/",
       "source": "Vanguard",
       "publishedAt": "2026-09-07T10:09:29Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Fury says he is looking for new opponent, calls out Usyk",
+      "url": "https://www.bbc.com/sport/boxing/articles/c624gxplj72o?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
+      "source": "BBC News",
+      "publishedAt": "2026-09-07T06:55:03Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Fury says he is looking for new opponent, calls out Usyk",
+      "url": "https://www.bbc.co.uk/sport/boxing/articles/c624gxplj72o",
+      "source": "BBC News",
+      "publishedAt": "2026-09-07T06:54:57Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Tyson Fury claims Anthony Joshua fight is OFF in another social media rant: Gypsy King accuses AJ of 's***ing his pants' in talks over Battle of Britain deal",
+      "url": "https://www.dailymail.com/sport/boxing/article-16110123/Tyson-Fury-Anthony-Joshua-fight-off.html",
+      "source": "Dailymail.com",
+      "publishedAt": "2026-09-06T22:14:52Z"
     },
     {
       "boxerName": "Oleksandr Usyk",
@@ -175,6 +714,13 @@
       "url": "https://sports.yahoo.com/articles/tyson-fury-calls-oleksandr-usyk-201125094.html",
       "source": "Yahoo Entertainment",
       "publishedAt": "2026-09-06T20:11:25Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Ryan Garcia vs Conor Benn, Jai Opetaia, and more: Boxing schedule and previews for September 11-12, 2026",
+      "url": "https://www.badlefthook.com/boxing-schedule/118509/how-to-watch-ryan-garcia-conor-benn-jai-opetaia-misfits-boxing-streaming-tv-schedule-boxing-news-2026",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-09-06T18:31:36Z"
     },
     {
       "boxerName": "Katie Taylor",
@@ -266,6 +812,13 @@
       "url": "https://www.bbc.co.uk/sport/boxing/articles/c5yjr8pp0jwo",
       "source": "BBC News",
       "publishedAt": "2026-09-06T06:24:34Z"
+    },
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "Wim Wenders on Why He Made a Documentary About Architect Peter Zumthor, and How Brad Pitt Helped Get It Made",
+      "url": "https://variety.com/2026/film/global/wim-wenders-peter-zumthor-venice-1236852836/",
+      "source": "Variety",
+      "publishedAt": "2026-09-06T05:00:00Z"
     },
     {
       "boxerName": "Mike Lee (boxer)",
@@ -471,6 +1024,13 @@
       "publishedAt": "2026-09-05T15:40:06Z"
     },
     {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "70s bombshell who acted with Steve Martin and Kate Beckinsale and directed one of Ben Affleck's first projects is seen at 75... who is she?",
+      "url": "https://www.dailymail.com/tvshowbiz/article-16100427/70s-bombshell-steve-martin-kate-beckinsale-directed-ben-affleck-guess-who.html",
+      "source": "Dailymail.com",
+      "publishedAt": "2026-09-05T15:12:07Z"
+    },
+    {
       "boxerName": "Katie Taylor",
       "headline": "Katie Taylor vs. Flora Pili live results, updates, highlights from 2026 boxing fight",
       "url": "https://www.sportingnews.com/us/boxing/news/katie-taylor-vs-flora-pili-live-results-2026-boxing/46bb96d248e5e0781d6731ce",
@@ -483,6 +1043,13 @@
       "url": "https://variety.com/2026/shopping/news/how-to-watch-katie-taylor-vs-flora-pili-boxing-live-sept-2026-online-1236850092/",
       "source": "Variety",
       "publishedAt": "2026-09-05T14:00:00Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Fury Credits White For Getting Joshua Super Fight ‘Over The Line’",
+      "url": "https://www.mmamania.com/boxing/469522/move-over-hearn-tyson-fury-credits-ufcs-dana-white-for-finally-getting-joshua-super-fight-over-the-line",
+      "source": "MMA Mania",
+      "publishedAt": "2026-09-05T13:06:56Z"
     },
     {
       "boxerName": "Katie Taylor",
@@ -504,6 +1071,13 @@
       "url": "https://www.mmafighting.com/boxing/508537/taylor-vs-pili-results-live-updates-of-the-undercard-and-main-event-boxing",
       "source": "MMA Fighting",
       "publishedAt": "2026-09-05T09:00:00Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Tyson Fury attacks Anthony Joshua and questions his 'love' of England over his speech calling for a block on spending in white-owned shops - in bitter feud over moving their fight away from the UK",
+      "url": "https://www.dailymail.com/sport/boxing/article-16107243/tyson-fury-anthony-joshua-blm-row.html",
+      "source": "Dailymail.com",
+      "publishedAt": "2026-09-05T08:10:24Z"
     },
     {
       "boxerName": "Katie Taylor",
@@ -570,16 +1144,16 @@
     },
     {
       "boxerName": "Katie Taylor",
-      "headline": "Adam Olaniyan: Jobstown heavyweight dreams of undisputed success and becoming a cowboy",
-      "url": "https://www.irishtimes.com/sport/boxing/2026/09/05/adam-olaniyan-jobstown-heavyweight-dreams-of-undisputed-success-and-becoming-a-cowboy/",
-      "source": "The Irish Times",
+      "headline": "How to Watch Katie Taylor vs. Flora Pili: Live Stream, Start Time & Full Fight Card",
+      "url": "https://nesn.com/boxing/news/watch-katie-taylor-vs-flora-pili-stream-start-time-fight-card/341e2c94d10e6efdf00e3cc9",
+      "source": "NESN",
       "publishedAt": "2026-09-05T05:00:01Z"
     },
     {
       "boxerName": "Katie Taylor",
-      "headline": "How to Watch Katie Taylor vs. Flora Pili: Live Stream, Start Time & Full Fight Card",
-      "url": "https://nesn.com/boxing/news/watch-katie-taylor-vs-flora-pili-stream-start-time-fight-card/341e2c94d10e6efdf00e3cc9",
-      "source": "NESN",
+      "headline": "Adam Olaniyan: Jobstown heavyweight dreams of undisputed success and becoming a cowboy",
+      "url": "https://www.irishtimes.com/sport/boxing/2026/09/05/adam-olaniyan-jobstown-heavyweight-dreams-of-undisputed-success-and-becoming-a-cowboy/",
+      "source": "The Irish Times",
       "publishedAt": "2026-09-05T05:00:01Z"
     },
     {
@@ -595,6 +1169,48 @@
       "url": "https://www.irishtimes.com/ireland/2026/09/05/i-want-to-be-like-katie-in-the-shadow-of-croke-park-katie-taylors-legacy-is-clear/",
       "source": "The Irish Times",
       "publishedAt": "2026-09-05T05:00:00Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Anthony Joshua vs. Tyson Fury Wembley fight talks back on - Eddie Hearn - ESPN",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=185436066",
+      "source": "Slashdot.org",
+      "publishedAt": "2026-09-05T02:52:38Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "RIATH AL-SAMARRAI: This is the untold behind-the-scenes story of the rumbling Tyson Fury and Anthony Joshua fight talks - and how much the pair stood to lose under disgraceful idea to stage bout in New York",
+      "url": "https://www.dailymail.com/sport/boxing/article-16105667/tyson-fury-anthony-joshua-fight-new-york.html",
+      "source": "Dailymail.com",
+      "publishedAt": "2026-09-05T01:00:46Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "London mayor begs to host Joshua vs Fury",
+      "url": "https://punchng.com/london-mayor-begs-to-host-joshua-vs-fury/",
+      "source": "The Punch",
+      "publishedAt": "2026-09-05T00:56:12Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Garcia vs. Benn Start Time, Full Fight Card",
+      "url": "https://www.mmamania.com/zuffa-boxing-news/469133/ryan-garcia-vs-conor-benn-full-fight-card-paramount-dazn-ppv-start-time",
+      "source": "MMA Mania",
+      "publishedAt": "2026-09-04T23:15:00Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "White starts selling “Slap Snacks”",
+      "url": "https://mmapayout.com/2026/09/04/white-starts-selling-slap-snacks/",
+      "source": "Mmapayout.com",
+      "publishedAt": "2026-09-04T20:03:59Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Tyson Fury vs Anthony Joshua: ‘You don’t want to fight’ Fury claims as talks drag on",
+      "url": "https://timesofindia.indiatimes.com/sports/international-sports/tyson-fury-vs-anthony-joshua-you-dont-want-to-fight-fury-claims-as-talks-drag-on/articleshow/133777323.cms",
+      "source": "The Times of India",
+      "publishedAt": "2026-09-04T20:03:02Z"
     },
     {
       "boxerName": "Katie Taylor",
@@ -632,6 +1248,13 @@
       "publishedAt": "2026-09-04T18:15:39Z"
     },
     {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "In 3 Weeks, Brad Pitt’s New Survival Thriller Reunites Him With an Iconic War Movie Director",
+      "url": "http://comicbook.com/movies/feature/in-3-weeks-brad-pitts-new-survival-thriller-reunites-him-with-an-iconic-war-movie-director/",
+      "source": "ComicBook.com",
+      "publishedAt": "2026-09-04T18:00:00Z"
+    },
+    {
       "boxerName": "Katie Taylor",
       "headline": "The Irish Times view on Katie Taylor: a woman with nothing left to prove",
       "url": "https://www.irishtimes.com/opinion/editorials/2026/09/04/the-irish-times-view-on-katie-taylor-a-woman-with-nothing-left-to-prove/",
@@ -651,6 +1274,27 @@
       "url": "https://www.cbssports.com/boxing/news/katie-taylor-vs-flora-pili-fight-predictions-odds-start-time-where-to-watch/",
       "source": "CBS Sports",
       "publishedAt": "2026-09-04T17:38:58Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Eddie Hearn claims Tyson Fury “doesn’t care about British boxing” as Anthony Joshua fight hits another Wembley roadblock",
+      "url": "https://timesofindia.indiatimes.com/sports/international-sports/eddie-hearn-claims-tyson-fury-doesnt-care-about-british-boxing-as-anthony-joshua-fight-hits-another-wembley-roadblock/articleshow/133771507.cms",
+      "source": "The Times of India",
+      "publishedAt": "2026-09-04T17:02:04Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Ryan Garcia sends clear message to Moses Itauma after Hrgovic defeat",
+      "url": "https://sports.yahoo.com/articles/ryan-garcia-sends-clear-message-164250763.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-04T16:42:50Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "‘Talks have re-opened for Wembley’: Tyson Fury vs Anthony Joshua being reconsidered for UK, says Eddie Hearn",
+      "url": "https://www.badlefthook.com/boxing-news/118315/wembley-tyson-fury-vs-anthony-joshua-being-reconsidered-for-uk-says-eddie-hearn-boxing-news-2026",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-09-04T14:38:43Z"
     },
     {
       "boxerName": "Katie Taylor",
@@ -674,6 +1318,13 @@
       "publishedAt": "2026-09-04T12:17:32Z"
     },
     {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "EXCLUSIVE: Brad Pitt Reveals 'Family Stuff' Left Him at His Lowest Point",
+      "url": "https://radaronline.com/p/brad-pitt-family-stuff-lowest-point/",
+      "source": "Radaronline.com",
+      "publishedAt": "2026-09-04T12:00:00Z"
+    },
+    {
       "boxerName": "Katie Taylor",
       "headline": "For some, glorifying Katie Taylor means glorifying boxing: A sports fan’s dilemma",
       "url": "https://www.irishtimes.com/sport/2026/09/04/for-some-glorifying-katie-taylor-means-glorifying-boxing-a-sports-fans-dilemma/",
@@ -688,11 +1339,25 @@
       "publishedAt": "2026-09-04T10:34:54Z"
     },
     {
+      "boxerName": "Ricky Hatton",
+      "headline": "Ricky Hatton's house sells for £1.5million after £350,000 was lopped off the asking price of five-bed home where boxing star's body was found",
+      "url": "https://www.dailymail.com/news/article-16104843/Ricky-Hattons-house-sells-1-5million-350-000-lopped-asking-price-five-bed-home-boxing-stars-body-found.html",
+      "source": "Dailymail.com",
+      "publishedAt": "2026-09-04T09:52:52Z"
+    },
+    {
       "boxerName": "Katie Taylor",
       "headline": "'We're ahead of schedule' - Croke Park ready for Taylor",
       "url": "https://www.rte.ie/sport/boxing/2026/0904/1590295-were-ahead-of-schedule-croke-park-ready-for-taylor/",
       "source": "RTE",
       "publishedAt": "2026-09-04T08:16:53Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Tyson Fury claims Moses Itauma’s early world title shot could cost him $100+ million: Was it too soon?",
+      "url": "https://timesofindia.indiatimes.com/sports/international-sports/tyson-fury-claims-moses-itaumas-early-world-title-shot-could-cost-him-100-million-was-it-too-soon/articleshow/133756441.cms",
+      "source": "The Times of India",
+      "publishedAt": "2026-09-04T08:07:14Z"
     },
     {
       "boxerName": "Katie Taylor",
@@ -730,6 +1395,41 @@
       "publishedAt": "2026-09-04T05:00:00Z"
     },
     {
+      "boxerName": "Tyson Fury",
+      "headline": "Tyson Fury says he’ll move on from Anthony Joshua after latest stalemate",
+      "url": "https://www.sherdog.com/news/news/Tyson-Fury-says-hell-move-on-from-Anthony-Joshua-after-latest-stalemate-202658",
+      "source": "Sherdog.com",
+      "publishedAt": "2026-09-04T03:46:47Z"
+    },
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "Billy Ray Cyrus 'Deeply Hurt' by Superstar Daughter Miley Dropping Surname — 'Now I Know How Brad Pitt Feels'",
+      "url": "https://radaronline.com/p/billy-ray-cyrus-hurt-miley-dropping-surname-knows-how-brad-pitt-feels/",
+      "source": "Radaronline.com",
+      "publishedAt": "2026-09-03T21:16:02Z"
+    },
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "Everything Brad Pitt Has Said About Sobriety — As A-Lister Reveals He Has 'Gotten Back Off the Wagon' After Branding Drinking an 'Escape'",
+      "url": "https://okmagazine.com/p/brad-pitt-sobriety-journey-everything-he-has-said/",
+      "source": "OK!",
+      "publishedAt": "2026-09-03T20:30:00Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "We want Fury v Joshua at Wembley - London mayor",
+      "url": "https://www.bbc.com/sport/boxing/articles/cz6zdd8yjzzo?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
+      "source": "BBC News",
+      "publishedAt": "2026-09-03T20:22:39Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "We want Joshua v Fury at Wembley - London mayor",
+      "url": "https://www.bbc.co.uk/sport/boxing/articles/cz6zdd8yjzzo",
+      "source": "BBC News",
+      "publishedAt": "2026-09-03T20:17:28Z"
+    },
+    {
       "boxerName": "Katie Taylor",
       "headline": "Lee: Trailblazer Taylor will want to 'go out with a bang'",
       "url": "https://www.rte.ie/sport/boxing/2026/0903/1590265-lee-trailblazer-taylor-will-want-to-go-out-with-a-bang/",
@@ -742,6 +1442,27 @@
       "url": "https://www.irishtimes.com/sport/boxing/2026/09/03/katie-taylors-career-in-pictures-the-highs-and-lows-of-a-life-between-the-ropes/",
       "source": "The Irish Times",
       "publishedAt": "2026-09-03T16:03:43Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Ryan Garcia vs. Conor Benn: Early odds, predictions for WBC welterweight title fight",
+      "url": "https://www.usatoday.com/story/sports/boxing/2026/09/03/ryan-garcia-vs-conor-benn-early-odds-predictions-ahead-of-wbc-welterweight-title-fight/91591619007/",
+      "source": "USA Today",
+      "publishedAt": "2026-09-03T15:43:20Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Tyson Fury confirms fight with Anthony Joshua is NOT happening",
+      "url": "https://sports.yahoo.com/articles/tyson-fury-confirms-fight-anthony-144700115.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-03T14:47:00Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Tyson Fury delivers brutal verdict on Moses Itauma - and claims agonising defeat against Filip Hrgovic could cost British star £100m",
+      "url": "https://www.dailymail.com/sport/boxing/article-16102283/Tyson-Fury-Moses-Itauma-Filip-Hrgovic-defeat.html",
+      "source": "Dailymail.com",
+      "publishedAt": "2026-09-03T13:45:43Z"
     },
     {
       "boxerName": "Katie Taylor",
@@ -842,6 +1563,13 @@
       "publishedAt": "2026-09-03T07:00:00Z"
     },
     {
+      "boxerName": "Tyson Fury",
+      "headline": "Eddie Hearn draws Dana White line in Tyson Fury-Anthony Joshua talks",
+      "url": "https://www.sherdog.com/news/news/Eddie-Hearn-draws-Dana-White-line-in-Tyson-FuryAnthony-Joshua-talks-202644",
+      "source": "Sherdog.com",
+      "publishedAt": "2026-09-03T05:45:17Z"
+    },
+    {
       "boxerName": "Katie Taylor",
       "headline": "'I grew up watching you' - women's boxing honours Taylor",
       "url": "https://www.bbc.co.uk/sport/boxing/videos/cpq02p5j383o",
@@ -863,11 +1591,39 @@
       "publishedAt": "2026-09-03T01:00:49Z"
     },
     {
+      "boxerName": "Tyson Fury",
+      "headline": "Fury confirms Joshua fight in USA",
+      "url": "https://punchng.com/fury-confirms-joshua-fight-in-usa/",
+      "source": "The Punch",
+      "publishedAt": "2026-09-03T00:07:15Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Itauma gets advice after Hrgovic loss",
+      "url": "https://punchng.com/itauma-gets-advice-after-hrgovic-loss/",
+      "source": "The Punch",
+      "publishedAt": "2026-09-03T00:07:15Z"
+    },
+    {
       "boxerName": "Katie Taylor",
       "headline": "The Katie Generation: Inside Ireland's boxing gyms, Katie Taylor's greatest legacy is everywhere",
       "url": "https://sports.yahoo.com/boxing/article/the-katie-generation-inside-irelands-boxing-gyms-katie-taylors-greatest-legacy-is-everywhere-flora-pili-000448844.html",
       "source": "Yahoo Entertainment",
       "publishedAt": "2026-09-03T00:04:48Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Fury calls Joshua a 'coward' as wait for announcement continues",
+      "url": "https://www.bbc.com/sport/boxing/articles/cx2zg14qzryo?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
+      "source": "BBC News",
+      "publishedAt": "2026-09-02T20:58:36Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Fury calls Joshua a 'coward' as wait for announcement continues",
+      "url": "https://www.bbc.co.uk/sport/boxing/articles/cx2zg14qzryo",
+      "source": "BBC News",
+      "publishedAt": "2026-09-02T20:55:37Z"
     },
     {
       "boxerName": "Katie Taylor",
@@ -898,6 +1654,27 @@
       "publishedAt": "2026-09-02T16:49:36Z"
     },
     {
+      "boxerName": "Ryan Garcia",
+      "headline": "Ryan Garcia vs. Conor Benn: What to know about WBC welterweight title fight",
+      "url": "https://www.usatoday.com/story/sports/boxing/2026/09/02/ryan-garcia-vs-conor-benn-wbc-welterweight-title-fight/91575595007/",
+      "source": "USA Today",
+      "publishedAt": "2026-09-02T14:55:52Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Time is running out for Anthony Joshua vs Tyson Fury: AJ is still yet to sign Battle of Britain deal, reveals Frank Warren",
+      "url": "https://www.dailymail.com/sport/boxing/article-16099319/Anthony-Joshua-Tyson-Fury-sign-Frank-Warren.html",
+      "source": "Dailymail.com",
+      "publishedAt": "2026-09-02T14:05:54Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Fury 'waiting for' Joshua after signing up for bout - Warren",
+      "url": "https://dpa-international.com/sports/urn:newsml:dpa.com:20090101:260902-930-622388/",
+      "source": "Dpa-international.com",
+      "publishedAt": "2026-09-02T13:03:45Z"
+    },
+    {
       "boxerName": "Katie Taylor",
       "headline": "Taylor reveals how close she came to quitting boxing",
       "url": "https://www.rte.ie/sport/boxing/2026/0902/1590059-taylor-reveals-how-close-she-came-to-quitting-boxing/",
@@ -910,6 +1687,13 @@
       "url": "https://www.the42.ie/eddie-hearn-8-7149790-Sep2026/",
       "source": "The42",
       "publishedAt": "2026-09-02T10:22:49Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "AJ v Fury - highly anticipated or a forgotten fight?",
+      "url": "https://www.bbc.co.uk/sport/boxing/videos/cy0z9zyn39lo",
+      "source": "BBC News",
+      "publishedAt": "2026-09-02T09:05:46Z"
     },
     {
       "boxerName": "Katie Taylor",
@@ -926,11 +1710,25 @@
       "publishedAt": "2026-09-02T06:58:31Z"
     },
     {
+      "boxerName": "Tyson Fury",
+      "headline": "Tyson Fury confirms Anthony Joshua fight at NYC’s Madison Square Garden",
+      "url": "https://www.aljazeera.com/sports/2026/9/2/tyson-fury-confirms-anthony-joshua-fight-at-nycs-madison-square-garden",
+      "source": "Al Jazeera English",
+      "publishedAt": "2026-09-02T06:26:25Z"
+    },
+    {
       "boxerName": "Katie Taylor",
       "headline": "Taylor vs. Pili Start Time, Full Fight Card",
       "url": "https://www.mmamania.com/boxing/468970/katie-taylor-vs-flora-pili-full-fight-card-dazn-ppv-start-time-once-upon-a-time",
       "source": "MMA Mania",
       "publishedAt": "2026-09-02T03:00:00Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Anthony Joshua vs Tyson Fury takes ‘explosive’ US turn; Eddie Hearn reveals what could derail November clash",
+      "url": "https://timesofindia.indiatimes.com/sports/international-sports/anthony-joshua-vs-tyson-fury-takes-explosive-us-turn-eddie-hearn-reveals-what-could-derail-november-clash/articleshow/133691777.cms",
+      "source": "The Times of India",
+      "publishedAt": "2026-09-01T21:27:48Z"
     },
     {
       "boxerName": "Katie Taylor",
@@ -1129,6 +1927,13 @@
       "publishedAt": "2026-08-30T05:19:59Z"
     },
     {
+      "boxerName": "Tyson Fury",
+      "headline": "Joshua vs Fury collapse impossible – Hearn",
+      "url": "https://punchng.com/joshua-vs-fury-collapse-impossible-hearn/",
+      "source": "The Punch",
+      "publishedAt": "2026-08-29T23:53:11Z"
+    },
+    {
       "boxerName": "Caroline Dubois (boxer)",
       "headline": "Dubois beats Moore to keep Baumgardner in picture",
       "url": "https://www.bbc.com/sport/boxing/articles/c07lnmv755go?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
@@ -1169,6 +1974,13 @@
       "url": "https://punchng.com/itauma-battles-hrgovic-for-ibf-heavyweight-title/",
       "source": "The Punch",
       "publishedAt": "2026-08-28T23:11:17Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Tyson Fury: 'Conor McGregor copied my style'",
+      "url": "https://sports.yahoo.com/articles/tyson-fury-conor-mcgregor-copied-173817312.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-08-28T17:38:17Z"
     },
     {
       "boxerName": "Katie Taylor",
@@ -1213,6 +2025,13 @@
       "publishedAt": "2026-08-27T17:11:48Z"
     },
     {
+      "boxerName": "Tyson Fury",
+      "headline": "Tick tock! Tyson Fury puts time limit on Anthony Joshua fight deal",
+      "url": "https://www.mmamania.com/boxing/467610/tick-tock-tyson-fury-puts-time-limit-on-anthony-joshua-fight-deal",
+      "source": "MMA Mania",
+      "publishedAt": "2026-08-27T12:00:00Z"
+    },
+    {
       "boxerName": "Claressa Shields",
       "headline": "Claressa Shields backs Caroline Dubois, calls Alycia Baumgardner ‘scared’",
       "url": "https://www.badlefthook.com/boxing-news/118140/claressa-shields-backs-caroline-dubois-calls-alycia-baumgardner-scared-boxing-news-2026",
@@ -1225,6 +2044,13 @@
       "url": "https://www.sherdog.com/news/news/Claressa-Shields-Cris-Cyborg-turned-down-362-million-to-fight-me-at-154-pounds-202556",
       "source": "Sherdog.com",
       "publishedAt": "2026-08-27T05:11:56Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Tyson Fury admits he didn't train for Francis Ngannou: 'It was play'",
+      "url": "https://www.sherdog.com/news/news/Tyson-Fury-admits-he-didnt-train-for-Francis-Ngannou-It-was-play-202551",
+      "source": "Sherdog.com",
+      "publishedAt": "2026-08-27T03:33:21Z"
     },
     {
       "boxerName": "Devin Haney",
@@ -1248,6 +2074,13 @@
       "publishedAt": "2026-08-27T01:22:05Z"
     },
     {
+      "boxerName": "Tyson Fury",
+      "headline": "Fury resumes training amid Joshua fight doubts",
+      "url": "https://punchng.com/fury-resumes-training-amid-joshua-fight-doubts/",
+      "source": "The Punch",
+      "publishedAt": "2026-08-26T23:21:18Z"
+    },
+    {
       "boxerName": "Claressa Shields",
       "headline": "Claressa Shields Has One Request for Beyoncé Before She Retires From Boxing",
       "url": "https://wealthofgeeks.com/claressa-shields-has-one-request-for-beyonce-before-she-retires-from-boxing/",
@@ -1255,11 +2088,60 @@
       "publishedAt": "2026-08-26T21:32:08Z"
     },
     {
+      "boxerName": "Joe Cordina",
+      "headline": "Man admits punching former world champion boxer Joe Cordina outside petrol station - while fighter denies assaulting him back",
+      "url": "https://www.dailymail.com/news/article-16082287/Man-admits-punching-former-world-champion-boxer-Joe-Cordina-outside-petrol-station-fighter-denies-assaulting-back.html",
+      "source": "Dailymail.com",
+      "publishedAt": "2026-08-26T19:57:52Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Itauma 'million times better' than Fury and Joshua - Hamed",
+      "url": "https://www.bbc.com/sport/boxing/articles/c07ln5v0my3o?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
+      "source": "BBC News",
+      "publishedAt": "2026-08-26T18:04:47Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Tyson Fury admits to not training hard enough for Francis Ngannou: ‘It wasn’t really a fight’",
+      "url": "https://www.mmafighting.com/boxing/507190/tyson-fury-admits-to-not-training-hard-enough-for-francis-ngannou-it-wasnt-really-a-fight",
+      "source": "MMA Fighting",
+      "publishedAt": "2026-08-26T18:00:00Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Itauma 'million times better' than Fury and Joshua - Hamed",
+      "url": "https://www.bbc.co.uk/sport/boxing/articles/c07ln5v0my3o",
+      "source": "BBC News",
+      "publishedAt": "2026-08-26T17:27:52Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Anthony Joshua vs Tyson Fury at risk of COLLAPSE: AJ faces 10-day deadline to agree terms on New York super-fight or see it cancelled",
+      "url": "https://www.dailymail.com/sport/boxing/article-16081795/anthony-joshua-tyson-fury-fight-new-york.html",
+      "source": "Dailymail.com",
+      "publishedAt": "2026-08-26T14:16:57Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Tyson Fury in Miami to train for fight vs. Anthony Joshua despite venue dispute",
+      "url": "https://www.usatoday.com/story/sports/boxing/2026/08/26/tyson-fury-vs-anthony-joshua-miami-training/91470902007/",
+      "source": "USA Today",
+      "publishedAt": "2026-08-26T13:09:43Z"
+    },
+    {
       "boxerName": "Katie Taylor",
       "headline": "Katie Taylor Vs. Flora Pili Full Card, Date, Time And How To Watch",
       "url": "https://www.forbes.com/sites/brianmazique/2026/08/26/katie-taylor-vs-flora-pili-full-card-date-time-and-how-to-watch/",
       "source": "Forbes",
       "publishedAt": "2026-08-26T09:09:37Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Inspiring story on fatherhood: “My ultimate fear is not being a good parent. That’s what it boils down to” — How Tyson Fury sees the real meaning of being a good dad",
+      "url": "https://timesofindia.indiatimes.com/sports/international-sports/inspiring-story-on-fatherhood-my-ultimate-fear-is-not-being-a-good-parent-thats-what-it-boils-down-to-how-tyson-fury-sees-the-real-meaning-of-being-a-good-dad/articleshow/133523526.cms",
+      "source": "The Times of India",
+      "publishedAt": "2026-08-25T19:11:55Z"
     },
     {
       "boxerName": "Paul Williams (boxer)",
@@ -1290,6 +2172,13 @@
       "publishedAt": "2026-08-22T19:53:33Z"
     },
     {
+      "boxerName": "Ricky Hatton",
+      "headline": "Ex-British boxing champion Darren Barker shares heartfelt Ricky Hatton message as he sets off on epic 1,800-mile fundraising challenge",
+      "url": "https://www.dailymail.com/sport/boxing/article-16070441/Darren-Barker-Ricky-Hatton-message.html",
+      "source": "Dailymail.com",
+      "publishedAt": "2026-08-21T17:00:46Z"
+    },
+    {
       "boxerName": "Claressa Shields",
       "headline": "Cris Cyborg On Potentially Breaking Another Women’s MMA Record, Working With Jake Paul, & Claressa Shields Turning Down $2 Million Fight Offer (Interview)",
       "url": "https://brobible.com/sports/article/cris-cyborg-on-potentially-breaking-another-womens-mma-record-working-with-jake-paul-claressa-shields-2-million-fight-offer-interview/",
@@ -1302,6 +2191,13 @@
       "url": "https://www.boxingnews24.com/2026/08/naoya-inoue-builds-toward-bam-rodriguez-fight/",
       "source": "Boxingnews24.com",
       "publishedAt": "2026-08-21T03:12:29Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Fury-Joshua Deal Leaves Turki With Bad Choices",
+      "url": "https://www.boxingnews24.com/2026/08/fury-joshua-deal-leaves-turki-with-bad-choices/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-08-20T20:28:36Z"
     },
     {
       "boxerName": "Terence Crawford",
@@ -1708,6 +2604,13 @@
       "url": "https://www.boxingnews24.com/2026/08/bernie-davis-sees-same-william-zepeda-shakur-already-beat/",
       "source": "Boxingnews24.com",
       "publishedAt": "2026-08-13T03:15:14Z"
+    },
+    {
+      "boxerName": "Mark Magsayo",
+      "headline": "Mark Magsayo vs Andres Cortes opens Garcia vs Benn main card",
+      "url": "https://www.badlefthook.com/boxing-news/117885/mark-magsayo-vs-andres-cortes-opens-garcia-vs-benn-main-card",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-08-13T01:41:58Z"
     },
     {
       "boxerName": "Gervonta Davis",
