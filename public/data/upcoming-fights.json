@@ -1,6 +1,34 @@
 {
-  "lastUpdated": "2026-09-10T04:52:39.474Z",
+  "lastUpdated": "2026-09-11T16:03:00.102Z",
   "fights": [
+    {
+      "boxerName": "Terence Crawford",
+      "headline": "Terence Crawford teases Boots Ennis with comeback fight offer days after tense exchange",
+      "url": "https://sports.yahoo.com/boxing/article/terence-crawford-teases-boots-ennis-with-comeback-fight-offer-days-after-tense-exchange-032805126.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-10T03:28:05Z"
+    },
+    {
+      "boxerName": "Terence Crawford",
+      "headline": "Terence Crawford hints at return, calls out Boots Ennis",
+      "url": "https://sports.yahoo.com/articles/terence-crawford-hints-return-calls-014502765.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-10T01:45:02Z"
+    },
+    {
+      "boxerName": "Oleksandr Usyk",
+      "headline": "Tyson Fury teases trilogy Oleksandr Usyk fight; Social media banter continues",
+      "url": "https://clutchpoints.com/celebrity/tyson-fury-trilogy-oleksandr-usyk-fight-social-media-banter-continues",
+      "source": "ClutchPoints",
+      "publishedAt": "2026-09-09T12:18:02Z"
+    },
+    {
+      "boxerName": "Oleksandr Usyk",
+      "headline": "Tyson Fury targets Oleksandr Usyk ‘last dance’ after Anthony Joshua fight stalls",
+      "url": "https://www.sherdog.com/news/news/Tyson-Fury-targets-Oleksandr-Usyk-last-dance-after-Anthony-Joshua-fight-stalls-202725",
+      "source": "Sherdog.com",
+      "publishedAt": "2026-09-09T05:27:01Z"
+    },
     {
       "boxerName": "Oleksandr Usyk",
       "headline": "Oleksandr Usyk responds to Tyson Fury call out",
@@ -76,6 +104,13 @@
       "headline": "Parrott upsets Madrid, Cup recap & Taylor the footballer",
       "url": "https://www.rte.ie/sport/soccer/2026/0907/1590574-parrott-upsets-madrid-cup-recap-taylor-the-footballer/",
       "source": "RTE",
+      "publishedAt": "2026-09-07T15:42:30Z"
+    },
+    {
+      "boxerName": "Caroline Dubois (boxer)",
+      "headline": "‘I didn’t see anything special’: Alycia Baumgardner not impressed by Caroline Dubois",
+      "url": "https://www.badlefthook.com/boxing-news/118523/alycia-baumgardner-not-impressed-by-caroline-dubois-boxing-news-2026",
+      "source": "Bad Left Hook",
       "publishedAt": "2026-09-07T15:42:30Z"
     },
     {
@@ -765,6 +800,13 @@
       "publishedAt": "2026-09-03T09:22:36Z"
     },
     {
+      "boxerName": "Tommy Fury",
+      "headline": "Molly-Mae Hague slips into a swimsuit as she shares loved-up family photos with Tommy Fury while staying at five-star hotel in Turkey",
+      "url": "https://www.dailymail.com/tvshowbiz/article-16101447/Molly-Mae-Hague-swimsuit-family-photos-Tommy-Fury-hotel-Turkey.html",
+      "source": "Dailymail.com",
+      "publishedAt": "2026-09-03T08:56:15Z"
+    },
+    {
       "boxerName": "Katie Taylor",
       "headline": "'Dear Katie, how far we have come...' - Taylor gets reply from her hero",
       "url": "https://www.bbc.com/sport/boxing/articles/cx2zj2rg8e5o?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
@@ -1087,11 +1129,32 @@
       "publishedAt": "2026-08-30T05:19:59Z"
     },
     {
+      "boxerName": "Caroline Dubois (boxer)",
+      "headline": "Dubois beats Moore to keep Baumgardner in picture",
+      "url": "https://www.bbc.com/sport/boxing/articles/c07lnmv755go?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
+      "source": "BBC News",
+      "publishedAt": "2026-08-29T21:18:21Z"
+    },
+    {
+      "boxerName": "Caroline Dubois (boxer)",
+      "headline": "Dubois beats Moore to keep Baumgardner in picture",
+      "url": "https://www.bbc.co.uk/sport/boxing/articles/c07lnmv755go",
+      "source": "BBC News",
+      "publishedAt": "2026-08-29T21:14:34Z"
+    },
+    {
       "boxerName": "Katie Taylor",
       "headline": "'She was one of the lads' - Memories of Katie Taylor",
       "url": "https://www.rte.ie/sport/boxing/2026/0829/1589680-she-was-one-of-the-lads-memories-of-katie-taylor/",
       "source": "RTE",
       "publishedAt": "2026-08-29T16:22:55Z"
+    },
+    {
+      "boxerName": "Tommy Fury",
+      "headline": "Molly-Mae Hague jets off for another holiday to luxury five-star hotel in Turkey with fiancé Tommy Fury and their two children",
+      "url": "https://www.dailymail.com/tvshowbiz/article-16089643/Molly-Mae-Hague-jets-holiday-luxury-five-star-hotel-Turkey-fianc-Tommy-Fury-two-children.html",
+      "source": "Dailymail.com",
+      "publishedAt": "2026-08-29T16:13:45Z"
     },
     {
       "boxerName": "Naoya Inoue",
@@ -1143,6 +1206,27 @@
       "publishedAt": "2026-08-27T18:26:48Z"
     },
     {
+      "boxerName": "Caroline Dubois (boxer)",
+      "headline": "'Shivering puppy' Dubois must step up - Baumgardner",
+      "url": "https://www.bbc.com/sport/boxing/articles/cz0zmmkdedmo?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
+      "source": "BBC News",
+      "publishedAt": "2026-08-27T17:11:48Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "Claressa Shields backs Caroline Dubois, calls Alycia Baumgardner ‘scared’",
+      "url": "https://www.badlefthook.com/boxing-news/118140/claressa-shields-backs-caroline-dubois-calls-alycia-baumgardner-scared-boxing-news-2026",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-08-27T11:22:42Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "Claressa Shields: Cris Cyborg turned down $2 million to fight me at 154 pounds",
+      "url": "https://www.sherdog.com/news/news/Claressa-Shields-Cris-Cyborg-turned-down-362-million-to-fight-me-at-154-pounds-202556",
+      "source": "Sherdog.com",
+      "publishedAt": "2026-08-27T05:11:56Z"
+    },
+    {
       "boxerName": "Devin Haney",
       "headline": "Teofimo Lopez dismisses WBA's Jack Catterall mandatory, rules out fighting Devin Haney for now",
       "url": "https://sports.yahoo.com/boxing/article/teofimo-lopez-dismisses-wbas-jack-catterall-mandatory-rules-out-fighting-devin-haney-for-now-024747880.html",
@@ -1150,11 +1234,25 @@
       "publishedAt": "2026-08-27T02:47:47Z"
     },
     {
+      "boxerName": "Claressa Shields",
+      "headline": "“That's my only request”: Olympic Gold Medalist boxer urges epic Beyonce ring walk before retirement",
+      "url": "https://timesofindia.indiatimes.com/sports/mma/news/thats-my-only-request-olympic-gold-medalist-boxer-urges-epic-beyonce-ring-walk-before-retirement/articleshow/133554008.cms",
+      "source": "The Times of India",
+      "publishedAt": "2026-08-27T02:12:01Z"
+    },
+    {
       "boxerName": "Terence Crawford",
       "headline": "Zelensky cuddles adorable puppy given to him by former American boxer Terence Crawford",
       "url": "https://nypost.com/2026/08/26/world-news/zelensky-cuddles-puppy-starting-new-volley-in-ukraines-war-of-visuals-against-russia/",
       "source": "New York Post",
       "publishedAt": "2026-08-27T01:22:05Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "Claressa Shields Has One Request for Beyoncé Before She Retires From Boxing",
+      "url": "https://wealthofgeeks.com/claressa-shields-has-one-request-for-beyonce-before-she-retires-from-boxing/",
+      "source": "Wealthofgeeks.com",
+      "publishedAt": "2026-08-26T21:32:08Z"
     },
     {
       "boxerName": "Katie Taylor",
@@ -1169,6 +1267,34 @@
       "url": "https://post.rlsbb.cc/the-cheap-seats-s06e19-1080p-web-dl-h264-7vfr33104d/",
       "source": "Rlsbb.cc",
       "publishedAt": "2026-08-25T15:09:13Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "John Martin hails Cris Cyborg, addresses potential boxing bout with Claressa Shields",
+      "url": "https://www.sherdog.com/news/news/John-Martin-hails-Cris-Cyborg-addresses-potential-boxing-bout-with-Claressa-Shields-202505",
+      "source": "Sherdog.com",
+      "publishedAt": "2026-08-24T07:15:07Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "PFL Tampa results: Cris Cyborg defends title in hard-fought battle, sends message to Claressa Shields, Kayla Harrison",
+      "url": "https://www.mmafighting.com/pfl/506662/pfl-tampa-results-cris-cyborg-defends-title-in-hard-fought-battle-sends-message-to-claressa-shields-kayla-harrison",
+      "source": "MMA Fighting",
+      "publishedAt": "2026-08-23T04:04:46Z"
+    },
+    {
+      "boxerName": "Tommy Fury",
+      "headline": "Molly-Mae Hague 'waited to put her engagement ring back on after reconciling with Tommy Fury as she wanted to see if he'd really changed following their shock split'",
+      "url": "https://www.dailymail.com/tvshowbiz/article-16072625/Molly-Mae-Hague-waited-engagement-ring-Tommy-Fury-changed-split.html",
+      "source": "Dailymail.com",
+      "publishedAt": "2026-08-22T19:53:33Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "Cris Cyborg On Potentially Breaking Another Women’s MMA Record, Working With Jake Paul, & Claressa Shields Turning Down $2 Million Fight Offer (Interview)",
+      "url": "https://brobible.com/sports/article/cris-cyborg-on-potentially-breaking-another-womens-mma-record-working-with-jake-paul-claressa-shields-2-million-fight-offer-interview/",
+      "source": "BroBible",
+      "publishedAt": "2026-08-21T09:58:32Z"
     },
     {
       "boxerName": "Naoya Inoue",
@@ -1206,6 +1332,13 @@
       "publishedAt": "2026-08-20T08:27:07Z"
     },
     {
+      "boxerName": "Claressa Shields",
+      "headline": "‘Did She Just Say Dak Prescott?’ — NFL Fans in Disbelief as Superstar Boxer Claressa Shields Names Her GOAT QB",
+      "url": "https://www.profootballnetwork.com/dak-prescott-nfl-fans-disbelief-claressa-shields-goat-qb/?utm_medium=rss&amp;utm_source=nordot",
+      "source": "Pro Football Network",
+      "publishedAt": "2026-08-20T06:59:45Z"
+    },
+    {
       "boxerName": "Vitali Klitschko",
       "headline": "Russian attack on Kyiv kills at least 12, damages children’s hospital, says city mayor | CNN",
       "url": "https://www.cnn.com/2026/08/20/europe/russia-ukraine-kyiv-attack-intl-hnk",
@@ -1232,6 +1365,27 @@
       "url": "https://biztoc.com/x/879ce29ada3dbdb5",
       "source": "Biztoc.com",
       "publishedAt": "2026-08-19T21:22:40Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "Pretty Girls Love Boxing! A Gallery Of Certified Knockouts Who Served Fight Night Fineness At Star-Studded Shields Vs. Scott Fight",
+      "url": "https://bossip.com/4616888/gallery-ringside-stunners-star-studded-claressa-shields-fight-night-atlanta/",
+      "source": "Bossip",
+      "publishedAt": "2026-08-19T19:21:50Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "The Champ Is Here: Claressa Shields Made History In Atlanta With Sixth-Round TKO While Hulu’s ‘They Fight’ Celebrated Boxing, Mentorship & Second Chances [Exclusive]",
+      "url": "https://bossip.com/4617707/claressa-shields-hulu-they-fight/",
+      "source": "Bossip",
+      "publishedAt": "2026-08-19T17:50:16Z"
+    },
+    {
+      "boxerName": "Tommy Fury",
+      "headline": "Why is Jake Paul desperate for a UK fight after Anthony Joshua KO? MVP co-owner reveals former rival Tommy Fury among potential opponents for his UK Debut",
+      "url": "https://timesofindia.indiatimes.com/sports/international-sports/is-jake-paul-desperate-for-a-uk-fight-after-anthony-joshua-ko-mvp-co-owner-reveals-former-rival-tommy-fury-among-potential-opponents-for-his-uk-debut/articleshow/133348845.cms",
+      "source": "The Times of India",
+      "publishedAt": "2026-08-19T13:04:51Z"
     },
     {
       "boxerName": "Katie Taylor",
@@ -1262,6 +1416,13 @@
       "publishedAt": "2026-08-19T07:11:24Z"
     },
     {
+      "boxerName": "Tommy Fury",
+      "headline": "Molly-Mae Hague 'chokes' after being attacked by a crow while relaxing by the pool in Dubai as the moment is caught on camera in her new vlog",
+      "url": "https://www.dailymail.com/tvshowbiz/article-16060961/Molly-Mae-Hague-chokes-attacked-crow-relaxing-pool-Dubai-moment-caught-camera-new-vlog.html",
+      "source": "Dailymail.com",
+      "publishedAt": "2026-08-18T13:29:30Z"
+    },
+    {
       "boxerName": "Katie Taylor",
       "headline": "Negotiations between RTÉ and Katie Taylor fight promoters in critical 48-hour period",
       "url": "https://www.thejournal.ie/katie-taylor-rte-croke-park-fight-7134195-Aug2026/",
@@ -1274,6 +1435,13 @@
       "url": "https://www.badlefthook.com/boxing-news/117999/robert-garcia-says-theres-been-no-movement-on-fight-with-naoya-inoue-boxing-news-2026",
       "source": "Bad Left Hook",
       "publishedAt": "2026-08-18T12:10:54Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "‘If you really look at it’ – Claressa Shields gives reason why WNBA deserves same respect as NBA",
+      "url": "https://www.hitc.com/if-you-really-look-at-it-claressa-shields-gives-reason-why-wnba-deserves-same-respect-as-nba/",
+      "source": "HITC - Football, Gaming, Movies, TV, Music",
+      "publishedAt": "2026-08-18T10:31:23Z"
     },
     {
       "boxerName": "Floyd Mayweather Jr.",
@@ -1302,6 +1470,13 @@
       "url": "https://hiphopwired.com/3062782/claressa-shields-kaye-scott-middleweight-clash/",
       "source": "Hip-Hop Wired",
       "publishedAt": "2026-08-17T22:15:02Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "‘We want to make that fight’: Claressa Shields continues to pursue Lauren Price showdown",
+      "url": "https://www.badlefthook.com/boxing-news/117984/claressa-shields-continues-to-pursue-lauren-price-showdown-boxing-news-2026",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-08-17T12:43:00Z"
     },
     {
       "boxerName": "Claressa Shields",
@@ -1540,55 +1715,6 @@
       "url": "https://www.badlefthook.com/boxing-news/117881/floyd-schofield-vs-lucas-bahdi-title-fight-planned-for-october-10th",
       "source": "Bad Left Hook",
       "publishedAt": "2026-08-13T01:23:52Z"
-    },
-    {
-      "boxerName": "Caroline Dubois (boxer)",
-      "headline": "Dubois unification moves closer as Turhan joins MVP",
-      "url": "https://www.bbc.com/sport/boxing/articles/ckg9pejzrvyo?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
-      "source": "BBC News",
-      "publishedAt": "2026-08-12T13:23:30Z"
-    },
-    {
-      "boxerName": "Caroline Dubois (boxer)",
-      "headline": "Dubois unification moves closer as Turhan joins MVP",
-      "url": "https://www.bbc.co.uk/sport/boxing/articles/ckg9pejzrvyo",
-      "source": "BBC News",
-      "publishedAt": "2026-08-12T13:23:25Z"
-    },
-    {
-      "boxerName": "Laila Ali",
-      "headline": "Laila Ali Snubs Ringside Invite to Claressa Shields’ Atlanta Fight",
-      "url": "https://mediatakeout.com/laila-ali-snubs-ringside-invite-to-claressa-shields-atlanta-fight/",
-      "source": "Mediatakeout.com",
-      "publishedAt": "2026-08-12T11:33:30Z"
-    },
-    {
-      "boxerName": "Shakur Stevenson",
-      "headline": "Teofimo Sr. Dismisses Shakur Stevenson’s Vacant-Belt Championships",
-      "url": "https://www.boxingnews24.com/2026/08/teofimo-sr-dismisses-shakur-stevensons-vacant-belt-championships/",
-      "source": "Boxingnews24.com",
-      "publishedAt": "2026-08-12T07:24:47Z"
-    },
-    {
-      "boxerName": "Laila Ali",
-      "headline": "Claressa Shields' fight stirs talk of Laila Ali, potential blockbuster",
-      "url": "https://www.usatoday.com/story/sports/boxing/2026/08/11/claressa-shields-fight-laila-ali-matchup/91256616007/",
-      "source": "USA Today",
-      "publishedAt": "2026-08-11T16:33:27Z"
-    },
-    {
-      "boxerName": "Claressa Shields",
-      "headline": "Claressa Shields ‘Surprised’ She’s Not Pregnant With Papoose’s Baby YET!",
-      "url": "https://mediatakeout.com/claressa-shields-surprised-shes-not-pregnant-with-papooses-baby-yet/",
-      "source": "Mediatakeout.com",
-      "publishedAt": "2026-08-11T12:23:13Z"
-    },
-    {
-      "boxerName": "Terence Crawford",
-      "headline": "Brian McIntyre reflects on career with Terence Crawford and more",
-      "url": "https://www.badlefthook.com/boxing-news/117864/brian-mcintyre-reflects-on-career-with-terence-crawford-and-more",
-      "source": "Bad Left Hook",
-      "publishedAt": "2026-08-11T12:11:03Z"
     }
   ]
 }
