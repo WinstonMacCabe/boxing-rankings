@@ -7,6 +7,9 @@ import type { BoxerRecord } from '../lib/types'
 const BATCH_SIZE = 50
 const BATCH_DELAY = 100
 
+// Minimum thirdary score (wins/losses, or wins if undefeated) for inclusion.
+const BOXING_MIN_SCORE = 12.05
+
 function delay(ms: number): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
@@ -102,7 +105,7 @@ async function main() {
   }
 
   const allThirdaryScored = allThirdary
-    .filter(f => f.imageUrl && (f.thirdaryScore ?? 0) > 0)
+    .filter(f => f.imageUrl && (f.thirdaryScore ?? 0) >= BOXING_MIN_SCORE)
     .sort((a, b) =>
       (b.thirdaryScore ?? 0) - (a.thirdaryScore ?? 0) ||
       a.losses - b.losses ||
