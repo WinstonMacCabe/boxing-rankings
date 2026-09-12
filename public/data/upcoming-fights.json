@@ -1,6 +1,83 @@
 {
-  "lastUpdated": "2026-09-11T16:22:04.142Z",
+  "lastUpdated": "2026-09-12T00:29:11.761Z",
   "fights": [
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Live: Garcia vs. Benn Final Press Conference!",
+      "url": "https://www.mmamania.com/zuffa-boxing-news/470489/live-watch-ryan-garcia-vs-conor-benn-final-press-conference-video-stream",
+      "source": "MMA Mania",
+      "publishedAt": "2026-09-10T23:30:00Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Ryan Garcia vs. Conor Benn press conference video",
+      "url": "https://sports.yahoo.com/articles/ryan-garcia-vs-conor-benn-231945434.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-10T23:19:45Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Ryan Garcia vs. Conor Benn press conference video",
+      "url": "https://www.mmafighting.com/boxing/509502/ryan-garcia-vs-conor-benn-press-conference-video",
+      "source": "MMA Fighting",
+      "publishedAt": "2026-09-10T23:00:00Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Video: Ryan Garcia vs. Conor Benn final press conference live stream",
+      "url": "https://mmajunkie.usatoday.com/story/sports/boxing/2026/09/10/live-stream-ryan-garcia-vs-conor-benn-final-press-conference-video/91694034007/",
+      "source": "USA Today",
+      "publishedAt": "2026-09-10T22:50:27Z"
+    },
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "A razão para Brad Pitt trocar estreia de filme de Hollywood para Nashville",
+      "url": "https://veja.abril.com.br/ciencia/a-razao-para-brad-pitt-trocar-estreia-de-filme-de-hollywood-para-nashville/",
+      "source": "Abril.com.br",
+      "publishedAt": "2026-09-10T22:41:47Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Dana White hits out at Eddie Hearn for hurting potential Tyson Fury vs. Anthony Joshua fight",
+      "url": "https://sports.yahoo.com/articles/dana-white-hits-eddie-hearn-215517431.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-10T21:55:17Z"
+    },
+    {
+      "boxerName": "Tyson Fury",
+      "headline": "Anthony Joshua vs Tyson Fury: Netflix on board as UK venue emerges",
+      "url": "https://sports.yahoo.com/articles/anthony-joshua-vs-tyson-fury-203613234.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-10T20:36:13Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "'GWOAT' Claressa Shields eyes 'super fight' at Ford Field in 2027",
+      "url": "https://www.detroitnews.com/story/sports/other/2026/09/10/claressa-shields-next-fight-could-be-at-detroits-ford-field-in-2027/91693886007/",
+      "source": "The Detroit News",
+      "publishedAt": "2026-09-10T19:16:58Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Ryan Garcia vs. Conor Benn: Fight card, date, complete guide for welterweight title showdown in Las Vegas",
+      "url": "https://www.cbssports.com/boxing/news/ryan-garcia-vs-conor-benn-fight-date-odds-start-time-undercard-complete-guide/",
+      "source": "CBS Sports",
+      "publishedAt": "2026-09-10T18:00:51Z"
+    },
+    {
+      "boxerName": "Brad Pitt (boxer)",
+      "headline": "Angelina Jolie Makes Rare Comment About Her 6 Kids",
+      "url": "https://extratv.com/2026/09/10/angelina-jolie-makes-rare-comment-about-her-6-kids/",
+      "source": "Extra",
+      "publishedAt": "2026-09-10T17:32:23Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Katie Taylor: In Flow – Inside the Final Training Camp",
+      "url": "https://rosstraining.com/blog/2026/09/katie-taylor-in-flow-inside-the-final-training-camp/",
+      "source": "Rosstraining.com",
+      "publishedAt": "2026-09-10T17:25:07Z"
+    },
     {
       "boxerName": "Brad Pitt (boxer)",
       "headline": "Angelina Jolie makes rare comment about raising her 6 children to be ‘individuals’ - Page Six",
