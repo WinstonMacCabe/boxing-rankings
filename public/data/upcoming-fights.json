@@ -1,6 +1,69 @@
 {
-  "lastUpdated": "2026-09-12T00:29:11.761Z",
+  "lastUpdated": "2026-09-12T04:44:03.602Z",
   "fights": [
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Ryan Garcia's road to redemption continues against Conor Benn on Mexican Independence Day weekend",
+      "url": "https://www.thesportingtribune.com/2026/09/10/ryan-garcia-road-to-redemption-continues-vs-conor-benn",
+      "source": "Thesportingtribune.com",
+      "publishedAt": "2026-09-11T04:32:08Z"
+    },
+    {
+      "boxerName": "Terence Crawford",
+      "headline": "Dana White says Terence Crawford would fight again under one condition",
+      "url": "https://www.sherdog.com/news/news/Dana-White-says-Terence-Crawford-would-fight-again-under-one-condition-202759",
+      "source": "Sherdog.com",
+      "publishedAt": "2026-09-11T04:04:31Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "How to watch Ryan Garcia vs. Conor Benn: Start time, stream & card",
+      "url": "https://www.sherdog.com/news/articles/How-to-watch-Ryan-Garcia-vs-Conor-Benn-Start-time-stream-card-202757",
+      "source": "Sherdog.com",
+      "publishedAt": "2026-09-11T03:40:24Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Ryan Garcia attempts to egg Conor Benn during final face-off",
+      "url": "https://sports.yahoo.com/articles/ryan-garcia-attempts-egg-conor-022000799.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-11T02:20:00Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Video: Ryan Garcia vs. Conor Benn cold open for Zuffa Boxing title fight",
+      "url": "https://mmajunkie.usatoday.com/story/sports/boxing/2026/09/10/video-ryan-garcia-vs-conor-benn-cold-open-zuffa-boxing-wbc-welterweight-title-fight-las-vegas-ufc/91699214007/",
+      "source": "USA Today",
+      "publishedAt": "2026-09-11T02:00:51Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Video: Dana White separates Ryan Garcia, Conor Benn after heated faceoff",
+      "url": "https://www.mmafighting.com/boxing/509519/video-dana-white-separates-ryan-garcia-conor-benn-after-heated-faceoff",
+      "source": "MMA Fighting",
+      "publishedAt": "2026-09-11T00:55:04Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Boxing experts make predictions, picks for Garcia vs. Benn - ESPN",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=185596114",
+      "source": "Slashdot.org",
+      "publishedAt": "2026-09-11T00:52:15Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Video: Conor Benn hushes Ryan Garcia at final press conference faceoff",
+      "url": "https://mmajunkie.usatoday.com/story/sports/boxing/2026/09/10/video-ryan-garcia-conor-benn-hush-press-conference-faceoff/91698404007/",
+      "source": "USA Today",
+      "publishedAt": "2026-09-11T00:47:40Z"
+    },
+    {
+      "boxerName": "Ryan Garcia",
+      "headline": "Ryan Garcia vs. Conor Benn Final Face-Off Video",
+      "url": "https://sports.yahoo.com/articles/ryan-garcia-vs-conor-benn-004620255.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-11T00:46:20Z"
+    },
     {
       "boxerName": "Ryan Garcia",
       "headline": "Live: Garcia vs. Benn Final Press Conference!",
@@ -2674,27 +2737,6 @@
       "url": "https://mediatakeout.com/terence-crawford-return-rumors-put-to-rest-he-just-wants-to-stay-in-shape/",
       "source": "Mediatakeout.com",
       "publishedAt": "2026-08-13T10:26:00Z"
-    },
-    {
-      "boxerName": "Terence Crawford",
-      "headline": "Bernie Davis Sees Same William Zepeda Shakur Already Beat",
-      "url": "https://www.boxingnews24.com/2026/08/bernie-davis-sees-same-william-zepeda-shakur-already-beat/",
-      "source": "Boxingnews24.com",
-      "publishedAt": "2026-08-13T03:15:14Z"
-    },
-    {
-      "boxerName": "Mark Magsayo",
-      "headline": "Mark Magsayo vs Andres Cortes opens Garcia vs Benn main card",
-      "url": "https://www.badlefthook.com/boxing-news/117885/mark-magsayo-vs-andres-cortes-opens-garcia-vs-benn-main-card",
-      "source": "Bad Left Hook",
-      "publishedAt": "2026-08-13T01:41:58Z"
-    },
-    {
-      "boxerName": "Gervonta Davis",
-      "headline": "Floyd Schofield vs Lucas Bahdi title fight planned for October 10",
-      "url": "https://www.badlefthook.com/boxing-news/117881/floyd-schofield-vs-lucas-bahdi-title-fight-planned-for-october-10th",
-      "source": "Bad Left Hook",
-      "publishedAt": "2026-08-13T01:23:52Z"
     }
   ]
 }
