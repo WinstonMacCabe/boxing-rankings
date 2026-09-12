@@ -8,7 +8,7 @@ const BATCH_SIZE = 50
 const BATCH_DELAY = 100
 
 // Minimum thirdary score (wins/losses, or wins if undefeated) for inclusion.
-const BOXING_MIN_SCORE = 12.05
+const BOXING_MIN_SCORE = 19.05
 
 function delay(ms: number): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, ms))
