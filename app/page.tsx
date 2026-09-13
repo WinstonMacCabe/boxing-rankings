@@ -38,15 +38,43 @@ function getInitials(name: string): string {
   return cleanName(name).split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase()
 }
 
-const NOISE = `data:image/svg+xml,${encodeURIComponent(
-  `<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
-    <filter id="n">
-      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/>
-      <feColorMatrix type="saturate" values="0"/>
-    </filter>
-    <rect width="100%" height="100%" filter="url(#n)" opacity="0.04"/>
-  </svg>`
-)}`
+function Stat({ value, label }: { value: string; label: string }) {
+  return (
+    <span className="flex flex-col">
+      <span className="text-[18px] font-semibold leading-none tabular-nums tracking-tight text-[#1d1d1f]">{value}</span>
+      <span className="mt-1 text-[10px] font-medium uppercase tracking-[0.08em] text-[#86868b]">{label}</span>
+    </span>
+  )
+}
+
+function StatDivider() {
+  return <span className="h-8 w-px self-center bg-[#e8e8ed]" />
+}
+
+function SegmentBtn({ active, onClick, children, small }: { active: boolean; onClick: () => void; children: React.ReactNode; small?: boolean }) {
+  return (
+    <button
+      onClick={onClick}
+      className={`
+        rounded-full font-medium transition-all duration-200
+        ${small ? 'px-3 py-1.5 text-xs' : 'px-3.5 py-2 text-[13px] leading-none'}
+        ${active
+          ? 'bg-white text-[#1d1d1f] shadow-[0_1px_4px_rgba(0,0,0,0.16)]'
+          : 'text-[#6e6e73] hover:text-[#1d1d1f]'}
+      `}
+    >
+      {children}
+    </button>
+  )
+}
+
+function SegmentGroup({ children, className }: { children: React.ReactNode; className?: string }) {
+  return (
+    <div className={`inline-flex flex-wrap items-center gap-1 rounded-full bg-[#f2f2f5] p-1 ${className ?? ''}`}>
+      {children}
+    </div>
+  )
+}
 
 function FighterCard({ fighter, rank, isWorst, isBest }: { fighter: BoxerRecord; rank: number; isWorst?: boolean; isBest?: boolean }) {
   const cardRef = useRef<HTMLDivElement>(null)
@@ -77,145 +105,90 @@ function FighterCard({ fighter, rank, isWorst, isBest }: { fighter: BoxerRecord;
   const rankChange = fighter.previousRank ? fighter.previousRank - rank : 0
 
   return (
+    <div
+      ref={cardRef}
+      className={`
+        h-full
+        transition-all duration-700 ease-out
+        ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
+      `}
+      style={{ transitionDelay: `${Math.min(rank * 20, 200)}ms` }}
+    >
       <div
-        ref={cardRef}
-        className={`
-          h-full
-          transition-all duration-700 ease-out
-          ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
-        `}
-        style={{ transitionDelay: `${Math.min(rank * 20, 200)}ms` }}
-      >
-      <div
-        className="relative cursor-pointer hover:scale-[1.02] transition-transform duration-500 h-full flex flex-col"
-        style={{
-          background: '#ddd0b8',
-          border: '1px solid #b8a890',
-          boxShadow: '0 3px 12px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.06)',
-        }}
+        className="group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-[#e8e8ed] bg-white transition-all duration-500 hover:-translate-y-0.5 hover:border-[#d2d2d7] hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)]"
         onClick={() => window.open(fighter.wikipediaUrl, '_blank')}
       >
-        {/* Noise texture */}
-        <div className="absolute inset-0 pointer-events-none z-10" style={{
-          backgroundImage: `url('${NOISE}')`,
-          backgroundRepeat: 'repeat',
-          mixBlendMode: 'multiply',
-        }} />
-
-        {/* Vignette */}
-        <div className="absolute inset-0 pointer-events-none z-10" style={{
-          background: 'radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.06) 100%)',
-        }} />
-
         {/* Photo */}
-        <div style={{ background: '#c4b49a' }}>
-          <div style={{ aspectRatio: '3 / 4', overflow: 'hidden', background: '#d0c0a8' }}>
-            {hasImage ? (
-              <>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={fighter.imageUrl!}
-                  alt={displayName}
-                  className={`w-full h-full transition-all duration-700 ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
-                  style={{
-                    filter: 'sepia(0.5) contrast(1.05)',
-                    objectFit: 'cover',
-                    objectPosition: 'center 25%',
-                  }}
-                  onLoad={() => setImgLoaded(true)}
-                  onError={() => setImgError(true)}
-                />
-                {!imgLoaded && (
-                  <div className="absolute inset-0 flex items-center justify-center" style={{ background: '#d0c0a8' }}>
-                    <span className="text-[#a09078] text-xl font-bold font-mono tracking-widest">{getInitials(fighter.name)}</span>
-                  </div>
-                )}
-              </>
-            ) : (
-              <div className="absolute inset-0 flex items-center justify-center" style={{ background: '#d0c0a8' }}>
-                <span className="text-[#a09078] text-2xl font-bold font-mono tracking-widest">{getInitials(fighter.name)}</span>
-              </div>
+        <div className="relative w-full" style={{ aspectRatio: '3 / 4' }}>
+          {hasImage ? (
+            <>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={fighter.imageUrl!}
+                alt={displayName}
+                className={`h-full w-full transition-opacity duration-700 ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
+                style={{ objectFit: 'cover', objectPosition: 'center 25%' }}
+                onLoad={() => setImgLoaded(true)}
+                onError={() => setImgError(true)}
+              />
+              {!imgLoaded && (
+                <div className="absolute inset-0 flex items-center justify-center bg-[#f5f5f7]">
+                  <span className="text-[26px] font-semibold tracking-tight text-[#c7c7cc]">{getInitials(fighter.name)}</span>
+                </div>
+              )}
+            </>
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center bg-[#f5f5f7]">
+              <span className="text-[26px] font-semibold tracking-tight text-[#c7c7cc]">{getInitials(fighter.name)}</span>
+            </div>
+          )}
+        </div>
+
+        {/* Info */}
+        <div className="flex flex-1 flex-col px-4 pb-4 pt-3">
+          <div className="flex items-center justify-between">
+            <span className="text-[26px] font-semibold leading-none tracking-tight text-[#1d1d1f]">
+              {rank === 1 ? '#1' : rank === 2 ? '#2' : rank === 3 ? '#3' : `#${rank}`}
+            </span>
+            {rankChange > 0 && (
+              <span className="text-[13px] font-semibold text-[#1d7d33]">▲ {rankChange}</span>
+            )}
+            {rankChange < 0 && (
+              <span className="text-[13px] font-semibold text-[#c22d2d]">▼ {-rankChange}</span>
             )}
           </div>
-        </div>
 
-        {/* Rank - just below photo, black, bold */}
-        <div className="pt-3 pb-1 text-center">
-          <span className="font-bold font-mono tracking-tight leading-none" style={{ fontSize: '1.75rem', color: '#1a0f0a' }}>
-            {rank === 1 ? '#1' : rank === 2 ? '#2' : rank === 3 ? '#3' : `#${rank}`}
-          </span>
-          {rankChange > 0 && (
-            <span className="ml-1.5 text-sm font-bold" style={{ color: '#2a7a2a' }}>▲{rankChange}</span>
-          )}
-          {rankChange < 0 && (
-            <span className="ml-1.5 text-sm font-bold" style={{ color: '#a03030' }}>▼{-rankChange}</span>
-          )}
-        </div>
+          <h2 className="mt-2 text-[16px] font-semibold leading-[1.25] text-[#1d1d1f]">{displayName}</h2>
+          <p className="mt-0.5 min-h-[15px] text-[11px] font-medium uppercase tracking-[0.06em] text-[#86868b]">
+            {fighter.weightClass || ''}
+          </p>
 
-        {/* Info section - fills remaining height */}
-        <div className="px-5 pb-4 pt-2 text-center flex-1 flex flex-col justify-between">
-          <div className="space-y-1.5">
-            {/* Name */}
-            <h2 className="text-sm font-bold uppercase tracking-[0.04em] leading-tight" style={{ color: '#2a1f15', fontFamily: "'Times New Roman', Times, serif" }}>
-              {displayName}
-            </h2>
-
-            {/* Weight class - bold, always takes space */}
-            <p className="text-[11px] uppercase tracking-[0.1em] min-h-[16px] font-bold" style={{ color: '#1a0f0a', fontFamily: "'Times New Roman', Times, serif" }}>
-              {fighter.weightClass || ''}
-            </p>
-
-            {/* Stats row */}
-            <div className="flex items-center justify-center gap-4 font-mono" style={{ color: '#5a4a3a' }}>
-              {isWorst ? (
-                <>
-                  <span className="flex flex-col items-center">
-                    <span className="text-base font-bold leading-none" style={{ color: '#3a2a1a' }}>{fighter.losses}</span>
-                    <span className="text-[10px] uppercase tracking-[0.08em] mt-0.5" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', Times, serif" }}>LOSSES</span>
-                  </span>
-                  <span className="text-lg leading-none" style={{ color: '#c4b49a' }}>|</span>
-                  <span className="flex flex-col items-center">
-                    <span className="text-base font-bold leading-none" style={{ color: '#3a2a1a' }}>{fighter.total}</span>
-                    <span className="text-[10px] uppercase tracking-[0.08em] mt-0.5" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', Times, serif" }}>FTS</span>
-                  </span>
-                </>
-              ) : isBest ? (
-                <>
-                  <span className="flex flex-col items-center">
-                    <span className="text-base font-bold leading-none" style={{ color: '#3a2a1a' }}>{fighter.wins}-{fighter.losses}</span>
-                    <span className="text-[10px] uppercase tracking-[0.08em] mt-0.5" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', Times, serif" }}>W-L</span>
-                  </span>
-                  <span className="text-lg leading-none" style={{ color: '#c4b49a' }}>|</span>
-                  <span className="flex flex-col items-center">
-                    <span className="text-base font-bold leading-none" style={{ color: '#3a2a1a' }}>{fighter.kos}</span>
-                    <span className="text-[10px] uppercase tracking-[0.08em] mt-0.5" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', Times, serif" }}>KO</span>
-                  </span>
-                </>
-              ) : (
-                <>
-                  <span className="flex flex-col items-center">
-                    <span className="text-base font-bold leading-none" style={{ color: '#3a2a1a' }}>{fighter.kos}</span>
-                    <span className="text-[10px] uppercase tracking-[0.08em] mt-0.5" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', Times, serif" }}>KO</span>
-                  </span>
-                  <span className="text-lg leading-none" style={{ color: '#c4b49a' }}>|</span>
-                  <span className="flex flex-col items-center">
-                    <span className="text-base font-bold leading-none" style={{ color: '#3a2a1a' }}>{koPct}%</span>
-                    <span className="text-[10px] uppercase tracking-[0.08em] mt-0.5" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', Times, serif" }}>KO%</span>
-                  </span>
-                </>
-              )}
-            </div>
-
-            {/* Nationality - bold, tighter tracking */}
-            <div className="flex items-center justify-center gap-1.5 min-h-[28px]">
-              {flag && <span className="text-3xl leading-none">{flag}</span>}
-              <span className="text-[11px] font-bold uppercase tracking-[0.02em]" style={{ color: '#5a4a3a', fontFamily: "'Times New Roman', Times, serif" }}>
-                {fighter.nationality || ''}
-              </span>
-            </div>
-
+          <div className="mt-3 flex items-center gap-4">
+            {isWorst ? (
+              <>
+                <Stat value={String(fighter.losses)} label="Losses" />
+                <StatDivider />
+                <Stat value={String(fighter.total)} label="Fights" />
+              </>
+            ) : isBest ? (
+              <>
+                <Stat value={`${fighter.wins}-${fighter.losses}`} label="W-L" />
+                <StatDivider />
+                <Stat value={String(fighter.kos)} label="KO" />
+              </>
+            ) : (
+              <>
+                <Stat value={String(fighter.kos)} label="KO" />
+                <StatDivider />
+                <Stat value={`${koPct}%`} label="KO %" />
+              </>
+            )}
           </div>
 
+          <div className="mt-auto flex min-h-[26px] items-center gap-2 pt-3">
+            {flag && <span className="text-base leading-none">{flag}</span>}
+            <span className="text-[12px] font-medium text-[#6e6e73]">{fighter.nationality || ''}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -254,91 +227,57 @@ function ChampionCard({ champion, rank }: { champion: WbaChampion; rank: number 
   const isSecondary = champion.lineage.startsWith('Secondary')
 
   return (
+    <div
+      ref={cardRef}
+      className={`
+        h-full
+        transition-all duration-700 ease-out
+        ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
+      `}
+      style={{ transitionDelay: `${Math.min(rank * 20, 200)}ms` }}
+    >
       <div
-        ref={cardRef}
-        className={`
-          h-full
-          transition-all duration-700 ease-out
-          ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
-        `}
-        style={{ transitionDelay: `${Math.min(rank * 20, 200)}ms` }}
-      >
-      <div
-        className="relative cursor-pointer hover:scale-[1.02] transition-transform duration-500 h-full flex flex-col"
-        style={{
-          background: '#ddd0b8',
-          border: isSecondary ? '1px dashed #b8a890' : '1px solid #b8a890',
-          boxShadow: '0 3px 12px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.06)',
-        }}
+        className="group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-[#e8e8ed] bg-white transition-all duration-500 hover:-translate-y-0.5 hover:border-[#d2d2d7] hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)]"
         onClick={() => window.open(champion.wikipediaUrl, '_blank')}
       >
-        {isSecondary && (
-          <div className="absolute top-2 right-2 z-20 px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-[0.12em]" style={{ background: 'rgba(26,21,16,0.85)', color: '#ddd0b8', fontFamily: "'Times New Roman', serif" }}>
-            Secondary
-          </div>
-        )}
-        {champion.reigning && (
-          <div className="absolute top-2 left-2 z-20 px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-[0.12em]" style={{ background: 'rgba(42,122,42,0.9)', color: '#fff' }}>
-            Reigning
-          </div>
-        )}
-
-        {/* Noise texture */}
-        <div className="absolute inset-0 pointer-events-none z-10" style={{
-          backgroundImage: `url('${NOISE}')`,
-          backgroundRepeat: 'repeat',
-          mixBlendMode: 'multiply',
-        }} />
-
-        {/* Vignette */}
-        <div className="absolute inset-0 pointer-events-none z-10" style={{
-          background: 'radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.06) 100%)',
-        }} />
-
-        {/* Reign duration hero */}
-        <div className="flex flex-col items-center justify-center pt-5 pb-3" style={{ background: '#1a1510' }}>
-          <span className="font-bold font-mono tracking-tight leading-none" style={{ fontSize: '2rem', color: '#ddd0b8' }}>
+        <div className="relative flex flex-col items-center justify-center bg-[#f5f5f7] px-4 pb-4 pt-7 text-center">
+          {champion.reigning && (
+            <div className="absolute left-3 top-3 rounded-full bg-[#1d7d33] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-white">
+              Reigning
+            </div>
+          )}
+          {isSecondary && (
+            <div className="absolute right-3 top-3 rounded-full border border-[#d2d2d7] bg-white px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-[#6e6e73]">
+              Secondary
+            </div>
+          )}
+          <span className="text-[30px] font-semibold leading-none tracking-tight text-[#1d1d1f]">
             {formatReign(champion.reignDays)}
           </span>
-          <span className="mt-1.5" style={{ fontSize: '0.75rem', color: '#5a4a3a', fontFamily: "'Times New Roman', serif" }}>
-            {champion.reignLabel}
-          </span>
+          <span className="mt-1.5 text-[13px] font-medium text-[#6e6e73]">{champion.reignLabel}</span>
         </div>
 
-        {/* Rank - just below hero */}
-        <div className="pt-3 pb-1 text-center">
-          <span className="font-bold font-mono tracking-tight leading-none" style={{ fontSize: '1.25rem', color: '#1a0f0a' }}>
+        <div className="flex items-center justify-center gap-2 px-4 pt-3">
+          <span className="text-[18px] font-semibold leading-none tracking-tight text-[#1d1d1f]">
             {rank === 1 ? '#1' : rank === 2 ? '#2' : rank === 3 ? '#3' : `#${rank}`}
           </span>
-          <span className="ml-2 text-xs font-bold uppercase tracking-[0.1em]" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', serif" }}>
-            Longest Reign
-          </span>
+          <span className="text-[10px] font-medium uppercase tracking-[0.08em] text-[#86868b]">Longest Reign</span>
         </div>
 
-        {/* Info section */}
-        <div className="px-5 pb-4 pt-2 text-center flex-1 flex flex-col justify-between">
-          <div className="space-y-1.5">
-            <h2 className="text-sm font-bold uppercase tracking-[0.04em] leading-tight" style={{ color: '#2a1f15', fontFamily: "'Times New Roman', Times, serif" }}>
-              {champion.name}
-            </h2>
+        <div className="flex flex-1 flex-col px-4 pb-4 pt-2 text-center">
+          <h2 className="mt-1 text-[16px] font-semibold leading-[1.25] text-[#1d1d1f]">{champion.name}</h2>
 
-            {champion.status && (
-              <p className="text-[10px] uppercase tracking-[0.1em] font-bold" style={{ color: '#6a4a2a', fontFamily: "'Times New Roman', Times, serif" }}>
-                {champion.status}
-              </p>
-            )}
+          {champion.status && (
+            <p className="mt-0.5 text-[11px] font-medium uppercase tracking-[0.06em] text-[#86868b]">{champion.status}</p>
+          )}
 
-            <div className="flex items-center justify-center gap-4 font-mono" style={{ color: '#5a4a3a' }}>
-              <span className="flex flex-col items-center">
-                <span className="text-base font-bold leading-none tracking-[0.05em]" style={{ color: '#3a2a1a' }}>{champion.weightClass}</span>
-                <span className="text-[10px] uppercase tracking-[0.08em] mt-0.5" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', Times, serif" }}>{champion.lineage}</span>
-              </span>
-              <span className="text-lg leading-none" style={{ color: '#c4b49a' }}>|</span>
-              <span className="flex flex-col items-center">
-                <span className="text-base font-bold leading-none" style={{ color: '#3a2a1a' }}>{champion.defenses}</span>
-                <span className="text-[10px] uppercase tracking-[0.08em] mt-0.5" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', Times, serif" }}>DEFENSES</span>
-              </span>
-            </div>
+          <div className="mt-3 flex items-center justify-center gap-4">
+            <span className="flex min-w-0 flex-col items-center">
+              <span className="text-[15px] font-semibold leading-none tracking-tight text-[#1d1d1f]">{champion.weightClass}</span>
+              <span className="mt-1 text-[10px] font-medium uppercase tracking-[0.08em] text-[#86868b]">{champion.lineage}</span>
+            </span>
+            <StatDivider />
+            <Stat value={String(champion.defenses)} label="Defenses" />
           </div>
         </div>
       </div>
@@ -425,82 +364,74 @@ export default function Home() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center" style={{ background: '#1a1510' }}>
-        <div className="w-12 h-12 border border-[#4a3a2a] flex items-center justify-center">
-          <span className="text-base animate-pulse" style={{ color: '#5a4a3a' }}>&#9916;</span>
-        </div>
-        <p className="mt-3 text-[10px] tracking-[0.3em] uppercase animate-pulse" style={{ color: '#5a4a3a', fontFamily: "'Times New Roman', serif" }}>
-          Loading
-        </p>
+      <div className="flex min-h-screen flex-col items-center justify-center bg-white">
+        <div className="h-10 w-10 animate-spin rounded-full border-[3px] border-[#e8e8ed] border-t-[#1d1d1f]" />
+        <p className="mt-4 text-sm font-medium text-[#86868b]">Loading</p>
       </div>
     )
   }
 
   if (error) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: '#1a1510' }}>
-        <p style={{ color: '#8a6a4a', fontFamily: "'Times New Roman', serif" }}>{error}</p>
+      <div className="flex min-h-screen items-center justify-center bg-white">
+        <p className="text-sm font-medium text-[#6e6e73]">{error}</p>
       </div>
     )
   }
 
   return (
-    <div style={{ minHeight: '100vh', background: '#1a1510' }}>
+    <div className="min-h-screen bg-white">
       <header
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+        className="fixed left-0 right-0 top-0 z-50 transition-all duration-300"
         style={{
-          background: headerBlur ? 'rgba(26,21,16,0.95)' : 'rgba(26,21,16,0.7)',
-          borderBottom: headerBlur ? '1px solid #3a2a1a' : '1px solid transparent',
+          background: headerBlur ? 'rgba(255,255,255,0.82)' : 'rgba(255,255,255,0.65)',
+          backdropFilter: 'saturate(180%) blur(20px)',
+          WebkitBackdropFilter: 'saturate(180%) blur(20px)',
+          borderBottom: '1px solid rgba(0,0,0,0.08)',
         }}
       >
-        <div className="max-w-2xl mx-auto px-4">
-          <div className="flex items-center justify-between h-12">
-            <nav className="flex items-center gap-2">
-              <a href="https://boxingpugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[9px] font-bold tracking-[0.15em] uppercase px-2 py-1" style={{ color: '#b8a890', border: '1px solid #3a2a1a', fontFamily: "'Times New Roman', serif" }}>Boxing</a>
-              <a href="https://mmapugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[9px] font-bold tracking-[0.15em] uppercase px-2 py-1" style={{ color: '#5a4a3a', border: '1px solid #3a2a1a', fontFamily: "'Times New Roman', serif" }}>MMA</a>
-              <a href="https://generalspugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[9px] font-bold tracking-[0.15em] uppercase px-2 py-1" style={{ color: '#5a4a3a', border: '1px solid #3a2a1a', fontFamily: "'Times New Roman', serif" }}>Generals</a>
-            </nav>
-            <div className="flex items-center gap-2.5">
-              <input
-                type="text"
-                placeholder="Search..."
-                value={search}
-                onChange={e => setSearch(e.target.value)}
-                className="w-24 text-[10px] px-2 py-1 font-mono transition-colors"
-                style={{
-                  background: 'transparent',
-                  border: '1px solid #3a2a1a',
-                  color: '#b8a890',
-                  outline: 'none',
-                }}
-                onFocus={e => { e.target.style.borderColor = '#6a5a4a' }}
-                onBlur={e => { e.target.style.borderColor = '#3a2a1a' }}
-              />
-            </div>
-          </div>
+        <div className="mx-auto flex h-12 max-w-6xl items-center justify-between px-4">
+          <nav className="flex items-center gap-1">
+            <a href="https://boxingpugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="rounded-full px-3 py-1.5 text-[13px] font-medium text-[#1d1d1f]">Boxing</a>
+            <a href="https://mmapugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="rounded-full px-3 py-1.5 text-[13px] font-medium text-[#6e6e73] transition-colors hover:text-[#1d1d1f]">MMA</a>
+            <a href="https://generalspugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="rounded-full px-3 py-1.5 text-[13px] font-medium text-[#6e6e73] transition-colors hover:text-[#1d1d1f]">Generals</a>
+          </nav>
+          <input
+            type="text"
+            placeholder="Search"
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            className="h-9 w-40 rounded-full bg-[#f2f2f5] px-4 text-sm text-[#1d1d1f] outline-none transition-shadow placeholder:text-[#86868b] focus:ring-2 focus:ring-black/10"
+          />
         </div>
       </header>
 
-      <main className="pt-16 pb-12">
-        <div className="max-w-6xl mx-auto px-4">
+      <main className="pb-12 pt-20">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="mb-8 pt-6 text-center">
+            <h1 className="text-[42px] font-semibold leading-[1.05] tracking-tight text-[#1d1d1f]">Boxing</h1>
+            <p className="mt-2 text-lg font-medium text-[#6e6e73]">Ranked by wins, sourced from Wikipedia.</p>
+          </div>
 
           {uniqueFights.length > 0 && (
-            <div className="mb-4 p-3 border flex flex-col gap-1.5" style={{ background: '#2a1f15', borderColor: '#5a4a3a' }}>
+            <div className="mb-6 rounded-2xl border border-[#e8e8ed] bg-white px-4 py-2">
               <button
                 onClick={() => setNewsExpanded(!newsExpanded)}
-                className="flex items-center gap-2 cursor-pointer text-left"
+                className="flex w-full cursor-pointer items-center gap-2.5 py-2 text-left"
               >
-                <span className="text-xs leading-none">🔔</span>
-                <span className="text-[9px] font-bold tracking-[0.15em] uppercase" style={{ color: '#b8a890', fontFamily: "'Times New Roman', serif" }}>Fight News</span>
-                <span className="text-[8px] ml-auto" style={{ color: '#7a6a5a' }}>{newsExpanded ? '▲' : '▼'} {uniqueFights.length}</span>
+                <span className="text-sm leading-none">🔔</span>
+                <span className="text-sm font-semibold text-[#1d1d1f]">Fight News</span>
+                <span className="ml-auto text-[11px] font-medium text-[#86868b]">{uniqueFights.length}</span>
+                <span className={`text-[11px] text-[#86868b] transition-transform duration-200 ${newsExpanded ? 'rotate-180' : ''}`}>▼</span>
               </button>
               {newsExpanded && (
-                <div className="flex flex-wrap gap-x-4 gap-y-1">
+                <div className="flex flex-col gap-2.5 border-t border-[#f0f0f2] py-3">
                   {uniqueFights.map((f, i) => (
-                    <a key={i} href={f.url} target="_blank" rel="noopener noreferrer" className="text-[10px] leading-tight hover:underline" style={{ color: '#d4c4a8', fontFamily: "'Times New Roman', Times, serif" }}>
+                    <a key={i} href={f.url} target="_blank" rel="noopener noreferrer" className="group block text-sm leading-snug text-[#1d1d1f]">
                       {f.headline}
-                      <span className="text-[8px] ml-1 uppercase tracking-wider" style={{ color: '#7a6a5a' }}>
-                        {f.publishedAt ? new Date(f.publishedAt).toLocaleDateString() + ' ' : ''}({f.source})
+                      <span className="mt-0.5 block text-[11px] font-medium text-[#86868b]">
+                        {f.publishedAt ? new Date(f.publishedAt).toLocaleDateString() + ' · ' : ''}
+                        {f.source}
                       </span>
                     </a>
                   ))}
@@ -509,179 +440,111 @@ export default function Home() {
             </div>
           )}
 
-          {/* Main tabs: Best + Worst + Champions */}
-          <div className="mb-4 flex gap-2 flex-wrap items-center">
-            <span className="w-px h-7 mx-1" style={{ background: '#3a2a1a' }} />
-            {(['best', 'worst', 'champions'] as const).map(m => (
-              <button
-                key={m}
-                onClick={() => switchView(m)}
-                className="px-4 py-2 text-[11px] font-bold tracking-[0.15em] uppercase transition-all"
-                style={{
-                  fontFamily: "'Times New Roman', serif",
-                  background: viewMode === m ? '#3a2a1a' : 'transparent',
-                  color: viewMode === m ? '#ddd0b8' : '#5a4a3a',
-                  border: `1px solid ${viewMode === m ? '#5a4a3a' : '#3a2a1a'}`,
-                }}
-              >
-                {m === 'best' ? 'Best' : m === 'worst' ? 'Worst' : 'Champions'}
-              </button>
-            ))}
+          {/* Main tabs */}
+          <div className="mb-3 flex flex-wrap items-center gap-2">
+            <SegmentGroup>
+              {(['best', 'worst', 'champions'] as const).map(m => (
+                <SegmentBtn key={m} active={viewMode === m} onClick={() => switchView(m)}>
+                  {m === 'best' ? 'Best' : m === 'worst' ? 'Worst' : 'Champions'}
+                </SegmentBtn>
+              ))}
+              <SegmentBtn active={isArchived} onClick={() => switchView(isArchived ? 'best' : 'archivedBest')}>
+                Archived
+              </SegmentBtn>
+            </SegmentGroup>
 
-            {/* Archived toggle — switches to archivedBest/archivedWorst */}
-            <button
-              onClick={() => switchView(isArchived ? 'best' : 'archivedBest')}
-              className="px-4 py-2 text-[11px] font-bold tracking-[0.15em] uppercase transition-all"
-              style={{
-                fontFamily: "'Times New Roman', serif",
-                background: isArchived ? '#3a2a1a' : 'transparent',
-                color: isArchived ? '#ddd0b8' : '#5a4a3a',
-                border: `1px solid ${isArchived ? '#5a4a3a' : '#3a2a1a'}`,
-              }}
-            >
-              Archived
-            </button>
-
-            {/* Archived sub-tabs */}
             {isArchived && (
-              <>
-                <span className="w-px h-7 mx-1" style={{ background: '#3a2a1a' }} />
+              <SegmentGroup>
                 {(['archivedBest', 'archivedWorst'] as const).map(m => (
-                  <button
-                    key={m}
-                    onClick={() => switchView(m)}
-                    className="px-4 py-2 text-[11px] font-bold tracking-[0.15em] uppercase transition-all"
-                    style={{
-                      fontFamily: "'Times New Roman', serif",
-                      background: viewMode === m ? '#3a2a1a' : 'transparent',
-                      color: viewMode === m ? '#ddd0b8' : '#5a4a3a',
-                      border: `1px solid ${viewMode === m ? '#5a4a3a' : '#3a2a1a'}`,
-                      opacity: 0.7,
-                    }}
-                  >
+                  <SegmentBtn key={m} active={viewMode === m} onClick={() => switchView(m)}>
                     {m === 'archivedBest' ? 'Undefeated' : 'Winless'}
-                  </button>
+                  </SegmentBtn>
                 ))}
-              </>
+              </SegmentGroup>
             )}
-
-            <span className="w-px h-7 mx-1" style={{ background: '#3a2a1a' }} />
-
-            {/* Sort options: show for best and archivedBest */}
-            {(viewMode === 'best' || viewMode === 'archivedBest') && (
-              <>
-                {(['wins', 'kos', 'weight'] as const).map(s => (
-                  <button
-                    key={s}
-                    onClick={() => { setSortBy(s); if (s !== 'weight') setWeightFilter(null) }}
-                    className="px-4 py-2 text-[11px] font-bold tracking-[0.15em] uppercase transition-all"
-                    style={{
-                      fontFamily: "'Times New Roman', serif",
-                      background: sortBy === s ? '#3a2a1a' : 'transparent',
-                      color: sortBy === s ? '#ddd0b8' : '#5a4a3a',
-                      border: `1px solid ${sortBy === s ? '#5a4a3a' : '#3a2a1a'}`,
-                    }}
-                  >
-                    {s === 'wins' ? 'Wins' : s === 'kos' ? 'KO' : 'Weight'}
-                  </button>
-                ))}
-                <span className="w-px h-7 mx-1" style={{ background: '#3a2a1a' }} />
-              </>
-            )}
-
-            {/* Gender filter */}
-            {!isChampions && (['all', 'male', 'female'] as const).map(g => (
-              <button
-                key={g}
-                onClick={() => setGenderFilter(g)}
-                className="px-4 py-2 text-[11px] font-bold tracking-[0.15em] uppercase transition-all"
-                style={{
-                  fontFamily: "'Times New Roman', serif",
-                  background: genderFilter === g ? '#3a2a1a' : 'transparent',
-                  color: genderFilter === g ? '#ddd0b8' : '#5a4a3a',
-                  border: `1px solid ${genderFilter === g ? '#5a4a3a' : '#3a2a1a'}`,
-                }}
-              >
-                {g === 'all' ? 'All' : g === 'male' ? 'Male' : 'Female'}
-              </button>
-            ))}
           </div>
 
-          {/* Weight class sub-filter row */}
+          {/* Sort options */}
+          {(viewMode === 'best' || viewMode === 'archivedBest') && (
+            <div className="mb-3">
+              <SegmentGroup>
+                {(['wins', 'kos', 'weight'] as const).map(s => (
+                  <SegmentBtn
+                    key={s}
+                    active={sortBy === s}
+                    onClick={() => { setSortBy(s); if (s !== 'weight') setWeightFilter(null) }}
+                  >
+                    {s === 'wins' ? 'Wins' : s === 'kos' ? 'KO' : 'Weight'}
+                  </SegmentBtn>
+                ))}
+              </SegmentGroup>
+            </div>
+          )}
+
+          {/* Gender filter */}
+          {!isChampions && (
+            <div className="mb-3">
+              <SegmentGroup>
+                {(['all', 'male', 'female'] as const).map(g => (
+                  <SegmentBtn key={g} active={genderFilter === g} onClick={() => setGenderFilter(g)}>
+                    {g === 'all' ? 'All' : g === 'male' ? 'Male' : 'Female'}
+                  </SegmentBtn>
+                ))}
+              </SegmentGroup>
+            </div>
+          )}
+
+          {/* Weight class sub-filter */}
           {!isChampions && sortBy === 'weight' && availableWeightClasses.length > 0 && (
-            <div className="mb-4 flex gap-1.5 flex-wrap items-center">
-              <span className="w-px h-6 mx-1" style={{ background: '#3a2a1a' }} />
-              <button
-                onClick={() => setWeightFilter(null)}
-                className="px-3 py-1.5 text-[10px] font-bold tracking-[0.15em] uppercase transition-all"
-                style={{
-                  fontFamily: "'Times New Roman', serif",
-                  background: !weightFilter ? '#3a2a1a' : 'transparent',
-                  color: !weightFilter ? '#ddd0b8' : '#5a4a3a',
-                  border: `1px solid ${!weightFilter ? '#5a4a3a' : '#3a2a1a'}`,
-                }}
-              >
-                All
-              </button>
-              {availableWeightClasses.map(wc => (
-                <button
-                  key={wc}
-                  onClick={() => setWeightFilter(weightFilter === wc ? null : wc)}
-                  className="px-3 py-1.5 text-[10px] font-bold tracking-[0.15em] uppercase transition-all"
-                  style={{
-                    fontFamily: "'Times New Roman', serif",
-                    background: weightFilter === wc ? '#3a2a1a' : 'transparent',
-                    color: weightFilter === wc ? '#ddd0b8' : '#5a4a3a',
-                    border: `1px solid ${weightFilter === wc ? '#5a4a3a' : '#3a2a1a'}`,
-                  }}
-                >
-                  {wc}
-                </button>
-              ))}
+            <div className="mb-5">
+              <SegmentGroup>
+                <SegmentBtn small active={!weightFilter} onClick={() => setWeightFilter(null)}>All</SegmentBtn>
+                {availableWeightClasses.map(wc => (
+                  <SegmentBtn small key={wc} active={weightFilter === wc} onClick={() => setWeightFilter(weightFilter === wc ? null : wc)}>
+                    {wc}
+                  </SegmentBtn>
+                ))}
+              </SegmentGroup>
             </div>
           )}
 
           {isChampions ? (
             <>
-              <div className="mb-4 p-3 border" style={{ background: 'rgba(26,21,16,0.5)', borderColor: '#3a2a1a' }}>
-                <p className="text-[9px] tracking-[0.2em] uppercase" style={{ color: '#8a7a6a', fontFamily: "'Times New Roman', serif" }}>
-                  WBA World Champions &middot; all weight classes &middot; ranked by longest reign
+              <div className="mb-5 rounded-2xl bg-[#f5f5f7] px-4 py-3">
+                <p className="text-[13px] font-medium text-[#6e6e73]">
+                  WBA World Champions · all weight classes · ranked by longest reign
                 </p>
               </div>
-              <div className="grid gap-4 items-stretch" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))' }}>
-                {filteredChampions.map((champion, i) => (
-                  <ChampionCard key={champion.name + champion.reignStart} champion={champion} rank={i + 1} />
-                ))}
-              </div>
-              {filteredChampions.length === 0 && (
-                <div className="text-center py-16">
-                  <p className="text-xs tracking-widest uppercase" style={{ color: '#5a4a3a', fontFamily: "'Times New Roman', serif" }}>
-                    No champions match your search.
-                  </p>
+              <div className="rounded-[28px] bg-[#f5f5f7] p-4 sm:p-6">
+                <div className="grid items-stretch gap-4" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))' }}>
+                  {filteredChampions.map((champion, i) => (
+                    <ChampionCard key={champion.name + champion.reignStart} champion={champion} rank={i + 1} />
+                  ))}
                 </div>
-              )}
+                {filteredChampions.length === 0 && (
+                  <div className="py-16 text-center">
+                    <p className="text-lg font-medium text-[#86868b]">No champions match your search.</p>
+                  </div>
+                )}
+              </div>
             </>
           ) : (
-            <>
-              <div className="grid gap-4 items-stretch" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))' }}>
+            <div className="rounded-[28px] bg-[#f5f5f7] p-4 sm:p-6">
+              <div className="grid items-stretch gap-4" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))' }}>
                 {filtered.map((fighter, i) => (
                   <FighterCard key={fighter.name} fighter={fighter} rank={i + 1} isWorst={viewMode === 'worst' || viewMode === 'archivedWorst'} isBest={viewMode === 'best' || viewMode === 'archivedBest'} />
                 ))}
               </div>
               {filtered.length === 0 && (
-                <div className="text-center py-16">
-                  <p className="text-xs tracking-widest uppercase" style={{ color: '#5a4a3a', fontFamily: "'Times New Roman', serif" }}>
-                    No fighters match your search.
-                  </p>
+                <div className="py-16 text-center">
+                  <p className="text-lg font-medium text-[#86868b]">No fighters match your search.</p>
                 </div>
               )}
-            </>
+            </div>
           )}
 
-          <footer className="mt-10 text-center">
-            <p className="text-[8px] tracking-widest uppercase" style={{ color: '#3a2a1a', fontFamily: "'Times New Roman', serif" }}>
-              Wikipedia &middot; Updated daily
-            </p>
+          <footer className="mb-4 mt-12 text-center">
+            <p className="text-xs font-medium text-[#86868b]">Wikipedia · Updated daily</p>
           </footer>
         </div>
       </main>
