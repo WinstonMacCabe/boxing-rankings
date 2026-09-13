@@ -2,7 +2,7 @@ import { getAllBoxerPages } from '../lib/categories'
 import { fetchBoxerRecords } from '../lib/wikipedia'
 import type { BoxerStats } from '../lib/wikipedia'
 import { readRankings, writeRankings } from '../lib/storage'
-import type { BoxerRecord } from '../lib/types'
+import type { BoxerRecord, Gender } from '../lib/types'
 
 const BATCH_SIZE = 50
 const BATCH_DELAY = 100
@@ -10,8 +10,56 @@ const BATCH_DELAY = 100
 // Minimum thirdary score (wins/losses, or wins if undefeated) for inclusion.
 const BOXING_MIN_SCORE = 19.05
 
+// Boxing records for fighters discovered via the MMA/sport crawl (mma-rankings).
+// Falls back to the committed GitHub copy if the deployed site is stale/unavailable.
+const MMA_BOXING_RECORDS_SOURCES = [
+  'https://mmapugilism.vercel.app/data/boxing-records.json',
+  'https://raw.githubusercontent.com/WinstonMacCabe/mma-rankings/main/public/data/boxing-records.json',
+]
+
+interface MmaBoxingRecord {
+  wins: number
+  kos: number
+  losses: number
+  draws: number
+  noContests: number
+  total: number
+  nationality?: string
+  weightClass?: string
+  imageUrl?: string
+  birthDate?: string
+  gender?: Gender
+}
+
 function delay(ms: number): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+async function fetchMmaBoxingRecords(): Promise<Map<string, MmaBoxingRecord>> {
+  for (const url of MMA_BOXING_RECORDS_SOURCES) {
+    try {
+      const res = await fetch(url, { signal: AbortSignal.timeout(30000) })
+      if (!res.ok) {
+        console.warn(`Boxing records source ${url} returned ${res.status}`)
+        continue
+      }
+      const data = await res.json() as { records?: Record<string, MmaBoxingRecord> }
+      if (!data?.records) {
+        console.warn(`Boxing records source ${url} had no records field`)
+        continue
+      }
+      const map = new Map<string, MmaBoxingRecord>()
+      for (const [name, rec] of Object.entries(data.records)) {
+        if (rec && typeof rec.wins === 'number' && typeof rec.losses === 'number') map.set(name, rec)
+      }
+      console.log(`Fetched ${map.size} MMA/sport boxing records from ${url}`)
+      return map
+    } catch (err) {
+      console.warn(`Failed to fetch boxing records from ${url}:`, err)
+    }
+  }
+  console.warn('No MMA boxing-records source available; continuing without MMA/sport boxers.')
+  return new Map()
 }
 
 async function main() {
@@ -54,6 +102,33 @@ async function main() {
     }
 
     await delay(BATCH_DELAY)
+  }
+
+  // Merge boxing records from the MMA/sport crawl for fighters not discovered via
+  // boxing categories. Skipped names keep the boxing site's own parse, so existing
+  // boxing rankings are unchanged. Merged fighters follow the same rules as everyone
+  // else (Best requires the win/loss ratio threshold, Worst requires losses).
+  const mmaBoxingRecords = await fetchMmaBoxingRecords()
+  let injectedBoxers = 0
+  for (const [name, rec] of mmaBoxingRecords) {
+    if (allRecords.has(name)) continue
+    allRecords.set(name, {
+      total: rec.total ?? rec.wins + rec.losses + (rec.draws ?? 0) + (rec.noContests ?? 0),
+      wins: rec.wins,
+      kos: rec.kos ?? 0,
+      losses: rec.losses,
+      draws: rec.draws ?? 0,
+      nationality: rec.nationality || '',
+      weightClass: rec.weightClass || '',
+      imageUrl: rec.imageUrl || '',
+      birthDate: rec.birthDate || '',
+      qualityWins: 0,
+    })
+    pageMap.set(name, rec.gender ?? 'male')
+    injectedBoxers++
+  }
+  if (injectedBoxers > 0) {
+    console.log(`Merged ${injectedBoxers} MMA/sport fighters with boxing records.`)
   }
 
   const now = new Date()
