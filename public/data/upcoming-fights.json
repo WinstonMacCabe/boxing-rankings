@@ -1,6 +1,34 @@
 {
-  "lastUpdated": "2026-09-12T04:44:03.602Z",
+  "lastUpdated": "2026-09-13T00:29:08.986Z",
   "fights": [
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "Remy Ma Trolls Papoose, Tells Him To ‘Prove’ His Love To Boxer Claressa Shields By Signing Divorce Papers",
+      "url": "https://bossip.com/4628597/remy-ma-papoose-divorce/",
+      "source": "Bossip",
+      "publishedAt": "2026-09-11T16:47:09Z"
+    },
+    {
+      "boxerName": "Tommy Fury",
+      "headline": "Molly-Mae and Tommy Fury fans convinced they've secretly got married as she shares family photos wearing a bridal white lace dress from lavish venue",
+      "url": "https://www.dailymail.com/tvshowbiz/article-16123649/Molly-Mae-Tommy-Fury-fans-convinced-theyve-secretly-got-married-shares-family-photos-wearing-bridal-white-lace-dress-lavish-venue.html",
+      "source": "Dailymail.com",
+      "publishedAt": "2026-09-11T15:05:15Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Katie Taylor’s farewell fight has ‘extraordinary impact’ on local economy",
+      "url": "https://www.irishtimes.com/business/2026/09/11/katie-taylors-farewell-fight-has-extraordinary-impact-on-local-economy/",
+      "source": "The Irish Times",
+      "publishedAt": "2026-09-11T12:18:48Z"
+    },
+    {
+      "boxerName": "Claressa Shields",
+      "headline": "Remy Ma Drops Court Date and DARES Papoose to Make Their Divorce Official!",
+      "url": "https://mediatakeout.com/remy-ma-drops-court-date-and-dares-papoose-to-make-their-divorce-official/",
+      "source": "Mediatakeout.com",
+      "publishedAt": "2026-09-11T11:56:00Z"
+    },
     {
       "boxerName": "Ryan Garcia",
       "headline": "Ryan Garcia's road to redemption continues against Conor Benn on Mexican Independence Day weekend",
@@ -2723,20 +2751,6 @@
       "url": "https://brobible.com/sports/article/teofimo-lopez-rolly-romero-dazn/",
       "source": "BroBible",
       "publishedAt": "2026-08-14T10:10:42Z"
-    },
-    {
-      "boxerName": "Claressa Shields",
-      "headline": "Cris Cyborg cools retirement talk; remains interested in Ronda Rousey, Claressa Shields fights",
-      "url": "https://sports.yahoo.com/mma/article/cris-cyborg-cools-retirement-talk-remains-interested-in-ronda-rousey-claressa-shields-fights-195117394.html",
-      "source": "Yahoo Entertainment",
-      "publishedAt": "2026-08-13T19:51:17Z"
-    },
-    {
-      "boxerName": "Terence Crawford",
-      "headline": "Terence Crawford Return Rumors Put to Rest: ‘He Just Wants to Stay in Shape’",
-      "url": "https://mediatakeout.com/terence-crawford-return-rumors-put-to-rest-he-just-wants-to-stay-in-shape/",
-      "source": "Mediatakeout.com",
-      "publishedAt": "2026-08-13T10:26:00Z"
     }
   ]
 }
