@@ -408,13 +408,8 @@ export default function Home() {
             <a href="https://generalspugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[17px] uppercase tracking-[0.05em] text-black/40 transition-colors hover:text-[#1d1d1f]">Generals</a>
           </nav>
 
-          <div className="pointer-events-none absolute left-1/2 hidden -translate-x-1/2 text-center sm:block">
-            <div className="text-[30px] font-bold uppercase tracking-[0.08em] text-[#1d1d1f]">
-              Winston&apos;s Rankings
-            </div>
-            <div className="text-[14px] font-semibold uppercase tracking-[0.12em] text-ufc-red">
-              Boxing Rankings
-            </div>
+          <div className="pointer-events-none absolute left-1/2 hidden -translate-x-1/2 text-[30px] font-bold uppercase tracking-[0.08em] text-[#1d1d1f] sm:block">
+            Winston&apos;s Rankings
           </div>
 
           <div ref={controlsRef} className="relative flex items-center gap-2">
