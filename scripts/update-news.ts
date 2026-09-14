@@ -39,8 +39,7 @@ async function main() {
   const rankings = await readRankings()
   const allFightersMap = new Map<string, any>()
   const lists = [
-    rankings.thirdary,
-    rankings.fighters
+    rankings.thirdary
   ]
   for (const list of lists) {
     if (!list) continue
