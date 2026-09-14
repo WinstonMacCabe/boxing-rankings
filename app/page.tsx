@@ -40,15 +40,15 @@ function getInitials(name: string): string {
 
 function Stat({ value, label }: { value: string; label: string }) {
   return (
-    <span className="flex flex-col">
-      <span className="text-[18px] font-semibold leading-none tabular-nums tracking-tight text-[#1d1d1f]">{value}</span>
-      <span className="mt-1 text-[10px] font-medium uppercase tracking-[0.08em] text-[#86868b]">{label}</span>
+    <span className="flex flex-col items-center">
+      <span className="text-[24px] font-semibold leading-none tabular-nums tracking-tight text-[#1d1d1f]">{value}</span>
+      <span className="mt-1.5 text-[12px] font-medium uppercase tracking-[0.08em] text-[#86868b]">{label}</span>
     </span>
   )
 }
 
 function StatDivider() {
-  return <span className="h-8 w-px self-center bg-[#e8e8ed]" />
+  return <span className="h-10 w-px self-center bg-[#e8e8ed]" />
 }
 
 function SegmentBtn({ active, onClick, children, small }: { active: boolean; onClick: () => void; children: React.ReactNode; small?: boolean }) {
@@ -56,8 +56,8 @@ function SegmentBtn({ active, onClick, children, small }: { active: boolean; onC
     <button
       onClick={onClick}
       className={`
-        rounded-full font-medium transition-all duration-200
-        ${small ? 'px-3 py-1.5 text-xs' : 'px-3.5 py-2 text-[13px] leading-none'}
+        rounded-full font-semibold transition-all duration-200
+        ${small ? 'px-4 py-2 text-[15px]' : 'px-5 py-2.5 text-[16px] leading-none'}
         ${active
           ? 'bg-white text-[#1d1d1f] shadow-[0_1px_4px_rgba(0,0,0,0.16)]'
           : 'text-[#6e6e73] hover:text-[#1d1d1f]'}
@@ -70,7 +70,7 @@ function SegmentBtn({ active, onClick, children, small }: { active: boolean; onC
 
 function SegmentGroup({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className={`inline-flex flex-wrap items-center gap-1 rounded-full bg-[#f2f2f5] p-1 ${className ?? ''}`}>
+    <div className={`flex flex-wrap items-center justify-center gap-1.5 rounded-full bg-[#f2f2f5] p-2 ${className ?? ''}`}>
       {children}
     </div>
   )
@@ -118,8 +118,8 @@ function FighterCard({ fighter, rank, isWorst, isBest }: { fighter: BoxerRecord;
         className="group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-[#e8e8ed] bg-white transition-all duration-500 hover:-translate-y-0.5 hover:border-[#d2d2d7] hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)]"
         onClick={() => window.open(fighter.wikipediaUrl, '_blank')}
       >
-        {/* Photo */}
-        <div className="relative w-full" style={{ aspectRatio: '3 / 4' }}>
+        {/* Photo — uniform 3:4, identical across all cards */}
+        <div style={{ aspectRatio: '3 / 4', overflow: 'hidden', background: '#f5f5f7' }}>
           {hasImage ? (
             <>
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -132,38 +132,38 @@ function FighterCard({ fighter, rank, isWorst, isBest }: { fighter: BoxerRecord;
                 onError={() => setImgError(true)}
               />
               {!imgLoaded && (
-                <div className="absolute inset-0 flex items-center justify-center bg-[#f5f5f7]">
+                <div className="flex h-full items-center justify-center bg-[#f5f5f7]">
                   <span className="text-[26px] font-semibold tracking-tight text-[#c7c7cc]">{getInitials(fighter.name)}</span>
                 </div>
               )}
             </>
           ) : (
-            <div className="absolute inset-0 flex items-center justify-center bg-[#f5f5f7]">
+            <div className="flex h-full items-center justify-center bg-[#f5f5f7]">
               <span className="text-[26px] font-semibold tracking-tight text-[#c7c7cc]">{getInitials(fighter.name)}</span>
             </div>
           )}
         </div>
 
-        {/* Info */}
-        <div className="flex flex-1 flex-col px-4 pb-4 pt-3">
-          <div className="flex items-center justify-between">
-            <span className="text-[26px] font-semibold leading-none tracking-tight text-[#1d1d1f]">
+        {/* Info — centered */}
+        <div className="flex w-full flex-1 flex-col items-center px-4 pb-5 pt-4 text-center">
+          <div className="flex items-center justify-center gap-2">
+            <span className="text-[34px] font-semibold leading-none tracking-tight text-[#1d1d1f]">
               {rank === 1 ? '#1' : rank === 2 ? '#2' : rank === 3 ? '#3' : `#${rank}`}
             </span>
-            {rankChange > 0 && (
-              <span className="text-[13px] font-semibold text-[#1d7d33]">▲ {rankChange}</span>
-            )}
-            {rankChange < 0 && (
-              <span className="text-[13px] font-semibold text-[#c22d2d]">▼ {-rankChange}</span>
-            )}
           </div>
+          {rankChange > 0 && (
+            <span className="mt-1.5 text-[16px] font-semibold text-[#1d7d33]">▲ {rankChange}</span>
+          )}
+          {rankChange < 0 && (
+            <span className="mt-1.5 text-[16px] font-semibold text-[#c22d2d]">▼ {-rankChange}</span>
+          )}
 
-          <h2 className="mt-2 text-[16px] font-semibold leading-[1.25] text-[#1d1d1f]">{displayName}</h2>
-          <p className="mt-0.5 min-h-[15px] text-[11px] font-medium uppercase tracking-[0.06em] text-[#86868b]">
+          <h2 className="mt-2.5 text-[20px] font-semibold leading-snug text-[#1d1d1f]">{displayName}</h2>
+          <p className="mt-1 min-h-[18px] text-[13px] font-semibold uppercase tracking-[0.08em] text-[#86868b]">
             {fighter.weightClass || ''}
           </p>
 
-          <div className="mt-3 flex items-center gap-4">
+          <div className="mt-4 flex items-center justify-center gap-5">
             {isWorst ? (
               <>
                 <Stat value={String(fighter.losses)} label="Losses" />
@@ -185,9 +185,9 @@ function FighterCard({ fighter, rank, isWorst, isBest }: { fighter: BoxerRecord;
             )}
           </div>
 
-          <div className="mt-auto flex min-h-[26px] items-center gap-2 pt-3">
-            {flag && <span className="text-base leading-none">{flag}</span>}
-            <span className="text-[12px] font-medium text-[#6e6e73]">{fighter.nationality || ''}</span>
+          <div className="mt-auto flex min-h-[48px] items-center justify-center gap-3 pt-4">
+            {flag && <span className="text-[40px] leading-none">{flag}</span>}
+            <span className="text-[15px] font-medium text-[#6e6e73]">{fighter.nationality || ''}</span>
           </div>
         </div>
       </div>
@@ -240,41 +240,43 @@ function ChampionCard({ champion, rank }: { champion: WbaChampion; rank: number 
         className="group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-[#e8e8ed] bg-white transition-all duration-500 hover:-translate-y-0.5 hover:border-[#d2d2d7] hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)]"
         onClick={() => window.open(champion.wikipediaUrl, '_blank')}
       >
-        <div className="relative flex flex-col items-center justify-center bg-[#f5f5f7] px-4 pb-4 pt-7 text-center">
+        <div className="relative flex flex-col items-center justify-center rounded-t-2xl bg-[#f5f5f7] px-4 pb-4 pt-8 text-center">
           {champion.reigning && (
-            <div className="absolute left-3 top-3 rounded-full bg-[#1d7d33] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-white">
+            <div className="absolute left-3 top-3 rounded-full bg-[#1d7d33] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-white">
               Reigning
             </div>
           )}
           {isSecondary && (
-            <div className="absolute right-3 top-3 rounded-full border border-[#d2d2d7] bg-white px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-[#6e6e73]">
+            <div className="absolute right-3 top-3 rounded-full border border-[#d2d2d7] bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-[#6e6e73]">
               Secondary
             </div>
           )}
-          <span className="text-[30px] font-semibold leading-none tracking-tight text-[#1d1d1f]">
+          <span className="text-[38px] font-semibold leading-none tracking-tight text-[#1d1d1f]">
             {formatReign(champion.reignDays)}
           </span>
-          <span className="mt-1.5 text-[13px] font-medium text-[#6e6e73]">{champion.reignLabel}</span>
+          <span className="mt-2 text-[14px] font-medium text-[#6e6e73]">{champion.reignLabel}</span>
         </div>
 
-        <div className="flex items-center justify-center gap-2 px-4 pt-3">
-          <span className="text-[18px] font-semibold leading-none tracking-tight text-[#1d1d1f]">
+        <div className="flex items-center justify-center gap-2.5 px-4 pt-4">
+          <span className="text-[24px] font-semibold leading-none tracking-tight text-[#1d1d1f]">
             {rank === 1 ? '#1' : rank === 2 ? '#2' : rank === 3 ? '#3' : `#${rank}`}
           </span>
-          <span className="text-[10px] font-medium uppercase tracking-[0.08em] text-[#86868b]">Longest Reign</span>
+        </div>
+        <div className="flex items-center justify-center px-4 pt-1.5">
+          <span className="text-[13px] font-semibold uppercase tracking-[0.08em] text-[#86868b]">Longest Reign</span>
         </div>
 
-        <div className="flex flex-1 flex-col px-4 pb-4 pt-2 text-center">
-          <h2 className="mt-1 text-[16px] font-semibold leading-[1.25] text-[#1d1d1f]">{champion.name}</h2>
+        <div className="flex w-full flex-1 flex-col items-center px-4 pb-5 pt-2 text-center">
+          <h2 className="mt-1 text-[20px] font-semibold leading-snug text-[#1d1d1f]">{champion.name}</h2>
 
           {champion.status && (
-            <p className="mt-0.5 text-[11px] font-medium uppercase tracking-[0.06em] text-[#86868b]">{champion.status}</p>
+            <p className="mt-1 text-[13px] font-semibold uppercase tracking-[0.08em] text-[#86868b]">{champion.status}</p>
           )}
 
-          <div className="mt-3 flex items-center justify-center gap-4">
+          <div className="mt-4 flex items-center justify-center gap-5">
             <span className="flex min-w-0 flex-col items-center">
-              <span className="text-[15px] font-semibold leading-none tracking-tight text-[#1d1d1f]">{champion.weightClass}</span>
-              <span className="mt-1 text-[10px] font-medium uppercase tracking-[0.08em] text-[#86868b]">{champion.lineage}</span>
+              <span className="text-[18px] font-semibold leading-none tracking-tight text-[#1d1d1f]">{champion.weightClass}</span>
+              <span className="mt-1.5 text-[12px] font-medium uppercase tracking-[0.08em] text-[#86868b]">{champion.lineage}</span>
             </span>
             <StatDivider />
             <Stat value={String(champion.defenses)} label="Defenses" />
@@ -365,8 +367,8 @@ export default function Home() {
   if (loading) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center bg-white">
-        <div className="h-10 w-10 animate-spin rounded-full border-[3px] border-[#e8e8ed] border-t-[#1d1d1f]" />
-        <p className="mt-4 text-sm font-medium text-[#86868b]">Loading</p>
+        <div className="h-14 w-14 animate-spin rounded-full border-4 border-[#e8e8ed] border-t-[#1d1d1f]" />
+        <p className="mt-5 text-lg font-medium text-[#86868b]">Loading</p>
       </div>
     )
   }
@@ -374,7 +376,7 @@ export default function Home() {
   if (error) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-white">
-        <p className="text-sm font-medium text-[#6e6e73]">{error}</p>
+        <p className="text-lg font-medium text-[#6e6e73]">{error}</p>
       </div>
     )
   }
@@ -390,46 +392,44 @@ export default function Home() {
           borderBottom: '1px solid rgba(0,0,0,0.08)',
         }}
       >
-        <div className="mx-auto flex h-12 max-w-6xl items-center justify-between px-4">
-          <nav className="flex items-center gap-1">
-            <a href="https://boxingpugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="rounded-full px-3 py-1.5 text-[13px] font-medium text-[#1d1d1f]">Boxing</a>
-            <a href="https://mmapugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="rounded-full px-3 py-1.5 text-[13px] font-medium text-[#6e6e73] transition-colors hover:text-[#1d1d1f]">MMA</a>
-            <a href="https://generalspugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="rounded-full px-3 py-1.5 text-[13px] font-medium text-[#6e6e73] transition-colors hover:text-[#1d1d1f]">Generals</a>
+        <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4">
+          <nav className="flex items-center gap-1.5">
+            <a href="https://boxingpugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="rounded-full px-3.5 py-2 text-[15px] font-semibold text-[#1d1d1f]">Boxing</a>
+            <a href="https://mmapugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="rounded-full px-3.5 py-2 text-[15px] font-medium text-[#6e6e73] transition-colors hover:text-[#1d1d1f]">MMA</a>
+            <a href="https://generalspugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="rounded-full px-3.5 py-2 text-[15px] font-medium text-[#6e6e73] transition-colors hover:text-[#1d1d1f]">Generals</a>
           </nav>
           <input
             type="text"
             placeholder="Search"
             value={search}
             onChange={e => setSearch(e.target.value)}
-            className="h-9 w-40 rounded-full bg-[#f2f2f5] px-4 text-sm text-[#1d1d1f] outline-none transition-shadow placeholder:text-[#86868b] focus:ring-2 focus:ring-black/10"
+            className="h-11 w-52 rounded-full bg-[#f2f2f5] px-5 text-base text-[#1d1d1f] outline-none transition-shadow placeholder:text-[#86868b] focus:ring-2 focus:ring-black/10"
           />
         </div>
       </header>
 
-      <main className="pb-12 pt-20">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="mb-8 pt-6 text-center">
-            <h1 className="text-[42px] font-semibold leading-[1.05] tracking-tight text-[#1d1d1f]">Boxing</h1>
-            <p className="mt-2 text-lg font-medium text-[#6e6e73]">Ranked by wins, sourced from Wikipedia.</p>
+      <main className="pb-12 pt-24">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="mb-10 pt-6 text-center">
+            <h1 className="text-[60px] font-semibold leading-[1.02] tracking-tight text-[#1d1d1f]">Boxing</h1>
           </div>
 
           {uniqueFights.length > 0 && (
-            <div className="mb-6 rounded-2xl border border-[#e8e8ed] bg-white px-4 py-2">
+            <div className="mb-6 rounded-2xl border border-[#e8e8ed] bg-white px-6 py-2">
               <button
                 onClick={() => setNewsExpanded(!newsExpanded)}
-                className="flex w-full cursor-pointer items-center gap-2.5 py-2 text-left"
+                className="flex w-full cursor-pointer items-center justify-center gap-2.5 py-3 text-left"
               >
-                <span className="text-sm leading-none">🔔</span>
-                <span className="text-sm font-semibold text-[#1d1d1f]">Fight News</span>
-                <span className="ml-auto text-[11px] font-medium text-[#86868b]">{uniqueFights.length}</span>
-                <span className={`text-[11px] text-[#86868b] transition-transform duration-200 ${newsExpanded ? 'rotate-180' : ''}`}>▼</span>
+                <span className="text-lg font-semibold text-[#1d1d1f]">Fight News</span>
+                <span className="text-[13px] font-medium text-[#86868b]">{uniqueFights.length}</span>
+                <span className={`text-[13px] text-[#86868b] transition-transform duration-200 ${newsExpanded ? 'rotate-180' : ''}`}>▼</span>
               </button>
               {newsExpanded && (
-                <div className="flex flex-col gap-2.5 border-t border-[#f0f0f2] py-3">
+                <div className="flex flex-col gap-3 border-t border-[#f0f0f2] py-4 text-center">
                   {uniqueFights.map((f, i) => (
-                    <a key={i} href={f.url} target="_blank" rel="noopener noreferrer" className="group block text-sm leading-snug text-[#1d1d1f]">
+                    <a key={i} href={f.url} target="_blank" rel="noopener noreferrer" className="group block text-[17px] leading-snug text-[#1d1d1f]">
                       {f.headline}
-                      <span className="mt-0.5 block text-[11px] font-medium text-[#86868b]">
+                      <span className="mt-0.5 block text-[13px] font-medium text-[#86868b]">
                         {f.publishedAt ? new Date(f.publishedAt).toLocaleDateString() + ' · ' : ''}
                         {f.source}
                       </span>
@@ -441,7 +441,7 @@ export default function Home() {
           )}
 
           {/* Main tabs */}
-          <div className="mb-3 flex flex-wrap items-center gap-2">
+          <div className="mb-4 flex flex-wrap items-center justify-center gap-2">
             <SegmentGroup>
               {(['best', 'worst', 'champions'] as const).map(m => (
                 <SegmentBtn key={m} active={viewMode === m} onClick={() => switchView(m)}>
@@ -466,7 +466,7 @@ export default function Home() {
 
           {/* Sort options */}
           {(viewMode === 'best' || viewMode === 'archivedBest') && (
-            <div className="mb-3">
+            <div className="mb-4 flex justify-center">
               <SegmentGroup>
                 {(['wins', 'kos', 'weight'] as const).map(s => (
                   <SegmentBtn
@@ -483,7 +483,7 @@ export default function Home() {
 
           {/* Gender filter */}
           {!isChampions && (
-            <div className="mb-3">
+            <div className="mb-4 flex justify-center">
               <SegmentGroup>
                 {(['all', 'male', 'female'] as const).map(g => (
                   <SegmentBtn key={g} active={genderFilter === g} onClick={() => setGenderFilter(g)}>
@@ -496,7 +496,7 @@ export default function Home() {
 
           {/* Weight class sub-filter */}
           {!isChampions && sortBy === 'weight' && availableWeightClasses.length > 0 && (
-            <div className="mb-5">
+            <div className="mb-4 flex justify-center">
               <SegmentGroup>
                 <SegmentBtn small active={!weightFilter} onClick={() => setWeightFilter(null)}>All</SegmentBtn>
                 {availableWeightClasses.map(wc => (
@@ -510,42 +510,38 @@ export default function Home() {
 
           {isChampions ? (
             <>
-              <div className="mb-5 rounded-2xl bg-[#f5f5f7] px-4 py-3">
-                <p className="text-[13px] font-medium text-[#6e6e73]">
+              <div className="mb-6 rounded-2xl bg-[#f5f5f7] px-4 py-3 text-center">
+                <p className="text-[15px] font-medium text-[#6e6e73]">
                   WBA World Champions · all weight classes · ranked by longest reign
                 </p>
               </div>
               <div className="rounded-[28px] bg-[#f5f5f7] p-4 sm:p-6">
-                <div className="grid items-stretch gap-4" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))' }}>
+                <div className="grid items-stretch gap-4" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))' }}>
                   {filteredChampions.map((champion, i) => (
                     <ChampionCard key={champion.name + champion.reignStart} champion={champion} rank={i + 1} />
                   ))}
                 </div>
                 {filteredChampions.length === 0 && (
                   <div className="py-16 text-center">
-                    <p className="text-lg font-medium text-[#86868b]">No champions match your search.</p>
+                    <p className="text-xl font-medium text-[#86868b]">No champions match your search.</p>
                   </div>
                 )}
               </div>
             </>
           ) : (
             <div className="rounded-[28px] bg-[#f5f5f7] p-4 sm:p-6">
-              <div className="grid items-stretch gap-4" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))' }}>
+              <div className="grid items-stretch gap-4" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))' }}>
                 {filtered.map((fighter, i) => (
                   <FighterCard key={fighter.name} fighter={fighter} rank={i + 1} isWorst={viewMode === 'worst' || viewMode === 'archivedWorst'} isBest={viewMode === 'best' || viewMode === 'archivedBest'} />
                 ))}
               </div>
               {filtered.length === 0 && (
                 <div className="py-16 text-center">
-                  <p className="text-lg font-medium text-[#86868b]">No fighters match your search.</p>
+                  <p className="text-xl font-medium text-[#86868b]">No fighters match your search.</p>
                 </div>
               )}
             </div>
           )}
-
-          <footer className="mb-4 mt-12 text-center">
-            <p className="text-xs font-medium text-[#86868b]">Wikipedia · Updated daily</p>
-          </footer>
         </div>
       </main>
     </div>
