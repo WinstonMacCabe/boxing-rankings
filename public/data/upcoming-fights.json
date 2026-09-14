@@ -1,6 +1,55 @@
 {
-  "lastUpdated": "2026-09-14T00:29:23.819Z",
+  "lastUpdated": "2026-09-14T05:16:17.226Z",
   "fights": [
+    {
+      "boxerName": "Devin Haney",
+      "headline": "Garcia keeps WBC welterweight title by stopping Benn",
+      "url": "https://sports.yahoo.com/articles/garcia-keeps-wbc-welterweight-title-040114780.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-13T04:01:14Z"
+    },
+    {
+      "boxerName": "Devin Haney",
+      "headline": "Ryan Garcia demolishes Conor Benn inside 2 rounds, calls out Teofimo Lopez and Devin Haney",
+      "url": "https://www.mmafighting.com/boxing/510104/ryan-garcia-demolishes-conor-benn-inside-2-rounds-calls-out-teofimo-lopez-and-devin-haney",
+      "source": "MMA Fighting",
+      "publishedAt": "2026-09-13T03:52:43Z"
+    },
+    {
+      "boxerName": "Devin Haney",
+      "headline": "‘I’ll beat your a— right now!’: Ryan Garcia calls out Teofimo Lopez and Devin Haney after win over Benn",
+      "url": "https://www.badlefthook.com/boxing-news/118734/ill-beat-your-a-right-now-ryan-garcia-calls-out-teofimo-lopez-and-devin-haney-after-win-over-benn-boxing-news-2026",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-09-13T03:50:57Z"
+    },
+    {
+      "boxerName": "David Benavidez",
+      "headline": "Jai Opetaia destroys Noel Mikaelian, goes face-to-face with David Benavidez at Garcia-Benn undercard",
+      "url": "https://sports.yahoo.com/boxing/article/jai-opetaia-destroys-noel-mikaelian-goes-face-to-face-with-david-benavidez-on-garcia-benn-undercard-033242727.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-13T03:32:42Z"
+    },
+    {
+      "boxerName": "David Benavidez",
+      "headline": "Jai Opetaia scores brutal knockout of Noel Mikaelian to cruiserweight titles, calls out David Benavidez",
+      "url": "https://www.cbssports.com/boxing/news/jai-opetaia-noel-mikaelian-results-winner-knockout-cruiserweight-title-david-benavidez/",
+      "source": "CBS Sports",
+      "publishedAt": "2026-09-13T03:18:25Z"
+    },
+    {
+      "boxerName": "David Benavidez",
+      "headline": "‘It’s time to kill the bogeyman’: David Benavidez and Jai Opetaia agree to 2027 fight",
+      "url": "https://www.badlefthook.com/boxing-news/118705/its-time-kill-bogeyman-david-benavidez-and-jai-opetaia-agree-2027-fight-boxing-news-2026",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-09-13T03:11:32Z"
+    },
+    {
+      "boxerName": "David Benavidez",
+      "headline": "Jai Opetaia delivers brutal standing knockout over Noel Mikaelyan, sets up future fight against David Benavidez",
+      "url": "https://www.mmafighting.com/boxing/510040/jai-opetaia-delivers-brutal-standing-knockout-over-noel-mikaelyan-sets-up-future-fight-against-david-benavidez",
+      "source": "MMA Fighting",
+      "publishedAt": "2026-09-13T03:06:30Z"
+    },
     {
       "boxerName": "Claressa Shields",
       "headline": "Remy Ma And Clarissa Continue Fighting … Remy Reveals She’s Dating White Rapper!",
@@ -772,17 +821,17 @@
       "publishedAt": "2026-09-07T18:00:44Z"
     },
     {
-      "boxerName": "Katie Taylor",
-      "headline": "Parrott upsets Madrid, Cup recap & Taylor the footballer",
-      "url": "https://www.rte.ie/sport/soccer/2026/0907/1590574-parrott-upsets-madrid-cup-recap-taylor-the-footballer/",
-      "source": "RTE",
-      "publishedAt": "2026-09-07T15:42:30Z"
-    },
-    {
       "boxerName": "Caroline Dubois (boxer)",
       "headline": "‘I didn’t see anything special’: Alycia Baumgardner not impressed by Caroline Dubois",
       "url": "https://www.badlefthook.com/boxing-news/118523/alycia-baumgardner-not-impressed-by-caroline-dubois-boxing-news-2026",
       "source": "Bad Left Hook",
+      "publishedAt": "2026-09-07T15:42:30Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "Parrott upsets Madrid, Cup recap & Taylor the footballer",
+      "url": "https://www.rte.ie/sport/soccer/2026/0907/1590574-parrott-upsets-madrid-cup-recap-taylor-the-footballer/",
+      "source": "RTE",
       "publishedAt": "2026-09-07T15:42:30Z"
     },
     {
