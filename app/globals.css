@@ -11,9 +11,9 @@
 }
 
 @font-face {
-  font-family: "Bebas Neue";
-  src: url("/fonts/BebasNeue-Regular.woff2") format("woff2");
-  font-weight: 400;
+  font-family: "Oswald";
+  src: url("/fonts/Oswald-Variable.woff2") format("woff2");
+  font-weight: 200 700;
   font-style: normal;
   font-display: swap;
 }
@@ -21,8 +21,9 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Bebas Neue", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
-  letter-spacing: 0.02em;
+  font-family: "Oswald", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

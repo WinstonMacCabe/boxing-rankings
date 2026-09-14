@@ -436,7 +436,7 @@ export default function Home() {
             </button>
 
             {filterOpen && (
-              <div className="absolute right-0 top-full z-50 mt-2 w-[230px] border border-black bg-white py-2 shadow-[0_16px_36px_rgba(0,0,0,0.18)]">
+              <div className="absolute right-0 top-full z-50 mt-2 max-h-[70vh] w-[240px] overflow-y-auto border border-black bg-white py-2 shadow-[0_16px_36px_rgba(0,0,0,0.18)]">
                 <DropdownHeading>Rank</DropdownHeading>
                 <DropdownItem active={viewMode === 'best'} onClick={() => switchView('best')}>Best</DropdownItem>
                 <DropdownItem active={viewMode === 'worst'} onClick={() => switchView('worst')}>Worst</DropdownItem>
