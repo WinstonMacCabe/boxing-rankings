@@ -122,7 +122,7 @@ function FighterCard({ fighter, rank, isWorst, isBest }: { fighter: BoxerRecord;
         {/* Info — centered */}
         <div className="flex w-full flex-1 flex-col items-center px-4 pb-5 pt-4 text-center">
           <div className="flex items-center justify-center gap-2">
-            <span className="text-[34px] leading-none tracking-[0.04em] text-[#1d1d1f]">
+            <span className="text-[34px] font-semibold uppercase leading-none tracking-[0.04em] text-[#1d1d1f]">
               {rank === 1 ? '#1' : rank === 2 ? '#2' : rank === 3 ? '#3' : `#${rank}`}
             </span>
           </div>
@@ -133,8 +133,8 @@ function FighterCard({ fighter, rank, isWorst, isBest }: { fighter: BoxerRecord;
             <span className="mt-1.5 text-[16px] text-[#c22d2d]">▼ {-rankChange}</span>
           )}
 
-          <h2 className="mt-2.5 text-[22px] leading-snug tracking-[0.05em] text-[#1d1d1f]">{displayName}</h2>
-          <p className="mt-1 min-h-[18px] text-[13px] tracking-[0.15em] text-[#86868b]">
+          <h2 className="mt-2.5 text-[22px] font-bold uppercase leading-snug tracking-[0.05em] text-[#1d1d1f]">{displayName}</h2>
+          <p className="mt-1 min-h-[18px] text-[13px] font-semibold uppercase tracking-[0.15em] text-ufc-red">
             {fighter.weightClass || ''}
           </p>
 
@@ -242,16 +242,16 @@ function ChampionCard({ champion, rank }: { champion: WbaChampion; rank: number 
         </div>
 
         <div className="flex w-full flex-1 flex-col items-center px-4 pb-5 pt-2 text-center">
-          <h2 className="mt-1 text-[22px] leading-snug tracking-[0.05em] text-[#1d1d1f]">{champion.name}</h2>
+          <h2 className="mt-1 text-[22px] font-bold uppercase leading-snug tracking-[0.05em] text-[#1d1d1f]">{champion.name}</h2>
 
           {champion.status && (
-            <p className="mt-1 text-[13px] tracking-[0.15em] text-[#86868b]">{champion.status}</p>
+            <p className="mt-1 text-[13px] uppercase tracking-[0.15em] text-[#86868b]">{champion.status}</p>
           )}
 
           <div className="mt-4 flex items-center justify-center gap-5">
             <span className="flex min-w-0 flex-col items-center">
-              <span className="text-[18px] leading-none tracking-[0.04em] text-[#1d1d1f]">{champion.weightClass}</span>
-              <span className="mt-1.5 text-[12px] tracking-[0.15em] text-[#86868b]">{champion.lineage}</span>
+              <span className="text-[18px] font-semibold uppercase leading-none tracking-[0.04em] text-ufc-red">{champion.weightClass}</span>
+              <span className="mt-1.5 text-[12px] uppercase tracking-[0.15em] text-[#86868b]">{champion.lineage}</span>
             </span>
             <StatDivider />
             <Stat value={String(champion.defenses)} label="Defenses" />
@@ -270,7 +270,7 @@ function DropdownItem({ active, onClick, children }: { active: boolean; onClick:
   return (
     <button
       onClick={onClick}
-      className={`block w-full px-5 py-[7px] text-left text-[17px] tracking-[0.04em] transition-colors hover:bg-black hover:text-white ${active ? 'underline decoration-2 underline-offset-4' : 'text-[#1d1d1f]'}`}
+      className={`block w-full px-5 py-[7px] text-left text-[17px] font-semibold uppercase tracking-[0.04em] transition-colors hover:bg-black hover:text-white ${active ? 'underline decoration-2 underline-offset-4' : 'text-[#1d1d1f]'}`}
     >
       {children}
     </button>
@@ -403,9 +403,9 @@ export default function Home() {
       >
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
           <nav className="flex items-center gap-3">
-            <a href="https://boxingpugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[17px] tracking-[0.05em] text-[#1d1d1f] underline decoration-2 underline-offset-8">Boxing</a>
-            <a href="https://mmapugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[17px] tracking-[0.05em] text-black/40 transition-colors hover:text-[#1d1d1f]">MMA</a>
-            <a href="https://generalspugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[17px] tracking-[0.05em] text-black/40 transition-colors hover:text-[#1d1d1f]">Generals</a>
+            <a href="https://boxingpugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[17px] uppercase tracking-[0.05em] text-[#1d1d1f] underline decoration-2 underline-offset-8">Boxing</a>
+            <a href="https://mmapugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[17px] uppercase tracking-[0.05em] text-black/40 transition-colors hover:text-[#1d1d1f]">MMA</a>
+            <a href="https://generalspugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[17px] uppercase tracking-[0.05em] text-black/40 transition-colors hover:text-[#1d1d1f]">Generals</a>
           </nav>
 
           <div className="pointer-events-none absolute left-1/2 hidden -translate-x-1/2 text-[30px] tracking-[0.08em] text-[#1d1d1f] sm:block">
@@ -478,7 +478,7 @@ export default function Home() {
       <main className="pb-12 pt-28">
         <div className="mx-auto max-w-7xl px-4">
           <div className="mb-10 pt-6 text-center">
-            <h1 className="text-[64px] leading-[1.02] tracking-[0.06em] text-[#1d1d1f]">Boxing</h1>
+            <h1 className="text-[64px] font-bold uppercase leading-[1.02] tracking-[0.06em] text-[#1d1d1f]">Boxing</h1>
           </div>
 
           {uniqueFights.length > 0 && (
