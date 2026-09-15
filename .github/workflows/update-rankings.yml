@@ -1,14 +1,7 @@
 name: Daily Rankings Update
 
 on:
-  schedule:
-    - cron: '25 0 * * *'
-    inputs:
-      fighter_limit:
-        description: 'Only query news for top N fighters (0 or blank = all)'
-        type: number
-        required: false
-        default: 0
+  workflow_dispatch:
 
 concurrency:
   group: rank-update
@@ -37,7 +30,7 @@ jobs:
         continue-on-error: true
         env:
           NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
-          FIGHTER_LIMIT: ${{ inputs.fighter_limit || '' }}
+          FIGHTER_LIMIT: ''
 
       - name: Notify new fight news
         run: npm run notify
