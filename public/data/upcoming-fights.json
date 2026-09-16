@@ -1,6 +1,34 @@
 {
-  "lastUpdated": "2026-09-15T05:12:12.456Z",
+  "lastUpdated": "2026-09-16T00:29:19.068Z",
   "fights": [
+    {
+      "boxerName": "David Benavidez",
+      "headline": "WBC orders David Benavidez cruiserweight title fight, with Opetaia to face winner",
+      "url": "https://www.badlefthook.com/boxing-news/118779/wbc-orders-david-benavidez-cruiserweight-title-fight-with-opetaia-to-face-winner",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-09-15T00:23:42Z"
+    },
+    {
+      "boxerName": "Terence Crawford",
+      "headline": "Ryan Garcia wants Terence Crawford fight to 'avenge Canelo's loss,' mocks Crawford's star power",
+      "url": "https://sports.yahoo.com/boxing/article/ryan-garcia-wants-terence-crawford-fight-to-avenge-canelos-loss-mocks-crawfords-star-power-235827803.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-14T23:58:27Z"
+    },
+    {
+      "boxerName": "David Benavidez",
+      "headline": "Noel Mikaelian stripped of WBC title after Zuffa Boxing fight, David Benavidez vs. Michal Cieslak ordered for late 2026",
+      "url": "https://sports.yahoo.com/boxing/article/noel-mikaelian-stripped-of-wbc-title-after-zuffa-boxing-fight-david-benavidez-vs-michal-cieslak-ordered-for-late-2026-233323164.html",
+      "source": "Yahoo Entertainment",
+      "publishedAt": "2026-09-14T23:33:23Z"
+    },
+    {
+      "boxerName": "Shakur Stevenson",
+      "headline": "‘You is booty’: Shakur Stevenson sounds off on Tim Bradley",
+      "url": "https://www.badlefthook.com/boxing-news/118770/shakur-stevenson-sounds-off-on-tim-bradley-boxing-news-2026",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-09-14T13:55:05Z"
+    },
     {
       "boxerName": "David Benavidez",
       "headline": "Zuffa Could Enter David Benavidez Bidding War",
@@ -2632,76 +2660,6 @@
       "url": "https://www.boxingnews24.com/2026/08/claressa-shields-stops-scott-in-the-sixth-is-lauren-price-next/",
       "source": "Boxingnews24.com",
       "publishedAt": "2026-08-17T02:17:19Z"
-    },
-    {
-      "boxerName": "Claressa Shields",
-      "headline": "Battle Of The Boneheads: Ray J Puts The ‘One Wish’ Whim Whammy On Orlando Brown In Undercard Match, Brandy Shows Sisterly Support",
-      "url": "https://bossip.com/4615811/ray-j-orlando-brown-boxing-match-brandy-shows-support/",
-      "source": "Bossip",
-      "publishedAt": "2026-08-16T19:41:47Z"
-    },
-    {
-      "boxerName": "Claressa Shields",
-      "headline": "Claressa Shields Set to Make Boxing History in Atlanta Main Event",
-      "url": "https://www.complex.com/sports/a/bernadette-giacomazzo/claressa-shields-makes-history-atlanta",
-      "source": "Complex",
-      "publishedAt": "2026-08-16T19:20:43Z"
-    },
-    {
-      "boxerName": "Claressa Shields",
-      "headline": "The GWOAT Reigns: Claressa Shields Beats Kaye Scott To Reclaim World Titles, Forces Aussie To Throw In The TKO Towel",
-      "url": "https://bossip.com/4615795/the-gwoat-claressa-shields-kaye-scott-to-reclaim-titles-papoose-tattoos-her-name/",
-      "source": "Bossip",
-      "publishedAt": "2026-08-16T17:39:23Z"
-    },
-    {
-      "boxerName": "Claressa Shields",
-      "headline": "Claressa Shields makes dominant return to middleweight after stopping Kaye Scott",
-      "url": "https://sports.yahoo.com/articles/claressa-shields-makes-dominant-return-171101912.html",
-      "source": "Yahoo Entertainment",
-      "publishedAt": "2026-08-16T17:11:01Z"
-    },
-    {
-      "boxerName": "Claressa Shields",
-      "headline": "Dominant ‘GWOAT’ Claressa Shields declares ‘I’m in my Mike Tyson era right now’",
-      "url": "https://www.mmamania.com/boxing/465388/dominant-gwoat-claressa-shields-declares-im-in-my-mike-tyson-era-right-now",
-      "source": "MMA Mania",
-      "publishedAt": "2026-08-16T16:00:00Z"
-    },
-    {
-      "boxerName": "Claressa Shields",
-      "headline": "Shields eyes Price after dominant middleweight return",
-      "url": "https://www.bbc.com/sport/boxing/articles/cd0xx4kgrlko?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bsport%5D-%5Bbizdev%5D-%5Bisapi%5D",
-      "source": "BBC News",
-      "publishedAt": "2026-08-16T09:31:53Z"
-    },
-    {
-      "boxerName": "Claressa Shields",
-      "headline": "Shields eyes Price after dominant middleweight return",
-      "url": "https://www.bbc.co.uk/sport/boxing/articles/cd0xx4kgrlko",
-      "source": "BBC News",
-      "publishedAt": "2026-08-16T09:31:47Z"
-    },
-    {
-      "boxerName": "Claressa Shields",
-      "headline": "Claressa Shields eyes Britain’s Price after stopping Kaye Scott to reclaim titles",
-      "url": "https://sports.yahoo.com/articles/claressa-shields-eyes-britain-price-054911411.html",
-      "source": "Yahoo Entertainment",
-      "publishedAt": "2026-08-16T05:49:11Z"
-    },
-    {
-      "boxerName": "Claressa Shields",
-      "headline": "Highlights! Shields Solidifies ‘GWOAT’ Status With Vicious TKO",
-      "url": "https://www.mmamania.com/boxing/465250/highlights-claressa-shields-destroys-kaye-scott-secures-first-knockout-in-two-years-to-become-unified-champion-video",
-      "source": "MMA Mania",
-      "publishedAt": "2026-08-16T05:36:36Z"
-    },
-    {
-      "boxerName": "Claressa Shields",
-      "headline": "Claressa Shields Vs. Kaye Scott Results, Highlights And Reaction",
-      "url": "https://www.forbes.com/sites/brianmazique/2026/08/16/claressa-shields-vs-kaye-scott-results-highlights-and-reaction/",
-      "source": "Forbes",
-      "publishedAt": "2026-08-16T05:24:29Z"
     }
   ]
 }
