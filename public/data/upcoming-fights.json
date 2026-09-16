@@ -1,6 +1,13 @@
 {
-  "lastUpdated": "2026-09-16T00:29:19.068Z",
+  "lastUpdated": "2026-09-16T05:08:31.159Z",
   "fights": [
+    {
+      "boxerName": "Terence Crawford",
+      "headline": "Dana White: Terence Crawford needs 'the right fight' to end retirement",
+      "url": "https://mmajunkie.usatoday.com/story/sports/boxing/2026/09/14/dana-white-terence-crawford-end-retirement-always-number/91749155007/",
+      "source": "USA Today",
+      "publishedAt": "2026-09-15T01:20:21Z"
+    },
     {
       "boxerName": "David Benavidez",
       "headline": "WBC orders David Benavidez cruiserweight title fight, with Opetaia to face winner",
@@ -2653,13 +2660,6 @@
       "url": "https://www.badlefthook.com/boxing-news/117984/claressa-shields-continues-to-pursue-lauren-price-showdown-boxing-news-2026",
       "source": "Bad Left Hook",
       "publishedAt": "2026-08-17T12:43:00Z"
-    },
-    {
-      "boxerName": "Claressa Shields",
-      "headline": "Claressa Shields Stops Scott In the Sixth, Is Lauren Price Next?",
-      "url": "https://www.boxingnews24.com/2026/08/claressa-shields-stops-scott-in-the-sixth-is-lauren-price-next/",
-      "source": "Boxingnews24.com",
-      "publishedAt": "2026-08-17T02:17:19Z"
     }
   ]
 }
