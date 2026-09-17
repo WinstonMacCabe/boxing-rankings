@@ -1,6 +1,34 @@
 {
-  "lastUpdated": "2026-09-16T05:08:31.159Z",
+  "lastUpdated": "2026-09-17T00:29:17.968Z",
   "fights": [
+    {
+      "boxerName": "Shakur Stevenson",
+      "headline": "‘Some type of insecurity’: Shakur Stevenson talks falling out with Tank Davis",
+      "url": "https://www.badlefthook.com/boxing-news/118798/shakur-stevenson-talks-falling-out-with-tank-davis-boxing-news-2026",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-09-15T21:06:40Z"
+    },
+    {
+      "boxerName": "Gervonta Davis",
+      "headline": "Ryan Garcia Orders Desperate Gervonta Davis To Get A Tune-Up First",
+      "url": "https://www.boxingnews24.com/2026/09/ryan-garcia-orders-desperate-gervonta-davis-to-get-a-tune-up-first/",
+      "source": "Boxingnews24.com",
+      "publishedAt": "2026-09-15T18:45:27Z"
+    },
+    {
+      "boxerName": "Terence Crawford",
+      "headline": "Ryan Garcia Fires Brutal Warning at Terence Crawford After Conor Benn Win",
+      "url": "https://sportsnaut.com/boxing/ryan-garcia-terence-crawford-conor-benn",
+      "source": "Sportsnaut",
+      "publishedAt": "2026-09-15T09:36:13Z"
+    },
+    {
+      "boxerName": "Gervonta Davis",
+      "headline": "Ryan Garcia vs Gervonta Davis Rematch Takes Ugly Turn as Tank Rejects 147-Pound Fight",
+      "url": "https://sportsnaut.com/boxing/ryan-garcia-gervonta-davis-rematch-147-pound-weight-dispute",
+      "source": "Sportsnaut",
+      "publishedAt": "2026-09-15T09:29:34Z"
+    },
     {
       "boxerName": "Terence Crawford",
       "headline": "Dana White: Terence Crawford needs 'the right fight' to end retirement",
@@ -2639,27 +2667,6 @@
       "url": "https://www.badlefthook.com/boxing-news/117996/david-benavidez-return-eyed-for-december-12th-could-meet-michal-cieslak",
       "source": "Bad Left Hook",
       "publishedAt": "2026-08-18T04:21:35Z"
-    },
-    {
-      "boxerName": "David Benavidez",
-      "headline": "Fans Blast David Benavidez For Easy Cieślak Defense Over Jai Opetaia",
-      "url": "https://www.boxingnews24.com/2026/08/fans-blast-david-benavidez-for-easy-cieslak-defense-over-jai-opetaia/",
-      "source": "Boxingnews24.com",
-      "publishedAt": "2026-08-17T22:31:13Z"
-    },
-    {
-      "boxerName": "Claressa Shields",
-      "headline": "Boxer Claressa Shields Dominates Kaye Scott In Middleweight Clash",
-      "url": "https://hiphopwired.com/3062782/claressa-shields-kaye-scott-middleweight-clash/",
-      "source": "Hip-Hop Wired",
-      "publishedAt": "2026-08-17T22:15:02Z"
-    },
-    {
-      "boxerName": "Claressa Shields",
-      "headline": "‘We want to make that fight’: Claressa Shields continues to pursue Lauren Price showdown",
-      "url": "https://www.badlefthook.com/boxing-news/117984/claressa-shields-continues-to-pursue-lauren-price-showdown-boxing-news-2026",
-      "source": "Bad Left Hook",
-      "publishedAt": "2026-08-17T12:43:00Z"
     }
   ]
 }
