@@ -1,6 +1,13 @@
 {
-  "lastUpdated": "2026-09-17T00:29:17.968Z",
+  "lastUpdated": "2026-09-18T00:31:28.703Z",
   "fights": [
+    {
+      "boxerName": "Katie Taylor",
+      "headline": "‘What am I for?’ Katie Taylor faces the same retirement question we all do, just sooner",
+      "url": "https://www.irishtimes.com/life-style/people/2026/09/16/what-am-i-for-katie-taylor-faces-the-same-retirement-question-we-all-do-just-sooner/",
+      "source": "The Irish Times",
+      "publishedAt": "2026-09-16T07:00:00Z"
+    },
     {
       "boxerName": "Shakur Stevenson",
       "headline": "‘Some type of insecurity’: Shakur Stevenson talks falling out with Tank Davis",
@@ -2625,48 +2632,6 @@
       "url": "https://www.rte.ie/sport/boxing/2026/0819/1588450-taylors-final-fight-at-croke-park-to-be-broadcast-by-rte/",
       "source": "RTE",
       "publishedAt": "2026-08-19T07:11:24Z"
-    },
-    {
-      "boxerName": "Tommy Fury",
-      "headline": "Molly-Mae Hague 'chokes' after being attacked by a crow while relaxing by the pool in Dubai as the moment is caught on camera in her new vlog",
-      "url": "https://www.dailymail.com/tvshowbiz/article-16060961/Molly-Mae-Hague-chokes-attacked-crow-relaxing-pool-Dubai-moment-caught-camera-new-vlog.html",
-      "source": "Dailymail.com",
-      "publishedAt": "2026-08-18T13:29:30Z"
-    },
-    {
-      "boxerName": "Katie Taylor",
-      "headline": "Negotiations between RTÉ and Katie Taylor fight promoters in critical 48-hour period",
-      "url": "https://www.thejournal.ie/katie-taylor-rte-croke-park-fight-7134195-Aug2026/",
-      "source": "TheJournal.ie",
-      "publishedAt": "2026-08-18T13:04:30Z"
-    },
-    {
-      "boxerName": "Naoya Inoue",
-      "headline": "‘Do you really want to fight Bam?’: Robert Garcia says there’s been no movement on a fight with Naoya Inoue",
-      "url": "https://www.badlefthook.com/boxing-news/117999/robert-garcia-says-theres-been-no-movement-on-fight-with-naoya-inoue-boxing-news-2026",
-      "source": "Bad Left Hook",
-      "publishedAt": "2026-08-18T12:10:54Z"
-    },
-    {
-      "boxerName": "Claressa Shields",
-      "headline": "‘If you really look at it’ – Claressa Shields gives reason why WNBA deserves same respect as NBA",
-      "url": "https://www.hitc.com/if-you-really-look-at-it-claressa-shields-gives-reason-why-wnba-deserves-same-respect-as-nba/",
-      "source": "HITC - Football, Gaming, Movies, TV, Music",
-      "publishedAt": "2026-08-18T10:31:23Z"
-    },
-    {
-      "boxerName": "Floyd Mayweather Jr.",
-      "headline": "Floyd Mayweather strikes promotional partnership with Nashville's Country Box",
-      "url": "https://www.tennessean.com/story/sports/boxing/2026/08/18/floyd-mayweathers-boxing-promotion-partners-nashville-country-box/91307576007/",
-      "source": "Tennessean",
-      "publishedAt": "2026-08-18T10:03:28Z"
-    },
-    {
-      "boxerName": "David Benavidez",
-      "headline": "David Benavidez return eyed for December 12, could meet Michal Cieslak",
-      "url": "https://www.badlefthook.com/boxing-news/117996/david-benavidez-return-eyed-for-december-12th-could-meet-michal-cieslak",
-      "source": "Bad Left Hook",
-      "publishedAt": "2026-08-18T04:21:35Z"
     }
   ]
 }
