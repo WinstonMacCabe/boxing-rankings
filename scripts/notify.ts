@@ -3,6 +3,7 @@ import * as path from 'path'
 import { execSync } from 'child_process'
 import nodemailer from 'nodemailer'
 import type { BoxerRecord } from '../lib/types'
+import { renderEmailHtml, type EmailSection } from './email-html'
 
 const DATA_FILE = path.join(process.cwd(), 'public', 'data', 'upcoming-fights.json')
 const RANKINGS_FILE = path.join(process.cwd(), 'public', 'data', 'rankings.json')
@@ -50,7 +51,7 @@ async function main() {
     return
   }
 
-  const sections: string[] = []
+  const sections: EmailSection[] = []
 
   // 1. Fight news
   const fights = (loadJsonSafe(DATA_FILE)?.fights ?? []) as UpcomingFightEntry[]
@@ -60,11 +61,17 @@ async function main() {
   const newFights = fights.filter(f => !prevUrls.has(f.url))
 
   if (newFights.length > 0) {
-    const lines = newFights.map(f => {
-      const date = f.publishedAt ? new Date(f.publishedAt).toLocaleDateString() : '?'
-      return `  - ${f.boxerName}: ${f.headline} [${f.source}, ${date}] ${f.url}`
+    sections.push({
+      heading: `New Fight News (${newFights.length})`,
+      rows: newFights.map(f => ({
+        label: f.boxerName,
+        text: f.headline,
+        url: f.url,
+        sub: f.publishedAt
+          ? `${f.source} · ${new Date(f.publishedAt).toLocaleDateString()}`
+          : f.source,
+      })),
     })
-    sections.push(`New fight news (${newFights.length}):\n${lines.join('\n')}`)
   }
 
   // 2. Ranking changes — new and departed fighters
@@ -83,13 +90,23 @@ async function main() {
     const removedNames = [...new Map(allRemoved.map(f => [f.name, f])).values()]
 
     if (addedNames.length > 0) {
-      const lines = addedNames.map(f => `  - ${f.name} (${f.wins}-${f.losses}-${f.draws})`)
-      sections.push(`New fighters (${addedNames.length}):\n${lines.join('\n')}`)
+      sections.push({
+        heading: `New Fighters (${addedNames.length})`,
+        rows: addedNames.map(f => ({
+          label: f.name,
+          text: `${f.wins}-${f.losses}-${f.draws}`,
+        })),
+      })
     }
 
     if (removedNames.length > 0) {
-      const lines = removedNames.map(f => `  - ${f.name} (${f.wins}-${f.losses}-${f.draws})`)
-      sections.push(`Gone but not forgotten (${removedNames.length}):\n${lines.join('\n')}`)
+      sections.push({
+        heading: `Gone but Not Forgotten (${removedNames.length})`,
+        rows: removedNames.map(f => ({
+          label: f.name,
+          text: `${f.wins}-${f.losses}-${f.draws}`,
+        })),
+      })
     }
   }
 
@@ -99,11 +116,17 @@ async function main() {
   }
 
   const subject = [
-    newFights.length > 0 ? `${newFights.length} new fight` : null,
+    newFights.length > 0 ? `${newFights.length} new fight${newFights.length === 1 ? '' : 's'}` : null,
     (curRankings && prevRankings) ? 'rankings updated' : null,
   ].filter(Boolean).join(', ')
 
-  const text = `Fight rankings update\n\n${sections.join('\n\n')}`
+  const text = `Fight rankings update\n\n${sections
+    .map(section => `${section.heading.toUpperCase()}\n${section.rows
+      .map(row => `- ${row.label ? `${row.label}: ` : ''}${row.text}${row.url ? ` ${row.url}` : ''}`)
+      .join('\n')}`)
+    .join('\n\n')}`
+
+  const html = renderEmailHtml('Boxing', sections)
 
   const transporter = nodemailer.createTransport({
     host: process.env.NOTIFY_EMAIL_HOST || 'smtp.gmail.com',
@@ -112,7 +135,7 @@ async function main() {
     auth: { user: from, pass },
   })
 
-  await transporter.sendMail({ from, to, subject, text })
+  await transporter.sendMail({ from, to, subject, text, html })
   console.log(`Sent notification to ${to}: ${subject}`)
 }
 
