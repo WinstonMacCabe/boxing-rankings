@@ -53,7 +53,7 @@ async function main() {
 
   const lines = newFights.map(f => {
     const date = f.publishedAt ? new Date(f.publishedAt).toLocaleDateString() : '?'
-    return `- ${f.headline} [${f.source}, ${date}] ${f.url}`
+    return `- ${f.boxerName}: ${f.headline} [${f.source}, ${date}] ${f.url}`
   })
   const text = `New fight news for ranked boxers:\n\n${lines.join('\n')}`
 
