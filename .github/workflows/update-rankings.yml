@@ -23,16 +23,13 @@ jobs:
       - run: npm ci
 
       - run: npm run update-rankings
-        env:
-          NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
 
       - run: npm run update-news
         continue-on-error: true
         env:
-          NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
           FIGHTER_LIMIT: ''
 
-      - name: Notify new fight news
+      - name: Notify scheduled fights and rankings
         run: npm run notify
         continue-on-error: true
         env:

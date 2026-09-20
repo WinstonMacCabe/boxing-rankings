@@ -1,4 +1,4 @@
-import * as fs from 'fs/promises'
+import * as fs from 'fs'
 import * as path from 'path'
 import { execSync } from 'child_process'
 import nodemailer from 'nodemailer'
@@ -8,26 +8,42 @@ import { renderEmailHtml, type EmailSection } from './email-html'
 const DATA_FILE = path.join(process.cwd(), 'public', 'data', 'upcoming-fights.json')
 const RANKINGS_FILE = path.join(process.cwd(), 'public', 'data', 'rankings.json')
 
-interface UpcomingFightEntry {
+interface ScheduledEntry {
   boxerName: string
+  sport?: string
   headline: string
   url: string
   source: string
   publishedAt: string
+  date: string
+  granularity?: 'day' | 'month'
+  matchup?: string
+  opponent?: string
+  confidence?: string
 }
 
-function loadJsonSafe(filePath: string): any {
+interface UpcomingLike {
+  fights?: ScheduledEntry[]
+}
+
+interface RankingsLike {
+  fighters?: BoxerRecord[]
+  worst?: BoxerRecord[]
+  thirdary?: BoxerRecord[]
+}
+
+function loadJsonSafe<T>(filePath: string): T | null {
   try {
-    return JSON.parse(require('fs').readFileSync(filePath, 'utf8'))
+    return JSON.parse(fs.readFileSync(filePath, 'utf8')) as T
   } catch {
     return null
   }
 }
 
-function gitShowHead(filePath: string): any {
+function gitShowHead<T>(filePath: string): T | null {
   try {
     const raw = execSync(`git show HEAD:${filePath}`, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] })
-    return JSON.parse(raw)
+    return JSON.parse(raw) as T
   } catch {
     return null
   }
@@ -39,6 +55,24 @@ function diffRankings(current: BoxerRecord[], previous: BoxerRecord[]): { added:
   const added = current.filter(f => !prevNames.has(f.name))
   const removed = previous.filter(f => !curNames.has(f.name))
   return { added, removed }
+}
+
+function fightKey(f: ScheduledEntry): string {
+  return f.url || `${f.boxerName}|${f.date}|${(f.matchup || '').toLowerCase()}`
+}
+
+function dateText(date: string, granularity?: 'day' | 'month'): string {
+  if (!date) return ''
+  if (granularity === 'month' || /^\d{4}-\d{2}$/.test(date)) {
+    const [y, m] = date.split('-').map(Number)
+    const label = new Date(y, m - 1, 1).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+    return label
+  }
+  if (/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+    const d = new Date(`${date}T00:00:00Z`)
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' })
+  }
+  return date
 }
 
 async function main() {
@@ -53,30 +87,48 @@ async function main() {
 
   const sections: EmailSection[] = []
 
-  // 1. Fight news
-  const fights = (loadJsonSafe(DATA_FILE)?.fights ?? []) as UpcomingFightEntry[]
-  const previousFights = (gitShowHead('public/data/upcoming-fights.json')?.fights ?? []) as UpcomingFightEntry[]
+  // 1. New scheduled fights (day-level bookings only)
+  const fights = (loadJsonSafe<UpcomingLike>(DATA_FILE)?.fights ?? []) as ScheduledEntry[]
+  const previousFights = (gitShowHead<UpcomingLike>('public/data/upcoming-fights.json')?.fights ?? []) as ScheduledEntry[]
 
-  const prevUrls = new Set(previousFights.map(f => f.url))
-  const newFights = fights.filter(f => !prevUrls.has(f.url))
+  const prevKeys = new Set(previousFights.filter(f => f.granularity !== 'month').map(fightKey))
+  const newScheduled = fights
+    .filter(f => f.granularity !== 'month')
+    .filter(f => !prevKeys.has(fightKey(f)))
 
-  if (newFights.length > 0) {
-    sections.push({
-      heading: `New Fight News (${newFights.length})`,
-      rows: newFights.map(f => ({
-        label: f.boxerName,
-        text: f.headline,
+  if (newScheduled.length > 0) {
+    const rows = newScheduled.map(f => {
+      const label = f.opponent ? `${f.boxerName} vs ${f.opponent}` : f.boxerName
+      const subtitle = f.matchup && label.includes(f.matchup) ? undefined : f.matchup
+      return {
+        label,
+        text: (subtitle ? `${subtitle} · ` : '') + dateText(f.date, 'day'),
         url: f.url,
         sub: f.publishedAt
           ? `${f.source} · ${new Date(f.publishedAt).toLocaleDateString()}`
           : f.source,
-      })),
+      }
+    })
+
+    // Dedupe: same booking announced in multiple articles (e.g. "vs Fundora" / "vs Sebastian Fundora").
+    const seenRows = new Set<string>()
+    const uniqueRows = rows.filter(r => {
+      const opp = r.label.split(' vs ').pop()?.trim().toLowerCase().split(/\s+/).pop() || ''
+      const key = `${r.label.split(' vs ')[0]}|${r.text}|${opp}`
+      if (seenRows.has(key)) return false
+      seenRows.add(key)
+      return true
+    })
+
+    sections.push({
+      heading: `New Scheduled Fights (${uniqueRows.length})`,
+      rows: uniqueRows,
     })
   }
 
   // 2. Ranking changes — new and departed fighters
-  const curRankings = loadJsonSafe(RANKINGS_FILE)
-  const prevRankings = gitShowHead('public/data/rankings.json')
+  const curRankings = loadJsonSafe<RankingsLike>(RANKINGS_FILE)
+  const prevRankings = gitShowHead<RankingsLike>('public/data/rankings.json')
 
   if (curRankings && prevRankings) {
     const bestDiff = diffRankings(curRankings.fighters ?? [], prevRankings.fighters ?? [])
@@ -111,12 +163,12 @@ async function main() {
   }
 
   if (sections.length === 0) {
-    console.log('No new fights or ranking changes. Skipping notification.')
+    console.log('No new scheduled fights or ranking changes. Skipping notification.')
     return
   }
 
   const subject = [
-    newFights.length > 0 ? `${newFights.length} new fight${newFights.length === 1 ? '' : 's'}` : null,
+    newScheduled.length > 0 ? `${newScheduled.length} new scheduled fight${newScheduled.length === 1 ? '' : 's'}` : null,
     (curRankings && prevRankings) ? 'rankings updated' : null,
   ].filter(Boolean).join(', ')
 

@@ -2,185 +2,503 @@ import { readRankings } from '../lib/storage'
 import * as fs from 'fs/promises'
 import * as path from 'path'
 
-const NEWS_API_KEY = process.env.NEWS_API_KEY
-const API_URL = 'https://newsapi.org/v2/everything'
 const DATA_DIR = path.join(process.cwd(), 'public', 'data')
 const OUTFILE = path.join(DATA_DIR, 'upcoming-fights.json')
 
-interface NewsArticle {
-  title: string
-  description: string | null
-  url: string
-  source: { name: string }
-  publishedAt: string
+const SENIOR_AGE = 53
+const HORIZON_DAYS = 180
+const NEWS_WINDOW_MS = 30 * 24 * 60 * 60 * 1000
+const MAX_ITEMS_PER_FIGHTER = 25
+const CONCURRENCY = 4
+const FETCH_ATTEMPTS = 3
+
+const SPORT_KEYWORDS: Record<string, string> = {
+  kickboxing: 'kickboxing',
+  muayThai: 'muay thai',
+  karate: 'karate',
+  freestyleWrestling: 'freestyle wrestling',
+  ncaaWrestling: 'wrestling',
+  brazilianJiuJitsu: 'brazilian jiu jitsu',
+  sumo: 'sumo',
+  mongolianWrestling: 'mongolian wrestling',
+  lethwei: 'lethwei',
+  kunKhmer: 'kun khmer',
+  sambo: 'sambo',
+  grecoRomanWrestling: 'greco roman wrestling',
+  sanshou: 'sanshou',
+  submissionWrestling: 'submission wrestling',
+  bareKnuckle: 'bare knuckle',
 }
 
-interface UpcomingFightsData {
-  lastUpdated: string
-  fights: UpcomingFightEntry[]
-}
-
-export interface UpcomingFightEntry {
+interface ScheduledEntry {
   boxerName: string
+  sport: string
   headline: string
   url: string
   source: string
   publishedAt: string
+  date: string
+  granularity: 'day' | 'month'
+  matchup?: string
+  opponent?: string
+  confidence: 'high' | 'medium' | 'low'
+  detectedAt: string
+}
+
+interface UpcomingFightsData {
+  lastUpdated: string
+  fights: ScheduledEntry[]
+}
+
+const MONTHS: [string, number][] = [
+  ['jan', 0], ['feb', 1], ['mar', 2], ['apr', 3], ['may', 4], ['jun', 5],
+  ['jul', 6], ['aug', 7], ['sep', 8], ['oct', 9], ['nov', 10], ['dec', 11],
+]
+const MONTH_FULL = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december']
+const MONTH_ABBR_RE = MONTHS.map(([a]) => a).join('|')
+const MONTH_FULL_RE = MONTH_FULL.join('|')
+
+const FIGHT_WORD_RE = /(?:vs\.?|v\.|fight(?:s|ing)?|bout|return|defend(?:s|ing|er)?|showdown|rematch|title|match(?:up)?|scheduled|announced|unification|preview|faces?|titles?|card|battle|official)/i
+
+const RESULT_WORD_RE = /(?:results?|recap|wins?\b|beats?\b|defeats?\b|loses?\b|knockout|knocked|ko\b|tko\b|scorecard|highlights?|reactions?|breaks?\s+down|upset|finish(?:es|ed)?|dominates?|cruises?|stops?\b|drops?\b)/i
+
+const NAME_STOP_WORDS = new Set([
+  'live', 'stream', 'fight', 'fights', 'official', 'preview', 'watch', 'title',
+  'world', 'scheduled', 'announced', 'set', 'boxing', 'results', 'analysis',
+  'returns', 'next', 'defends', 'defend', 'showdown', 'rematch', 'card', 'battle',
+  'night', 'card', 'news', 'report', 'signs', 'fac', 'bir', 'super', 'new',
+])
+
+interface DateCandidate {
+  ts: Date
+  granularity: 'day' | 'month'
+  year: number
+  month: number
+  day?: number
+}
+
+function now(): Date {
+  return new Date()
+}
+
+function computeAge(birthDate: string | undefined, ref: Date): number | null {
+  if (!birthDate) return null
+  const parts = birthDate.split('-')
+  const birthYear = parseInt(parts[0], 10)
+  if (isNaN(birthYear)) return null
+  if (parts.length === 3) {
+    const birthMonth = parseInt(parts[1], 10)
+    const birthDay = parseInt(parts[2], 10)
+    const birthdayThisYear = new Date(ref.getFullYear(), birthMonth - 1, birthDay)
+    return ref >= birthdayThisYear ? ref.getFullYear() - birthYear : ref.getFullYear() - birthYear - 1
+  }
+  return ref.getFullYear() - birthYear
+}
+
+function cleanName(name: string): string {
+  return name.replace(/\s*\([^)]*\)\s*$/, '').trim()
+}
+
+function nameInTitle(title: string, clean: string): boolean {
+  const t = title.toLowerCase()
+  if (t.includes(clean.toLowerCase())) return true
+  const surname = clean.split(/\s+/).pop()
+  if (!surname || surname.length < 8) return false
+  return t.includes(surname.toLowerCase()) && FIGHT_WORD_RE.test(title)
+}
+
+function monthIndex(token: string): number | null {
+  const t = token.toLowerCase().replace(/\.$/, '')
+  if (MONTH_FULL.includes(t)) return MONTH_FULL.indexOf(t)
+  const abbr = MONTHS.find(([a]) => a === t)
+  return abbr ? abbr[1] : null
+}
+
+function toInteger(s: string | undefined | null): number | null {
+  if (s === undefined || s === null) return null
+  const n = parseInt(s, 10)
+  return isNaN(n) ? null : n
+}
+
+function extractDate(title: string, ref: Date): DateCandidate | null {
+  const text = title.toLowerCase()
+  const horizon = new Date(ref.getTime() + HORIZON_DAYS * 24 * 60 * 60 * 1000)
+
+  const dayMatches: { month: number; day: number; year?: number }[] = []
+  const pushDay = (m: RegExpExecArray, month: number, day: number, year?: number | null) => {
+    if (day >= 1 && day <= 31) dayMatches.push({ month, day, year: year ?? undefined })
+  }
+
+  // Full month + day: "October 17, 2026", "October 17th"
+  let re = new RegExp(`(${MONTH_FULL_RE})\\s+(\\d{1,2})(?:st|nd|rd|th)?(?:\\s*,?\\s*(20\\d{2}))?`, 'g')
+  let m: RegExpExecArray | null
+  while ((m = re.exec(text)) !== null) {
+    const month = monthIndex(m[1])
+    if (month !== null) pushDay(m, month, parseInt(m[2], 10), toInteger(m[3]))
+  }
+
+  // Abbreviated month + day: "Oct 17", "Oct. 17, 2026"
+  re = new RegExp(`(${MONTH_ABBR_RE})\\.?\\s+(\\d{1,2})(?:st|nd|rd|th)?(?:\\s*,?\\s*(20\\d{2}))?`, 'g')
+  while ((m = re.exec(text)) !== null) {
+    const month = monthIndex(m[1])
+    if (month !== null) pushDay(m, month, parseInt(m[2], 10), toInteger(m[3]))
+  }
+
+  // Day before month name: "17 October 2026"
+  re = new RegExp(`\\b(\\d{1,2})(?:st|nd|rd|th)?\\s+(${MONTH_FULL_RE})\\.?(?:\\s*,?\\s*(20\\d{2}))?`, 'g')
+  while ((m = re.exec(text)) !== null) {
+    const month = monthIndex(m[2])
+    if (month !== null) pushDay(m, month, parseInt(m[1], 10), toInteger(m[3]))
+  }
+
+  // Numeric US requires a year: "10/17/2026". Bare "9/18" style dates are
+  // anniversary/recap noise and never treated as a booking.
+  re = /\b(\d{1,2})\/(\d{1,2})\/(20\d{2})\b/g
+  while ((m = re.exec(text)) !== null) {
+    const month = parseInt(m[1], 10)
+    const day = parseInt(m[2], 10)
+    if (month >= 1 && month <= 12) pushDay(m, month, day, toInteger(m[3]))
+  }
+
+  // ISO: "2026-10-17"
+  re = /\b(20\d{2})-(\d{1,2})-(\d{1,2})\b/g
+  while ((m = re.exec(text)) !== null) {
+    const month = parseInt(m[2], 10)
+    const day = parseInt(m[3], 10)
+    if (month >= 1 && month <= 12) pushDay(m, month, day, parseInt(m[1], 10))
+  }
+
+  // Month-level: "in October", "for October", "by October 2026"
+  const monthYear: { month: number; year?: number }[] = []
+  re = new RegExp(`\\b(?:in|during|this|for|around|by)\\s+(${MONTH_ABBR_RE})\\.?(?:\\s*(20\\d{2}))?`, 'g')
+  while ((m = re.exec(text)) !== null) {
+    const month = monthIndex(m[1])
+    if (month !== null) monthYear.push({ month, year: toInteger(m[2]) ?? undefined })
+  }
+
+  const tryDay = (cand: { month: number; day: number; year?: number }): DateCandidate | null => {
+    const yearBase = cand.year ?? ref.getFullYear()
+    for (const year of [yearBase, yearBase + 1]) {
+      const d = new Date(year, cand.month, cand.day)
+      if (d.getMonth() !== cand.month || d.getDate() !== cand.day) continue
+      if (d > ref && d <= horizon) {
+        return { ts: d, granularity: 'day', year, month: cand.month, day: cand.day }
+      }
+    }
+    return null
+  }
+
+  for (const cand of dayMatches) {
+    const r = tryDay(cand)
+    if (r) return r
+  }
+
+  for (const cand of monthYear) {
+    const year = cand.year ?? (cand.month < ref.getMonth() ? ref.getFullYear() + 1 : ref.getFullYear())
+    const d = new Date(year, cand.month, 1)
+    const monthFuture = year > ref.getFullYear() || (year === ref.getFullYear() && cand.month >= ref.getMonth())
+    if (monthFuture && d <= horizon) {
+      return { ts: d, granularity: 'month', year, month: cand.month }
+    }
+  }
+
+  return null
+}
+
+function extractMatchup(title: string, fighterClean: string): { matchup: string; opponent: string } | null {
+  const tokens = title.split(/\s+/)
+  let vsIdx = -1
+  for (let i = 0; i < tokens.length; i++) {
+    if (/^vs\.?$/i.test(tokens[i]) || /^v\.$/i.test(tokens[i])) { vsIdx = i; break }
+  }
+  if (vsIdx === -1) return null
+
+  const isNameToken = (t: string): boolean => {
+    if (!t) return false
+    if (NAME_STOP_WORDS.has(t.toLowerCase().replace(/[^a-z]/g, ''))) return false
+    return /^[A-ZÀ-ÿ]/.test(t)
+  }
+
+  const leftTokens: string[] = []
+  for (let i = vsIdx - 1; i >= 0 && leftTokens.length < 3; i--) {
+    if (isNameToken(tokens[i])) leftTokens.unshift(tokens[i])
+    else break
+  }
+  const rightTokens: string[] = []
+  for (let i = vsIdx + 1; i < tokens.length && rightTokens.length < 3; i++) {
+    if (isNameToken(tokens[i])) rightTokens.push(tokens[i])
+    else break
+  }
+
+  if (leftTokens.length === 0 || rightTokens.length === 0) return null
+  const left = leftTokens.join(' ')
+  const right = rightTokens.join(' ')
+  const fighterLower = fighterClean.toLowerCase()
+  const matches = (side: string): boolean => {
+    const s = side.toLowerCase()
+    return s === fighterLower || s.includes(fighterLower) || fighterLower.includes(s)
+  }
+  if (matches(left) && matches(right)) return null
+  if (matches(left)) {
+    return { matchup: `${left} vs ${right}`, opponent: right }
+  }
+  if (matches(right)) {
+    return { matchup: `${left} vs ${right}`, opponent: left }
+  }
+  return null
+}
+
+function confidenceFor(granularity: 'day' | 'month', hasMatchup: boolean): ScheduledEntry['confidence'] {
+  if (granularity === 'month') return 'low'
+  return hasMatchup ? 'high' : 'medium'
+}
+
+function decodeEntities(s: string): string {
+  return s
+    .split('<![CDATA[').join('')
+    .split(']]>').join('')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&apos;/g, "'")
+    .replace(/&nbsp;/g, ' ')
+}
+
+function stripTags(s: string): string {
+  return s.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
+}
+
+interface RssItem {
+  title: string
+  link: string
+  source: string
+  publishedAt: string
+}
+
+function parseFeed(xml: string): RssItem[] {
+  const items: RssItem[] = []
+  const re = /<item>([\s\S]*?)<\/item>/g
+  let m: RegExpExecArray | null
+  while ((m = re.exec(xml)) !== null) {
+    const block = m[1]
+    const titleMatch = /<title>([\s\S]*?)<\/title>/.exec(block)
+    const linkMatch = /<link>([\s\S]*?)<\/link>/.exec(block)
+    const guidMatch = /<guid[^>]*>([\s\S]*?)<\/guid>/.exec(block)
+    const sourceMatch = /<source[^>]*>([\s\S]*?)<\/source>/.exec(block)
+    const pubMatch = /<pubDate>([\s\S]*?)<\/pubDate>/.exec(block)
+    const title = titleMatch ? stripTags(decodeEntities(titleMatch[1])).trim() : ''
+    const url = (linkMatch ? stripTags(linkMatch[1]).trim() : (guidMatch ? stripTags(guidMatch[1]).trim() : ''))
+    if (!title || !url) continue
+    items.push({
+      title,
+      link: url,
+      source: sourceMatch ? stripTags(decodeEntities(sourceMatch[1])).trim() : 'Google News',
+      publishedAt: pubMatch ? new Date(pubMatch[1]).toISOString() : new Date().toISOString(),
+    })
+  }
+  return items
+}
+
+async function fetchFeed(fighterClean: string, keyword: string): Promise<RssItem[]> {
+  const q = encodeURIComponent(`"${fighterClean}" ${keyword}`)
+  const url = `https://news.google.com/rss/search?q=${q}&hl=en-US&gl=US&ceid=US:en`
+  let lastErr: unknown
+  for (let attempt = 1; attempt <= FETCH_ATTEMPTS; attempt++) {
+    try {
+      const res = await fetch(url, {
+        headers: {
+          'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125 Safari/537.36',
+          'accept': 'application/rss+xml, application/xml, text/xml, */*',
+        },
+      })
+      if (!res.ok) {
+        lastErr = new Error(`HTTP ${res.status}`)
+      } else {
+        const xml = await res.text()
+        if (!xml.includes('<item>')) {
+          lastErr = new Error('no items in feed')
+          continue
+        }
+        return parseFeed(xml)
+      }
+    } catch (err) {
+      lastErr = err
+    }
+    await new Promise(r => setTimeout(r, 1000 * attempt))
+  }
+  throw lastErr instanceof Error ? lastErr : new Error(String(lastErr))
+}
+
+async function mapPool<T, R>(items: T[], limit: number, worker: (item: T) => Promise<R>): Promise<R[]> {
+  const results: R[] = new Array(items.length)
+  let idx = 0
+  const runners = Array.from({ length: Math.min(limit, items.length) }, async () => {
+    while (true) {
+      const i = idx++
+      if (i >= items.length) return
+      results[i] = await worker(items[i])
+    }
+  })
+  await Promise.all(runners)
+  return results
+}
+
+function buildRoster(rankings: { thirdary?: unknown; sports?: Record<string, unknown> }, ref: Date): { name: string; clean: string; keyword: string }[] {
+  const seen = new Map<string, { name: string; clean: string; keyword: string }>()
+  const site: 'mma' | 'boxing' = rankings.sports ? 'mma' : 'boxing'
+
+  const add = (f: unknown, keyword: string) => {
+    const rec = f as { name?: string; birthDate?: string }
+    if (!rec || typeof rec.name !== 'string') return
+    const clean = cleanName(rec.name)
+    if (seen.has(clean)) return
+    const age = computeAge(rec.birthDate, ref)
+    if (age === null || age >= SENIOR_AGE) return
+    seen.set(clean, { name: rec.name, clean, keyword })
+  }
+
+  if (Array.isArray(rankings.thirdary)) {
+    for (const f of rankings.thirdary as unknown[]) add(f, site === 'mma' ? 'mma' : 'boxing')
+  }
+
+  if (rankings.sports && typeof rankings.sports === 'object') {
+    for (const [sportKey, list] of Object.entries(rankings.sports)) {
+      const keyword = SPORT_KEYWORDS[sportKey] || sportKey
+      if (Array.isArray(list)) {
+        for (const f of list as unknown[]) add(f, keyword)
+      } else if (list && typeof list === 'object') {
+        const rec = list as Record<string, unknown>
+        for (const k of ['fighters', 'thirdary', 'worst']) {
+          const arr = rec[k]
+          if (Array.isArray(arr)) {
+            for (const f of arr as unknown[]) add(f, keyword)
+          }
+        }
+      }
+    }
+  }
+
+  return Array.from(seen.values())
+}
+
+function fightKey(f: ScheduledEntry): string {
+  return f.url || `${f.boxerName}|${f.date}|${(f.matchup || '').toLowerCase()}|${f.headline}`
 }
 
 async function main() {
-  if (!NEWS_API_KEY) {
-    console.log('No NEWS_API_KEY set. Writing empty upcoming-fights.json.')
-    await fs.mkdir(DATA_DIR, { recursive: true })
-    await fs.writeFile(OUTFILE, JSON.stringify({ lastUpdated: new Date().toISOString(), fights: [] }, null, 2))
-    return
-  }
-
+  const ref = now()
   const rankings = await readRankings()
-  const allFightersMap = new Map<string, any>()
-  const lists = [
-    rankings.thirdary
-  ]
-  for (const list of lists) {
-    if (!list) continue
-    for (const f of list as any[]) {
-      if (!f.isSenior && !allFightersMap.has(f.name)) {
-        allFightersMap.set(f.name, f)
-      }
-    }
+  const roster = buildRoster(rankings, ref)
+
+  const limitEnv = process.env.FIGHTER_LIMIT
+  const fightLimit = limitEnv ? parseInt(limitEnv, 10) : NaN
+  let scanList = isNaN(fightLimit) || fightLimit <= 0 ? roster : roster.slice(0, fightLimit)
+  const namesEnv = process.env.FIGHTER_NAMES
+  if (namesEnv) {
+    const wanted = namesEnv.split(',').map(s => s.trim().toLowerCase())
+    scanList = scanList.filter(f => wanted.some(w => f.clean.toLowerCase().includes(w)))
   }
-  const fighters = Array.from(allFightersMap.values())
-  const rankedNames = new Set(fighters.map(f => f.name))
-  console.log(`Checking news for ${rankedNames.size} featured active boxers...`)
 
-  const from = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]
-  const cleanName = (n: string) => n.replace(/\s*\([^)]*\)\s*$/, '').trim()
+  console.log(`[schedule-scan] scanning ${scanList.length} fighters (${namesEnv ? 'filtered by FIGHTER_NAMES' : isNaN(fightLimit) ? 'full roster' : `limited to ${fightLimit}`})`)
+  const cutoff = new Date(ref.getTime() - NEWS_WINDOW_MS).toISOString()
 
-  const allArticles: { article: NewsArticle; fighter: string | null }[] = []
-  let failures = 0
-  let queriesCount = 0
+  let fetched = 0
+  let totalItems = 0
+  const entries: ScheduledEntry[] = []
+  const failures: string[] = []
 
-  let currentBatch: string[] = []
-  let currentLen = 0
-  const batches: string[] = []
-
-  for (const f of fighters) {
-    const term = `"${cleanName(f.name)}"`
-    const addedLen = term.length + (currentBatch.length > 0 ? 4 : 0)
-    if (currentLen + addedLen > 500) {
-      batches.push(currentBatch.join(' OR '))
-      currentBatch = [term]
-      currentLen = term.length
-    } else {
-      currentBatch.push(term)
-      currentLen += addedLen
-    }
-  }
-  if (currentBatch.length > 0) batches.push(currentBatch.join(' OR '))
-
-  for (const q of batches) {
-    queriesCount++
-    const params = new URLSearchParams({
-      q,
-      from,
-      language: 'en',
-      sortBy: 'publishedAt',
-      pageSize: '100',
-      apiKey: NEWS_API_KEY || '',
-    })
+  await mapPool(scanList, CONCURRENCY, async (fighter) => {
+    let items: RssItem[] = []
     try {
-      const res = await fetch(`${API_URL}?${params}`)
-      if (!res.ok) {
-        const body = await res.text().catch(() => '')
-        if (res.status === 429) {
-          console.warn('News API rate limited (429). Stopping early.')
-          break
-        }
-        console.warn(`News API ${res.status} for query "${q}": ${body.slice(0, 120)}`)
-        failures++
-      } else {
-        const data = await res.json() as { articles?: NewsArticle[] }
-        for (const a of data.articles ?? []) {
-          if (a.url) allArticles.push({ article: a, fighter: null })
-        }
-      }
-    } catch (err) {
-      console.warn(`News API request failed for "${q}": ${err}`)
-      failures++
+      items = await fetchFeed(fighter.clean, fighter.keyword)
+      fetched++
+      totalItems += items.length
+    } catch {
+      failures.push(fighter.clean)
+      return
     }
-    await new Promise(r => setTimeout(r, 1100))
-  }
+    const seenUrl = new Set<string>()
+    for (const item of items.slice(0, MAX_ITEMS_PER_FIGHTER)) {
+      if (item.publishedAt < cutoff) continue
+      if (RESULT_WORD_RE.test(item.title)) continue
+      if (seenUrl.has(item.link)) continue
+      seenUrl.add(item.link)
 
-  if (allArticles.length === 0) {
-    console.error('No articles fetched from News API. Leaving existing data untouched.')
+      const dateCand = extractDate(item.title, ref)
+      if (!dateCand) continue
+
+      const titleHasName = nameInTitle(item.title, fighter.clean)
+      if (!titleHasName) continue
+
+      const matchup = extractMatchup(item.title, fighter.clean)
+      const confidence = confidenceFor(dateCand.granularity, matchup !== null)
+      const dateStr = dateCand.granularity === 'day'
+        ? `${dateCand.year}-${String(dateCand.month + 1).padStart(2, '0')}-${String(dateCand.day).padStart(2, '0')}`
+        : `${dateCand.year}-${String(dateCand.month + 1).padStart(2, '0')}`
+
+      entries.push({
+        boxerName: fighter.name,
+        sport: fighter.keyword,
+        headline: item.title,
+        url: item.link,
+        source: item.source,
+        publishedAt: item.publishedAt,
+        date: dateStr,
+        granularity: dateCand.granularity,
+        matchup: matchup?.matchup,
+        opponent: matchup?.opponent,
+        confidence,
+        detectedAt: new Date().toISOString(),
+      })
+    }
+  })
+
+  if (fetched === 0) {
+    console.error(`[schedule-scan] all ${scanList.length} feeds failed. Leaving existing data untouched.`)
     process.exit(1)
   }
-  console.log(`Fetched ${allArticles.length} articles from ${queriesCount} queries (${failures} failed)`)
 
-  const fights: UpcomingFightEntry[] = []
-  const seenArticle = new Set<string>()
-  for (const { article, fighter } of allArticles) {
-    const title = article.title || ''
-    const desc = article.description || ''
-    const haystack = `${title} ${desc}`.toLowerCase()
-    let boxerName = fighter && haystack.includes(cleanName(fighter).toLowerCase()) ? fighter : ''
-    if (!boxerName) {
-      for (const name of rankedNames) {
-        if (haystack.includes(cleanName(name).toLowerCase())) {
-          boxerName = name
-          break
-        }
-      }
-    }
-    if (!boxerName) continue
-    if (seenArticle.has(article.url)) continue
-    seenArticle.add(article.url)
-    fights.push({
-      boxerName,
-      headline: title,
-      url: article.url,
-      source: article.source?.name || 'News',
-      publishedAt: article.publishedAt,
-    })
-  }
-
-  let existing: UpcomingFightEntry[] = []
+  let existing: ScheduledEntry[] = []
   try {
-    const old = JSON.parse(await fs.readFile(OUTFILE, 'utf8')) as { fights?: UpcomingFightEntry[] }
-    existing = old.fights ?? []
+    const old = JSON.parse(await fs.readFile(OUTFILE, 'utf8')) as UpcomingFightsData
+    existing = Array.isArray(old.fights) ? old.fights : []
   } catch {
     existing = []
   }
 
-  const cutoff = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString()
   const seen = new Set<string>()
-  const merged: UpcomingFightEntry[] = []
-  for (const f of [...fights, ...existing]) {
-    const key = f.url || (f.headline + f.source)
-    if (seen.has(key)) continue
-    if (f.publishedAt && f.publishedAt < cutoff) continue
-    seen.add(key)
+  const merged: ScheduledEntry[] = []
+  for (const f of [...entries, ...existing]) {
+    if (seen.has(fightKey(f))) continue
+    const ts = new Date(f.granularity === 'day' ? f.date : `${f.date}-01`)
+    if (isNaN(ts.getTime()) || ts <= ref) continue
+    seen.add(fightKey(f))
     merged.push(f)
   }
-  merged.sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || ''))
+
+  // Keep existing far-future bookings even if they exceed the fresh horizon.
+  merged.sort((a, b) => a.date.localeCompare(b.date))
 
   await fs.mkdir(DATA_DIR, { recursive: true })
   const out: UpcomingFightsData = {
-    lastUpdated: new Date().toISOString(),
+    lastUpdated: ref.toISOString(),
     fights: merged,
   }
   await fs.writeFile(OUTFILE, JSON.stringify(out, null, 2))
 
-  console.log(`Found ${fights.length} new articles mentioning ranked boxers. Keeping ${merged.length} total (last 30 days).`)
-  if (merged.length > 0) {
-    const seenName = new Set<string>()
-    for (const f of merged) {
-      if (!seenName.has(f.boxerName)) {
-        console.log(`  ${f.boxerName}: ${f.headline.slice(0, 80)}...`)
-        seenName.add(f.boxerName)
-      }
-    }
+  const dayCount = merged.filter(f => f.granularity === 'day').length
+  const monthCount = merged.filter(f => f.granularity === 'month').length
+  console.log(`[schedule-scan] fetched ${fetched}/${scanList.length} fighters, ${totalItems} items, ${failures.length} failures`)
+  console.log(`[schedule-scan] entries: ${entries.length} new, kept ${merged.length} total (${dayCount} day-level, ${monthCount} month-level)`)
+  if (failures.length > 0) {
+    console.log(`[schedule-scan] failed (${failures.length}): ${failures.slice(0, 15).join(', ')}${failures.length > 15 ? ', ...' : ''}`)
   }
+  for (const f of entries.slice(0, 15)) {
+    console.log(`  [${f.granularity}/${f.confidence}] ${f.boxerName} (${f.sport}) -> ${f.date}${f.matchup ? ' | ' + f.matchup : ''} | ${f.headline.slice(0, 90)}`)
+  }
+  if (entries.length > 15) console.log(`  ... and ${entries.length - 15} more`)
 }
 
 main().catch(err => {
