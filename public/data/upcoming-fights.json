@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-20T19:54:01.049Z",
+  "lastUpdated": "2026-09-21T00:29:30.297Z",
   "fights": [
     {
       "boxerName": "Ermal Hadribeaj",
@@ -11,21 +11,21 @@
       "date": "2026-10",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-20T19:54:04.967Z"
+      "detectedAt": "2026-09-21T00:29:33.954Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
       "sport": "boxing",
-      "headline": "Sebastian Fundora vs Ermal Hadribeaj official for October 17th on TNT and DAZN - Bad Left Hook",
+      "headline": "Sebastian Fundora vs Ermal Hadribeaj official for October 17th on TNT and DAZN - badlefthook.com",
       "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNT003eWc5WmhNU0c0WXU4Ylp6XzAwam9oVGRWUWpfTjVQUm16eUoxSkhLOVgwRU9lWHVGMWZoOFRXalhBeXlBRV8xc1NnTmFwLWZuaktwaHlwYjNfbDRuVDd4MDZiVC1BZkJOMnc4SlBtU0pyVkY2Q2JwYnVQVm14NTBlWTBjd0pBUlFTQl9MSVdUbWFnaTlrTGxIY1YyZXcyejVGSGljTkpsZm9YMFFrT2VNeFo2WmZEdUh1OGlPU0J3RVU?oc=5",
-      "source": "Bad Left Hook",
+      "source": "badlefthook.com",
       "publishedAt": "2026-08-27T07:00:00.000Z",
       "date": "2026-10-17",
       "granularity": "day",
       "matchup": "Sebastian Fundora vs Ermal Hadribeaj",
       "opponent": "Sebastian Fundora",
       "confidence": "high",
-      "detectedAt": "2026-09-20T19:54:04.966Z"
+      "detectedAt": "2026-09-21T00:29:33.954Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -39,7 +39,7 @@
       "matchup": "Fundora vs Hadribeaj",
       "opponent": "Fundora",
       "confidence": "high",
-      "detectedAt": "2026-09-20T19:54:04.967Z"
+      "detectedAt": "2026-09-21T00:29:33.954Z"
     },
     {
       "boxerName": "Dmitry Bivol",
@@ -51,7 +51,7 @@
       "date": "2026-12",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-20T19:54:04.336Z"
+      "detectedAt": "2026-09-21T00:29:33.614Z"
     }
   ]
 }
