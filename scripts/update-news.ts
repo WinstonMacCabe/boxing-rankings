@@ -7,10 +7,7 @@ const DATA_DIR = path.join(process.cwd(), 'public', 'data')
 const OUTFILE = path.join(DATA_DIR, 'upcoming-fights.json')
 
 const SENIOR_AGE = 53
-// How far into the future to look for scheduled fights. Default 180 days;
-// set HORIZON_DAYS high (e.g. 36500) on a manual run to capture ALL future
-// events instead of only the near-term window.
-const HORIZON_DAYS = Number(process.env.HORIZON_DAYS) || 180
+// No horizon: scan every future scheduled fight, no matter how far out.
 const NEWS_WINDOW_MS = 30 * 24 * 60 * 60 * 1000
 const MAX_ITEMS_PER_FIGHTER = 25
 const CONCURRENCY = 4
@@ -126,7 +123,6 @@ function toInteger(s: string | undefined | null): number | null {
 
 function extractDate(title: string, ref: Date): DateCandidate | null {
   const text = title.toLowerCase()
-  const horizon = new Date(ref.getTime() + HORIZON_DAYS * 24 * 60 * 60 * 1000)
 
   const dayMatches: { month: number; day: number; year?: number }[] = []
   const pushDay = (m: RegExpExecArray, month: number, day: number, year?: number | null) => {
@@ -185,7 +181,7 @@ function extractDate(title: string, ref: Date): DateCandidate | null {
     for (const year of [yearBase, yearBase + 1]) {
       const d = new Date(year, cand.month, cand.day)
       if (d.getMonth() !== cand.month || d.getDate() !== cand.day) continue
-      if (d > ref && d <= horizon) {
+      if (d > ref) {
         return { ts: d, granularity: 'day', year, month: cand.month, day: cand.day }
       }
     }
@@ -201,7 +197,7 @@ function extractDate(title: string, ref: Date): DateCandidate | null {
     const year = cand.year ?? (cand.month < ref.getMonth() ? ref.getFullYear() + 1 : ref.getFullYear())
     const d = new Date(year, cand.month, 1)
     const monthFuture = year > ref.getFullYear() || (year === ref.getFullYear() && cand.month >= ref.getMonth())
-    if (monthFuture && d <= horizon) {
+    if (monthFuture) {
       return { ts: d, granularity: 'month', year, month: cand.month }
     }
   }

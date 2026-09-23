@@ -25,9 +25,6 @@ const WIKI_ATTEMPTS = 3
 // scan (and nightly cron) dies. ~3 req/s sustained stays well under MediaWiki's
 // anonymous burst limit.
 const WIKI_MIN_GAP_MS = 350
-// Same horizon knob as update-news.ts: default 180 days, but a manual run can
-// set HORIZON_DAYS high to capture every future event on fighter pages.
-const WIKI_HORIZON_MS = (Number(process.env.HORIZON_DAYS) || 180) * 24 * 60 * 60 * 1000
 
 const MONTHS_FULL = [
   'january', 'february', 'march', 'april', 'may', 'june', 'july',
@@ -179,10 +176,10 @@ interface DateCandidate {
 
 // Parse "October 24, 2026", "24 October 2026", "2026-10-24",
 // "Oct 24, 2026", "October 2026" (month granularity). Returns only FUTURE
-// dates within WIKI_HORIZON of ref. Null when ambiguous/unparseable.
+// dates (no horizon ceiling — every future fight is kept). Null when
+// ambiguous/unparseable.
 function extractWikiDate(text: string, ref: Date): DateCandidate | null {
   const t = text.trim()
-  const horizon = new Date(ref.getTime() + WIKI_HORIZON_MS)
   let m: RegExpExecArray | null
 
   // Month-name first: "October 24, 2026" / "Oct 24 2026" / "October 24th, 2026"
@@ -200,7 +197,7 @@ function extractWikiDate(text: string, ref: Date): DateCandidate | null {
       const d = parseInt(m[1], 10)
       if (d >= 1 && d <= 31) {
         const ts = new Date(parseInt(m[3], 10), mi, d)
-        if (ts > ref && ts <= horizon) {
+        if (ts > ref) {
           return { ts, granularity: 'day', year: ts.getFullYear(), month: mi, day: d }
         }
       }
@@ -216,7 +213,7 @@ function extractWikiDate(text: string, ref: Date): DateCandidate | null {
         const d = parseInt(m[2], 10)
         if (d >= 1 && d <= 31) {
           const ts = new Date(year, mi, d)
-          if (ts > ref && ts <= horizon) {
+          if (ts > ref) {
             return { ts, granularity: 'day', year, month: mi, day: d }
           }
         }
@@ -238,7 +235,7 @@ function extractWikiDate(text: string, ref: Date): DateCandidate | null {
         const d = parseInt(m[3], 10)
         if (d >= 1 && d <= 31) {
           const ts = new Date(year, mo - 1, d)
-          if (ts > ref && ts <= horizon) {
+          if (ts > ref) {
             return { ts, granularity: 'day', year, month: mo - 1, day: d }
           }
         }
@@ -450,7 +447,6 @@ export function scheduledInRecordTable(
   ref: Date,
 ): WikiScheduledEntry | null {
   const tables = findRecordTables(wikitext)
-  const horizon = new Date(ref.getTime() + WIKI_HORIZON_MS)
   for (const t of tables) {
     // Rows split by |-. Each chunk after the header starts with the date cell,
     // possibly preceded by a style attribute (e.g. "|- style=\"background:#alarm\"").
@@ -588,8 +584,7 @@ export async function scheduledInPromotionEvents(
             const d = parseInt(dts[3]!, 10)
             if (mi === null || y < 2000 || d < 1 || d > 31) return null
             const ts = new Date(y, mi, d)
-            const horizonMs = ref.getTime() + WIKI_HORIZON_MS
-            if (ts <= ref || ts.getTime() > horizonMs) return null
+            if (ts <= ref) return null
             return { ts, granularity: 'day', year: y, month: mi, day: d }
           })()
         : findDateToken(row) && extractWikiDate(findDateToken(row)!, ref)

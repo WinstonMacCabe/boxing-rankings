@@ -87,26 +87,23 @@ async function main() {
 
   const sections: EmailSection[] = []
 
-  // 1. New scheduled fights (day-level bookings only)
+  // 1. Complete scheduled-fights list (day AND month, both new and previously
+  // seen) — every future booking, no matter how far out.
   const fights = (loadJsonSafe<UpcomingLike>(DATA_FILE)?.fights ?? []) as ScheduledEntry[]
   const previousFights = (gitShowHead<UpcomingLike>('public/data/upcoming-fights.json')?.fights ?? []) as ScheduledEntry[]
+  const prevKeys = new Set(previousFights.map(fightKey))
+  const allScheduled = [...fights].sort((a, b) => a.date.localeCompare(b.date))
 
-  const prevKeys = new Set(previousFights.filter(f => f.granularity !== 'month').map(fightKey))
-  const newScheduled = fights
-    .filter(f => f.granularity !== 'month')
-    .filter(f => !prevKeys.has(fightKey(f)))
-
-  if (newScheduled.length > 0) {
-    const rows = newScheduled.map(f => {
+  if (allScheduled.length > 0) {
+    const rows = allScheduled.map(f => {
+      const isNew = !prevKeys.has(fightKey(f))
       const label = f.opponent ? `${f.boxerName} vs ${f.opponent}` : f.boxerName
       const subtitle = f.matchup && label.includes(f.matchup) ? undefined : f.matchup
       return {
-        label,
-        text: (subtitle ? `${subtitle} · ` : '') + dateText(f.date, 'day'),
+        label: isNew ? `${label} (new)` : label,
+        text: (subtitle ? `${subtitle} · ` : '') + dateText(f.date, f.granularity),
         url: f.url,
-        sub: f.publishedAt
-          ? `${f.source} · ${new Date(f.publishedAt).toLocaleDateString()}`
-          : f.source,
+        sub: f.source,
       }
     })
 
@@ -121,10 +118,11 @@ async function main() {
     })
 
     sections.push({
-      heading: `New Scheduled Fights (${uniqueRows.length})`,
+      heading: `Scheduled Fights (${uniqueRows.length})`,
       rows: uniqueRows,
     })
   }
+  const newScheduled = fights.filter(f => !prevKeys.has(fightKey(f)))
 
   // 2. Ranking changes — new and departed fighters
   const curRankings = loadJsonSafe<RankingsLike>(RANKINGS_FILE)
@@ -168,7 +166,7 @@ async function main() {
   }
 
   const subject = [
-    newScheduled.length > 0 ? `${newScheduled.length} new scheduled fight${newScheduled.length === 1 ? '' : 's'}` : null,
+    allScheduled.length > 0 ? `${allScheduled.length} scheduled fight${allScheduled.length === 1 ? '' : 's'} (${newScheduled.length} new)` : null,
     (curRankings && prevRankings) ? 'rankings updated' : null,
   ].filter(Boolean).join(', ')
 
