@@ -2,12 +2,6 @@ name: Daily Rankings Update
 
 on:
   workflow_dispatch:
-    inputs:
-      horizon_days:
-        description: 'How far into the future to scan for scheduled fights. Default 180; set high (e.g. 36500) to capture ALL future events.'
-        required: false
-        default: '180'
-        type: string
 
 concurrency:
   group: rank-update
@@ -34,7 +28,6 @@ jobs:
         continue-on-error: true
         env:
           FIGHTER_LIMIT: ''
-          HORIZON_DAYS: ${{ inputs.horizon_days || '180' }}
 
       - name: Notify scheduled fights and rankings
         run: npm run notify
