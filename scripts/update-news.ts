@@ -7,7 +7,10 @@ const DATA_DIR = path.join(process.cwd(), 'public', 'data')
 const OUTFILE = path.join(DATA_DIR, 'upcoming-fights.json')
 
 const SENIOR_AGE = 53
-const HORIZON_DAYS = 180
+// How far into the future to look for scheduled fights. Default 180 days;
+// set HORIZON_DAYS high (e.g. 36500) on a manual run to capture ALL future
+// events instead of only the near-term window.
+const HORIZON_DAYS = Number(process.env.HORIZON_DAYS) || 180
 const NEWS_WINDOW_MS = 30 * 24 * 60 * 60 * 1000
 const MAX_ITEMS_PER_FIGHTER = 25
 const CONCURRENCY = 4

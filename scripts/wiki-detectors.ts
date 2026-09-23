@@ -25,7 +25,9 @@ const WIKI_ATTEMPTS = 3
 // scan (and nightly cron) dies. ~3 req/s sustained stays well under MediaWiki's
 // anonymous burst limit.
 const WIKI_MIN_GAP_MS = 350
-const WIKI_HORIZON_MS = 180 * 24 * 60 * 60 * 1000
+// Same horizon knob as update-news.ts: default 180 days, but a manual run can
+// set HORIZON_DAYS high to capture every future event on fighter pages.
+const WIKI_HORIZON_MS = (Number(process.env.HORIZON_DAYS) || 180) * 24 * 60 * 60 * 1000
 
 const MONTHS_FULL = [
   'january', 'february', 'march', 'april', 'may', 'june', 'july',
