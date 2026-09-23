@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-23T00:29:55.984Z",
+  "lastUpdated": "2026-09-23T12:54:14.930Z",
   "fights": [
     {
       "boxerName": "Ermal Hadribeaj",
@@ -11,7 +11,7 @@
       "date": "2026-10",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-23T00:29:59.749Z"
+      "detectedAt": "2026-09-23T12:54:25.974Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -25,7 +25,7 @@
       "matchup": "Sebastian Fundora vs Ermal Hadribeaj",
       "opponent": "Sebastian Fundora",
       "confidence": "high",
-      "detectedAt": "2026-09-23T00:29:59.748Z"
+      "detectedAt": "2026-09-23T12:54:25.973Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -39,7 +39,7 @@
       "matchup": "Fundora vs Hadribeaj",
       "opponent": "Fundora",
       "confidence": "high",
-      "detectedAt": "2026-09-23T00:29:59.748Z"
+      "detectedAt": "2026-09-23T12:54:25.974Z"
     },
     {
       "boxerName": "Dmitry Bivol",
@@ -52,6 +52,32 @@
       "granularity": "month",
       "confidence": "low",
       "detectedAt": "2026-09-23T00:29:59.294Z"
+    },
+    {
+      "boxerName": "Dmitry Bivol",
+      "sport": "boxing",
+      "headline": "Dmitry Bivol vs Michael Eifert finalized for May 23 Egypt card - Boxing News 24/7",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQN3lJUDlLaW1xSl91WlhDS3g3Rmd3aGtqMFNGb3V3aE9uN0tYUEY1RTJBNEVFeVNSRVl4bUFsR2ZFbXBPbmlBeC05WEl2TUZCd1l5MmZzWllYWXJqYnhKcGhFUzVoWXFPQUlTM2xWV2h6bFJ1SWw1THo5cDA2emhZVU5TWDZRN0RLMlZtUGpfQkN3bWRSUC1WWGJKdkoyYUhIc3JZMGE1NFM3X2s?oc=5",
+      "source": "Boxing News 24/7",
+      "publishedAt": "2026-09-03T07:00:00.000Z",
+      "date": "2027-05-23",
+      "granularity": "day",
+      "matchup": "Dmitry Bivol vs Michael Eifert",
+      "opponent": "Michael Eifert",
+      "confidence": "high",
+      "detectedAt": "2026-09-23T12:54:23.630Z"
+    },
+    {
+      "boxerName": "Lester Martínez",
+      "sport": "boxing",
+      "headline": "William “Camarón” Zepeda and Lester Martínez Star Fighters WBC in the September 2026 Rankings - World Boxing Council",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNWFVrNXNoVzIwY3JzOFRrdmFCRmozQVV6YS1HNEt3WWlNeFVJazhvNFhrNTFZTkVHWHdrSld0Y0dhQ0ptWXV4MVJ5MmM5a04ya0tQeUVXUGR2MXdPQjZIWWx0UE9IYjY3d2N0Mll5ZkxsZno2Q2EzX1MyYlVCamNDOEFiS2hTMl9wMnlaX3BMREVybHdFSzM2SzRxdm1qSFgwMWVaVnV6UktjQlVwRi1zRVRVaGhsTFht?oc=5",
+      "source": "World Boxing Council",
+      "publishedAt": "2026-09-07T19:08:42.000Z",
+      "date": "2027-09-20",
+      "granularity": "day",
+      "confidence": "medium",
+      "detectedAt": "2026-09-23T12:54:28.552Z"
     }
   ]
 }
