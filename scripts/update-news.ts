@@ -1,4 +1,5 @@
 import { readRankings } from '../lib/storage'
+import { scanFighterFromWikipedia } from './wiki-detectors'
 import * as fs from 'fs/promises'
 import * as path from 'path'
 
@@ -452,6 +453,17 @@ async function main() {
         confidence,
         detectedAt: new Date().toISOString(),
       })
+    }
+
+    const mmaRankings = rankings as { sports?: unknown }
+    const isMma = typeof mmaRankings.sports === 'object' && mmaRankings.sports !== null
+    try {
+      const wikiRows = await scanFighterFromWikipedia(fighter, ref, { mmaOnly: isMma })
+      entries.push(...wikiRows)
+    } catch (err) {
+      // A Wikipedia outage/rate limit must never sink the whole update; news
+      // rows for this fighter (and all others) still flow.
+      console.error(`[schedule-scan] wiki scan failed for ${fighter.clean}: ${err instanceof Error ? err.message : String(err)}`)
     }
   })
 
