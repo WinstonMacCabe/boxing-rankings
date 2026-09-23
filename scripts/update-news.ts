@@ -57,11 +57,14 @@ const MONTHS: [string, number][] = [
 ]
 const MONTH_FULL = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december']
 const MONTH_ABBR_RE = MONTHS.map(([a]) => a).join('|')
+// Day capture must not run into a 4-digit year ("September 2026" is a month,
+// not September 20 — "20" followed by "26" would otherwise parse as a day).
+const DAY_CAP = '(\\d{1,2})(?:st|nd|rd|th)?(?!\\d)'
 const MONTH_FULL_RE = MONTH_FULL.join('|')
 
 const FIGHT_WORD_RE = /(?:vs\.?|v\.|fight(?:s|ing)?|bout|return|defend(?:s|ing|er)?|showdown|rematch|title|match(?:up)?|scheduled|announced|unification|preview|faces?|titles?|card|battle|official)/i
 
-const RESULT_WORD_RE = /(?:results?|recap|wins?\b|beats?\b|defeats?\b|loses?\b|knockout|knocked|ko\b|tko\b|scorecard|highlights?|reactions?|breaks?\s+down|upset|finish(?:es|ed)?|dominates?|cruises?|stops?\b|drops?\b)/i
+const RESULT_WORD_RE = /(?:results?|recap|wins?\b|beats?\b|defeats?\b|loses?\b|knockout|knocked|ko\b|tko\b|scorecard|highlights?|reactions?|breaks?\s+down|upset|finish(?:es|ed)?|dominates?|cruises?|stops?\b|drops?\b|rankings?\b)/i
 
 const NAME_STOP_WORDS = new Set([
   'live', 'stream', 'fight', 'fights', 'official', 'preview', 'watch', 'title',
@@ -130,7 +133,7 @@ function extractDate(title: string, ref: Date): DateCandidate | null {
   }
 
   // Full month + day: "October 17, 2026", "October 17th"
-  let re = new RegExp(`(${MONTH_FULL_RE})\\s+(\\d{1,2})(?:st|nd|rd|th)?(?:\\s*,?\\s*(20\\d{2}))?`, 'g')
+  let re = new RegExp(`(${MONTH_FULL_RE})\\s+${DAY_CAP}(?:\\s*,?\\s*(20\\d{2}))?`, 'g')
   let m: RegExpExecArray | null
   while ((m = re.exec(text)) !== null) {
     const month = monthIndex(m[1])
@@ -138,14 +141,14 @@ function extractDate(title: string, ref: Date): DateCandidate | null {
   }
 
   // Abbreviated month + day: "Oct 17", "Oct. 17, 2026"
-  re = new RegExp(`(${MONTH_ABBR_RE})\\.?\\s+(\\d{1,2})(?:st|nd|rd|th)?(?:\\s*,?\\s*(20\\d{2}))?`, 'g')
+  re = new RegExp(`(${MONTH_ABBR_RE})\\.?\\s+${DAY_CAP}(?:\\s*,?\\s*(20\\d{2}))?`, 'g')
   while ((m = re.exec(text)) !== null) {
     const month = monthIndex(m[1])
     if (month !== null) pushDay(m, month, parseInt(m[2], 10), toInteger(m[3]))
   }
 
   // Day before month name: "17 October 2026"
-  re = new RegExp(`\\b(\\d{1,2})(?:st|nd|rd|th)?\\s+(${MONTH_FULL_RE})\\.?(?:\\s*,?\\s*(20\\d{2}))?`, 'g')
+  re = new RegExp(`\\b${DAY_CAP}\\s+(${MONTH_FULL_RE})\\.?(?:\\s*,?\\s*(20\\d{2}))?`, 'g')
   while ((m = re.exec(text)) !== null) {
     const month = monthIndex(m[2])
     if (month !== null) pushDay(m, month, parseInt(m[1], 10), toInteger(m[3]))
