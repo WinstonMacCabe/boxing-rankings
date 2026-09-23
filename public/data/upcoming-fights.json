@@ -1,17 +1,17 @@
 {
-  "lastUpdated": "2026-09-23T15:30:40.717Z",
+  "lastUpdated": "2026-09-23T15:44:29.075Z",
   "fights": [
     {
       "boxerName": "Ermal Hadribeaj",
       "sport": "boxing",
-      "headline": "Sebastian Fundora faces Ermal Hadribeaj in October - fightmag.com",
+      "headline": "Sebastian Fundora faces Ermal Hadribeaj in October - Fightmag",
       "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPa1BHZF96cW9qelhMckp2T0dSR25iVUV0ZHNMWDlsSXJfa3dFUnBfaDd5SDRWN25YUDgwSm9ZdlpJNHZ4SmFQZVFKcnNiVmdaUVFxOVFJLWZ1ZUJQLXJsWHdpNGJsNTA3cUxuUDRnbG5PRFlsY1JjLUlnVzRfeWlfWl9n?oc=5",
-      "source": "fightmag.com",
+      "source": "Fightmag",
       "publishedAt": "2026-08-27T07:00:00.000Z",
       "date": "2026-10",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-23T13:15:09.721Z"
+      "detectedAt": "2026-09-23T15:44:40.007Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -25,7 +25,7 @@
       "matchup": "Sebastian Fundora vs Ermal Hadribeaj",
       "opponent": "Sebastian Fundora",
       "confidence": "high",
-      "detectedAt": "2026-09-23T13:15:09.720Z"
+      "detectedAt": "2026-09-23T15:44:40.006Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -39,7 +39,7 @@
       "matchup": "Fundora vs Hadribeaj",
       "opponent": "Fundora",
       "confidence": "high",
-      "detectedAt": "2026-09-23T13:15:09.721Z"
+      "detectedAt": "2026-09-23T15:44:40.007Z"
     },
     {
       "boxerName": "Dmitry Bivol",
@@ -65,7 +65,7 @@
       "matchup": "Dmitry Bivol vs Michael Eifert",
       "opponent": "Michael Eifert",
       "confidence": "high",
-      "detectedAt": "2026-09-23T13:15:07.494Z"
+      "detectedAt": "2026-09-23T15:44:37.708Z"
     }
   ]
 }
