@@ -40,3 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 tsconfig.tsbuildinfo
+
+# local agent notes (next dev rewrites AGENTS.md on every run)
+/AGENTS.md
+/CLAUDE.md
