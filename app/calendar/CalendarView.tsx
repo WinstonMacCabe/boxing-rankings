@@ -234,7 +234,7 @@ export default function CalendarView() {
                     tabIndex={0}
                     aria-expanded={openDayKey === cell.date}
                     aria-label={`${dayLabel(cell.date)}, ${cell.events.length} event${cell.events.length === 1 ? '' : 's'}`}
-                    onClick={() => setOpenDayKey(cell.date)}
+                    onClick={() => setOpenDayKey(prev => (prev === cell.date ? null : cell.date))}
                     onKeyDown={e => {
                       if (e.key !== 'Enter' && e.key !== ' ') return
                       e.preventDefault()
