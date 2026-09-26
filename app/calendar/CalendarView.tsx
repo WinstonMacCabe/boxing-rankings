@@ -269,7 +269,7 @@ export default function CalendarView() {
                         carries the day number and an event count, and the day panel
                         below lists every fight for that day in full, with headlines
                         and source counts. Nothing is hidden, it is one tap away. */}
-                    <div className="mt-1 hidden space-y-1 sm:block">
+                    <div className="mt-1 space-y-1 overflow-hidden">
                       {cell.events.map(e => (
                         <button
                           key={e.id}
@@ -277,15 +277,17 @@ export default function CalendarView() {
                             ev.stopPropagation()
                             setSelected(e)
                           }}
-                          className="block w-full rounded-sm border border-black/15 bg-white px-1.5 py-1 text-left transition-colors hover:border-black"
+                          className="block w-full rounded-sm border border-black/15 bg-white px-1 py-0.5 sm:px-1.5 sm:py-1 text-left transition-colors hover:border-black"
                         >
                           <div className="flex items-start gap-1">
                             <ConfidenceBadge level={e.confidence} />
-                            <div className="min-w-0 flex-1">
-                              <div className="text-[11px] font-semibold leading-tight">
+                            <div className="min-w-0 flex-1 overflow-hidden">
+                              <div className="truncate text-[9px] sm:text-[11px] font-semibold leading-tight">
                                 {e.matchup ?? e.boxerName}
                               </div>
-                              <SportTag sport={e.sport} />
+                              <div className="hidden sm:block">
+                                <SportTag sport={e.sport} />
+                              </div>
                             </div>
                           </div>
                         </button>

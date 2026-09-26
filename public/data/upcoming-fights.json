@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-26T17:17:21.464Z",
+  "lastUpdated": "2026-09-26T17:50:58.687Z",
   "fights": [
     {
       "boxerName": "Naoya Inoue",
@@ -40,14 +40,28 @@
     {
       "boxerName": "Ermal Hadribeaj",
       "sport": "boxing",
-      "headline": "Sebastian Fundora and Ermal Hadribeaj preview their October 17 fight during virtual press conference - British Boxing News",
+      "headline": "Sebastian Fundora and Ermal Hadribeaj preview their October 17 fight during virtual press conference - britishboxingnews.co.uk",
       "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOMEVfbzBfZVdnemZ0d1ZZakRfVjZ2dm9rWExSU1NveW9ZSGJyVURfMWItTnRkdnU1aEQ2LVpUWTdQcmExR1VVdTBHMk9fN1pFXzhHNGRfeTlHYjhvVmw3VjlfcFRSWVQ3RFR2Vml0XzBreVEybkVWQ29nWnNyRm8xWE13dGQ1bkp0emlpVzBrbFlDeDZfTmJTUXZZWTU2ZXpjMG9mXzJpMkF6M19Pcm1VbmVQU1A3Y2FFS0YtUk9ZekRoUk9ZTlJ3UHFlRzE0NjNvVEh0dQ?oc=5",
-      "source": "British Boxing News",
+      "source": "britishboxingnews.co.uk",
       "publishedAt": "2026-09-25T07:38:05.000Z",
       "date": "2026-10-17",
       "granularity": "day",
       "confidence": "medium",
-      "detectedAt": "2026-09-26T17:17:32.619Z"
+      "detectedAt": "2026-09-26T17:51:10.052Z"
+    },
+    {
+      "boxerName": "Ermal Hadribeaj",
+      "sport": "boxing",
+      "headline": "Fundora vs Hadribeaj Live Stream & Fight Preview | October 17, 2026 - Premier Boxing Champions",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPaUNoYzczVUVyM3h1bUlLdXBic01mblJRQkM3b3hGWWdFNXJLQ0hiYWpjZi04V2xiS3BYaUhmQ2pLRk5DbjhDU3pFdHRPNkxjT0pERjBEMXBKOWRTTjAwN0taWkZxVk1Ea0kzOTZtYVhWdHkyWUZWb0pfdFJ0NXJUXw?oc=5",
+      "source": "Premier Boxing Champions",
+      "publishedAt": "2026-08-27T19:03:35.000Z",
+      "date": "2026-10-17",
+      "granularity": "day",
+      "matchup": "Fundora vs Hadribeaj",
+      "opponent": "Fundora",
+      "confidence": "high",
+      "detectedAt": "2026-09-26T17:51:10.052Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -62,20 +76,6 @@
       "opponent": "Sebastian Fundora",
       "confidence": "high",
       "detectedAt": "2026-09-26T17:17:32.619Z"
-    },
-    {
-      "boxerName": "Ermal Hadribeaj",
-      "sport": "boxing",
-      "headline": "Fundora vs Hadribeaj Live Stream & Fight Preview | October 17, 2026 - Premier Boxing Champions",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPaUNoYzczVUVyM3h1bUlLdXBic01mblJRQkM3b3hGWWdFNXJLQ0hiYWpjZi04V2xiS3BYaUhmQ2pLRk5DbjhDU3pFdHRPNkxjT0pERjBEMXBKOWRTTjAwN0taWkZxVk1Ea0kzOTZtYVhWdHkyWUZWb0pfdFJ0NXJUXw?oc=5",
-      "source": "Premier Boxing Champions",
-      "publishedAt": "2026-08-27T19:03:35.000Z",
-      "date": "2026-10-17",
-      "granularity": "day",
-      "matchup": "Fundora vs Hadribeaj",
-      "opponent": "Fundora",
-      "confidence": "high",
-      "detectedAt": "2026-09-26T17:17:32.620Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -111,7 +111,7 @@
       "date": "2026-12",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-26T17:17:22.067Z"
+      "detectedAt": "2026-09-26T17:50:59.536Z"
     },
     {
       "boxerName": "David Benavidez",
@@ -185,7 +185,7 @@
       "matchup": "Dmitry Bivol vs Michael Eifert",
       "opponent": "Michael Eifert",
       "confidence": "high",
-      "detectedAt": "2026-09-26T17:17:30.252Z"
+      "detectedAt": "2026-09-26T17:51:07.698Z"
     },
     {
       "boxerName": "Jaron Ennis",
