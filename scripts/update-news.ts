@@ -524,7 +524,12 @@ async function main() {
       // publication date it resolves to the day the writer meant, and the
       // "still upcoming" gate further down then drops it on its own merits.
       const published = new Date(item.publishedAt)
-      const dateCand = extractDate(item.title, isNaN(published.getTime()) ? ref : published)
+      
+      // Strip metadata suffixes often appended by news sites (e.g. FightNews "» September 23, 2026")
+      // which confuse the date extractor into picking the publication date.
+      const searchTitle = item.title.split(' » ')[0]
+      const dateCand = extractDate(searchTitle, isNaN(published.getTime()) ? ref : published)
+      
       if (!dateCand) continue
 
       const titleHasName = nameInTitle(item.title, fighter.clean)
