@@ -71,15 +71,30 @@ const MONTHS: [string, number][] = [
 ]
 const MONTH_FULL = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december']
 const MONTH_ABBR_RE = MONTHS.map(([a]) => a).join('|')
-// Day capture must not run into a 4-digit year ("September 2026" is a month,
-// not September 20 — "20" followed by "26" would otherwise parse as a day).
-const DAY_CAP = '(\\d{1,2})(?:st|nd|rd|th)?(?!\\d)'
 const MONTH_FULL_RE = MONTH_FULL.join('|')
 // Full names before abbreviations, and a boundary is required after the month.
 // Without the boundary "mar" matches the start of "march", the optional year
 // group then fails against the leftover "ch 2026", and a stated year silently
 // drops out and gets inferred as next year instead.
 const MONTH_ANY_RE = `(?:${MONTH_FULL_RE}|${MONTH_ABBR_RE})\\b`
+
+// Day capture must not run into a 4-digit year ("September 2026" is a month,
+// not September 20 — "20" followed by "26" would otherwise parse as a day).
+//
+// It must also skip the leading number of a range. In "September 1-5, 2026" the
+// "1" clears the (?!\d) guard because the next character is "-", the year group
+// cannot match "-5, 2026", and the day is then booked on 1 September of the
+// following year. A span of days is not one fight on its first day, so the
+// headline falls through to the month matcher instead, which is the honest
+// reading of a "schedule for September 1-5" roundup.
+//
+// The "to" form is only rejected when a month name follows, because headlines
+// legitimately continue with "to" ("... on October 3 to headline the card").
+const DAY_CAP = `(\\d{1,2})(?:st|nd|rd|th)?(?!\\d)(?!\\s*(?:[-–—]\\s*\\d|\\bto\\b\\s*${MONTH_ANY_RE}))`
+// The other end of a "to" range: in "November 7 to November 9" the closing date
+// is as arbitrary as the opening one, so it is dropped too and the headline
+// falls back to month granularity.
+const NOT_RANGE_END = '(?<!\\bto\\s)'
 
 const FIGHT_WORD_RE = /(?:vs\.?|v\.|fight(?:s|ing)?|bout|return|defend(?:s|ing|er)?|showdown|rematch|title|match(?:up)?|scheduled|announced|unification|preview|faces?|titles?|card|battle|official)/i
 
@@ -182,7 +197,9 @@ function extractDate(title: string, ref: Date): DateCandidate | null {
   }
 
   // Full month + day: "October 17, 2026", "October 17th"
-  let re = new RegExp(`(${MONTH_FULL_RE})\\s+${DAY_CAP}(?:\\s*,?\\s*(20\\d{2}))?`, 'g')
+  // The leading lookbehind drops the closing end of a "to" range, so that
+  // "November 7 to November 9" yields neither end as a fight date.
+  let re = new RegExp(`${NOT_RANGE_END}(${MONTH_FULL_RE})\\s+${DAY_CAP}(?:\\s*,?\\s*(20\\d{2}))?`, 'g')
   let m: RegExpExecArray | null
   while ((m = re.exec(text)) !== null) {
     const month = monthIndex(m[1])
@@ -190,7 +207,7 @@ function extractDate(title: string, ref: Date): DateCandidate | null {
   }
 
   // Abbreviated month + day: "Oct 17", "Oct. 17, 2026"
-  re = new RegExp(`(${MONTH_ABBR_RE})\\.?\\s+${DAY_CAP}(?:\\s*,?\\s*(20\\d{2}))?`, 'g')
+  re = new RegExp(`${NOT_RANGE_END}(${MONTH_ABBR_RE})\\.?\\s+${DAY_CAP}(?:\\s*,?\\s*(20\\d{2}))?`, 'g')
   while ((m = re.exec(text)) !== null) {
     const month = monthIndex(m[1])
     if (month !== null) pushDay(m, month, parseInt(m[2], 10), toInteger(m[3]))
@@ -222,7 +239,7 @@ function extractDate(title: string, ref: Date): DateCandidate | null {
 
   // Month-level: "in October", "for October", "by October 2026"
   const monthYear: { month: number; year?: number }[] = []
-  re = new RegExp(`\\b(?:in|during|this|for|around|by)\\s+(${MONTH_ANY_RE})\\.?(?:\\s*(20\\d{2}))?`, 'g')
+  re = new RegExp(`\\b(?:in|during|this|for|around|by|on|through)\\s+(${MONTH_ANY_RE})\\.?(?:\\s*(20\\d{2}))?`, 'g')
   while ((m = re.exec(text)) !== null) {
     const month = monthIndex(m[1])
     if (month !== null) monthYear.push({ month, year: toInteger(m[2]) ?? undefined })
