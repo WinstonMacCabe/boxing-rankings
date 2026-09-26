@@ -8,8 +8,22 @@ const OUTFILE = path.join(DATA_DIR, 'upcoming-fights.json')
 
 const SENIOR_AGE = 53
 // No horizon: scan every future scheduled fight, no matter how far out.
-const NEWS_WINDOW_MS = 30 * 24 * 60 * 60 * 1000
-const MAX_ITEMS_PER_FIGHTER = 25
+
+function envInt(name: string, fallback: number): number {
+  const raw = process.env[name]
+  if (!raw) return fallback
+  const n = parseInt(raw, 10)
+  return isNaN(n) || n <= 0 ? fallback : n
+}
+
+// How far back a news article may have been published and still count as a
+// booking, and how many of each feed's items to read. The feed returns up to 100
+// items in relevance order rather than date order, so a one-off backfill wants
+// both of these raised to sweep up older announcements for fights still ahead.
+// Nightly runs leave them alone: the only thing new in the last day is new.
+const NEWS_WINDOW_DAYS = envInt('NEWS_WINDOW_DAYS', 30)
+const MAX_ITEMS_PER_FIGHTER = envInt('MAX_ITEMS_PER_FIGHTER', 25)
+const NEWS_WINDOW_MS = NEWS_WINDOW_DAYS * 24 * 60 * 60 * 1000
 const CONCURRENCY = 4
 const FETCH_ATTEMPTS = 3
 
@@ -404,6 +418,7 @@ async function main() {
     scanList = scanList.filter(f => wanted.some(w => f.clean.toLowerCase().includes(w)))
   }
 
+  console.log(`[schedule-scan] article window ${NEWS_WINDOW_DAYS}d, up to ${MAX_ITEMS_PER_FIGHTER} items per fighter`)
   console.log(`[schedule-scan] scanning ${scanList.length} fighters (${namesEnv ? 'filtered by FIGHTER_NAMES' : isNaN(fightLimit) ? 'full roster' : `limited to ${fightLimit}`})`)
   const cutoff = new Date(ref.getTime() - NEWS_WINDOW_MS).toISOString()
 
