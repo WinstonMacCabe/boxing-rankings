@@ -75,6 +75,11 @@ const MONTH_ABBR_RE = MONTHS.map(([a]) => a).join('|')
 // not September 20 — "20" followed by "26" would otherwise parse as a day).
 const DAY_CAP = '(\\d{1,2})(?:st|nd|rd|th)?(?!\\d)'
 const MONTH_FULL_RE = MONTH_FULL.join('|')
+// Full names before abbreviations, and a boundary is required after the month.
+// Without the boundary "mar" matches the start of "march", the optional year
+// group then fails against the leftover "ch 2026", and a stated year silently
+// drops out and gets inferred as next year instead.
+const MONTH_ANY_RE = `(?:${MONTH_FULL_RE}|${MONTH_ABBR_RE})\\b`
 
 const FIGHT_WORD_RE = /(?:vs\.?|v\.|fight(?:s|ing)?|bout|return|defend(?:s|ing|er)?|showdown|rematch|title|match(?:up)?|scheduled|announced|unification|preview|faces?|titles?|card|battle|official)/i
 
@@ -187,15 +192,20 @@ function extractDate(title: string, ref: Date): DateCandidate | null {
 
   // Month-level: "in October", "for October", "by October 2026"
   const monthYear: { month: number; year?: number }[] = []
-  re = new RegExp(`\\b(?:in|during|this|for|around|by)\\s+(${MONTH_ABBR_RE})\\.?(?:\\s*(20\\d{2}))?`, 'g')
+  re = new RegExp(`\\b(?:in|during|this|for|around|by)\\s+(${MONTH_ANY_RE})\\.?(?:\\s*(20\\d{2}))?`, 'g')
   while ((m = re.exec(text)) !== null) {
     const month = monthIndex(m[1])
     if (month !== null) monthYear.push({ month, year: toInteger(m[2]) ?? undefined })
   }
 
   const tryDay = (cand: { month: number; day: number; year?: number }): DateCandidate | null => {
-    const yearBase = cand.year ?? ref.getFullYear()
-    for (const year of [yearBase, yearBase + 1]) {
+    // A year spelled out in the text is authoritative. If that date has already
+    // passed then the article is describing something that happened, so return
+    // nothing rather than rolling the fight forward a whole year and inventing
+    // a date nobody published. Only a year-less date ("on Aug. 22") is ambiguous
+    // and may mean the next occurrence.
+    const years = cand.year === undefined ? [ref.getFullYear(), ref.getFullYear() + 1] : [cand.year]
+    for (const year of years) {
       const d = new Date(year, cand.month, cand.day)
       if (d.getMonth() !== cand.month || d.getDate() !== cand.day) continue
       if (d > ref) {
