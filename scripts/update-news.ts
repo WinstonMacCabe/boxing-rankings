@@ -85,6 +85,36 @@ const FIGHT_WORD_RE = /(?:vs\.?|v\.|fight(?:s|ing)?|bout|return|defend(?:s|ing|e
 
 const RESULT_WORD_RE = /(?:results?|recap|wins?\b|beats?\b|defeats?\b|loses?\b|knockout|knocked|ko\b|tko\b|scorecard|highlights?|reactions?|breaks?\s+down|upset|finish(?:es|ed)?|dominates?|cruises?|stops?\b|drops?\b|rankings?\b)/i
 
+// Headlines that are not a fight booking. Every pattern here has to mean "this
+// is not an announced fight", never merely "this article is low quality" — the
+// cost of a wrong pattern is a real fight silently missing from the calendar.
+//
+// Betting and prediction wording (odds, picks, markets) is deliberately NOT in
+// this list. Those articles routinely name a real card on a real date, and they
+// are sometimes the only outlet covering it; filtering them cost real bookings
+// such as Rodolfo Vieira vs Robert Brychek on 27 September 2026.
+//
+// "set to" is deliberately not treated as hedging either: "Cain Velasquez and
+// Frank Mir set to battle" is a confirmed booking, not speculation.
+const NOT_A_BOOKING_RE = new RegExp(
+  [
+    // Speculation rather than a confirmed matchup.
+    '\\b(?:could|might|targeted|targeting|reportedly|rumou?red|eyeing|being lined up|linked with)\\b',
+    // Negotiations, not a signed or announced fight.
+    '\\b(?:in|advanced) talks\\b',
+    // Sport entertainment with no fight in it.
+    'movie|picture|film|EP.d|co-starring|celebrity|documentary|trailer',
+    // A recap of a fight that already happened, not an upcoming one.
+    '\\b(?:records|stellar performance|replay)\\b',
+    // Medical events dated as if they were fights. Kept to terms that cannot
+    // plausibly headline a booking: "injury", "medical", "concussion" and
+    // "rehab" all appear in real announcements ("... after Fighter Z injury
+    // forces a change"), so including them vetoes genuine fights.
+    '\\b(?:surgery|weigh-in)\\b',
+  ].join('|'),
+  'i'
+)
+
 const NAME_STOP_WORDS = new Set([
   'live', 'stream', 'fight', 'fights', 'official', 'preview', 'watch', 'title',
   'world', 'scheduled', 'announced', 'set', 'boxing', 'results', 'analysis',
@@ -451,6 +481,7 @@ async function main() {
     for (const item of items.slice(0, MAX_ITEMS_PER_FIGHTER)) {
       if (item.publishedAt < cutoff) continue
       if (RESULT_WORD_RE.test(item.title)) continue
+      if (NOT_A_BOOKING_RE.test(item.title)) continue
       if (seenUrl.has(item.link)) continue
       seenUrl.add(item.link)
 
