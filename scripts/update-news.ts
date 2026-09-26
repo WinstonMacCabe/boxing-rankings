@@ -1,4 +1,4 @@
-﻿import { readRankings } from '../lib/storage'
+import { readRankings } from '../lib/storage'
 import { scanFighterFromWikipedia } from './wiki-detectors'
 import * as fs from 'fs/promises'
 import * as path from 'path'
@@ -83,7 +83,7 @@ const MONTH_FULL_RE = MONTH_FULL.join('|')
 const MONTH_ANY_RE = `(?:${MONTH_FULL_RE}|${MONTH_ABBR_RE})\\b`
 
 // Day capture must not run into a 4-digit year ("September 2026" is a month,
-// not September 20 ΓÇö "20" followed by "26" would otherwise parse as a day).
+// not September 20 — "20" followed by "26" would otherwise parse as a day).
 //
 // It must also skip the leading number of a range. In "September 1-5, 2026" the
 // "1" clears the (?!\d) guard because the next character is "-", the year group
@@ -94,7 +94,7 @@ const MONTH_ANY_RE = `(?:${MONTH_FULL_RE}|${MONTH_ABBR_RE})\\b`
 //
 // The "to" form is only rejected when a month name follows, because headlines
 // legitimately continue with "to" ("... on October 3 to headline the card").
-const DAY_CAP = `(\\d{1,2})(?:st|nd|rd|th)?(?!\\d)(?!\\s*(?:[-ΓÇôΓÇö]\\s*\\d|\\bto\\b\\s*${MONTH_ANY_RE}))`
+const DAY_CAP = `(\\d{1,2})(?:st|nd|rd|th)?(?!\\d)(?!\\s*(?:[-–—]\\s*\\d|\\bto\\b\\s*${MONTH_ANY_RE}))`
 // The other end of a "to" range: in "November 7 to November 9" the closing date
 // is as arbitrary as the opening one, so it is dropped too and the headline
 // falls back to month granularity.
@@ -105,7 +105,7 @@ const FIGHT_WORD_RE = /(?:vs\.?|v\.|fight(?:s|ing)?|bout|return|defend(?:s|ing|e
 const RESULT_WORD_RE = /(?:results?|recap|wins?\b|beats?\b|defeats?\b|loses?\b|knockout|knocked|ko\b|tko\b|scorecard|highlights?|reactions?|breaks?\s+down|upset|finish(?:es|ed)?|dominates?|cruises?|stops?\b|drops?\b|rankings?\b)/i
 
 // Headlines that are not a fight booking. Every pattern here has to mean "this
-// is not an announced fight", never merely "this article is low quality" ΓÇö the
+// is not an announced fight", never merely "this article is low quality" — the
 // cost of a wrong pattern is a real fight silently missing from the calendar.
 //
 // Betting and prediction wording (odds, picks, markets) is deliberately NOT in
@@ -304,7 +304,7 @@ function extractMatchup(title: string, fighterClean: string): { matchup: string;
   const isNameToken = (t: string): boolean => {
     if (!t) return false
     if (NAME_STOP_WORDS.has(t.toLowerCase().replace(/[^a-z]/g, ''))) return false
-    return /^[A-Z├Ç-├┐]/.test(t)
+    return /^[A-ZÀ-ÿ]/.test(t)
   }
 
   const leftTokens: string[] = []
