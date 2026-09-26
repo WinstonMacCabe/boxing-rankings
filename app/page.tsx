@@ -456,6 +456,14 @@ export default function Home() {
                     <DropdownItem active={genderFilter === 'female'} onClick={() => { setGenderFilter('female'); setFilterOpen(false) }}>Female</DropdownItem>
                   </>
                 )}
+
+                <DropdownHeading>Go to</DropdownHeading>
+                <a
+                  href="/calendar"
+                  className="block w-full px-5 py-[7px] text-left text-[17px] font-semibold uppercase tracking-[0.04em] text-[#1d1d1f] transition-colors hover:bg-black hover:text-white"
+                >
+                  Calendar
+                </a>
               </div>
             )}
 
