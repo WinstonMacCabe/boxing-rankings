@@ -4,6 +4,7 @@ import { execSync } from 'child_process'
 import nodemailer from 'nodemailer'
 import type { BoxerRecord } from '../lib/types'
 import { renderEmailHtml, type EmailSection } from './email-html'
+import { orderMoves, rankMoves, type RankMove } from '../lib/rank-moves'
 
 const DATA_FILE = path.join(process.cwd(), 'public', 'data', 'upcoming-fights.json')
 const RANKINGS_FILE = path.join(process.cwd(), 'public', 'data', 'rankings.json')
@@ -56,6 +57,7 @@ function diffRankings(current: BoxerRecord[], previous: BoxerRecord[]): { added:
   const removed = previous.filter(f => !curNames.has(f.name))
   return { added, removed }
 }
+
 
 function fightKey(f: ScheduledEntry): string {
   return f.url || `${f.boxerName}|${f.date}|${(f.matchup || '').toLowerCase()}`
@@ -121,11 +123,12 @@ async function main() {
     })
   }
 
-  // 2. Ranking changes — new and departed fighters
+  // 2. Ranking changes — promotions and drops, then new and departed fighters
   const curRankings = loadJsonSafe<RankingsLike>(RANKINGS_FILE)
   const prevRankings = gitShowHead<RankingsLike>('public/data/rankings.json')
   let addedNames: BoxerRecord[] = []
   let removedNames: BoxerRecord[] = []
+  const moves: RankMove[] = []
 
   if (curRankings && prevRankings) {
     const bestDiff = diffRankings(curRankings.fighters ?? [], prevRankings.fighters ?? [])
@@ -137,6 +140,27 @@ async function main() {
 
     addedNames = [...new Map(allAdded.map(f => [f.name, f])).values()]
     removedNames = [...new Map(allRemoved.map(f => [f.name, f])).values()]
+
+    // Boxing has no per-sport lists, so the three featured lists are the scope.
+    const rankedLists: { key: 'fighters' | 'worst' | 'thirdary'; label: string }[] = [
+      { key: 'fighters', label: 'Best' },
+      { key: 'worst', label: 'Worst' },
+      { key: 'thirdary', label: 'Thirdary' },
+    ]
+    for (const { key, label } of rankedLists) {
+      moves.push(...rankMoves(curRankings[key] ?? [], prevRankings[key] ?? [], label))
+    }
+
+    if (moves.length > 0) {
+      sections.push({
+        heading: `Rank Changes (${moves.length})`,
+        rows: orderMoves(moves).map(m => ({
+          label: m.name,
+          text: `${m.record} · ${m.delta < 0 ? 'up' : 'down'} ${Math.abs(m.delta)} to #${m.to}`,
+          sub: m.list,
+        })),
+      })
+    }
 
     if (addedNames.length > 0) {
       sections.push({
@@ -166,6 +190,7 @@ async function main() {
 
   const subject = [
     newScheduled.length > 0 ? `${newScheduled.length} new scheduled fight${newScheduled.length === 1 ? '' : 's'}` : null,
+    moves.length > 0 ? `${moves.length} rank change${moves.length === 1 ? '' : 's'}` : null,
     (curRankings && prevRankings && addedNames.length + removedNames.length > 0) ? 'rankings updated' : null,
   ].filter(Boolean).join(', ')
 
