@@ -255,11 +255,18 @@ function extractDate(title: string, ref: Date): DateCandidate | null {
     // nothing rather than rolling the fight forward a whole year and inventing
     // a date nobody published. Only a year-less date ("on Aug. 22") is ambiguous
     // and may mean the next occurrence.
+    //
+    // Compare against START of the reference day (midnight), not the exact clock
+    // time. Without this, a preview/prediction article published mid-day on the
+    // fight date itself fails the d > ref check (midnight < publication time) and
+    // rolls the date forward a full year — e.g. "Sep 26" published on Sep 26 2026
+    // becomes 2027-09-26.
+    const refDay = new Date(ref.getFullYear(), ref.getMonth(), ref.getDate())
     const years = cand.year === undefined ? [ref.getFullYear(), ref.getFullYear() + 1] : [cand.year]
     for (const year of years) {
       const d = new Date(year, cand.month, cand.day)
       if (d.getMonth() !== cand.month || d.getDate() !== cand.day) continue
-      if (d > ref) {
+      if (d >= refDay) {
         return { ts: d, granularity: 'day', year, month: cand.month, day: cand.day }
       }
     }

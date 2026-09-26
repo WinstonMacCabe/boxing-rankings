@@ -40,7 +40,21 @@ export async function GET() {
   const [local, ...remotes] = await Promise.all([loadLocal(), ...PEERS.map(loadRemote)])
 
   const raw = [...local, ...remotes.flatMap(r => r.rows)]
-  const events = buildEvents(raw)
+
+  // Only show events from 7 days ago onward. This keeps today's fights and
+  // cards from the past week visible, while filtering out old completed fights.
+  const cutoff = new Date()
+  cutoff.setHours(0, 0, 0, 0)
+  cutoff.setDate(cutoff.getDate() - 7)
+  const cutoffStr = cutoff.toISOString().slice(0, 10)
+  const filtered = raw.filter(r => {
+    const date = (r.date ?? '').trim()
+    if (!date) return true // undated — keep
+    const dateDay = date.length === 7 ? `${date}-01` : date
+    return dateDay >= cutoffStr
+  })
+
+  const events = buildEvents(filtered)
   const months = summariseMonths(events)
 
   const byConfidence: Record<Confidence, number> = { high: 0, medium: 0, low: 0 }
