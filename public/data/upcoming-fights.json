@@ -1,6 +1,30 @@
 {
-  "lastUpdated": "2026-09-26T16:43:04.274Z",
+  "lastUpdated": "2026-09-26T17:17:21.464Z",
   "fights": [
+    {
+      "boxerName": "Naoya Inoue",
+      "sport": "boxing",
+      "headline": "Boxing News: Naoya Inoue: \"Bam, I'll Wait Until February, But No Mas.\" » September 23, 2026 - FightNews",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNbUpzZGRETUhrODVqaEx1bWg1SnFId19relJ1cXYwa1FMVDE0M18wZnBNQUI5NFYwRVJacDJFRG56RmVOTUJPQ243a29qYTNpcG01dm9yVTBPbDkwTXhtaVRtU1hjdjdTaG8zZ2xWWG9sdlZQcUFOTnhfbk5iaFA0U0lJU1hSdw?oc=5",
+      "source": "FightNews",
+      "publishedAt": "2026-07-29T07:00:00.000Z",
+      "date": "2026-09-23",
+      "granularity": "day",
+      "confidence": "medium",
+      "detectedAt": "2026-09-26T17:17:24.226Z"
+    },
+    {
+      "boxerName": "Katie Taylor",
+      "sport": "boxing",
+      "headline": "Boxing News: Katie Taylor / Flora Pili Open Workouts » September 23, 2026 - FightNews",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5TemV1eURucERoTGl0UWZHakZZTmxjZTM1ZHdPOGliSm5BM19DTjZiNnh6eVdKX09EQWlUdF9IT293Rlhyb3hKaHNROFFfeFFNMk9FRi1LTGw5c3dGaUFxZlpsclVFcUozS3NndVpLMUJ3LXFh?oc=5",
+      "source": "FightNews",
+      "publishedAt": "2026-09-02T07:00:00.000Z",
+      "date": "2026-09-23",
+      "granularity": "day",
+      "confidence": "medium",
+      "detectedAt": "2026-09-26T17:17:28.820Z"
+    },
     {
       "boxerName": "Ermal Hadribeaj",
       "sport": "boxing",
@@ -11,7 +35,7 @@
       "date": "2026-10",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-26T16:43:15.373Z"
+      "detectedAt": "2026-09-26T17:17:32.620Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -23,7 +47,7 @@
       "date": "2026-10-17",
       "granularity": "day",
       "confidence": "medium",
-      "detectedAt": "2026-09-26T16:43:15.373Z"
+      "detectedAt": "2026-09-26T17:17:32.619Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -37,7 +61,7 @@
       "matchup": "Sebastian Fundora vs Ermal Hadribeaj",
       "opponent": "Sebastian Fundora",
       "confidence": "high",
-      "detectedAt": "2026-09-26T16:43:15.373Z"
+      "detectedAt": "2026-09-26T17:17:32.619Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -51,7 +75,7 @@
       "matchup": "Fundora vs Hadribeaj",
       "opponent": "Fundora",
       "confidence": "high",
-      "detectedAt": "2026-09-26T16:43:15.373Z"
+      "detectedAt": "2026-09-26T17:17:32.620Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -63,7 +87,7 @@
       "date": "2026-10-17",
       "granularity": "day",
       "confidence": "medium",
-      "detectedAt": "2026-09-26T16:43:15.373Z"
+      "detectedAt": "2026-09-26T17:17:32.620Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -87,7 +111,7 @@
       "date": "2026-12",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-26T16:43:04.828Z"
+      "detectedAt": "2026-09-26T17:17:22.067Z"
     },
     {
       "boxerName": "David Benavidez",
@@ -99,7 +123,7 @@
       "date": "2026-12",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-26T16:43:08.092Z"
+      "detectedAt": "2026-09-26T17:17:25.172Z"
     },
     {
       "boxerName": "Dmitry Bivol",
@@ -111,7 +135,7 @@
       "date": "2026-12",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-26T16:43:13.038Z"
+      "detectedAt": "2026-09-26T17:17:30.253Z"
     },
     {
       "boxerName": "Terence Crawford",
@@ -135,7 +159,7 @@
       "date": "2027-02",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-26T16:43:07.019Z"
+      "detectedAt": "2026-09-26T17:17:24.226Z"
     },
     {
       "boxerName": "David Benavidez",
@@ -147,7 +171,7 @@
       "date": "2027-05",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-26T16:43:08.093Z"
+      "detectedAt": "2026-09-26T17:17:25.172Z"
     },
     {
       "boxerName": "Dmitry Bivol",
@@ -161,7 +185,7 @@
       "matchup": "Dmitry Bivol vs Michael Eifert",
       "opponent": "Michael Eifert",
       "confidence": "high",
-      "detectedAt": "2026-09-26T16:43:13.037Z"
+      "detectedAt": "2026-09-26T17:17:30.252Z"
     },
     {
       "boxerName": "Jaron Ennis",
@@ -175,141 +199,7 @@
       "matchup": "Xander Zayas vs Jaron Ennis",
       "opponent": "Xander Zayas",
       "confidence": "high",
-      "detectedAt": "2026-09-26T16:43:05.702Z"
-    },
-    {
-      "boxerName": "Abdullah Mason",
-      "sport": "boxing",
-      "headline": "Abdullah Mason officially set to face Albert Bell on July 4 - Bad Left Hook",
-      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPV0tDZHBnVHZOTHZBSTJycmtrTUYwZ2FGTFg5d0t1cnVIeERSOU1TT1dYTjhCalRXMUZJVF9vMlZPUDJON0QwQXJpVEF5eE82NFZwdFo0YU9WdGtfZDQ4R1NOT19rNmNpNUFDY0xSdnRuOXVTaVgzVms2VGN3UmozVjlCdWZtbVYwSG5KcTBrT3dfUzNXZ3pEbFVpR3IxalVDSXpMRXdCNDFlRmdBMm13bzBmRXZCTVByNHQwaU1tT3RIVVJISFRn?oc=5",
-      "source": "Bad Left Hook",
-      "publishedAt": "2026-06-26T07:00:00.000Z",
-      "date": "2027-07-04",
-      "granularity": "day",
-      "confidence": "medium",
-      "detectedAt": "2026-09-26T16:43:17.650Z"
-    },
-    {
-      "boxerName": "Abdullah Mason",
-      "sport": "boxing",
-      "headline": "Abdullah Mason returns home for first title defense in Cleveland on July 4th - Cleveland 19 News",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNRS16OHpxWFlfdDFYdUI3VUo4SnVLWlVKam00ZDAzRk5NQVYtSkRSNDNNNTNiVVhCamlINHQ2NkFpRHdRcXk4cVp5MENSdUtIZ0E4dDlxUDdZb1VsbGU3VTh2WFpJMWlZbE42UzJBNmdnbW1JZTQ2WGtGTG5OaE94VTFaaW9idVhJcWpSZU40aFFRMWVVS2RwMW1fdmh4anFKajdQUFRUWm1md9IBvgFBVV95cUxOeGNyYzhGazROYVZpZ2ZFd0F5ZUl5NlZnaUVYd0JNZ1BSZjNTMzZYSjl1Vm43WjhZX2tEbF9sdkxPMEg1bmVjaVhwV0Y3ODZYQWU0V3pLX213d0psUWMxVHdqZUFiR0NNLUd2cG1FVTJnTzc1YUk0a0RnVFg2Qzl2WHNsWGNQdzdnUTctWlVHcXJ3bkM5WGl3Yko3MF9zOHV6bjZrVjZDRWF6UExkRkhMOEFOaTM3NVd6ZF9rRXJn?oc=5",
-      "source": "Cleveland 19 News",
-      "publishedAt": "2026-07-02T07:00:00.000Z",
-      "date": "2027-07-04",
-      "granularity": "day",
-      "confidence": "medium",
-      "detectedAt": "2026-09-26T16:43:17.650Z"
-    },
-    {
-      "boxerName": "Abdullah Mason",
-      "sport": "boxing",
-      "headline": "July 4: Albert Bell Steps In to Challenge Abdullah Mason in All-Ohio WBO Lightweight World Title Showdown at Cleveland State University’s Wolstein Center LIVE on TNT and DAZN - Top Rank Boxing",
-      "url": "https://news.google.com/rss/articles/CBMiowJBVV95cUxQOFBEaUZxRnBVSm5YYnpoOWYtUmJjN2lrX0hXM2YyYmRFNUNBR182M3BYOW41UzdsUVg0dlVnQl8wWnFsZTR6MFRJSmMzb2lEVVdMblNQcUIxMjRTZk9OREIxbF9WTU1pVzhmVDZTQlZHTGYyTU5WaWJDX2V0RmpPRkh3cHVkS3VKMF90Z2o5b3MweWExRVRoSUJxQWl3N2J5M245ZUFKenYxdW5MRVpFZ054Vk1jQ1FuVUc4SkVTa0JIYjVtam1GQkxBb242LVNWcmZ4cVhBUGZjVEdUX3hjSGVDM0dtZUNfTlpjdEVkM3lsWTZYa0Z0SHRCYmM4UWJsUkpzYjNhcXRjTjlnRjhHWVVSQkxJeC1VYWJWa3U2YlpmdHc?oc=5",
-      "source": "Top Rank Boxing",
-      "publishedAt": "2026-06-26T07:00:00.000Z",
-      "date": "2027-07-04",
-      "granularity": "day",
-      "confidence": "medium",
-      "detectedAt": "2026-09-26T16:43:17.650Z"
-    },
-    {
-      "boxerName": "Abdullah Mason",
-      "sport": "boxing",
-      "headline": "Abdullah Mason Gets New Opponent for July 4 Title Defense - Sports Illustrated",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPb1RfS3VBcW5JcWp6T2NRRjRYSVc1WjNrTWwxNHN6ejVjN2Niei0wdVpLdEZ2TmZ1VGZNVlNObHl4d1RPaUF4eTJkbDBTRUVJZUc4NHdVNmtDOWtxNXpiLXhNR3o2WEltOXAwXzkta3VRa2REOHVDdjlCV0htRUR1QkxKQ05HNFNhUDhMdkZUMG9qS1Y4dWlDbg?oc=5",
-      "source": "Sports Illustrated",
-      "publishedAt": "2026-06-24T07:00:00.000Z",
-      "date": "2027-07-04",
-      "granularity": "day",
-      "confidence": "medium",
-      "detectedAt": "2026-09-26T16:43:17.650Z"
-    },
-    {
-      "boxerName": "Abdullah Mason",
-      "sport": "boxing",
-      "headline": "'The real fireworks': Abdullah Mason defends title in July 4 fight in Cleveland - News 5 Cleveland WEWS",
-      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPU3dYRklWVG1DQ21iUUtodUJ0cjIxNTlPS0twNHpSM1djaXQ3c2NiUVMxUGZybFpmM0hQbk5jR09LUU1BS05OT3lwUWx2c3ZIUUpRUzNKcGNDLTdyamMwSHJqb0lEMTBKdmVwRFlsY2dpcV91dHBpMlBUeVB4bWJqTGp1RXJJcG51X3dIMVd5aWtyYjJsZmIwU05kYURmUDVpRUpBbTh4bVVNTWhPT1F3ZU93Ymd1Q21iR1JhdUxBTFQ2eXJlQlJBa0o2ZnlGRTdueXp4MUZlWQ?oc=5",
-      "source": "News 5 Cleveland WEWS",
-      "publishedAt": "2026-06-30T07:00:00.000Z",
-      "date": "2027-07-04",
-      "granularity": "day",
-      "confidence": "medium",
-      "detectedAt": "2026-09-26T16:43:17.651Z"
-    },
-    {
-      "boxerName": "Abdullah Mason",
-      "sport": "boxing",
-      "headline": "Abdullah Mason Vs. Albert Bell Official For July 4 After Joe Cordina Withdraws - Boxing News 24/7",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNMWVkUUUyM19yUjNJbEhqeXhBNnJVazNONTNURlRzVHVERmVuTWlGbk5MZ2szN28tTzVkeGxjTFVHc2NxSC1iU3l1MDNDcDJHVGduaWpwNllHbzBTQWtaYkk3UHhDcUQxZGFlenVuWjZ5LWN2bVdCQ1E0SlZGdUtCTVFpcnpQc0x6amxRbDFEUVJZYzlCbkVseFBkT25KQVZJS1gzZDdjS1g1UGRrVkZCYWJ3QzBNYmplR2FkcXFJSQ?oc=5",
-      "source": "Boxing News 24/7",
-      "publishedAt": "2026-06-26T07:00:00.000Z",
-      "date": "2027-07-04",
-      "granularity": "day",
-      "matchup": "Abdullah Mason vs Albert Bell",
-      "opponent": "Albert Bell",
-      "confidence": "high",
-      "detectedAt": "2026-09-26T16:43:17.651Z"
-    },
-    {
-      "boxerName": "Abdullah Mason",
-      "sport": "boxing",
-      "headline": "Joe Cordina out, Albert Bell to face Abdullah Mason on July 4 - ringmagazine.com",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxONmVNZjl0VWFLejVaY3Jxbl9BQktMQVJ0OVNYT1ZZSGJYRWdteUo5bFJPLWZreHVzenk0aFBfaG1tZUxPeGl6YlBlR3A2YVkxY3FCdzZ6RERMdG5XRzlpQ2ZLQUZwRWpZZXZyV0R3bnFIRUpFZEpXcjVFZ1p3VFg0Y1d6RWdiWHdRUnlGaTJwMHpXc0M2SW80aFFsSzM4Nkc5Wmt4dHNCdUI1VjZZb09yUjRzZzdDOG5m?oc=5",
-      "source": "ringmagazine.com",
-      "publishedAt": "2026-06-24T07:00:00.000Z",
-      "date": "2027-07-04",
-      "granularity": "day",
-      "confidence": "medium",
-      "detectedAt": "2026-09-26T16:43:17.651Z"
-    },
-    {
-      "boxerName": "Abdullah Mason",
-      "sport": "boxing",
-      "headline": "Abdullah Mason Gets New Opponent As Albert Bell Steps In For July 4 Title Fight - Boxing News 24",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPRXRVN2Q2RHFNcTJZamhXcFNqOS00R2M2SXBIWXItS01OSE5RNk5yeXRNQ1BnMmRjTmhBS0JYWVJxazc4NFBmVTlsTFBJVXplYlpNWFpYanZWTnJZVHdMa3JleHdVZWFibTJnWnBYN05PdUpUd3VVSzlYMmsyZHJHcGVzcVNEUENXdVctS00yMkpEZ2NoUTJNSjRWamU1RzRiWm01d1Nqc29sX2t2RS1qZEpyRnB2eXZ5?oc=5",
-      "source": "Boxing News 24",
-      "publishedAt": "2026-06-24T07:00:00.000Z",
-      "date": "2027-07-04",
-      "granularity": "day",
-      "confidence": "medium",
-      "detectedAt": "2026-09-26T16:43:17.651Z"
-    },
-    {
-      "boxerName": "Abdullah Mason",
-      "sport": "boxing",
-      "headline": "Chris Mannix Says Abdullah Mason Already Belongs Among Lightweight Elite Before Albert Bell Fight July 5 - Boxing News 24/7",
-      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNTTRNdDYxU2s2ZUpmcnFueUw2R0QxYi1RSjZXTkZTeEJPNlZCeVk2WDk5cVhhZmxKRzJQN1kwMnlGTkVoN3d6QWItZVU2X2V3RW1BVm9tMHV4Vjg2bXhBYkhMSUpLUlluTW1vajZNZ2hwMXBRS09tbHRObVRIdW85Y3daSXNnOWhVdEJ4SzRxX0hVbUVqbG1WM3BhMExMS2VJbk45aFRuclNKd0J3dDdfbjM0a2c1OGJEMHc?oc=5",
-      "source": "Boxing News 24/7",
-      "publishedAt": "2026-07-03T07:00:00.000Z",
-      "date": "2027-07-05",
-      "granularity": "day",
-      "confidence": "medium",
-      "detectedAt": "2026-09-26T16:43:17.651Z"
-    },
-    {
-      "boxerName": "Etinosa Oliha",
-      "sport": "boxing",
-      "headline": "Aaron McKenna: Etinosa Oliha gives Irish boxer warning ahead of IBF world title fight in Dublin on August 8 - Sky Sports",
-      "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxNaXd2SUhOYUZWOTl1WGxOSmJUZ0dqUzQwcnpVUVVwUjZQaGRuOW43U3Q0dU42enVKQnBoeHIwbC0wQkhRTUNyTEFKb08wajUzSk9YbEdjcDhpVDVoMXdTYkZWX3hWbUI4VVpNVWZkUVBmU0p3c1BpMFBsY1VRVk1oNlplMXBfUEx6d2ZFSllBRThxY1lVMHBlb2huSV9HM0RSd3h2ajFaYUVRZkJfM1ZVbTZmbVRjM0VHbkJwdHBmX2dEaFdfNDV4Q0JJbmxYYk9FMHU3SWNkcFhjNmFydmhrYXJyOHZ3MXZVREo0c0RpcFE?oc=5",
-      "source": "Sky Sports",
-      "publishedAt": "2026-08-04T07:00:00.000Z",
-      "date": "2027-08-08",
-      "granularity": "day",
-      "confidence": "medium",
-      "detectedAt": "2026-09-26T16:43:17.272Z"
-    },
-    {
-      "boxerName": "Terence Crawford",
-      "sport": "boxing",
-      "headline": "Terence Crawford back in training with Lester Martinez ahead of August 29 - BoxingScene",
-      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQQkZ4Yy13R21HeDg5U3FudlQ2NmozcXZocjVmZGU5dFBMb0UzWlkwSjZTV18yVFpUOFZVTXlFcW1vbXVyQ0dqWmk0VVg0MmtiR2RNeDFKejdmS0NydjZwNnpQUXpsWHhCd0xNTkhjZVJQRzUxX0c3b3dsVVpuVm5UVDVmR2ZpOGZIYW5rR0pKUko0RVN6S2FUTEhIczVkT2NSN0JVNHZEeS1zVE0yYWRV?oc=5",
-      "source": "BoxingScene",
-      "publishedAt": "2026-08-08T07:00:00.000Z",
-      "date": "2027-08-29",
-      "granularity": "day",
-      "confidence": "medium",
-      "detectedAt": "2026-09-26T16:43:04.828Z"
+      "detectedAt": "2026-09-26T17:17:22.722Z"
     }
   ]
 }

@@ -24,6 +24,10 @@ function envInt(name: string, fallback: number): number {
 const NEWS_WINDOW_DAYS = envInt('NEWS_WINDOW_DAYS', 30)
 const MAX_ITEMS_PER_FIGHTER = envInt('MAX_ITEMS_PER_FIGHTER', 25)
 const NEWS_WINDOW_MS = NEWS_WINDOW_DAYS * 24 * 60 * 60 * 1000
+// How far back a fight stays on the calendar once it has happened. A card is not
+// worth showing for long, but dropping it the moment it starts means a fight that
+// ran late last night vanishes before anyone could see it.
+const PAST_DAYS_KEPT = 7
 const CONCURRENCY = 4
 const FETCH_ATTEMPTS = 3
 
@@ -262,12 +266,22 @@ function extractDate(title: string, ref: Date): DateCandidate | null {
     return null
   }
 
+  // Months where the text gave a day *and* an explicit year that has already
+  // passed. Such a month is settled: the writer said which year they meant, so
+  // there is nothing left to guess. Without this the month-level fallback reads
+  // the same month out of the same words, fails to find a year after it, and
+  // rolls the whole thing forward twelve months.
+  const settledMonths = new Set<number>()
+
   for (const cand of dayMatches) {
     const r = tryDay(cand)
     if (r) return r
+    if (cand.year !== undefined) settledMonths.add(cand.month)
   }
 
   for (const cand of monthYear) {
+    // A month already settled by an explicit, past year stays settled.
+    if (cand.year === undefined && settledMonths.has(cand.month)) continue
     const year = cand.year ?? (cand.month < ref.getMonth() ? ref.getFullYear() + 1 : ref.getFullYear())
     const d = new Date(year, cand.month, 1)
     const monthFuture = year > ref.getFullYear() || (year === ref.getFullYear() && cand.month >= ref.getMonth())
@@ -502,7 +516,15 @@ async function main() {
       if (seenUrl.has(item.link)) continue
       seenUrl.add(item.link)
 
-      const dateCand = extractDate(item.title, ref)
+      // Year inference has to be anchored on when the article was written, not on
+      // today. "on July 4" in a piece published 26 June 2026 means 4 July 2026 --
+      // eight days later. Anchored on today that date reads as already past, the
+      // year-less candidate rolls forward a year, and a fight that has already
+      // happened gets resurrected as a booking twelve months out. Anchored on the
+      // publication date it resolves to the day the writer meant, and the
+      // "still upcoming" gate further down then drops it on its own merits.
+      const published = new Date(item.publishedAt)
+      const dateCand = extractDate(item.title, isNaN(published.getTime()) ? ref : published)
       if (!dateCand) continue
 
       const titleHasName = nameInTitle(item.title, fighter.clean)
@@ -555,12 +577,23 @@ async function main() {
     existing = []
   }
 
+  // The retention window is measured in whole days, from midnight PAST_DAYS_KEPT
+  // ago. The stored value is already the midnight of the fight day, so it is
+  // compared against another midnight rather than the current clock -- otherwise
+  // a fight booked for today is always "in the past" by the time the scan runs,
+  // since midnight has been and gone. Month-level rows resolve to the first of
+  // their month, which sits before the window for all but the last few days of a
+  // month, so a vague "sometime in September" is still hidden.
+  const keepFrom = new Date(ref)
+  keepFrom.setHours(0, 0, 0, 0)
+  keepFrom.setDate(keepFrom.getDate() - PAST_DAYS_KEPT)
+
   const seen = new Set<string>()
   const merged: ScheduledEntry[] = []
   for (const f of [...entries, ...existing]) {
     if (seen.has(fightKey(f))) continue
     const ts = new Date(f.granularity === 'day' ? f.date : `${f.date}-01`)
-    if (isNaN(ts.getTime()) || ts <= ref) continue
+    if (isNaN(ts.getTime()) || ts < keepFrom) continue
     seen.add(fightKey(f))
     merged.push(f)
   }

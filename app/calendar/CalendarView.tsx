@@ -128,17 +128,17 @@ export default function CalendarView() {
   return (
     <div className="min-h-screen bg-white text-[#1d1d1f]">
       <header className="sticky top-0 z-20 border-b border-black/10 bg-white/80 backdrop-blur-xl">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
-          <nav className="flex items-center gap-3">
-            <a href="https://boxingpugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[17px] uppercase tracking-[0.05em] text-[#1d1d1f] underline decoration-2 underline-offset-8">Boxing</a>
-            <a href="https://mmapugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[17px] uppercase tracking-[0.05em] text-black/40 transition-colors hover:text-[#1d1d1f]">MMA</a>
-            <a href="https://generalspugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[17px] uppercase tracking-[0.05em] text-black/40 transition-colors hover:text-[#1d1d1f]">Generals</a>
-            <Link href="/calendar" className="text-[17px] uppercase tracking-[0.05em] text-[#1d1d1f] underline decoration-2 underline-offset-8">Calendar</Link>
+        <div className="relative mx-auto flex min-h-16 max-w-7xl flex-wrap items-center justify-between gap-x-3 gap-y-1 px-4 py-2 sm:h-16 sm:flex-nowrap sm:py-0">
+          <nav className="flex min-w-0 flex-wrap items-center gap-x-2.5 gap-y-1 sm:gap-3">
+            <a href="https://boxingpugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[13px] uppercase tracking-[0.05em] text-[#1d1d1f] underline decoration-2 underline-offset-8 sm:text-[17px]">Boxing</a>
+            <a href="https://mmapugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[13px] uppercase tracking-[0.05em] text-black/40 transition-colors hover:text-[#1d1d1f] sm:text-[17px]">MMA</a>
+            <a href="https://generalspugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[13px] uppercase tracking-[0.05em] text-black/40 transition-colors hover:text-[#1d1d1f] sm:text-[17px]">Generals</a>
+            <Link href="/calendar" className="text-[13px] uppercase tracking-[0.05em] text-[#1d1d1f] underline decoration-2 underline-offset-8 sm:text-[17px]">Calendar</Link>
           </nav>
           <div className="pointer-events-none absolute left-1/2 hidden -translate-x-1/2 text-[30px] font-bold uppercase tracking-[0.08em] text-[#1d1d1f] sm:block">
             Winston&apos;s Rankings
           </div>
-          <Link href="/" className="rounded-sm border border-black/80 px-3.5 py-2 text-[17px] uppercase tracking-[0.05em] transition-colors hover:bg-black hover:text-white">
+          <Link href="/" className="shrink-0 rounded-sm border border-black/80 px-2.5 py-1.5 text-[13px] uppercase tracking-[0.05em] transition-colors hover:bg-black hover:text-white sm:px-3.5 sm:py-2 sm:text-[17px]">
             Rankings
           </Link>
         </div>
@@ -162,7 +162,7 @@ export default function CalendarView() {
             </p>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex w-full items-center gap-2 sm:w-auto">
             <button
               onClick={() => setCursor(shiftMonth(active.year, active.month, -1))}
               aria-label="Previous month"
@@ -170,7 +170,7 @@ export default function CalendarView() {
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M15 18l-6-6 6-6" /></svg>
             </button>
-            <div className="min-w-[190px] text-center text-[20px] font-bold uppercase tracking-[0.06em]">
+            <div className="min-w-0 flex-1 text-center text-[16px] font-bold uppercase tracking-[0.04em] sm:min-w-[190px] sm:flex-none sm:text-[20px] sm:tracking-[0.06em]">
               {data ? monthLabel(key) : '—'}
             </div>
             <button
@@ -221,7 +221,7 @@ export default function CalendarView() {
             <div className="mt-5 border border-black/15">
               <div className="grid grid-cols-7 border-b border-black/15 bg-black/[0.03]">
                 {WEEKDAYS.map(d => (
-                  <div key={d} className="px-2 py-2 text-center text-[11px] uppercase tracking-[0.12em] text-black/45">
+                  <div key={d} className="px-0.5 py-2 text-center text-[10px] uppercase tracking-[0.04em] text-black/45 sm:px-2 sm:text-[11px] sm:tracking-[0.12em]">
                     {d}
                   </div>
                 ))}
@@ -240,7 +240,7 @@ export default function CalendarView() {
                       e.preventDefault()
                       setOpenDayKey(cell.date)
                     }}
-                    className={`min-h-[104px] cursor-pointer border-b border-r border-black/10 p-1.5 transition-colors hover:bg-black/[0.04] focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-black/50 ${
+                    className={`min-h-[62px] cursor-pointer border-b border-r border-black/10 p-1 transition-colors hover:bg-black/[0.04] focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-black/50 sm:min-h-[104px] sm:p-1.5 ${
                       cell.inMonth ? 'bg-white' : 'bg-black/[0.02]'
                     } ${openDayKey === cell.date ? 'bg-black/[0.05] ring-1 ring-inset ring-black/40' : ''}`}
                   >
@@ -257,12 +257,19 @@ export default function CalendarView() {
                         {cell.day}
                       </span>
                       {cell.events.length > 0 && (
-                        <span className="text-[10px] tabular-nums text-black/30">{cell.events.length}</span>
+                        <span className="rounded-full bg-black/[0.07] px-1.5 text-[10px] font-semibold tabular-nums text-black/60 sm:bg-transparent sm:px-0 sm:font-normal sm:text-black/30">{cell.events.length}</span>
                       )}
                     </div>
-                    {/* Every event is listed, not a capped preview: a truncated
-                        day used to hide fights behind a dead "+N more" label. */}
-                    <div className="mt-1 space-y-1">
+                    {/* Every event is listed, not a capped preview: a truncated day
+                        used to hide fights behind a dead "+N more" label.
+
+                        Below sm the cell drops to roughly 40px wide, which cannot fit
+                        a fight card without either clipping the name or blowing the
+                        row out to several hundred pixels tall. So on a phone the cell
+                        carries the day number and an event count, and the day panel
+                        below lists every fight for that day in full, with headlines
+                        and source counts. Nothing is hidden, it is one tap away. */}
+                    <div className="mt-1 hidden space-y-1 sm:block">
                       {cell.events.map(e => (
                         <button
                           key={e.id}
