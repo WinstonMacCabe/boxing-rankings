@@ -2,30 +2,6 @@
   "lastUpdated": "2026-09-26T17:50:58.687Z",
   "fights": [
     {
-      "boxerName": "Naoya Inoue",
-      "sport": "boxing",
-      "headline": "Boxing News: Naoya Inoue: \"Bam, I'll Wait Until February, But No Mas.\" » September 23, 2026 - FightNews",
-      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNbUpzZGRETUhrODVqaEx1bWg1SnFId19relJ1cXYwa1FMVDE0M18wZnBNQUI5NFYwRVJacDJFRG56RmVOTUJPQ243a29qYTNpcG01dm9yVTBPbDkwTXhtaVRtU1hjdjdTaG8zZ2xWWG9sdlZQcUFOTnhfbk5iaFA0U0lJU1hSdw?oc=5",
-      "source": "FightNews",
-      "publishedAt": "2026-07-29T07:00:00.000Z",
-      "date": "2026-09-23",
-      "granularity": "day",
-      "confidence": "medium",
-      "detectedAt": "2026-09-26T17:17:24.226Z"
-    },
-    {
-      "boxerName": "Katie Taylor",
-      "sport": "boxing",
-      "headline": "Boxing News: Katie Taylor / Flora Pili Open Workouts » September 23, 2026 - FightNews",
-      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5TemV1eURucERoTGl0UWZHakZZTmxjZTM1ZHdPOGliSm5BM19DTjZiNnh6eVdKX09EQWlUdF9IT293Rlhyb3hKaHNROFFfeFFNMk9FRi1LTGw5c3dGaUFxZlpsclVFcUozS3NndVpLMUJ3LXFh?oc=5",
-      "source": "FightNews",
-      "publishedAt": "2026-09-02T07:00:00.000Z",
-      "date": "2026-09-23",
-      "granularity": "day",
-      "confidence": "medium",
-      "detectedAt": "2026-09-26T17:17:28.820Z"
-    },
-    {
       "boxerName": "Ermal Hadribeaj",
       "sport": "boxing",
       "headline": "Sebastian Fundora faces Ermal Hadribeaj in October - Fightmag",
