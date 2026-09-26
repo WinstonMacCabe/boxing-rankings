@@ -250,26 +250,34 @@ function extractDate(title: string, ref: Date): DateCandidate | null {
   }
 
   const tryDay = (cand: { month: number; day: number; year?: number }): DateCandidate | null => {
-    // A year spelled out in the text is authoritative. If that date has already
-    // passed then the article is describing something that happened, so return
-    // nothing rather than rolling the fight forward a whole year and inventing
-    // a date nobody published. Only a year-less date ("on Aug. 22") is ambiguous
-    // and may mean the next occurrence.
-    //
-    // Compare against START of the reference day (midnight), not the exact clock
-    // time. Without this, a preview/prediction article published mid-day on the
-    // fight date itself fails the d > ref check (midnight < publication time) and
-    // rolls the date forward a full year — e.g. "Sep 26" published on Sep 26 2026
-    // becomes 2027-09-26.
+    // Explicit year: authoritative — if it's past, the article is about a past fight.
     const refDay = new Date(ref.getFullYear(), ref.getMonth(), ref.getDate())
-    const years = cand.year === undefined ? [ref.getFullYear(), ref.getFullYear() + 1] : [cand.year]
-    for (const year of years) {
-      const d = new Date(year, cand.month, cand.day)
-      if (d.getMonth() !== cand.month || d.getDate() !== cand.day) continue
-      if (d >= refDay) {
-        return { ts: d, granularity: 'day', year, month: cand.month, day: cand.day }
+    if (cand.year !== undefined) {
+      const d = new Date(cand.year, cand.month, cand.day)
+      if (d.getMonth() !== cand.month || d.getDate() !== cand.day) return null
+      return d >= refDay ? { ts: d, granularity: 'day', year: cand.year, month: cand.month, day: cand.day } : null
+    }
+
+    // No year in text. Try current year first (using midnight comparison so that
+    // preview articles published on fight day itself are not rolled forward).
+    const d0 = new Date(ref.getFullYear(), cand.month, cand.day)
+    if (d0.getMonth() === cand.month && d0.getDate() === cand.day && d0 >= refDay) {
+      return { ts: d0, granularity: 'day', year: ref.getFullYear(), month: cand.month, day: cand.day }
+    }
+
+    // Current year is past. Only roll to next year if the date is within the last
+    // 14 days — a prediction/preview published just before or after a fight can
+    // still be relevant. A date 2+ months in the past almost certainly refers to a
+    // fight that has already happened ("Jul 25" mentioned Sep 26 = past fight, not
+    // a future booking 11 months away).
+    const daysPast = Math.round((refDay.getTime() - d0.getTime()) / 86400000)
+    if (daysPast <= 14) {
+      const d1 = new Date(ref.getFullYear() + 1, cand.month, cand.day)
+      if (d1.getMonth() === cand.month && d1.getDate() === cand.day) {
+        return { ts: d1, granularity: 'day', year: ref.getFullYear() + 1, month: cand.month, day: cand.day }
       }
     }
+
     return null
   }
 
