@@ -148,7 +148,6 @@
       "granularity": "month",
       "confidence": "low",
       "detectedAt": "2026-09-26T17:17:25.172Z"
-<<<<<<< HEAD
     },
     {
       "boxerName": "Dmitry Bivol",
@@ -177,8 +176,6 @@
       "opponent": "Xander Zayas",
       "confidence": "high",
       "detectedAt": "2026-09-26T17:17:22.722Z"
-=======
->>>>>>> 7c7f11d (fix: compare fight dates against the start of the reference day [skip ci])
     }
   ]
 }
