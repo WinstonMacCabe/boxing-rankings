@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-27T17:40:05.921Z",
+  "lastUpdated": "2026-09-27T18:16:08.075Z",
   "fights": [
     {
       "boxerName": "Ermal Hadribeaj",
@@ -11,7 +11,7 @@
       "date": "2026-10",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-27T17:40:17.179Z"
+      "detectedAt": "2026-09-27T18:16:19.275Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -25,7 +25,7 @@
       "matchup": "Sebastian Fundora vs Ermal Hadribeaj",
       "opponent": "Sebastian Fundora",
       "confidence": "high",
-      "detectedAt": "2026-09-27T17:40:17.179Z"
+      "detectedAt": "2026-09-27T18:16:19.275Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -39,7 +39,7 @@
       "matchup": "Fundora vs Hadribeaj",
       "opponent": "Fundora",
       "confidence": "high",
-      "detectedAt": "2026-09-27T17:40:17.179Z"
+      "detectedAt": "2026-09-27T18:16:19.275Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -51,7 +51,7 @@
       "date": "2026-10-17",
       "granularity": "day",
       "confidence": "medium",
-      "detectedAt": "2026-09-27T17:40:17.179Z"
+      "detectedAt": "2026-09-27T18:16:19.275Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -63,7 +63,7 @@
       "date": "2026-10-17",
       "granularity": "day",
       "confidence": "medium",
-      "detectedAt": "2026-09-27T17:40:17.179Z"
+      "detectedAt": "2026-09-27T18:16:19.275Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -87,7 +87,7 @@
       "date": "2026-12",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-27T17:40:06.576Z"
+      "detectedAt": "2026-09-27T18:16:08.800Z"
     },
     {
       "boxerName": "David Benavidez",
@@ -99,7 +99,7 @@
       "date": "2026-12",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-27T17:40:09.930Z"
+      "detectedAt": "2026-09-27T18:16:12.084Z"
     },
     {
       "boxerName": "Dmitry Bivol",
@@ -111,7 +111,7 @@
       "date": "2026-12",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-27T17:40:14.834Z"
+      "detectedAt": "2026-09-27T18:16:16.872Z"
     },
     {
       "boxerName": "Terence Crawford",
@@ -135,7 +135,7 @@
       "date": "2026-12-12",
       "granularity": "day",
       "confidence": "medium",
-      "detectedAt": "2026-09-27T17:40:14.834Z"
+      "detectedAt": "2026-09-27T18:16:16.872Z"
     },
     {
       "boxerName": "Naoya Inoue",
@@ -161,7 +161,7 @@
       "matchup": "Dmitry Bivol vs Michael Eifert",
       "opponent": "Michael Eifert",
       "confidence": "low",
-      "detectedAt": "2026-09-27T17:40:14.834Z"
+      "detectedAt": "2026-09-27T18:16:16.871Z"
     },
     {
       "boxerName": "David Benavidez",

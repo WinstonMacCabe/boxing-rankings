@@ -448,6 +448,7 @@ function stripTags(s: string): string {
 
 interface RssItem {
   title: string
+  description: string
   link: string
   source: string
   publishedAt: string
@@ -464,11 +465,14 @@ function parseFeed(xml: string): RssItem[] {
     const guidMatch = /<guid[^>]*>([\s\S]*?)<\/guid>/.exec(block)
     const sourceMatch = /<source[^>]*>([\s\S]*?)<\/source>/.exec(block)
     const pubMatch = /<pubDate>([\s\S]*?)<\/pubDate>/.exec(block)
+    const descriptionMatch = /<description>([\s\S]*?)<\/description>/.exec(block)
     const title = titleMatch ? stripTags(decodeEntities(titleMatch[1])).trim() : ''
+    const description = descriptionMatch ? stripTags(decodeEntities(descriptionMatch[1])).trim() : ''
     const url = (linkMatch ? stripTags(linkMatch[1]).trim() : (guidMatch ? stripTags(guidMatch[1]).trim() : ''))
     if (!title || !url) continue
     items.push({
       title,
+      description,
       link: url,
       source: sourceMatch ? stripTags(decodeEntities(sourceMatch[1])).trim() : 'Google News',
       publishedAt: pubMatch ? new Date(pubMatch[1]).toISOString() : new Date().toISOString(),
@@ -627,8 +631,9 @@ async function main() {
     }
     const seenUrl = new Set<string>()
     for (const item of selectInWindowItems(items, cutoff, MAX_ITEMS_PER_FIGHTER)) {
-      if (RESULT_WORD_RE.test(item.title)) continue
-      if (NOT_A_BOOKING_RE.test(item.title)) continue
+      const articleText = `${item.title} ${item.description}`.trim()
+      if (RESULT_WORD_RE.test(articleText)) continue
+      if (NOT_A_BOOKING_RE.test(articleText)) continue
       if (seenUrl.has(item.link)) continue
       seenUrl.add(item.link)
 
@@ -643,15 +648,15 @@ async function main() {
       
       // Strip metadata suffixes often appended by news sites (e.g. FightNews "» September 23, 2026")
       // which confuse the date extractor into picking the publication date.
-      const searchTitle = item.title.split(' » ')[0]
+      const searchTitle = articleText.split(' » ')[0]
       const dateCand = extractDate(searchTitle, isNaN(published.getTime()) ? ref : published)
       
       if (!dateCand) continue
 
-      const titleHasName = nameInTitle(item.title, fighter.clean, distinctiveSurnames)
+      const titleHasName = nameInTitle(articleText, fighter.clean, distinctiveSurnames)
       if (!titleHasName) continue
 
-      const matchup = extractMatchup(item.title, fighter.clean)
+      const matchup = extractMatchup(articleText, fighter.clean)
       const confidence = confidenceFor(dateCand.granularity, matchup !== null)
       const dateStr = dateCand.granularity === 'day'
         ? `${dateCand.year}-${String(dateCand.month + 1).padStart(2, '0')}-${String(dateCand.day).padStart(2, '0')}`
