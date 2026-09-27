@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-26T17:50:58.687Z",
+  "lastUpdated": "2026-09-27T00:30:17.453Z",
   "fights": [
     {
       "boxerName": "Ermal Hadribeaj",
@@ -16,14 +16,14 @@
     {
       "boxerName": "Ermal Hadribeaj",
       "sport": "boxing",
-      "headline": "Sebastian Fundora and Ermal Hadribeaj preview their October 17 fight during virtual press conference - britishboxingnews.co.uk",
+      "headline": "Sebastian Fundora and Ermal Hadribeaj preview their October 17 fight during virtual press conference - British Boxing News",
       "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOMEVfbzBfZVdnemZ0d1ZZakRfVjZ2dm9rWExSU1NveW9ZSGJyVURfMWItTnRkdnU1aEQ2LVpUWTdQcmExR1VVdTBHMk9fN1pFXzhHNGRfeTlHYjhvVmw3VjlfcFRSWVQ3RFR2Vml0XzBreVEybkVWQ29nWnNyRm8xWE13dGQ1bkp0emlpVzBrbFlDeDZfTmJTUXZZWTU2ZXpjMG9mXzJpMkF6M19Pcm1VbmVQU1A3Y2FFS0YtUk9ZekRoUk9ZTlJ3UHFlRzE0NjNvVEh0dQ?oc=5",
-      "source": "britishboxingnews.co.uk",
+      "source": "British Boxing News",
       "publishedAt": "2026-09-25T07:38:05.000Z",
       "date": "2026-10-17",
       "granularity": "day",
       "confidence": "medium",
-      "detectedAt": "2026-09-26T17:51:10.052Z"
+      "detectedAt": "2026-09-27T00:30:28.372Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -80,14 +80,14 @@
     {
       "boxerName": "Terence Crawford",
       "sport": "boxing",
-      "headline": "Is Ryan Garcia truly in frame for shock Terence Crawford bout this December? - DAZN",
+      "headline": "Is Ryan Garcia truly in frame for shock Terence Crawford bout this December? - dazn.com",
       "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQbUxOTTdqb3VDMmtYWE51OGtNeUZOQjNHLXhLOVFSY2s1amNmU3pNWG9lNGhPSVlad0hMODktNXRaUk5UWTNGdnhUZ0xQanZOeDFnSTB2N29rTG5mNmdlZlZOT0RTdE45b3Rwd3RVU2Y1SlJsekQtYlFHZi1kdXhkcTRtMWllcThncVp3MUZycVJ6ZndpRGpXcHpYS0EwQWtkcGEzU05kSnJ4c2ZvZGRvRDVHRno?oc=5",
-      "source": "DAZN",
+      "source": "dazn.com",
       "publishedAt": "2026-09-26T09:00:00.000Z",
       "date": "2026-12",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-26T17:50:59.536Z"
+      "detectedAt": "2026-09-27T00:30:17.995Z"
     },
     {
       "boxerName": "David Benavidez",
@@ -161,7 +161,7 @@
       "matchup": "Dmitry Bivol vs Michael Eifert",
       "opponent": "Michael Eifert",
       "confidence": "high",
-      "detectedAt": "2026-09-26T17:51:07.698Z"
+      "detectedAt": "2026-09-27T00:30:26.161Z"
     },
     {
       "boxerName": "Jaron Ennis",
