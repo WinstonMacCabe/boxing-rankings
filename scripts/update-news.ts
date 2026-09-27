@@ -134,6 +134,36 @@ const NOT_A_BOOKING_RE = new RegExp(
   'i'
 )
 
+// Final tokens that are not surnames. In sumo the closing "I" / "II" is a
+// generation marker and "Jr." is a generational suffix, so several ranked
+// fighters end in the same token. Matching on one of these would tie a headline
+// to whoever else happens to share it.
+const SURNAME_ORDINAL_RE = /^(?:i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|jr\.?|sr\.?)$/i
+
+// Surnames that are ordinary words or common given names, and so cannot identify
+// a fighter on their own: "Ryan Garcia previews fight" is not about Tommy Ryan.
+// This is a stop-list, not a length rule. A previous version blocked the surname
+// path for any surname under 8 characters, which kept Dmitry Bivol ("Bivol", 5)
+// out of a headline that misspelled only his first name -- while every surname it
+// was actually written to catch here was already caught by the roster test in
+// buildDistinctiveSurnames. Extend this list when a new fighter's surname turns
+// out to be a common word.
+//
+// Anchored deliberately: the entries are whole surnames, and a bare alternation
+// would reject every surname that merely *contains* one of them -- "Benavidez"
+// contains "ben", "Sandoval" contains "sand", "Winters" contains "winter".
+const COMMON_SURNAME_RE = new RegExp(
+  '^(?:' +
+    [
+      // Given names that are also surnames.
+      'alex|anderson|bailey|baker|bell|ben|bennett|boyd|brooks|brown|campbell|chavez|clark|cole|coleman|collins|cook|cox|dan|david|dean|dixon|dunn|edwards|evans|ferguson|fisher|ford|fox|gardner|garza|green|griffin|hall|harris|harry|henderson|henry|hicks|hill|holmes|howard|hunter|hughes|jack|james|jenkins|jim|joe|john|johnson|jones|jordan|kennedy|kim|king|knight|lee|lewis|long|mark|marsh|martin|mason|matthew|mcdonald|miller|mitchell|moore|morris|nash|nelson|nguyen|nichols|owen|page|palmer|parker|patel|patterson|payne|perry|peterson|phillips|porter|price|reed|reyes|reynolds|rice|richardson|roberts|robertson|robinson|rodriguez|rogers|ross|rowan|ryan|scott|shah|shaw|simmons|simpson|smith|stewart|stone|sullivan|taylor|thomas|thompson|todd|turner|walker|wallace|ward|warren|washington|watson|webb|webster|west|white|williams|willis|wilson|wood|wright|young',
+      // Ordinary words and names that turn up in fight headlines.
+      'ace|angel|black|blue|bold|boss|camp|champ|champion|city|classic|coach|college|crown|dawn|day|diamond|dog|dream|duke|eagle|east|earth|edge|elder|end|engine|even|ever|falls|father|field|final|first|flash|flower|forest|fortune|game|garden|gate|gem|gold|golden|good|grace|grand|ground|hand|happy|hard|head|heart|heaven|hero|high|home|hope|horse|hot|house|iron|joy|lady|lake|land|late|lead|light|lion|love|luck|main|master|midnight|mile|money|moon|morning|mother|mountain|night|north|ocean|palace|peace|peak|perfect|phone|place|plain|plane|point|power|press|prince|rain|red|rich|right|ring|river|road|robin|rock|rose|round|royal|saint|sand|school|sea|season|second|silver|sky|snow|song|sound|south|space|spirit|spring|stage|star|state|storm|strike|sugar|summer|sun|super|sword|tiger|time|title|today|tonight|train|treasure|truth|valley|victory|voice|water|wave|wheat|wild|will|wind|window|winter|wise|witch|wolf|wonder|world|year|yellow',
+    ].join('|') +
+    ')$',
+  'i'
+)
+
 const NAME_STOP_WORDS = new Set([
   'live', 'stream', 'fight', 'fights', 'official', 'preview', 'watch', 'title',
   'world', 'scheduled', 'announced', 'set', 'boxing', 'results', 'analysis',
@@ -171,12 +201,47 @@ function cleanName(name: string): string {
   return name.replace(/\s*\([^)]*\)\s*$/, '').trim()
 }
 
-function nameInTitle(title: string, clean: string): boolean {
+function escapeRegExp(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+function surnameOf(clean: string): string {
+  return clean.split(/\s+/).pop() ?? ''
+}
+
+// A surname may stand in for a full name in a headline only when it identifies
+// one fighter on its own. That is a question about the roster, so it is answered
+// from the roster rather than from the length of the word: a surname qualifies
+// when exactly one ranked fighter ends in it, it is not a generation marker, and
+// it is not an ordinary word (see COMMON_SURNAME_RE).
+function buildDistinctiveSurnames(names: string[]): Set<string> {
+  const counts = new Map<string, number>()
+  for (const name of names) {
+    const surname = surnameOf(name)
+    if (!surname || SURNAME_ORDINAL_RE.test(surname)) continue
+    const key = surname.toLowerCase()
+    counts.set(key, (counts.get(key) ?? 0) + 1)
+  }
+  const distinctive = new Set<string>()
+  for (const [key, n] of counts) {
+    if (n === 1 && !COMMON_SURNAME_RE.test(key)) distinctive.add(key)
+  }
+  return distinctive
+}
+
+// `distinctiveSurnames` comes from the full ranked roster, never from the roster
+// subset a given run happens to scan.
+function nameInTitle(title: string, clean: string, distinctiveSurnames: Set<string>): boolean {
   const t = title.toLowerCase()
   if (t.includes(clean.toLowerCase())) return true
-  const surname = clean.split(/\s+/).pop()
-  if (!surname || surname.length < 8) return false
-  return t.includes(surname.toLowerCase()) && FIGHT_WORD_RE.test(title)
+  const surname = surnameOf(clean)
+  if (!surname || SURNAME_ORDINAL_RE.test(surname)) return false
+  if (!distinctiveSurnames.has(surname.toLowerCase())) return false
+  // Whole token only. A plain substring test would match "Li" inside "Liddell" and
+  // "Ray" inside any word carrying those letters. \b is ASCII-only, so spell the
+  // boundaries out -- surnames here include non-ASCII forms like "Tozo".
+  if (!new RegExp(`(?<![a-z0-9_])${escapeRegExp(surname)}(?![a-z0-9_])`, 'i').test(t)) return false
+  return FIGHT_WORD_RE.test(title)
 }
 
 function monthIndex(token: string): number | null {
@@ -226,11 +291,19 @@ function extractDate(title: string, ref: Date): DateCandidate | null {
 
   // Numeric US requires a year: "10/17/2026". Bare "9/18" style dates are
   // anniversary/recap noise and never treated as a booking.
+  //
+  // `month` is 1-based here (that is what the range check below is testing), but
+  // every consumer of a candidate's month is 0-based: monthIndex returns
+  // MONTH_FULL.indexOf, tryDay builds `new Date(y, cand.month, d)`, and the stored
+  // string adds 1 back on. So the digit has to be shifted down before it is
+  // pushed. Passing it through raw dates every numeric headline one month late
+  // ("10/17/2026" -> 17 November) and nothing catches it: the getMonth() check in
+  // tryDay compares the shifted month against itself, so it always agrees.
   re = /\b(\d{1,2})\/(\d{1,2})\/(20\d{2})\b/g
   while ((m = re.exec(text)) !== null) {
     const month = parseInt(m[1], 10)
     const day = parseInt(m[2], 10)
-    if (month >= 1 && month <= 12) pushDay(m, month, day, toInteger(m[3]))
+    if (month >= 1 && month <= 12) pushDay(m, month - 1, day, toInteger(m[3]))
   }
 
   // ISO: "2026-10-17"
@@ -238,7 +311,7 @@ function extractDate(title: string, ref: Date): DateCandidate | null {
   while ((m = re.exec(text)) !== null) {
     const month = parseInt(m[2], 10)
     const day = parseInt(m[3], 10)
-    if (month >= 1 && month <= 12) pushDay(m, month, day, parseInt(m[1], 10))
+    if (month >= 1 && month <= 12) pushDay(m, month - 1, day, parseInt(m[1], 10))
   }
 
   // Month-level: "in October", "for October", "by October 2026"
@@ -486,14 +559,43 @@ function buildRoster(rankings: { thirdary?: unknown; sports?: Record<string, unk
   return Array.from(seen.values())
 }
 
+// The feed arrives in relevance order, not date order, so slicing before
+// filtering spends the per-fighter budget on stale articles that the window
+// check then throws away: a handful of old write-ups can push every current one
+// past the cut. Filtering first means the budget buys only current articles.
+function selectInWindowItems(items: RssItem[], cutoff: string, cap: number): RssItem[] {
+  return items.filter((i) => i.publishedAt >= cutoff).slice(0, cap)
+}
+
 function fightKey(f: ScheduledEntry): string {
   return f.url || `${f.boxerName}|${f.date}|${(f.matchup || '').toLowerCase()}|${f.headline}`
+}
+
+// Older scans could roll a yearless date into the following year after the
+// fight had already happened. Treat a next-year date whose same month/day was
+// only recently past at publication time as that stale rollover, not a real
+// far-future booking.
+function isStaleYearRollover(f: ScheduledEntry): boolean {
+  if (f.granularity !== 'day' || !f.publishedAt) return false
+  const scheduled = new Date(`${f.date}T00:00:00`)
+  const published = new Date(f.publishedAt)
+  if (isNaN(scheduled.getTime()) || isNaN(published.getTime())) return false
+  if (scheduled.getFullYear() !== published.getFullYear() + 1) return false
+
+  const priorOccurrence = new Date(scheduled)
+  priorOccurrence.setFullYear(published.getFullYear())
+  const daysPast = (new Date(published.getFullYear(), published.getMonth(), published.getDate()).getTime() - priorOccurrence.getTime()) / 86400000
+  return daysPast >= 0 && daysPast <= 90
 }
 
 async function main() {
   const ref = now()
   const rankings = await readRankings()
   const roster = buildRoster(rankings, ref)
+  // Computed from the whole ranked roster, before any FIGHTER_LIMIT /
+  // FIGHTER_NAMES narrowing -- a partial run must not judge a surname against a
+  // partial list and conclude it is unique.
+  const distinctiveSurnames = buildDistinctiveSurnames(roster.map((f) => f.clean))
 
   const limitEnv = process.env.FIGHTER_LIMIT
   const fightLimit = limitEnv ? parseInt(limitEnv, 10) : NaN
@@ -504,7 +606,7 @@ async function main() {
     scanList = scanList.filter(f => wanted.some(w => f.clean.toLowerCase().includes(w)))
   }
 
-  console.log(`[schedule-scan] article window ${NEWS_WINDOW_DAYS}d, up to ${MAX_ITEMS_PER_FIGHTER} items per fighter`)
+  console.log(`[schedule-scan] article window ${NEWS_WINDOW_DAYS}d, up to ${MAX_ITEMS_PER_FIGHTER} in-window items per fighter`)
   console.log(`[schedule-scan] scanning ${scanList.length} fighters (${namesEnv ? 'filtered by FIGHTER_NAMES' : isNaN(fightLimit) ? 'full roster' : `limited to ${fightLimit}`})`)
   const cutoff = new Date(ref.getTime() - NEWS_WINDOW_MS).toISOString()
 
@@ -524,8 +626,7 @@ async function main() {
       return
     }
     const seenUrl = new Set<string>()
-    for (const item of items.slice(0, MAX_ITEMS_PER_FIGHTER)) {
-      if (item.publishedAt < cutoff) continue
+    for (const item of selectInWindowItems(items, cutoff, MAX_ITEMS_PER_FIGHTER)) {
       if (RESULT_WORD_RE.test(item.title)) continue
       if (NOT_A_BOOKING_RE.test(item.title)) continue
       if (seenUrl.has(item.link)) continue
@@ -547,7 +648,7 @@ async function main() {
       
       if (!dateCand) continue
 
-      const titleHasName = nameInTitle(item.title, fighter.clean)
+      const titleHasName = nameInTitle(item.title, fighter.clean, distinctiveSurnames)
       if (!titleHasName) continue
 
       const matchup = extractMatchup(item.title, fighter.clean)
@@ -612,6 +713,7 @@ async function main() {
   const merged: ScheduledEntry[] = []
   for (const f of [...entries, ...existing]) {
     if (seen.has(fightKey(f))) continue
+    if (isStaleYearRollover(f)) continue
     const ts = new Date(f.granularity === 'day' ? f.date : `${f.date}-01`)
     if (isNaN(ts.getTime()) || ts < keepFrom) continue
     seen.add(fightKey(f))
