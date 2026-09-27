@@ -48,12 +48,6 @@ export async function GET() {
   cutoff.setDate(cutoff.getDate() - 7)
   const cutoffStr = cutoff.toISOString().slice(0, 10)
   const filtered = raw.filter(r => {
-    // A newly discovered fight should remain visible even when the article's
-    // parsed fight date is stale or imprecise. The crawler's detection timestamp
-    // is the reliable signal for the seven-day discovery window.
-    const detectedAt = Date.parse(r.detectedAt ?? '')
-    if (!Number.isNaN(detectedAt) && detectedAt >= cutoff.getTime()) return true
-
     const date = (r.date ?? '').trim()
     if (!date) return true // undated — keep
     const dateDay = date.length === 7 ? `${date}-01` : date
