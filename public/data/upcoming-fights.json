@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-27T18:16:08.075Z",
+  "lastUpdated": "2026-09-28T00:30:20.140Z",
   "fights": [
     {
       "boxerName": "Ermal Hadribeaj",
@@ -12,6 +12,18 @@
       "granularity": "month",
       "confidence": "low",
       "detectedAt": "2026-09-27T18:16:19.275Z"
+    },
+    {
+      "boxerName": "Ermal Hadribeaj",
+      "sport": "boxing",
+      "headline": "Sebastian Fundora and Ermal Hadribeaj preview their October 17 fight during virtual press conference - British Boxing News",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOMEVfbzBfZVdnemZ0d1ZZakRfVjZ2dm9rWExSU1NveW9ZSGJyVURfMWItTnRkdnU1aEQ2LVpUWTdQcmExR1VVdTBHMk9fN1pFXzhHNGRfeTlHYjhvVmw3VjlfcFRSWVQ3RFR2Vml0XzBreVEybkVWQ29nWnNyRm8xWE13dGQ1bkp0emlpVzBrbFlDeDZfTmJTUXZZWTU2ZXpjMG9mXzJpMkF6M19Pcm1VbmVQU1A3Y2FFS0YtUk9ZekRoUk9ZTlJ3UHFlRzE0NjNvVEh0dQ?oc=5",
+      "source": "British Boxing News",
+      "publishedAt": "2026-09-25T07:38:05.000Z",
+      "date": "2026-10-17",
+      "granularity": "day",
+      "confidence": "medium",
+      "detectedAt": "2026-09-28T00:30:31.435Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -44,18 +56,6 @@
     {
       "boxerName": "Ermal Hadribeaj",
       "sport": "boxing",
-      "headline": "Sebastian Fundora and Ermal Hadribeaj preview their October 17 fight during virtual press conference - British Boxing News",
-      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOMEVfbzBfZVdnemZ0d1ZZakRfVjZ2dm9rWExSU1NveW9ZSGJyVURfMWItTnRkdnU1aEQ2LVpUWTdQcmExR1VVdTBHMk9fN1pFXzhHNGRfeTlHYjhvVmw3VjlfcFRSWVQ3RFR2Vml0XzBreVEybkVWQ29nWnNyRm8xWE13dGQ1bkp0emlpVzBrbFlDeDZfTmJTUXZZWTU2ZXpjMG9mXzJpMkF6M19Pcm1VbmVQU1A3Y2FFS0YtUk9ZekRoUk9ZTlJ3UHFlRzE0NjNvVEh0dQ?oc=5",
-      "source": "British Boxing News",
-      "publishedAt": "2026-09-25T07:38:05.000Z",
-      "date": "2026-10-17",
-      "granularity": "day",
-      "confidence": "medium",
-      "detectedAt": "2026-09-27T18:16:19.275Z"
-    },
-    {
-      "boxerName": "Ermal Hadribeaj",
-      "sport": "boxing",
       "headline": "Sebastian Fundora Defends WBC Title Against Ermal Hadribeaj On October 17 - Boxing News 24/7",
       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOWE8wdWk3OEtUNWZNMmVUZExWN2lwQktMd3dfNjNpY2IzcEVJZDFnX2szRU1PcVJKNi0zVldVTXcyN2p0YkE0RWZvT0gyUVVmUDFBYldYRTNsWjFfTFhEZ08zTjNyU1I1OHdYSFFXY3lCaVZyWEFueHlIVGctMXlURkpHZlV5SUgzREd5bndyQ1c1WmdqdV90NXhuS3hzMlZhVHFaM1BFbWM5QTlm?oc=5",
       "source": "Boxing News 24/7",
@@ -80,14 +80,26 @@
     {
       "boxerName": "Terence Crawford",
       "sport": "boxing",
-      "headline": "Is Ryan Garcia truly in frame for shock Terence Crawford bout this December? - DAZN",
+      "headline": "Is Ryan Garcia truly in frame for shock Terence Crawford bout this December? - dazn.com",
       "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQbUxOTTdqb3VDMmtYWE51OGtNeUZOQjNHLXhLOVFSY2s1amNmU3pNWG9lNGhPSVlad0hMODktNXRaUk5UWTNGdnhUZ0xQanZOeDFnSTB2N29rTG5mNmdlZlZOT0RTdE45b3Rwd3RVU2Y1SlJsekQtYlFHZi1kdXhkcTRtMWllcThncVp3MUZycVJ6ZndpRGpXcHpYS0EwQWtkcGEzU05kSnJ4c2ZvZGRvRDVHRno?oc=5",
-      "source": "DAZN",
+      "source": "dazn.com",
       "publishedAt": "2026-09-26T09:00:00.000Z",
       "date": "2026-12",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-27T18:16:08.800Z"
+      "detectedAt": "2026-09-28T00:30:20.898Z"
+    },
+    {
+      "boxerName": "Dmitry Bivol",
+      "sport": "boxing",
+      "headline": "Dmitry Bivol set for December fight against former champion as 'no Beterbiev trilogy offer made' - boxingnewsonline.net",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9zM3Z2UGFFNGgwRWhzYjJqUmdPVXctd3Y4Tng5NmlrbGJlN0dXVURBMGMydHltWERFQkVKVjc1TTd2cWprZ2JMazJjLVN4WHVoSWxaQ1hmN0pfdDdHOVBGTnNSeXF2dTlPNmZpWE5raFp6SE0wM2tKZw?oc=5",
+      "source": "boxingnewsonline.net",
+      "publishedAt": "2026-09-02T07:00:00.000Z",
+      "date": "2026-12",
+      "granularity": "month",
+      "confidence": "low",
+      "detectedAt": "2026-09-28T00:30:29.176Z"
     },
     {
       "boxerName": "David Benavidez",
@@ -100,18 +112,6 @@
       "granularity": "month",
       "confidence": "low",
       "detectedAt": "2026-09-27T18:16:12.084Z"
-    },
-    {
-      "boxerName": "Dmitry Bivol",
-      "sport": "boxing",
-      "headline": "Dmitry Bivol set for December fight against former champion as 'no Beterbiev trilogy offer made' - boxingnewsonline.net",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9zM3Z2UGFFNGgwRWhzYjJqUmdPVXctd3Y4Tng5NmlrbGJlN0dXVURBMGMydHltWERFQkVKVjc1TTd2cWprZ2JMazJjLVN4WHVoSWxaQ1hmN0pfdDdHOVBGTnNSeXF2dTlPNmZpWE5raFp6SE0wM2tKZw?oc=5",
-      "source": "boxingnewsonline.net",
-      "publishedAt": "2026-09-02T07:00:00.000Z",
-      "date": "2026-12",
-      "granularity": "month",
-      "confidence": "low",
-      "detectedAt": "2026-09-27T18:16:16.872Z"
     },
     {
       "boxerName": "Terence Crawford",
@@ -161,7 +161,7 @@
       "matchup": "Dmitry Bivol vs Michael Eifert",
       "opponent": "Michael Eifert",
       "confidence": "low",
-      "detectedAt": "2026-09-27T18:16:16.871Z"
+      "detectedAt": "2026-09-28T00:30:29.176Z"
     },
     {
       "boxerName": "David Benavidez",
