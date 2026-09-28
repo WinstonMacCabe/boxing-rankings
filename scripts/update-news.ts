@@ -201,6 +201,17 @@ function cleanName(name: string): string {
   return name.replace(/\s*\([^)]*\)\s*$/, '').trim()
 }
 
+function normalizeNameText(value: string): string {
+  return value
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[\u2018\u2019'`-]/g, ' ')
+    .replace(/[^a-z0-9]+/gi, ' ')
+    .trim()
+    .replace(/\s+/g, ' ')
+    .toLowerCase()
+}
+
 function escapeRegExp(s: string): string {
   return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 }
@@ -219,7 +230,7 @@ function buildDistinctiveSurnames(names: string[]): Set<string> {
   for (const name of names) {
     const surname = surnameOf(name)
     if (!surname || SURNAME_ORDINAL_RE.test(surname)) continue
-    const key = surname.toLowerCase()
+    const key = normalizeNameText(surname)
     counts.set(key, (counts.get(key) ?? 0) + 1)
   }
   const distinctive = new Set<string>()
@@ -232,15 +243,13 @@ function buildDistinctiveSurnames(names: string[]): Set<string> {
 // `distinctiveSurnames` comes from the full ranked roster, never from the roster
 // subset a given run happens to scan.
 function nameInTitle(title: string, clean: string, distinctiveSurnames: Set<string>): boolean {
-  const t = title.toLowerCase()
-  if (t.includes(clean.toLowerCase())) return true
+  const t = normalizeNameText(title)
+  if (t.includes(normalizeNameText(clean))) return true
   const surname = surnameOf(clean)
   if (!surname || SURNAME_ORDINAL_RE.test(surname)) return false
-  if (!distinctiveSurnames.has(surname.toLowerCase())) return false
-  // Whole token only. A plain substring test would match "Li" inside "Liddell" and
-  // "Ray" inside any word carrying those letters. \b is ASCII-only, so spell the
-  // boundaries out -- surnames here include non-ASCII forms like "Tozo".
-  if (!new RegExp(`(?<![a-z0-9_])${escapeRegExp(surname)}(?![a-z0-9_])`, 'i').test(t)) return false
+  const normalizedSurname = normalizeNameText(surname)
+  if (!distinctiveSurnames.has(normalizedSurname)) return false
+  if (!new RegExp(`(?:^| )${escapeRegExp(normalizedSurname)}(?: |$)`).test(t)) return false
   return FIGHT_WORD_RE.test(title)
 }
 
