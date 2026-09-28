@@ -28,12 +28,6 @@ interface CalendarPayload {
 
 const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
-const CONFIDENCE_STYLE: Record<Confidence, string> = {
-  high: 'border-black/70 bg-black/70 text-white',
-  medium: 'border-black/40 bg-black/10 text-black/60',
-  low: 'border-black/25 bg-transparent text-black/40',
-}
-
 function dayLabel(date: string): string {
   const [y, m, d] = date.split('-').map(Number)
   return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString('en-US', {
@@ -57,17 +51,6 @@ function shiftMonth(year: number, month: number, delta: number) {
 function SportTag({ sport }: { sport: string }) {
   return (
     <span className="text-[10px] uppercase tracking-[0.1em] text-black/50">{sport}</span>
-  )
-}
-
-function ConfidenceBadge({ level }: { level: Confidence }) {
-  return (
-    <span
-      title={`${level} confidence`}
-      className={`inline-flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-full border text-[9px] font-semibold leading-none ${CONFIDENCE_STYLE[level]}`}
-    >
-      {level[0].toUpperCase()}
-    </span>
   )
 }
 
@@ -280,7 +263,6 @@ export default function CalendarView() {
                           className="block w-full rounded-sm border border-black/15 bg-white px-1 py-0.5 sm:px-1.5 sm:py-1 text-left transition-colors hover:border-black"
                         >
                           <div className="flex items-start gap-1">
-                            <ConfidenceBadge level={e.confidence} />
                             <div className="min-w-0 flex-1 overflow-hidden">
                               <div className="truncate text-[9px] sm:text-[11px] font-semibold leading-tight">
                                 {e.matchup ?? e.boxerName}
@@ -322,7 +304,6 @@ export default function CalendarView() {
                           onClick={() => setSelected(e)}
                           className="flex w-full items-start gap-2 rounded-sm border border-black/10 px-2.5 py-2 text-left transition-colors hover:border-black"
                         >
-                          <ConfidenceBadge level={e.confidence} />
                           <span className="min-w-0 flex-1">
                             <span className="block text-[13px] font-semibold">{e.matchup ?? e.boxerName}</span>
                             <span className="mt-0.5 block text-[12px] leading-snug text-black/55">
@@ -357,7 +338,6 @@ export default function CalendarView() {
                       onClick={() => setSelected(e)}
                       className="flex w-full items-center gap-2 rounded-sm border border-black/10 px-2.5 py-2 text-left transition-colors hover:border-black"
                     >
-                      <ConfidenceBadge level={e.confidence} />
                       <span className="text-[13px] font-semibold">{e.matchup ?? e.boxerName}</span>
                       <SportTag sport={e.sport} />
                     </button>
@@ -369,11 +349,6 @@ export default function CalendarView() {
             {selected && (
               <div className="mt-4 border border-black/80 p-5">
                 <div className="flex flex-wrap items-center gap-2">
-                  <ConfidenceBadge level={selected.confidence} />
-                  <span className="text-[11px] uppercase tracking-[0.12em] text-black/50">
-                    {selected.confidence} confidence
-                  </span>
-                  <span className="text-black/20">·</span>
                   <SportTag sport={selected.sport} />
                   {!selected.dayKnown && (
                     <>
@@ -421,9 +396,6 @@ export default function CalendarView() {
 
             <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] uppercase tracking-[0.1em] text-black/45">
               <span className="text-black/60">{monthCount} in {monthLabel(key)}</span>
-              <span className="flex items-center gap-1.5"><ConfidenceBadge level="high" /> Reported directly</span>
-              <span className="flex items-center gap-1.5"><ConfidenceBadge level="medium" /> Inferred</span>
-              <span className="flex items-center gap-1.5"><ConfidenceBadge level="low" /> Unconfirmed</span>
               <span className="ml-auto">
                 Feeds {data.stats.sourcesOnline}/{data.stats.sourcesTotal} online
                 {data.stats.sourcesOnline < data.stats.sourcesTotal && ' — some events may be missing'}

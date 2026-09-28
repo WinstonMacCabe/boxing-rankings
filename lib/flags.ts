@@ -161,6 +161,15 @@ export function getCountryFlag(country: string): string {
   return COUNTRY_FLAGS[normalized] || ''
 }
 
+export function getCountryFlagUrl(country: string): string {
+  const flag = getCountryFlag(country)
+  const codePoints = Array.from(flag).map(char => char.codePointAt(0) ?? 0)
+  const regional = codePoints.every(code => code >= 0x1f1e6 && code <= 0x1f1ff) && codePoints.length === 2
+  if (!regional) return ''
+  const code = codePoints.map(code => String.fromCharCode(code - 0x1f1e6 + 97)).join('')
+  return `https://flagcdn.com/w40/${code}.png`
+}
+
 export function getCountryName(country: string): string {
   if (!country) return ''
   const normalized = normalizeCountry(country)

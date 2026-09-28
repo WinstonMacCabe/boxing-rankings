@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react'
 import type { RankingsData, BoxerRecord, Gender, UpcomingFightsData, WbaChampion } from '@/lib/types'
-import { getCountryFlag } from '@/lib/flags'
+import { getCountryFlag, getCountryFlagUrl } from '@/lib/flags'
 
 const WEIGHT_ORDER: Record<string, number> = {
   'minimumweight': 1, 'strawweight': 1, 'mini flyweight': 1,
@@ -76,6 +76,7 @@ function FighterCard({ fighter, rank, isWorst, isBest }: { fighter: BoxerRecord;
   const displayName = cleanName(fighter.name)
   const koPct = fighter.wins > 0 ? ((fighter.kos / fighter.wins) * 100).toFixed(0) : '0'
   const flag = getCountryFlag(fighter.nationality)
+  const flagUrl = getCountryFlagUrl(fighter.nationality)
   const hasImage = Boolean(fighter.imageUrl && !imgError)
   const rankChange = fighter.previousRank ? fighter.previousRank - rank : 0
 
@@ -161,7 +162,11 @@ function FighterCard({ fighter, rank, isWorst, isBest }: { fighter: BoxerRecord;
           </div>
 
           <div className="mt-auto flex min-h-[48px] items-center justify-center gap-3 pt-4">
-            {flag && <span className="text-[40px] leading-none">{flag}</span>}
+            {flagUrl ? (
+              <img src={flagUrl} alt="" className="h-7 w-10 object-cover" />
+            ) : flag ? (
+              <span className="text-[40px] leading-none">{flag}</span>
+            ) : null}
             <span className="text-[15px] tracking-[0.05em] text-[#6e6e73]">{fighter.nationality || ''}</span>
           </div>
         </div>
