@@ -2,6 +2,7 @@ import { readRankings } from '../lib/storage'
 import { scanFighterFromWikipedia } from './wiki-detectors'
 import * as fs from 'fs/promises'
 import * as path from 'path'
+import { load as loadHtml } from 'cheerio'
 
 const DATA_DIR = path.join(process.cwd(), 'public', 'data')
 const OUTFILE = path.join(DATA_DIR, 'upcoming-fights.json')
@@ -30,6 +31,7 @@ const NEWS_WINDOW_MS = NEWS_WINDOW_DAYS * 24 * 60 * 60 * 1000
 const PAST_DAYS_KEPT = 7
 const CONCURRENCY = 4
 const FETCH_ATTEMPTS = 3
+const ARTICLE_BODY_TIMEOUT_MS = 8000
 
 const SPORT_KEYWORDS: Record<string, string> = {
   kickboxing: 'kickboxing',
@@ -520,6 +522,33 @@ async function fetchFeed(fighterClean: string, keyword: string): Promise<RssItem
   throw lastErr instanceof Error ? lastErr : new Error(String(lastErr))
 }
 
+async function fetchArticleBody(url: string): Promise<string> {
+  const controller = new AbortController()
+  const timeout = setTimeout(() => controller.abort(), ARTICLE_BODY_TIMEOUT_MS)
+  try {
+    const res = await fetch(url, {
+      signal: controller.signal,
+      headers: {
+        'user-agent': 'Mozilla/5.0 (compatible; fight-schedule-scanner/1.0)',
+        accept: 'text/html,application/xhtml+xml',
+      },
+    })
+    if (!res.ok) return ''
+    const html = await res.text()
+    const $ = loadHtml(html)
+    $('script, style, noscript, nav, header, footer, aside, form, [aria-hidden="true"]').remove()
+    const root = $('article').first().length
+      ? $('article').first()
+      : $('[itemprop="articleBody"], .article-body, .article-content, .entry-content, main').first()
+    if (!root.length) return ''
+    return root.text().replace(/\s+/g, ' ').trim()
+  } catch {
+    return ''
+  } finally {
+    clearTimeout(timeout)
+  }
+}
+
 async function mapPool<T, R>(items: T[], limit: number, worker: (item: T) => Promise<R>): Promise<R[]> {
   const results: R[] = new Array(items.length)
   let idx = 0
@@ -640,11 +669,18 @@ async function main() {
     }
     const seenUrl = new Set<string>()
     for (const item of selectInWindowItems(items, cutoff, MAX_ITEMS_PER_FIGHTER)) {
-      const articleText = `${item.title} ${item.description}`.trim()
-      if (RESULT_WORD_RE.test(articleText)) continue
-      if (NOT_A_BOOKING_RE.test(articleText)) continue
+      const feedText = `${item.title} ${item.description}`.trim()
+      if (RESULT_WORD_RE.test(feedText)) continue
+      if (NOT_A_BOOKING_RE.test(feedText)) continue
       if (seenUrl.has(item.link)) continue
       seenUrl.add(item.link)
+      if (!nameInTitle(feedText, fighter.clean, distinctiveSurnames)) continue
+
+      // RSS often omits the sentence containing the exact date. Fetch the
+      // article only after the cheap metadata filters pass, then let the same
+      // detector inspect title, description, and body together.
+      const body = await fetchArticleBody(item.link)
+      const articleText = `${feedText} ${body}`.trim()
 
       // Year inference has to be anchored on when the article was written, not on
       // today. "on July 4" in a piece published 26 June 2026 means 4 July 2026 --
@@ -661,9 +697,6 @@ async function main() {
       const dateCand = extractDate(searchTitle, isNaN(published.getTime()) ? ref : published)
       
       if (!dateCand) continue
-
-      const titleHasName = nameInTitle(articleText, fighter.clean, distinctiveSurnames)
-      if (!titleHasName) continue
 
       const matchup = extractMatchup(articleText, fighter.clean)
       const confidence = confidenceFor(dateCand.granularity, matchup !== null)
