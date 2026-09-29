@@ -32,6 +32,7 @@ const PAST_DAYS_KEPT = 7
 const CONCURRENCY = 4
 const FETCH_ATTEMPTS = 3
 const ARTICLE_BODY_TIMEOUT_MS = 8000
+const WIKI_PAST_DAYS = envInt('WIKI_PAST_DAYS', 7)
 
 const SPORT_KEYWORDS: Record<string, string> = {
   kickboxing: 'kickboxing',
@@ -723,7 +724,7 @@ async function main() {
     const mmaRankings = rankings as { sports?: unknown }
     const isMma = typeof mmaRankings.sports === 'object' && mmaRankings.sports !== null
     try {
-      const wikiRows = await scanFighterFromWikipedia(fighter, ref, { mmaOnly: isMma })
+      const wikiRows = await scanFighterFromWikipedia(fighter, ref, { mmaOnly: isMma, pastDays: WIKI_PAST_DAYS })
       entries.push(...wikiRows)
     } catch (err) {
       // A Wikipedia outage/rate limit must never sink the whole update; news

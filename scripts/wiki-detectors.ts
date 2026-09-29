@@ -178,7 +178,11 @@ interface DateCandidate {
 // "Oct 24, 2026", "October 2026" (month granularity). Returns only FUTURE
 // dates (no horizon ceiling — every future fight is kept). Null when
 // ambiguous/unparseable.
-function extractWikiDate(text: string, ref: Date): DateCandidate | null {
+function extractWikiDate(text: string, ref: Date, pastDays = 0): DateCandidate | null {
+  const minTs = new Date(ref)
+  minTs.setHours(0, 0, 0, 0)
+  minTs.setDate(minTs.getDate() - pastDays)
+  const isAllowed = (ts: Date) => ts > ref || (pastDays > 0 && ts >= minTs)
   const t = text.trim()
   let m: RegExpExecArray | null
 
@@ -197,7 +201,7 @@ function extractWikiDate(text: string, ref: Date): DateCandidate | null {
       const d = parseInt(m[1], 10)
       if (d >= 1 && d <= 31) {
         const ts = new Date(parseInt(m[3], 10), mi, d)
-        if (ts > ref) {
+        if (isAllowed(ts)) {
           return { ts, granularity: 'day', year: ts.getFullYear(), month: mi, day: d }
         }
       }
@@ -213,13 +217,13 @@ function extractWikiDate(text: string, ref: Date): DateCandidate | null {
         const d = parseInt(m[2], 10)
         if (d >= 1 && d <= 31) {
           const ts = new Date(year, mi, d)
-          if (ts > ref) {
+          if (isAllowed(ts)) {
             return { ts, granularity: 'day', year, month: mi, day: d }
           }
         }
       } else {
         const ts = new Date(year, mi, 1)
-        if (ts > ref) {
+        if (isAllowed(ts)) {
           return { ts, granularity: 'month', year, month: mi }
         }
       }
@@ -235,7 +239,7 @@ function extractWikiDate(text: string, ref: Date): DateCandidate | null {
         const d = parseInt(m[3], 10)
         if (d >= 1 && d <= 31) {
           const ts = new Date(year, mo - 1, d)
-          if (ts > ref) {
+          if (isAllowed(ts)) {
             return { ts, granularity: 'day', year, month: mo - 1, day: d }
           }
         }
@@ -252,7 +256,7 @@ function extractWikiDate(text: string, ref: Date): DateCandidate | null {
 
 // extractWikiDate is anchored (it expects a bare date). Callers scan sentences/rows,
 // so first pull a date-like token out, then pass it through extractWikiDate.
-function findDateToken(text: string): string | null {
+function findDateToken(text: string, ref = new Date(), pastDays = 0): string | null {
   const plain = stripWikiMarkup(text).replace(/\s+/g, ' ')
   for (const re of [
     /\b(20\d{2})-(\d{1,2})-(\d{1,2})\b/,
@@ -264,7 +268,7 @@ function findDateToken(text: string): string | null {
     const m = re.exec(plain)
     if (m) {
       const token = m[0]
-      if (extractWikiDate(token, new Date())) return token
+      if (extractWikiDate(token, ref, pastDays)) return token
     }
   }
   return null
@@ -323,7 +327,7 @@ function normalizeForCompare(s: string): string {
 }
 
 const NON_PERSON_OPPONENT = /(championship|title|ufc|fight night|bellator|one|glory|pfl|rizin|k-1|arena|stadium|tournament|prelim|main event|promotion|world|cup|record|event)/i
-const LOCATION_OPPONENT = /(bangkok|jakarta|yokohama|tokyo|osaka|pattaya|phnom penh|antwerp|rotterdam|amsterdam|paris|london|las vegas|los angeles|new york|glendale|salt lake|abu dhabi|dubai|riyadh|singapore|hong kong|beijing|manila|seoul|melbourne|sydney|moscow|chicago|miami|houston|dallas|atlanta|toronto)/i
+const LOCATION_OPPONENT = /(bangkok|jakarta|yokohama|tokyo|osaka|pattaya|phnom penh|cambodia|south africa|antwerp|rotterdam|amsterdam|paris|london|las vegas|los angeles|new york|glendale|salt lake|abu dhabi|dubai|riyadh|singapore|hong kong|beijing|manila|seoul|melbourne|sydney|moscow|chicago|miami|houston|dallas|atlanta|toronto)/i
 
 // An opponent string must look like a person's name: no digits (event numbers
 // like "BKFC 94" / "RAF 14"), no commas ("Bangkok, Thailand"), and no obvious
@@ -418,7 +422,7 @@ export function scheduledInProse(
       opponent: opponent ?? undefined,
       confidence: opponent && cand.granularity === 'day' ? 'high' : opponent ? 'medium' : 'low',
       detectedAt: new Date().toISOString(),
-    }
+      }
   }
   return null
 }
@@ -456,7 +460,9 @@ export function scheduledInRecordTable(
   wikitext: string,
   fighter: WikiRosterFighter,
   ref: Date,
-): WikiScheduledEntry | null {
+  pastDays = 0,
+): WikiScheduledEntry[] {
+  const matches: WikiScheduledEntry[] = []
   const tables = findRecordTables(wikitext)
   for (const t of tables) {
     // Rows split by |-. Each chunk after the header starts with the date cell,
@@ -467,13 +473,15 @@ export function scheduledInRecordTable(
       if (!rowText || /\b(legend|record start)\b/i.test(rowText)) continue
 
       // Slack first line: "2026-10-03 || ..." or "| 2026-10-03 || ...".
-      const dateTok = findDateToken(rowText)
+      const dateTok = findDateToken(rowText, ref, pastDays)
       if (!dateTok) continue
-      const dateCand = extractWikiDate(dateTok, ref)
+      const dateCand = extractWikiDate(dateTok, ref, pastDays)
       if (!dateCand || dateCand.granularity !== 'day') continue
 
-      // Blank result cell => not yet fought. A row with Win/Loss/Draw/NC is done.
-      if (/\b(win|loss|draw|no contest|nc\b|drawn|won|lost)\b/i.test(rowText)) continue
+      // Future rows must still be blank-result bookings. Recent past rows are
+      // retained as completed fights so they remain visible for the calendar's
+      // seven-day post-fight window.
+      if (dateCand.ts > ref && /\b(win|loss|draw|no contest|nc\b|drawn|won|lost)\b/i.test(rowText)) continue
 
       const cellsArr = row
         .split(/\|{1,2}/)
@@ -485,20 +493,19 @@ export function scheduledInRecordTable(
       // (rows are: date | result | opponent || event || venue ...). Fall back to
       // the first capitalized multiword cell that isn't a flagicon/event token.
       const afterDate = row.slice(row.indexOf(dateTok))
-      const linked = /\[\[([^\]|]*)\]\]/.exec(afterDate)
-      let opponent: string | null = linked
-        ? cleanName(stripWikiMarkup(linked[1]).trim())
-        : null
-      if (opponent && !looksLikeOpponent(opponent, fighter.clean)) opponent = null
+      const linked = Array.from(afterDate.matchAll(/\[\[([^\]|]*)\]\]/g))
+        .map(m => cleanName(stripWikiMarkup(m[1]).trim()))
+      let opponent: string | null = linked.find(c => looksLikeOpponent(c, fighter.clean)) ?? null
       if (!opponent) {
         opponent =
           cellsArr
             .filter(c => c !== dateStr)
+            .filter(c => !/^(win|loss|draw|no contest|nc|drawn|won|lost)$/i.test(c))
             .find(c => looksLikeOpponent(c, fighter.clean))
             ?? null
       }
       if (opponent && opponent.toLowerCase() === fighter.clean.toLowerCase()) opponent = null
-      return {
+      matches.push({
         boxerName: fighter.name,
         sport: fighter.keyword,
         headline: `${fighter.name} — scheduled vs ${opponent ?? 'TBD'}`,
@@ -511,10 +518,10 @@ export function scheduledInRecordTable(
         opponent: opponent ?? undefined,
         confidence: opponent ? 'high' : 'medium',
         detectedAt: new Date().toISOString(),
-      }
+      })
     }
   }
-  return null
+  return matches
 }
 
 // ---------- Detector 3: promotion-event scan (MMA/fight-pages with promotions; MMA gated) ----------
@@ -642,7 +649,7 @@ export async function scheduledInPromotionEvents(
 export async function scanFighterFromWikipedia(
   fighter: WikiRosterFighter,
   ref: Date,
-  { mmaOnly }: { mmaOnly: boolean },
+  { mmaOnly, pastDays = 0 }: { mmaOnly: boolean; pastDays?: number },
 ): Promise<WikiScheduledEntry[]> {
   const title = fighter.clean ? fighter.clean.replace(/ /g, '_') : fighter.name.replace(/ /g, '_')
   const wikitext = await fetchPageWikitext(title)
@@ -653,8 +660,7 @@ export async function scanFighterFromWikipedia(
   const prose = scheduledInProse(wikitext, fighter, ref)
   if (prose) out.push(prose)
 
-  const record = scheduledInRecordTable(wikitext, fighter, ref)
-  if (record) out.push(record)
+  out.push(...scheduledInRecordTable(wikitext, fighter, ref, pastDays))
 
   if (mmaOnly) {
     const promo = await scheduledInPromotionEvents(wikitext, fighter, ref, { mmaOnly: true })
