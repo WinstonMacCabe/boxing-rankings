@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-29T00:29:18.181Z",
+  "lastUpdated": "2026-09-29T14:06:01.210Z",
   "fights": [
     {
       "boxerName": "Ermal Hadribeaj",
@@ -11,19 +11,31 @@
       "date": "2026-10",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-27T18:16:19.275Z"
+      "detectedAt": "2026-09-29T14:06:12.514Z"
     },
     {
-      "boxerName": "Ermal Hadribeaj",
+      "boxerName": "Canelo Álvarez",
       "sport": "boxing",
-      "headline": "Sebastian Fundora and Ermal Hadribeaj preview their October 17 fight during virtual press conference - British Boxing News",
-      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOMEVfbzBfZVdnemZ0d1ZZakRfVjZ2dm9rWExSU1NveW9ZSGJyVURfMWItTnRkdnU1aEQ2LVpUWTdQcmExR1VVdTBHMk9fN1pFXzhHNGRfeTlHYjhvVmw3VjlfcFRSWVQ3RFR2Vml0XzBreVEybkVWQ29nWnNyRm8xWE13dGQ1bkp0emlpVzBrbFlDeDZfTmJTUXZZWTU2ZXpjMG9mXzJpMkF6M19Pcm1VbmVQU1A3Y2FFS0YtUk9ZekRoUk9ZTlJ3UHFlRzE0NjNvVEh0dQ?oc=5",
-      "source": "British Boxing News",
-      "publishedAt": "2026-09-25T07:38:05.000Z",
-      "date": "2026-10-17",
-      "granularity": "day",
-      "confidence": "medium",
-      "detectedAt": "2026-09-29T00:29:29.100Z"
+      "headline": "Canelo Alvarez vs Christian Mbilli gets new official date in October - Bad Left Hook",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPNWZUT0d5c2g0NVBDQnAxQ3M5T3prSjJFdk9PU1ROa3U4N1pIMXJvb0FCdDVZZV9QVTNCZ2E4MkJ2YXhTdnlPUlZ5UVpoZ3VCdHFkMjFOSFYtc3lUTFFFeXkweW9DWmFBZlp2RnJxTk9XNUVzZ3ZsOUgzSzZRaEJSa3lxcWt0aWo0ektwUkRwOEJBeXRMS2tmX3lOZWYxRnRBSTByeU44dWEyNmZYU0Y0b2RoLU5Nc2RzQU12M3pPUlZ3U1NUQWl2SFNPTUc?oc=5",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-07-22T07:00:00.000Z",
+      "date": "2026-10",
+      "granularity": "month",
+      "confidence": "low",
+      "detectedAt": "2026-09-29T14:06:18.466Z"
+    },
+    {
+      "boxerName": "Canelo Álvarez",
+      "sport": "boxing",
+      "headline": "On 30 April, Ring Magazine officially announced that Álvarez would challenge M’billi for his WBC title in his first title defence. On 28 June, it was reported that the fight date had been postponed to",
+      "url": "https://en.wikipedia.org/wiki/Canelo_%C3%81lvarez",
+      "source": "Wikipedia (fighter page prose)",
+      "publishedAt": "2026-09-29T14:06:19.052Z",
+      "date": "2026-10",
+      "granularity": "month",
+      "confidence": "low",
+      "detectedAt": "2026-09-29T14:06:19.052Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -37,7 +49,7 @@
       "matchup": "Sebastian Fundora vs Ermal Hadribeaj",
       "opponent": "Sebastian Fundora",
       "confidence": "high",
-      "detectedAt": "2026-09-27T18:16:19.275Z"
+      "detectedAt": "2026-09-29T14:06:12.513Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -51,7 +63,19 @@
       "matchup": "Fundora vs Hadribeaj",
       "opponent": "Fundora",
       "confidence": "high",
-      "detectedAt": "2026-09-27T18:16:19.275Z"
+      "detectedAt": "2026-09-29T14:06:12.513Z"
+    },
+    {
+      "boxerName": "Ermal Hadribeaj",
+      "sport": "boxing",
+      "headline": "Sebastian Fundora and Ermal Hadribeaj preview their October 17 fight during virtual press conference - British Boxing News",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOMEVfbzBfZVdnemZ0d1ZZakRfVjZ2dm9rWExSU1NveW9ZSGJyVURfMWItTnRkdnU1aEQ2LVpUWTdQcmExR1VVdTBHMk9fN1pFXzhHNGRfeTlHYjhvVmw3VjlfcFRSWVQ3RFR2Vml0XzBreVEybkVWQ29nWnNyRm8xWE13dGQ1bkp0emlpVzBrbFlDeDZfTmJTUXZZWTU2ZXpjMG9mXzJpMkF6M19Pcm1VbmVQU1A3Y2FFS0YtUk9ZekRoUk9ZTlJ3UHFlRzE0NjNvVEh0dQ?oc=5",
+      "source": "British Boxing News",
+      "publishedAt": "2026-09-25T07:38:05.000Z",
+      "date": "2026-10-17",
+      "granularity": "day",
+      "confidence": "medium",
+      "detectedAt": "2026-09-29T14:06:12.513Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -63,7 +87,7 @@
       "date": "2026-10-17",
       "granularity": "day",
       "confidence": "medium",
-      "detectedAt": "2026-09-27T18:16:19.275Z"
+      "detectedAt": "2026-09-29T14:06:12.514Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -87,7 +111,31 @@
       "date": "2026-12",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-29T00:29:18.724Z"
+      "detectedAt": "2026-09-29T14:06:01.938Z"
+    },
+    {
+      "boxerName": "David Benavidez",
+      "sport": "boxing",
+      "headline": "World champion David Benavidez's next opponent confirmed for December - dazn.com",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPTWpkbEVIY2Z3MnZyT0FVeS1XMGo5bUFsMVliaVp3bllEMkZvbDZsVVNZS0tuUzJzaFZOR25nSElzRlVHcWQwZ2RjSldzZjNpU0FtSXVybndUcnc4YmxaRWtVNlFlMnRZeUYzcEYtNDBUTXBJSEVHNUZkdlRpN1hDZWJsWUtHRlN1REVTSjUxMHhSYndGaDI4SHd3LTNMd3JjODhKWl9reXdZYjRxOWRUOEszb1l3R3hmUGxSMEVMZ1dHa1U?oc=5",
+      "source": "dazn.com",
+      "publishedAt": "2026-08-18T07:00:00.000Z",
+      "date": "2026-12",
+      "granularity": "month",
+      "confidence": "low",
+      "detectedAt": "2026-09-29T14:06:05.202Z"
+    },
+    {
+      "boxerName": "Dmitry Bivol",
+      "sport": "boxing",
+      "headline": "Bivol was considering this in order to pursue a trilogy bout with Artur Beterbiev or a potential fight with David Benavidez. On 7 July, the WBO officially ordered the bout against Smith, giving both t",
+      "url": "https://en.wikipedia.org/wiki/Dmitry_Bivol",
+      "source": "Wikipedia (fighter page prose)",
+      "publishedAt": "2026-09-29T14:06:11.106Z",
+      "date": "2026-12",
+      "granularity": "month",
+      "confidence": "low",
+      "detectedAt": "2026-09-29T14:06:11.106Z"
     },
     {
       "boxerName": "Dmitry Bivol",
@@ -100,18 +148,6 @@
       "granularity": "month",
       "confidence": "low",
       "detectedAt": "2026-09-29T00:29:26.817Z"
-    },
-    {
-      "boxerName": "David Benavidez",
-      "sport": "boxing",
-      "headline": "World champion David Benavidez's next opponent confirmed for December - DAZN",
-      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPTWpkbEVIY2Z3MnZyT0FVeS1XMGo5bUFsMVliaVp3bllEMkZvbDZsVVNZS0tuUzJzaFZOR25nSElzRlVHcWQwZ2RjSldzZjNpU0FtSXVybndUcnc4YmxaRWtVNlFlMnRZeUYzcEYtNDBUTXBJSEVHNUZkdlRpN1hDZWJsWUtHRlN1REVTSjUxMHhSYndGaDI4SHd3LTNMd3JjODhKWl9reXdZYjRxOWRUOEszb1l3R3hmUGxSMEVMZ1dHa1U?oc=5",
-      "source": "DAZN",
-      "publishedAt": "2026-08-18T07:00:00.000Z",
-      "date": "2026-12",
-      "granularity": "month",
-      "confidence": "low",
-      "detectedAt": "2026-09-27T18:16:12.084Z"
     },
     {
       "boxerName": "Terence Crawford",
