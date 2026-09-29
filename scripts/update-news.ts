@@ -611,7 +611,7 @@ function selectInWindowItems(items: RssItem[], cutoff: string, cap: number): Rss
 }
 
 function fightKey(f: ScheduledEntry): string {
-  return `${f.url}|${f.date}|${(f.matchup || '').toLowerCase()}|${f.boxerName}`
+  return `${f.boxerName.toLowerCase()}|${f.date}`
 }
 
 // Older scans could roll a yearless date into the following year after the

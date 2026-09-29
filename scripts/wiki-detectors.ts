@@ -293,7 +293,7 @@ function opponentFromSentence(sentence: string, clean: string): string | null {
   // Prefer a wikilink opponent. Skip title/venue links (Championship, UFC 333…):
   // take the LAST link in the sentence (opponents come right before the date),
   // and reject obvious non-person tokens.
-  const links = Array.from(sentence.matchAll(/\[{2}([^\]|]+?)\]{2}/g), m => cleanName(stripTags(m[1])).trim())
+  const links = Array.from(sentence.matchAll(/\[{2}(?:[^\]|]+\|)?([^\]]+)\]{2}/g), m => cleanName(stripTags(m[1])).trim())
   const nonPerson = /(championship|title|ufc|fight night|bellator|one|glory|pfl|rizin|k-1|arena|stadium|tournament|prelim|main event|promotion)/i
   for (let k = links.length - 1; k >= 0; k--) {
     const cand = links[k]
@@ -359,9 +359,7 @@ export function scheduledInProse(
   const clean = fighter.clean.toLowerCase()
   const surname = clean.split(/\s+/).slice(-1)[0] ?? clean
   const prose = stripToProse(wikitext)
-  const plain = stripWikiMarkup(wikitext)
   const sentences = prose.split(/(?<=[.!?])\s+/)
-  const plainSentences = plain.split(/(?<=[.!?])\s+/)
   for (let i = 0; i < sentences.length; i++) {
     const sentence = sentences[i]
     if (!sentence) continue
@@ -383,7 +381,6 @@ export function scheduledInProse(
     if (!/\b(scheduled|planned|set|expected|booked|slated|schedule|announced|confirmed|reported|revealed|agreed)\b/i.test(context)) continue
     if (!/\b(face|fight|challenge|vs\.?|versus|take on|defend|rematch|return)\b/i.test(context)) continue
 
-      const lineEnd = sentence.indexOf('\n')
       // A "sentence" that still contains section/table remnants (==headers==, {|
       // wikitable opener, |- row separators, class=") is structural markup, not
       // a scheduled-fight prose sentence — skip it so the email never shows
@@ -400,13 +397,7 @@ export function scheduledInProse(
       const dateStr = cand.granularity === 'day'
         ? `${cand.year}-${String(cand.month + 1).padStart(2, '0')}-${String(cand.day).padStart(2, '0')}`
         : `${cand.year}-${String(cand.month + 1).padStart(2, '0')}`
-      const plainAt = plainSentences[i] ?? ''
-      // The prose-array and plain-array split differently (prose drops headers/
-      // tables/refs), so the index may land on a section header or table fragment
-      // in the plain variant. Reject those so headlines never leak "==Champ...=="
-      // or "{| class=wikitable" markup into the email.
-      if (/\{\||class=|\|}|^-|==|\n\*/.test(plainAt)) continue
-      const headline = stripWikiMarkup(context ?? plainAt).replace(/\s+/g, ' ').trim().slice(0, 200)
+      const headline = stripWikiMarkup(context).replace(/\s+/g, ' ').trim().slice(0, 200)
       if (!headline) continue
 
       return {
