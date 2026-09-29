@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-28T00:30:20.140Z",
+  "lastUpdated": "2026-09-29T00:29:18.181Z",
   "fights": [
     {
       "boxerName": "Ermal Hadribeaj",
@@ -23,7 +23,7 @@
       "date": "2026-10-17",
       "granularity": "day",
       "confidence": "medium",
-      "detectedAt": "2026-09-28T00:30:31.435Z"
+      "detectedAt": "2026-09-29T00:29:29.100Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -87,7 +87,7 @@
       "date": "2026-12",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-28T00:30:20.898Z"
+      "detectedAt": "2026-09-29T00:29:18.724Z"
     },
     {
       "boxerName": "Dmitry Bivol",
@@ -99,7 +99,7 @@
       "date": "2026-12",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-28T00:30:29.176Z"
+      "detectedAt": "2026-09-29T00:29:26.817Z"
     },
     {
       "boxerName": "David Benavidez",
@@ -161,7 +161,7 @@
       "matchup": "Dmitry Bivol vs Michael Eifert",
       "opponent": "Michael Eifert",
       "confidence": "low",
-      "detectedAt": "2026-09-28T00:30:29.176Z"
+      "detectedAt": "2026-09-29T00:29:26.817Z"
     },
     {
       "boxerName": "David Benavidez",
