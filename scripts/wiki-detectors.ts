@@ -484,6 +484,7 @@ export function scheduledInRecordTable(
       if (dateCand.ts > ref && /\b(win|loss|draw|no contest|nc\b|drawn|won|lost)\b/i.test(rowText)) continue
 
       const cellsArr = row
+        .replace(/\{\{[^{}]*?\}\}/g, ' ')
         .split(/\|{1,2}/)
         .map(c => stripWikiMarkup(c).trim())
         .filter(Boolean)
