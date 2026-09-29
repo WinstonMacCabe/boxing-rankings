@@ -601,31 +601,15 @@ export async function scheduledInPromotionEvents(
         : findDateToken(row) && extractWikiDate(findDateToken(row)!, ref)
       if (!dateCand || dateCand.granularity !== 'day') continue
       if (/win|lost|defeated|knockout|finished/i.test(row)) continue
-      // Most main-event titles already name the fighter ("UFC 333: X vs Y"), so
-      // we can accept the row without a second request. Only fetch the event page
-      // for generically-named events (e.g. "UFC Fight Night 293") to confirm the
-      // fighter is on the card. This keeps per-fighter requests near O(1).
-      const rowHasFighter = stripTags(row).toLowerCase().includes(clean)
-      if (rowHasFighter) {
-        const dateStr = `${dateCand.year}-${String(dateCand.month + 1).padStart(2, '0')}-${String(dateCand.day).padStart(2, '0')}`
-        res.entries.push({
-          boxerName: fighter.name,
-          sport: fighter.keyword,
-          headline: `${fighter.name} on ${display} (${dateStr})`,
-          url: `https://en.wikipedia.org/wiki/${encodeURIComponent(eventTitleRaw.replace(/ /g, '_'))}`,
-          source: `Wikipedia (${listTitle})`,
-          publishedAt: new Date().toISOString(),
-          date: dateStr,
-          granularity: 'day',
-          confidence: 'high',
-          detectedAt: new Date().toISOString(),
-        })
-        break
-      }
-      // Fetch the event page and look for the fighter (name-link or prose).
+      // Always verify the linked event page. A venue/event-list row can contain a
+      // fighter name without proving that the fighter has a scheduled bout.
       const eventWiki = await fetchPageWikitext(eventTitleRaw)
       if (!eventWiki) continue
-      if (!stripTags(eventWiki).toLowerCase().includes(clean)) continue
+      const eventText = stripTags(eventWiki).toLowerCase()
+      const fighterAt = eventText.indexOf(clean)
+      if (fighterAt < 0) continue
+      const nearby = eventText.slice(Math.max(0, fighterAt - 300), fighterAt + clean.length + 300)
+      if (!/\b(?:vs\.?|versus|opponent|bout|fight|challenger|champion)\b/i.test(nearby)) continue
       const dateStr = `${dateCand.year}-${String(dateCand.month + 1).padStart(2, '0')}-${String(dateCand.day).padStart(2, '0')}`
       res.entries.push({
         boxerName: fighter.name,
