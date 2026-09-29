@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-29T14:06:01.210Z",
+  "lastUpdated": "2026-09-29T17:50:49.575Z",
   "fights": [
     {
       "boxerName": "Ermal Hadribeaj",
@@ -11,7 +11,7 @@
       "date": "2026-10",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-29T14:06:12.514Z"
+      "detectedAt": "2026-09-29T17:52:07.469Z"
     },
     {
       "boxerName": "Canelo Álvarez",
@@ -23,7 +23,7 @@
       "date": "2026-10",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-29T14:06:18.466Z"
+      "detectedAt": "2026-09-29T17:52:42.375Z"
     },
     {
       "boxerName": "Canelo Álvarez",
@@ -31,11 +31,11 @@
       "headline": "On 30 April, Ring Magazine officially announced that Álvarez would challenge M’billi for his WBC title in his first title defence. On 28 June, it was reported that the fight date had been postponed to",
       "url": "https://en.wikipedia.org/wiki/Canelo_%C3%81lvarez",
       "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-09-29T14:06:19.052Z",
+      "publishedAt": "2026-09-29T17:52:56.814Z",
       "date": "2026-10",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-29T14:06:19.052Z"
+      "detectedAt": "2026-09-29T17:52:56.814Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -49,7 +49,7 @@
       "matchup": "Sebastian Fundora vs Ermal Hadribeaj",
       "opponent": "Sebastian Fundora",
       "confidence": "high",
-      "detectedAt": "2026-09-29T14:06:12.513Z"
+      "detectedAt": "2026-09-29T17:52:06.139Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -63,19 +63,19 @@
       "matchup": "Fundora vs Hadribeaj",
       "opponent": "Fundora",
       "confidence": "high",
-      "detectedAt": "2026-09-29T14:06:12.513Z"
+      "detectedAt": "2026-09-29T17:52:06.389Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
       "sport": "boxing",
-      "headline": "Sebastian Fundora and Ermal Hadribeaj preview their October 17 fight during virtual press conference - British Boxing News",
+      "headline": "Sebastian Fundora and Ermal Hadribeaj preview their October 17 fight during virtual press conference - britishboxingnews.co.uk",
       "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOMEVfbzBfZVdnemZ0d1ZZakRfVjZ2dm9rWExSU1NveW9ZSGJyVURfMWItTnRkdnU1aEQ2LVpUWTdQcmExR1VVdTBHMk9fN1pFXzhHNGRfeTlHYjhvVmw3VjlfcFRSWVQ3RFR2Vml0XzBreVEybkVWQ29nWnNyRm8xWE13dGQ1bkp0emlpVzBrbFlDeDZfTmJTUXZZWTU2ZXpjMG9mXzJpMkF6M19Pcm1VbmVQU1A3Y2FFS0YtUk9ZekRoUk9ZTlJ3UHFlRzE0NjNvVEh0dQ?oc=5",
-      "source": "British Boxing News",
+      "source": "britishboxingnews.co.uk",
       "publishedAt": "2026-09-25T07:38:05.000Z",
       "date": "2026-10-17",
       "granularity": "day",
       "confidence": "medium",
-      "detectedAt": "2026-09-29T14:06:12.513Z"
+      "detectedAt": "2026-09-29T17:52:06.855Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -87,7 +87,7 @@
       "date": "2026-10-17",
       "granularity": "day",
       "confidence": "medium",
-      "detectedAt": "2026-09-29T14:06:12.514Z"
+      "detectedAt": "2026-09-29T17:52:09.367Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -102,40 +102,40 @@
       "detectedAt": "2026-09-26T00:31:13.611Z"
     },
     {
-      "boxerName": "Terence Crawford",
+      "boxerName": "Canelo Álvarez",
       "sport": "boxing",
-      "headline": "Is Ryan Garcia truly in frame for shock Terence Crawford bout this December? - dazn.com",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQbUxOTTdqb3VDMmtYWE51OGtNeUZOQjNHLXhLOVFSY2s1amNmU3pNWG9lNGhPSVlad0hMODktNXRaUk5UWTNGdnhUZ0xQanZOeDFnSTB2N29rTG5mNmdlZlZOT0RTdE45b3Rwd3RVU2Y1SlJsekQtYlFHZi1kdXhkcTRtMWllcThncVp3MUZycVJ6ZndpRGpXcHpYS0EwQWtkcGEzU05kSnJ4c2ZvZGRvRDVHRno?oc=5",
-      "source": "dazn.com",
-      "publishedAt": "2026-09-26T09:00:00.000Z",
-      "date": "2026-12",
-      "granularity": "month",
-      "confidence": "low",
-      "detectedAt": "2026-09-29T14:06:01.938Z"
+      "headline": "Canelo Alvarez vs Christian Mbilli officially official for October 31, but red flags remain - Bad Left Hook",
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQc2lybm5OWU9pUDU4ZGdHWFBZRVphWHdjckhraTZuWnFOSHJCclhRa1Q5bl9zNFRoQVhEbm5mcDhQQ0F1dTdvbFJ5b2JMMGpkTjhTa2l1UFdPcU9laVVoOFByMVVYd0J2WEJSbndPTDU3Y29vc00yMHp4RVBBejJ5WndrUVdJU1FsNWkxc0ZZNHNpWC1mcHJocW1fOTNPTlFGTzlYUXNvbTQ5YmZPbVBFdGcxLUJuS215OF93WnhTbGVFMjVrZXhmLWsxRjZxVDR3SWRCMTRB?oc=5",
+      "source": "Bad Left Hook",
+      "publishedAt": "2026-09-29T17:44:34.000Z",
+      "date": "2026-10-31",
+      "granularity": "day",
+      "confidence": "medium",
+      "detectedAt": "2026-09-29T17:52:38.515Z"
+    },
+    {
+      "boxerName": "Canelo Álvarez",
+      "sport": "boxing",
+      "headline": "Canelo Alvarez vs. Christian Mbilli Rescheduled for October 31 - World Boxing Council",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNQVk4NXp6UDhKVERSNzJyTFJuLWlJcGFqOElkMlExU2tZSy1HT1kwWjdCdjZKOGJpSjZObG1LVjlGcW1nYXlha0w4dm5NUmVNQkNKU1Y3SDFDZmNpRjFWZDVDLTZRYklBTlQ1eGZlNU1CX2J0VFFJeDNXbXp6Y1c0cWQ2cEV3TEJKeVlCSDg5amM?oc=5",
+      "source": "World Boxing Council",
+      "publishedAt": "2026-07-23T07:00:00.000Z",
+      "date": "2026-10-31",
+      "granularity": "day",
+      "confidence": "medium",
+      "detectedAt": "2026-09-29T17:52:45.619Z"
     },
     {
       "boxerName": "David Benavidez",
       "sport": "boxing",
-      "headline": "World champion David Benavidez's next opponent confirmed for December - dazn.com",
+      "headline": "World champion David Benavidez's next opponent confirmed for December - DAZN",
       "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPTWpkbEVIY2Z3MnZyT0FVeS1XMGo5bUFsMVliaVp3bllEMkZvbDZsVVNZS0tuUzJzaFZOR25nSElzRlVHcWQwZ2RjSldzZjNpU0FtSXVybndUcnc4YmxaRWtVNlFlMnRZeUYzcEYtNDBUTXBJSEVHNUZkdlRpN1hDZWJsWUtHRlN1REVTSjUxMHhSYndGaDI4SHd3LTNMd3JjODhKWl9reXdZYjRxOWRUOEszb1l3R3hmUGxSMEVMZ1dHa1U?oc=5",
-      "source": "dazn.com",
+      "source": "DAZN",
       "publishedAt": "2026-08-18T07:00:00.000Z",
       "date": "2026-12",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-29T14:06:05.202Z"
-    },
-    {
-      "boxerName": "Dmitry Bivol",
-      "sport": "boxing",
-      "headline": "Bivol was considering this in order to pursue a trilogy bout with Artur Beterbiev or a potential fight with David Benavidez. On 7 July, the WBO officially ordered the bout against Smith, giving both t",
-      "url": "https://en.wikipedia.org/wiki/Dmitry_Bivol",
-      "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-09-29T14:06:11.106Z",
-      "date": "2026-12",
-      "granularity": "month",
-      "confidence": "low",
-      "detectedAt": "2026-09-29T14:06:11.106Z"
+      "detectedAt": "2026-09-29T17:51:18.339Z"
     },
     {
       "boxerName": "Dmitry Bivol",
@@ -147,7 +147,31 @@
       "date": "2026-12",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-29T00:29:26.817Z"
+      "detectedAt": "2026-09-29T17:52:08.293Z"
+    },
+    {
+      "boxerName": "Dmitry Bivol",
+      "sport": "boxing",
+      "headline": "Bivol was considering this in order to pursue a trilogy bout with Artur Beterbiev or a potential fight with David Benavidez. On 7 July, the WBO officially ordered the bout against Smith, giving both t",
+      "url": "https://en.wikipedia.org/wiki/Dmitry_Bivol",
+      "source": "Wikipedia (fighter page prose)",
+      "publishedAt": "2026-09-29T17:52:08.742Z",
+      "date": "2026-12",
+      "granularity": "month",
+      "confidence": "low",
+      "detectedAt": "2026-09-29T17:52:08.742Z"
+    },
+    {
+      "boxerName": "Terence Crawford",
+      "sport": "boxing",
+      "headline": "Is Ryan Garcia truly in frame for shock Terence Crawford bout this December? - dazn.com",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQbUxOTTdqb3VDMmtYWE51OGtNeUZOQjNHLXhLOVFSY2s1amNmU3pNWG9lNGhPSVlad0hMODktNXRaUk5UWTNGdnhUZ0xQanZOeDFnSTB2N29rTG5mNmdlZlZOT0RTdE45b3Rwd3RVU2Y1SlJsekQtYlFHZi1kdXhkcTRtMWllcThncVp3MUZycVJ6ZndpRGpXcHpYS0EwQWtkcGEzU05kSnJ4c2ZvZGRvRDVHRno?oc=5",
+      "source": "dazn.com",
+      "publishedAt": "2026-09-26T09:00:00.000Z",
+      "date": "2026-12",
+      "granularity": "month",
+      "confidence": "low",
+      "detectedAt": "2026-09-29T14:06:01.938Z"
     },
     {
       "boxerName": "Terence Crawford",
@@ -171,7 +195,7 @@
       "date": "2026-12-12",
       "granularity": "day",
       "confidence": "medium",
-      "detectedAt": "2026-09-27T18:16:16.872Z"
+      "detectedAt": "2026-09-29T17:51:51.818Z"
     },
     {
       "boxerName": "Naoya Inoue",
@@ -183,7 +207,19 @@
       "date": "2027-02",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-26T17:17:24.226Z"
+      "detectedAt": "2026-09-29T17:51:16.455Z"
+    },
+    {
+      "boxerName": "David Benavidez",
+      "sport": "boxing",
+      "headline": "Benavidez Sr Calls For Jai Opetaia Fight In May - Boxing News 24/7",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxObEItOVV6Y0M5Q0ZMZkxmSkhRaDhHbWltN0ZUSHVlSVJhR3lWNTBRdThmaVV5U3FvVi1MS21yT256TW1FaTYtRDQtQjRwRTBsMDl4UGJfd2hieXBJbFhlMF93S1ByMlZmdldNOFdxR3BqVUdSS25ycEVySm5aN21zQm5hS0FrbjB1UUpNYVFXVUczQ0lJbjNz?oc=5",
+      "source": "Boxing News 24/7",
+      "publishedAt": "2026-08-24T07:00:00.000Z",
+      "date": "2027-05",
+      "granularity": "month",
+      "confidence": "low",
+      "detectedAt": "2026-09-29T17:51:31.754Z"
     },
     {
       "boxerName": "Dmitry Bivol",
@@ -197,19 +233,7 @@
       "matchup": "Dmitry Bivol vs Michael Eifert",
       "opponent": "Michael Eifert",
       "confidence": "low",
-      "detectedAt": "2026-09-29T00:29:26.817Z"
-    },
-    {
-      "boxerName": "David Benavidez",
-      "sport": "boxing",
-      "headline": "Benavidez Sr Calls For Jai Opetaia Fight In May - Boxing News 24/7",
-      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxObEItOVV6Y0M5Q0ZMZkxmSkhRaDhHbWltN0ZUSHVlSVJhR3lWNTBRdThmaVV5U3FvVi1MS21yT256TW1FaTYtRDQtQjRwRTBsMDl4UGJfd2hieXBJbFhlMF93S1ByMlZmdldNOFdxR3BqVUdSS25ycEVySm5aN21zQm5hS0FrbjB1UUpNYVFXVUczQ0lJbjNz?oc=5",
-      "source": "Boxing News 24/7",
-      "publishedAt": "2026-08-24T07:00:00.000Z",
-      "date": "2027-05",
-      "granularity": "month",
-      "confidence": "low",
-      "detectedAt": "2026-09-26T17:17:25.172Z"
+      "detectedAt": "2026-09-29T17:51:47.957Z"
     }
   ]
 }
