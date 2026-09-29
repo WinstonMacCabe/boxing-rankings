@@ -364,23 +364,34 @@ export function scheduledInProse(
     const sLow = sentence.toLowerCase()
     // Accept the full name OR the surname — prose usually uses just the last name.
     if (!(sLow.includes(clean) || (surname && sLow.includes(surname)))) continue
-    // Must assert the fighter + a scheduled/planned verb for an upcoming bout.
-    if (!/\b(scheduled|planned|set|expected|booked|slated|schedule)\b/i.test(sentence)) continue
-    if (!/\b(face|fight|challenge|vs\.?|versus|take on|defend|rematch|return)\b/i.test(sentence)) continue
+    // Announcements are often split across nearby sentences: the first names the
+    // fighters and says the bout was announced, while the next sentence supplies
+    // a postponed or confirmed future date. Keep the lookahead bounded so prose
+    // from a later paragraph cannot be joined accidentally.
+    let context = sentence
+    let contextEnd = i
+    while (contextEnd < Math.min(i + 2, sentences.length - 1) &&
+      (!/\b(scheduled|planned|set|expected|booked|slated|schedule|announced|confirmed|reported|revealed|agreed)\b/i.test(context) ||
+        !findDateToken(context))) {
+      contextEnd++
+      context += ` ${sentences[contextEnd]}`
+    }
+    if (!/\b(scheduled|planned|set|expected|booked|slated|schedule|announced|confirmed|reported|revealed|agreed)\b/i.test(context)) continue
+    if (!/\b(face|fight|challenge|vs\.?|versus|take on|defend|rematch|return)\b/i.test(context)) continue
 
       const lineEnd = sentence.indexOf('\n')
       // A "sentence" that still contains section/table remnants (==headers==, {|
       // wikitable opener, |- row separators, class=") is structural markup, not
       // a scheduled-fight prose sentence — skip it so the email never shows
       // "==Championships== {|" garbage.
-      if (/==|\{\||\|-|class="?wikitable|!scope/.test(sentence)) continue
+      if (/==|\{\||\|-|class="?wikitable|!scope/.test(context)) continue
       // Extract a date from the whole sentence.
-      const dateTok = findDateToken(sentence)
+      const dateTok = findDateToken(context)
       if (!dateTok) continue
       const cand = extractWikiDate(dateTok, ref)
       if (!cand) continue
 
-      const opponent = opponentFromSentence(sentence, fighter.clean)
+      const opponent = opponentFromSentence(context, fighter.clean)
       const matchup = opponent ? `${fighter.clean} vs ${opponent}` : undefined
       const dateStr = cand.granularity === 'day'
         ? `${cand.year}-${String(cand.month + 1).padStart(2, '0')}-${String(cand.day).padStart(2, '0')}`
@@ -391,7 +402,7 @@ export function scheduledInProse(
       // in the plain variant. Reject those so headlines never leak "==Champ...=="
       // or "{| class=wikitable" markup into the email.
       if (/\{\||class=|\|}|^-|==|\n\*/.test(plainAt)) continue
-      const headline = stripWikiMarkup(sentence ?? plainAt).replace(/\s+/g, ' ').trim().slice(0, 200)
+      const headline = stripWikiMarkup(context ?? plainAt).replace(/\s+/g, ' ').trim().slice(0, 200)
       if (!headline) continue
 
       return {
