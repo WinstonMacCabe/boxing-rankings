@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-30T20:14:14.453Z",
+  "lastUpdated": "2026-09-30T21:00:11.478Z",
   "fights": [
     {
       "boxerName": "Ermal Hadribeaj",
@@ -13,7 +13,7 @@
       "matchup": "Sebastian Fundora vs Ermal Hadribeaj",
       "opponent": "Sebastian Fundora",
       "confidence": "low",
-      "detectedAt": "2026-09-30T20:14:53.079Z"
+      "detectedAt": "2026-09-30T21:00:48.644Z"
     },
     {
       "boxerName": "Canelo Álvarez",
@@ -21,11 +21,11 @@
       "headline": "On 30 April, Ring Magazine officially announced that Álvarez would challenge M’billi for his WBC title in his first title defence. On 28 June, it was reported that the fight date had been postponed to",
       "url": "https://en.wikipedia.org/wiki/Canelo_%C3%81lvarez",
       "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-09-30T20:15:14.213Z",
+      "publishedAt": "2026-09-30T21:01:10.059Z",
       "date": "2026-10",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-30T20:15:14.213Z"
+      "detectedAt": "2026-09-30T21:01:10.059Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -39,7 +39,7 @@
       "matchup": "Sebastian Fundora vs Ermal Hadribeaj",
       "opponent": "Sebastian Fundora",
       "confidence": "high",
-      "detectedAt": "2026-09-30T20:14:52.195Z"
+      "detectedAt": "2026-09-30T21:00:47.781Z"
     },
     {
       "boxerName": "David Benavidez",
@@ -51,7 +51,7 @@
       "date": "2026-12",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-30T20:14:28.993Z"
+      "detectedAt": "2026-09-30T21:00:26.145Z"
     },
     {
       "boxerName": "Dmitry Bivol",
@@ -59,11 +59,11 @@
       "headline": "Bivol was considering this in order to pursue a trilogy bout with Artur Beterbiev or a potential fight with David Benavidez. On 7 July, the WBO officially ordered the bout against Smith, giving both t",
       "url": "https://en.wikipedia.org/wiki/Dmitry_Bivol",
       "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-09-30T20:14:47.653Z",
+      "publishedAt": "2026-09-30T21:00:44.375Z",
       "date": "2026-12",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-30T20:14:47.653Z"
+      "detectedAt": "2026-09-30T21:00:44.375Z"
     },
     {
       "boxerName": "Naoya Inoue",
@@ -75,21 +75,21 @@
       "date": "2027-02",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-30T20:14:24.123Z"
+      "detectedAt": "2026-09-30T21:00:21.427Z"
     },
     {
       "boxerName": "Dmitry Bivol",
       "sport": "boxing",
-      "headline": "Dmitry Bivol vs Michael Eifert finalized for May 23 Egypt card - boxing247.com",
+      "headline": "Dmitry Bivol vs Michael Eifert finalized for May 23 Egypt card - Boxing News 24/7",
       "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQN3lJUDlLaW1xSl91WlhDS3g3Rmd3aGtqMFNGb3V3aE9uN0tYUEY1RTJBNEVFeVNSRVl4bUFsR2ZFbXBPbmlBeC05WEl2TUZCd1l5MmZzWllYWXJqYnhKcGhFUzVoWXFPQUlTM2xWV2h6bFJ1SWw1THo5cDA2emhZVU5TWDZRN0RLMlZtUGpfQkN3bWRSUC1WWGJKdkoyYUhIc3JZMGE1NFM3X2s?oc=5",
-      "source": "boxing247.com",
+      "source": "Boxing News 24/7",
       "publishedAt": "2026-09-03T07:00:00.000Z",
       "date": "2027-05",
       "granularity": "month",
       "matchup": "Dmitry Bivol vs Michael Eifert",
       "opponent": "Michael Eifert",
       "confidence": "low",
-      "detectedAt": "2026-09-30T20:14:44.412Z"
+      "detectedAt": "2026-09-30T21:00:41.052Z"
     }
   ]
 }
