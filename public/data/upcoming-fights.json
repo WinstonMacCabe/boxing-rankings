@@ -1,6 +1,18 @@
 {
-  "lastUpdated": "2026-09-29T17:50:49.575Z",
+  "lastUpdated": "2026-09-30T00:30:30.311Z",
   "fights": [
+    {
+      "boxerName": "Canelo Álvarez",
+      "sport": "boxing",
+      "headline": "On 30 April, Ring Magazine officially announced that Álvarez would challenge M’billi for his WBC title in his first title defence. On 28 June, it was reported that the fight date had been postponed to",
+      "url": "https://en.wikipedia.org/wiki/Canelo_%C3%81lvarez",
+      "source": "Wikipedia (fighter page prose)",
+      "publishedAt": "2026-09-30T00:30:57.091Z",
+      "date": "2026-10",
+      "granularity": "month",
+      "confidence": "low",
+      "detectedAt": "2026-09-30T00:30:57.091Z"
+    },
     {
       "boxerName": "Ermal Hadribeaj",
       "sport": "boxing",
@@ -14,116 +26,40 @@
       "detectedAt": "2026-09-29T17:52:07.469Z"
     },
     {
-      "boxerName": "Canelo Álvarez",
-      "sport": "boxing",
-      "headline": "Canelo Alvarez vs Christian Mbilli gets new official date in October - Bad Left Hook",
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPNWZUT0d5c2g0NVBDQnAxQ3M5T3prSjJFdk9PU1ROa3U4N1pIMXJvb0FCdDVZZV9QVTNCZ2E4MkJ2YXhTdnlPUlZ5UVpoZ3VCdHFkMjFOSFYtc3lUTFFFeXkweW9DWmFBZlp2RnJxTk9XNUVzZ3ZsOUgzSzZRaEJSa3lxcWt0aWo0ektwUkRwOEJBeXRMS2tmX3lOZWYxRnRBSTByeU44dWEyNmZYU0Y0b2RoLU5Nc2RzQU12M3pPUlZ3U1NUQWl2SFNPTUc?oc=5",
-      "source": "Bad Left Hook",
-      "publishedAt": "2026-07-22T07:00:00.000Z",
-      "date": "2026-10",
-      "granularity": "month",
-      "confidence": "low",
-      "detectedAt": "2026-09-29T17:52:42.375Z"
-    },
-    {
-      "boxerName": "Canelo Álvarez",
-      "sport": "boxing",
-      "headline": "On 30 April, Ring Magazine officially announced that Álvarez would challenge M’billi for his WBC title in his first title defence. On 28 June, it was reported that the fight date had been postponed to",
-      "url": "https://en.wikipedia.org/wiki/Canelo_%C3%81lvarez",
-      "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-09-29T17:52:56.814Z",
-      "date": "2026-10",
-      "granularity": "month",
-      "confidence": "low",
-      "detectedAt": "2026-09-29T17:52:56.814Z"
-    },
-    {
       "boxerName": "Ermal Hadribeaj",
       "sport": "boxing",
-      "headline": "Sebastian Fundora vs Ermal Hadribeaj official for October 17th on TNT and DAZN - Bad Left Hook",
-      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNT003eWc5WmhNU0c0WXU4Ylp6XzAwam9oVGRWUWpfTjVQUm16eUoxSkhLOVgwRU9lWHVGMWZoOFRXalhBeXlBRV8xc1NnTmFwLWZuaktwaHlwYjNfbDRuVDd4MDZiVC1BZkJOMnc4SlBtU0pyVkY2Q2JwYnVQVm14NTBlWTBjd0pBUlFTQl9MSVdUbWFnaTlrTGxIY1YyZXcyejVGSGljTkpsZm9YMFFrT2VNeFo2WmZEdUh1OGlPU0J3RVU?oc=5",
-      "source": "Bad Left Hook",
-      "publishedAt": "2026-08-27T07:00:00.000Z",
-      "date": "2026-10-17",
-      "granularity": "day",
-      "matchup": "Sebastian Fundora vs Ermal Hadribeaj",
-      "opponent": "Sebastian Fundora",
-      "confidence": "high",
-      "detectedAt": "2026-09-29T17:52:06.139Z"
-    },
-    {
-      "boxerName": "Ermal Hadribeaj",
-      "sport": "boxing",
-      "headline": "Fundora vs Hadribeaj Live Stream & Fight Preview | October 17, 2026 - Premier Boxing Champions",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPaUNoYzczVUVyM3h1bUlLdXBic01mblJRQkM3b3hGWWdFNXJLQ0hiYWpjZi04V2xiS3BYaUhmQ2pLRk5DbjhDU3pFdHRPNkxjT0pERjBEMXBKOWRTTjAwN0taWkZxVk1Ea0kzOTZtYVhWdHkyWUZWb0pfdFJ0NXJUXw?oc=5",
-      "source": "Premier Boxing Champions",
-      "publishedAt": "2026-08-27T19:03:35.000Z",
-      "date": "2026-10-17",
-      "granularity": "day",
-      "matchup": "Fundora vs Hadribeaj",
-      "opponent": "Fundora",
-      "confidence": "high",
-      "detectedAt": "2026-09-29T17:52:06.389Z"
-    },
-    {
-      "boxerName": "Ermal Hadribeaj",
-      "sport": "boxing",
-      "headline": "Sebastian Fundora and Ermal Hadribeaj preview their October 17 fight during virtual press conference - britishboxingnews.co.uk",
+      "headline": "Sebastian Fundora and Ermal Hadribeaj preview their October 17 fight during virtual press conference - British Boxing News",
       "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOMEVfbzBfZVdnemZ0d1ZZakRfVjZ2dm9rWExSU1NveW9ZSGJyVURfMWItTnRkdnU1aEQ2LVpUWTdQcmExR1VVdTBHMk9fN1pFXzhHNGRfeTlHYjhvVmw3VjlfcFRSWVQ3RFR2Vml0XzBreVEybkVWQ29nWnNyRm8xWE13dGQ1bkp0emlpVzBrbFlDeDZfTmJTUXZZWTU2ZXpjMG9mXzJpMkF6M19Pcm1VbmVQU1A3Y2FFS0YtUk9ZekRoUk9ZTlJ3UHFlRzE0NjNvVEh0dQ?oc=5",
-      "source": "britishboxingnews.co.uk",
+      "source": "British Boxing News",
       "publishedAt": "2026-09-25T07:38:05.000Z",
       "date": "2026-10-17",
       "granularity": "day",
       "confidence": "medium",
-      "detectedAt": "2026-09-29T17:52:06.855Z"
-    },
-    {
-      "boxerName": "Ermal Hadribeaj",
-      "sport": "boxing",
-      "headline": "Sebastian Fundora Defends WBC Title Against Ermal Hadribeaj On October 17 - Boxing News 24/7",
-      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOWE8wdWk3OEtUNWZNMmVUZExWN2lwQktMd3dfNjNpY2IzcEVJZDFnX2szRU1PcVJKNi0zVldVTXcyN2p0YkE0RWZvT0gyUVVmUDFBYldYRTNsWjFfTFhEZ08zTjNyU1I1OHdYSFFXY3lCaVZyWEFueHlIVGctMXlURkpHZlV5SUgzREd5bndyQ1c1WmdqdV90NXhuS3hzMlZhVHFaM1BFbWM5QTlm?oc=5",
-      "source": "Boxing News 24/7",
-      "publishedAt": "2026-07-28T07:00:00.000Z",
-      "date": "2026-10-17",
-      "granularity": "day",
-      "confidence": "medium",
-      "detectedAt": "2026-09-29T17:52:09.367Z"
-    },
-    {
-      "boxerName": "Ermal Hadribeaj",
-      "sport": "boxing",
-      "headline": "Fundora, Hadribeaj and rest of Oct. 17 card address media ahead of Las Vegas fight - The Sporting Tribune",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOSEtRdlpOVXBqY2FTWXlhcTdtSEFyekQ3VUhoTkRENm03djhJVjR2amdRRVBFZ2R0WFRlMzlSeHUyWi1XaElRYmpDS2ZmQzRFWnlIcmZ3dVNnY2hwLTg4aEpObE95UDVnbmczbDQwS2c2X2IyZUdMek9fZ05rOEhURmNvcDU0VHpXd3RTanZoVWI?oc=5",
-      "source": "The Sporting Tribune",
-      "publishedAt": "2026-09-25T01:51:57.000Z",
-      "date": "2026-10-17",
-      "granularity": "day",
-      "confidence": "medium",
-      "detectedAt": "2026-09-26T00:31:13.611Z"
+      "detectedAt": "2026-09-30T00:30:47.673Z"
     },
     {
       "boxerName": "Canelo Álvarez",
       "sport": "boxing",
-      "headline": "Canelo Alvarez vs Christian Mbilli officially official for October 31, but red flags remain - Bad Left Hook",
-      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQc2lybm5OWU9pUDU4ZGdHWFBZRVphWHdjckhraTZuWnFOSHJCclhRa1Q5bl9zNFRoQVhEbm5mcDhQQ0F1dTdvbFJ5b2JMMGpkTjhTa2l1UFdPcU9laVVoOFByMVVYd0J2WEJSbndPTDU3Y29vc00yMHp4RVBBejJ5WndrUVdJU1FsNWkxc0ZZNHNpWC1mcHJocW1fOTNPTlFGTzlYUXNvbTQ5YmZPbVBFdGcxLUJuS215OF93WnhTbGVFMjVrZXhmLWsxRjZxVDR3SWRCMTRB?oc=5",
-      "source": "Bad Left Hook",
-      "publishedAt": "2026-09-29T17:44:34.000Z",
+      "headline": "Canelo Alvarez Fight Still Faces VADA Testing Questions - Boxing News 24",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPTDFxS1ItOUZMTUFhem1XbTRUSU9CSk13ZHpsWGR1eTBHVU5TczBpc3ZlcDhZbWZCaTZDUWgxWjU4MDhzRmZwcmxfZ1B1MWxnaGRCQ3h0UUo5aEhFU2hjYWo5SXZoUThfNXl1dzJielFENk5pVGNJeGszalAyUWpUWENFU2NUWEozaUp3aGg4cThXODE1cjRF?oc=5",
+      "source": "Boxing News 24",
+      "publishedAt": "2026-09-29T16:18:14.000Z",
       "date": "2026-10-31",
       "granularity": "day",
       "confidence": "medium",
-      "detectedAt": "2026-09-29T17:52:38.515Z"
+      "detectedAt": "2026-09-30T00:30:53.159Z"
     },
     {
-      "boxerName": "Canelo Álvarez",
+      "boxerName": "Dmitry Bivol",
       "sport": "boxing",
-      "headline": "Canelo Alvarez vs. Christian Mbilli Rescheduled for October 31 - World Boxing Council",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNQVk4NXp6UDhKVERSNzJyTFJuLWlJcGFqOElkMlExU2tZSy1HT1kwWjdCdjZKOGJpSjZObG1LVjlGcW1nYXlha0w4dm5NUmVNQkNKU1Y3SDFDZmNpRjFWZDVDLTZRYklBTlQ1eGZlNU1CX2J0VFFJeDNXbXp6Y1c0cWQ2cEV3TEJKeVlCSDg5amM?oc=5",
-      "source": "World Boxing Council",
-      "publishedAt": "2026-07-23T07:00:00.000Z",
-      "date": "2026-10-31",
-      "granularity": "day",
-      "confidence": "medium",
-      "detectedAt": "2026-09-29T17:52:45.619Z"
+      "headline": "Bivol was considering this in order to pursue a trilogy bout with Artur Beterbiev or a potential fight with David Benavidez. On 7 July, the WBO officially ordered the bout against Smith, giving both t",
+      "url": "https://en.wikipedia.org/wiki/Dmitry_Bivol",
+      "source": "Wikipedia (fighter page prose)",
+      "publishedAt": "2026-09-30T00:30:45.523Z",
+      "date": "2026-12",
+      "granularity": "month",
+      "confidence": "low",
+      "detectedAt": "2026-09-30T00:30:45.523Z"
     },
     {
       "boxerName": "David Benavidez",
@@ -138,30 +74,6 @@
       "detectedAt": "2026-09-29T17:51:18.339Z"
     },
     {
-      "boxerName": "Dmitry Bivol",
-      "sport": "boxing",
-      "headline": "Dmitry Bivol set for December fight against former champion as 'no Beterbiev trilogy offer made' - boxingnewsonline.net",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9zM3Z2UGFFNGgwRWhzYjJqUmdPVXctd3Y4Tng5NmlrbGJlN0dXVURBMGMydHltWERFQkVKVjc1TTd2cWprZ2JMazJjLVN4WHVoSWxaQ1hmN0pfdDdHOVBGTnNSeXF2dTlPNmZpWE5raFp6SE0wM2tKZw?oc=5",
-      "source": "boxingnewsonline.net",
-      "publishedAt": "2026-09-02T07:00:00.000Z",
-      "date": "2026-12",
-      "granularity": "month",
-      "confidence": "low",
-      "detectedAt": "2026-09-29T17:52:08.293Z"
-    },
-    {
-      "boxerName": "Dmitry Bivol",
-      "sport": "boxing",
-      "headline": "Bivol was considering this in order to pursue a trilogy bout with Artur Beterbiev or a potential fight with David Benavidez. On 7 July, the WBO officially ordered the bout against Smith, giving both t",
-      "url": "https://en.wikipedia.org/wiki/Dmitry_Bivol",
-      "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-09-29T17:52:08.742Z",
-      "date": "2026-12",
-      "granularity": "month",
-      "confidence": "low",
-      "detectedAt": "2026-09-29T17:52:08.742Z"
-    },
-    {
       "boxerName": "Terence Crawford",
       "sport": "boxing",
       "headline": "Is Ryan Garcia truly in frame for shock Terence Crawford bout this December? - dazn.com",
@@ -172,18 +84,6 @@
       "granularity": "month",
       "confidence": "low",
       "detectedAt": "2026-09-29T14:06:01.938Z"
-    },
-    {
-      "boxerName": "Terence Crawford",
-      "sport": "boxing",
-      "headline": "Terence Crawford being lined up for December comeback against world champion - boxingnewsonline.net",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOUlRtQnlfY3FNMlVzWEFxU3JMR0w4MU1sbXVqckg2U1JCQ0pHb1E2RDRJdk80X080SWdlTUNDM3dBRmRTWnFYSEVVOG9zSWZzdmE0UGdXN2J6Mm9wN0FweEQxbVFjVXo2WS1YS28xVE5xelgzSGgzcG9pd0huSWNySQ?oc=5",
-      "source": "boxingnewsonline.net",
-      "publishedAt": "2026-09-25T22:33:55.000Z",
-      "date": "2026-12",
-      "granularity": "month",
-      "confidence": "low",
-      "detectedAt": "2026-09-26T00:31:03.108Z"
     },
     {
       "boxerName": "Dmitry Bivol",
@@ -210,18 +110,6 @@
       "detectedAt": "2026-09-29T17:51:16.455Z"
     },
     {
-      "boxerName": "David Benavidez",
-      "sport": "boxing",
-      "headline": "Benavidez Sr Calls For Jai Opetaia Fight In May - Boxing News 24/7",
-      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxObEItOVV6Y0M5Q0ZMZkxmSkhRaDhHbWltN0ZUSHVlSVJhR3lWNTBRdThmaVV5U3FvVi1MS21yT256TW1FaTYtRDQtQjRwRTBsMDl4UGJfd2hieXBJbFhlMF93S1ByMlZmdldNOFdxR3BqVUdSS25ycEVySm5aN21zQm5hS0FrbjB1UUpNYVFXVUczQ0lJbjNz?oc=5",
-      "source": "Boxing News 24/7",
-      "publishedAt": "2026-08-24T07:00:00.000Z",
-      "date": "2027-05",
-      "granularity": "month",
-      "confidence": "low",
-      "detectedAt": "2026-09-29T17:51:31.754Z"
-    },
-    {
       "boxerName": "Dmitry Bivol",
       "sport": "boxing",
       "headline": "Dmitry Bivol vs Michael Eifert finalized for May 23 Egypt card - Boxing News 24/7",
@@ -233,7 +121,19 @@
       "matchup": "Dmitry Bivol vs Michael Eifert",
       "opponent": "Michael Eifert",
       "confidence": "low",
-      "detectedAt": "2026-09-29T17:51:47.957Z"
+      "detectedAt": "2026-09-30T00:30:45.165Z"
+    },
+    {
+      "boxerName": "David Benavidez",
+      "sport": "boxing",
+      "headline": "Benavidez Sr Calls For Jai Opetaia Fight In May - Boxing News 24/7",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxObEItOVV6Y0M5Q0ZMZkxmSkhRaDhHbWltN0ZUSHVlSVJhR3lWNTBRdThmaVV5U3FvVi1MS21yT256TW1FaTYtRDQtQjRwRTBsMDl4UGJfd2hieXBJbFhlMF93S1ByMlZmdldNOFdxR3BqVUdSS25ycEVySm5aN21zQm5hS0FrbjB1UUpNYVFXVUczQ0lJbjNz?oc=5",
+      "source": "Boxing News 24/7",
+      "publishedAt": "2026-08-24T07:00:00.000Z",
+      "date": "2027-05",
+      "granularity": "month",
+      "confidence": "low",
+      "detectedAt": "2026-09-29T17:51:31.754Z"
     }
   ]
 }
