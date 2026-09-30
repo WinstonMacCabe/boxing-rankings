@@ -327,6 +327,12 @@ function normalizeForCompare(s: string): string {
 }
 
 const NON_PERSON_OPPONENT = /(championship|title|ufc|fight night|bellator|one|glory|pfl|rizin|k-1|arena|stadium|tournament|prelim|main event|promotion|world|cup|record|event)/i
+
+// A cell that is only a presentation attribute ("align=left", "style=\"...\""),
+// not a value. Record tables carry these mid-row as `|| || align=left | Name`,
+// so a positional column read must skip them or it reads the attribute as the
+// opponent. Matched against the trimmed cell.
+const CELL_ATTRIBUTE_RE = /^(?:style|align|valign|colspan|rowspan|class|scope|bgcolor|width|height)\s*[=:]/i
 const LOCATION_OPPONENT = /(bangkok|jakarta|yokohama|tokyo|osaka|pattaya|phnom penh|cambodia|south africa|antwerp|rotterdam|amsterdam|paris|london|las vegas|los angeles|new york|glendale|salt lake|abu dhabi|dubai|riyadh|singapore|hong kong|beijing|manila|seoul|melbourne|sydney|moscow|chicago|miami|houston|dallas|atlanta|toronto)/i
 
 // An opponent string must look like a person's name: no digits (event numbers
@@ -481,20 +487,70 @@ export function scheduledInRecordTable(
         .filter(Boolean)
         .filter(c => c.length > 1 && !/^style=/.test(c))
       const dateStr = `${dateCand.year}-${String(dateCand.month + 1).padStart(2, '0')}-${String(dateCand.day).padStart(2, '0')}`
-      // Prefer the wikilink opponent that appears right after the date cell
-      // (rows are: date | result | opponent || event || venue ...). Fall back to
-      // the first capitalized multiword cell that isn't a flagicon/event token.
-      const afterDate = row.slice(row.indexOf(dateTok))
-      const linked = Array.from(afterDate.matchAll(/\[\[([^\]|]*)\]\]/g))
-        .map(m => cleanName(stripWikiMarkup(m[1]).trim()))
-      let opponent: string | null = linked.find(c => looksLikeOpponent(c, fighter.clean)) ?? null
-      if (!opponent) {
-        opponent =
-          cellsArr
-            .filter(c => c !== dateStr)
-            .filter(c => !/^(win|loss|draw|no contest|nc|drawn|won|lost)$/i.test(c))
-            .find(c => looksLikeOpponent(c, fighter.clean))
+      // Read the opponent by POSITION rather than by looking for something that
+      // looks like a name. Record tables are `date | result | opponent || event
+      // || venue`, and a future row is blank in the result cell -- that blank is
+      // what distinguishes a booking from a fight already had -- so the opponent
+      // is always the cell two after the date.
+      //
+      // Position stays exact when the opponent is unknown, which is the case the
+      // old approach got wrong. It took the first wikilink after the date, so for
+      // an announced-but-unmatched fight it picked up the event or the venue:
+      // "Yoel Romero - scheduled vs Manchester", "Sofian Laidouni - vs Belgium"
+      // and "Petchmorakot - vs Bern" all shipped that way. A hand-typed city list
+      // cannot fix that class of bug, because the next venue is somewhere new.
+      //
+      // Columns must be cut the way cellsArr cuts them, but stricter: every pipe
+      // that lives INSIDE a template or a wikilink has to be collapsed before the
+      // split, or it masquerades as a column boundary and shifts the row.
+      //   {{flagicon|SWI}}                  -> shifts every later cell by one
+      //   [[Dani Rodriguez (fighter)|Dani Rodriguez]] -> splits the name in half
+      // Both are common in record tables, and both produced garbage opponents
+      // ("align=left" landed in the opponent slot).
+      //
+      // Attribute-only cells ("align=left", a leftover "style=...") are then
+      // dropped so they cannot be read as an opponent. Blanks are deliberately
+      // KEPT -- a blank result cell is precisely the signal that the row is a
+      // booking rather than a fight already had.
+      const cells = row
+        .replace(/\{\{[^{}]*?\}\}/g, ' ')
+        .replace(/\[\[[^\]]*\|([^\]]*)\]\]/g, '$1')
+        .replace(/\[\[([^\]]*)\]\]/g, '$1')
+        .split(/\|{1,2}/)
+        .map(c => stripWikiMarkup(c).trim())
+        .filter(c => !CELL_ATTRIBUTE_RE.test(c))
+      const rawCells = row.split(/\|{1,2}/)
+      const dateCellIdx = cells.findIndex(c => /\b\d{4}-\d{1,2}-\d{1,2}\b/.test(c))
+      let opponent: string | null = null
+      let positionKnown = false
+      if (dateCellIdx !== -1 && dateCellIdx + 2 < cells.length) {
+        const resultCell = cells[dateCellIdx + 1]
+        if (resultCell === '' || /^(win|loss|draw|no contest|nc|drawn|won|lost)$/i.test(resultCell)) {
+          positionKnown = true
+          const cand = cleanName(cells[dateCellIdx + 2])
+          // Trust the position. NON_PERSON_OPPONENT stays as a cheap guard
+          // against a table that puts an event or promotion in this slot; the
+          // city list is not consulted, because we are no longer guessing.
+          if (cand && !NON_PERSON_OPPONENT.test(cand)) opponent = cand
+        }
+      }
+      if (!positionKnown) {
+        // A table shape we could not place. Keep the old heuristics rather than
+        // trust a position we failed to establish. These read [[wikilinks]], so
+        // they need the UNPROCESSED cells -- templates intact.
+        const rawDateIdx = rawCells.findIndex(c => /\b\d{4}-\d{1,2}-\d{1,2}\b/.test(c))
+        const searchFrom = rawDateIdx !== -1 ? rawCells.slice(rawDateIdx).join('|') : row
+        const linked = Array.from(searchFrom.matchAll(/\[\[([^\]|]*)\]\]/g))
+          .map(m => cleanName(stripWikiMarkup(m[1]).trim()))
+        opponent = linked.find(c => looksLikeOpponent(c, fighter.clean)) ?? null
+        if (!opponent) {
+          opponent =
+            cellsArr
+              .filter(c => c !== dateStr)
+              .filter(c => !/^(win|loss|draw|no contest|nc|drawn|won|lost)$/i.test(c))
+              .find(c => looksLikeOpponent(c, fighter.clean))
             ?? null
+        }
       }
       if (opponent && opponent.toLowerCase() === fighter.clean.toLowerCase()) opponent = null
       matches.push({
