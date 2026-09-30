@@ -902,28 +902,27 @@ function assertsOwnDate(headline: string): boolean {
   return OWN_DATE_RE.test(headline)
 }
 
-// A headline asserts a scheduled fight in one of two ways, and the two are
-// interchangeable only in combination:
+// A headline asserts a scheduled fight by stating when, and by either naming
+// the opponent or using an explicit booking word:
 //
-//   dated && (paired || booked)  the publisher said when, and either named the
-//                                opponent or used an explicit booking word
-//   paired && booked            no date at all, but the headline announces one
-//                                specific pairing outright ("A vs B set for
-//                                ...") -- an unambiguous booking whose date
-//                                comes from the article rather than the title
+//   dated && (paired || booked)
 //
-// Requiring `dated` on its own is what threw away real fights, and requiring
-// only `dated` is what let the calendar fill up: OWN_DATE_RE admits "Takeru
-// Segawa To Be Inducted Into Hall Of Fame ... In October" and "Terence Crawford
-// wants to see Gervonta Davis face one man ... this December", neither of which
-// is a fight, while the two rules above together reject both and still keep
-// every headline in the keep set.
+// Requiring only `dated` is what let the calendar fill up -- OWN_DATE_RE admits
+// "Takeru Segawa To Be Inducted Into Hall Of Fame ... In October" and "Terence
+// Crawford wants to see Gervonta Davis face one man ... this December", neither
+// of which is a fight.
 //
-// `paired && booked` is what keeps "A.J. McKee vs. Razhabali Shaydullaev set
-// for PFL and RIZIN titles" -- a real booking that states no date.
+// There used to be a second arm, `paired && booked`, for headlines that name a
+// pairing but no date -- "A.J. McKee vs. Razhabali Shaydullaev set for PFL and
+// RIZIN titles". It was a mistake. A headline that states no date can only be
+// dated from a snippet, which is precisely the mechanism this gate exists to
+// shut, and that row duly landed on 2026-11-14 while Cageside Press and Fightmag
+// both reported the fight for 10 September. The row that motivated the escape
+// hatch is the row that disproved it. It now requires a stated date like
+// everything else, and costs two rows across both sites, both of which are
+// covered elsewhere or already past.
 function isUnsupportedBooking(dated: boolean, paired: boolean, booked: boolean): boolean {
   if (dated && (paired || booked)) return false
-  if (paired && booked) return false
   return true
 }
 
