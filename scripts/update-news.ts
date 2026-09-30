@@ -32,6 +32,9 @@ const PAST_DAYS_KEPT = 7
 const CONCURRENCY = 4
 const FETCH_ATTEMPTS = 3
 const ARTICLE_BODY_TIMEOUT_MS = 8000
+// Supplementary feed. Kept short and failure-tolerant: it must never be the reason
+// a scan is slower than it needs to be.
+const BING_FEED_TIMEOUT_MS = 6000
 const WIKI_PAST_DAYS = envInt('WIKI_PAST_DAYS', 7)
 
 const SPORT_KEYWORDS: Record<string, string> = {
@@ -464,6 +467,16 @@ interface RssItem {
   link: string
   source: string
   publishedAt: string
+  /**
+   * Publisher snippet for a story, from the supplementary Bing feed. Deliberately
+   * kept out of `description` so it never reaches the noise filters below: the
+   * snippet is article body text, and the accept/reject gates are defined against
+   * the Google feed's own title+description. It is date-bearing, so it joins the
+   * text handed to extractDate/extractMatchup the same way a fetched body does.
+   */
+  snippet?: string
+  /** A URL we can actually fetch, when the feed only offers a redirect wrapper. */
+  bodyUrl?: string
 }
 
 function parseFeed(xml: string): RssItem[] {
@@ -493,6 +506,117 @@ function parseFeed(xml: string): RssItem[] {
   return items
 }
 
+/**
+ * Unwrap a redirect wrapper down to the publisher URL.
+ *
+ * Google News article links are `news.google.com/rss/articles/<opaque id>`: they
+ * answer every request with a ~580KB JavaScript shell that contains no article
+ * text, under every User-Agent tried, so the body fetch silently yields nothing and
+ * any precise date in the article is invisible to us. Bing's RSS wraps the real
+ * destination in a `url=` query parameter instead, which is readable.
+ */
+function unwrapFeedLink(link: string): string {
+  // The wrapper arrives with its query separators still HTML-escaped
+  // ("?ref=..&amp;url=.."), so it has to be entity-decoded before the parameter
+  // can be found — otherwise `&url=` never matches and the redirect is returned
+  // unchanged, which is the unreadable case this function exists to fix.
+  const trimmed = decodeEntities(link.trim())
+  const m = /[?&]url=([^&]+)/.exec(trimmed)
+  if (!m) return trimmed
+  try {
+    const decoded = decodeURIComponent(m[1]!)
+    return /^https?:\/\//i.test(decoded) ? decoded : trimmed
+  } catch {
+    return trimmed
+  }
+}
+
+/** Lowercase, punctuation-free key for matching one story across two feeds. */
+function storyKey(title: string): string {
+  return stripTags(decodeEntities(title))
+    .replace(/\s+-\s+[^-]+$/, '') // drop the trailing " - Publisher" suffix
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim()
+}
+
+/**
+ * Supplementary Bing News RSS query for one fighter.
+ *
+ * Two things Google cannot give us: the publisher's own snippet, which usually
+ * carries the exact fight date ("... on Nov. 21 from ABHA Arena in Doha"), and a
+ * link that resolves to the publisher. Best-effort — any failure returns an empty
+ * list and the run behaves exactly as it did before.
+ *
+ * Queried on the name alone, deliberately without the sport keyword the Google
+ * query uses. Bing ranks `"Name" mma` towards aggregator rewrites of the story
+ * whose snippets are truncated before the date, while `"Name"` returns the
+ * publisher copy that actually names the day. Broader results cost nothing here:
+ * unmatched Bing items are discarded by the merge, so this cannot introduce a
+ * story the Google feed did not already have.
+ */
+async function fetchBingFeed(fighterClean: string): Promise<RssItem[]> {
+  const q = encodeURIComponent(`"${fighterClean}"`)
+  const url = `https://www.bing.com/news/search?q=${q}&format=RSS`
+  try {
+    const res = await fetch(url, {
+      headers: {
+        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125 Safari/537.36',
+        accept: 'application/rss+xml, application/xml, text/xml, */*',
+      },
+      signal: AbortSignal.timeout(BING_FEED_TIMEOUT_MS),
+    })
+    if (!res.ok) return []
+    const xml = await res.text()
+    if (!xml.includes('<item>')) return []
+    return parseFeed(xml).map(item => ({
+      ...item,
+      link: unwrapFeedLink(item.link),
+      source: item.source || 'Bing News',
+    }))
+  } catch {
+    return []
+  }
+}
+
+/**
+ * Fold Bing's findings onto the Google items they describe.
+ *
+ * Merge-only, never additive: a Bing story that matches no Google item is dropped,
+ * so the set of stories considered — and therefore which rows are accepted or
+ * rejected by the noise filters — is unchanged. A matched item gains the snippet
+ * and, when the Google link is an unreadable redirect, a fetchable publisher URL.
+ */
+function mergeBingIntoGoogle(google: RssItem[], bing: RssItem[], fighterName: string): RssItem[] {
+  if (bing.length === 0) return google
+  const byKey = new Map<string, RssItem>()
+  for (const b of bing) {
+    const k = storyKey(b.title)
+    if (!k) continue
+    // One story, several copies. The same fight is often syndicated across
+    // outlets and the copies are truncated at different points, so keep the one
+    // with the most text — that is the copy most likely to still contain the
+    // sentence naming the date.
+    const prev = byKey.get(k)
+    if (!prev || b.description.length > prev.description.length) byKey.set(k, b)
+  }
+  let enriched = 0
+  const out = google.map(g => {
+    const match = byKey.get(storyKey(g.title))
+    if (!match) return g
+    const next: RssItem = { ...g }
+    const snippet = match.description && match.description.length > 40 ? match.description : ''
+    if (snippet) next.snippet = snippet
+    if (match.link && /^https?:\/\//i.test(match.link)) next.bodyUrl = match.link
+    if (next.snippet || next.bodyUrl) enriched++
+    return next
+  })
+  if (enriched > 0) {
+    console.log(`[schedule-scan] bing enriched ${enriched}/${google.length} google items for "${fighterName}"`)
+  }
+  return out
+}
+
 async function fetchFeed(fighterClean: string, keyword: string): Promise<RssItem[]> {
   const q = encodeURIComponent(`"${fighterClean}" ${keyword}`)
   const url = `https://news.google.com/rss/search?q=${q}&hl=en-US&gl=US&ceid=US:en`
@@ -513,7 +637,11 @@ async function fetchFeed(fighterClean: string, keyword: string): Promise<RssItem
           lastErr = new Error('no items in feed')
           continue
         }
-        return parseFeed(xml)
+        const google = parseFeed(xml)
+        // Google gave us the story; Bing may still be able to give us its date and
+        // a readable link. Strictly additive, and best-effort: if Bing is down the
+        // run is byte-for-byte what it was before.
+        return mergeBingIntoGoogle(google, await fetchBingFeed(fighterClean), fighterClean)
       }
     } catch (err) {
       lastErr = err
@@ -680,8 +808,13 @@ async function main() {
       // RSS often omits the sentence containing the exact date. Fetch the
       // article only after the cheap metadata filters pass, then let the same
       // detector inspect title, description, and body together.
-      const body = await fetchArticleBody(item.link)
-      const articleText = `${feedText} ${body}`.trim()
+      // `bodyUrl` is the publisher link recovered from the supplementary feed; a
+      // Google redirect wrapper serves no article text under any User-Agent, so
+      // when we have the real URL this actually returns the body.
+      const body = await fetchArticleBody(item.bodyUrl ?? item.link)
+      // The snippet joins the date/matchup text but NOT `feedText`, so the noise
+      // filters above keep seeing exactly the Google metadata they always saw.
+      const articleText = `${feedText} ${item.snippet ?? ''} ${body}`.trim()
 
       // Year inference has to be anchored on when the article was written, not on
       // today. "on July 4" in a piece published 26 June 2026 means 4 July 2026 --

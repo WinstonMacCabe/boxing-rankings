@@ -547,6 +547,26 @@ const PROMO_LIST_PAGES: Record<string, string> = {
   'BKFC': 'List of BKFC events',
 }
 
+// Event *series* and *venue* pages, not single events.
+//
+// "UFC Apex" is a franchise page that lists every Apex card ever held, so its
+// wikitext names dozens of fighters across many years. The "is this fighter named
+// near fight wording on the event page?" check below therefore passes for all of
+// them, and each one gets booked on whatever single date the list row carried.
+//
+// "Sydney SuperDome" is a venue, reached from a table's venue column, and fails
+// the same way: the page names past UFC 110 / UFC 193 fighters and contains no
+// 2027 event at all, yet four of them were booked on 2027-02-07.
+//
+// A page that is not one specific event can never prove that one fighter has one
+// upcoming bout, so it is rejected before we spend a fetch on it.
+const SKIP_EVENT_TITLES = new Set(['ufc apex', 'sydney superdome'])
+
+/** Series/venue pages to reject, compared on a normalised form of the title. */
+function isSkippedEventPage(title: string): boolean {
+  return SKIP_EVENT_TITLES.has(stripWikiMarkup(title).replace(/_/g, ' ').replace(/\s+/g, ' ').trim().toLowerCase())
+}
+
 function promoListsFor(tokens: string[], locales: Record<string, string>, mmaOnly: boolean): string[] {
   const out: string[] = []
   for (const t of tokens) {
@@ -586,6 +606,8 @@ export async function scheduledInPromotionEvents(
       if (!link) continue
       const eventTitleRaw = stripWikiMarkup(link[1]).trim()
       const display = stripWikiMarkup(link[2]).trim() || eventTitleRaw
+      // Reject series pages before spending a fetch on them.
+      if (isSkippedEventPage(eventTitleRaw)) continue
       const dts = /\{\{\s*dts\s*\|\s*(\d{4})\s*\|\s*([A-Za-z]{3,9})\s*\|\s*(\d{1,2})\s*\}\}/i.exec(row)
       const dateCand = dts
         ? (() => {
