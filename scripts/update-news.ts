@@ -1,5 +1,5 @@
 import { readRankings } from '../lib/storage'
-import { scanFighterFromWikipedia } from './wiki-detectors'
+import { scanFighterFromWikipedia, isSkippedEventUrl } from './wiki-detectors'
 import * as fs from 'fs/promises'
 import * as path from 'path'
 import { load as loadHtml } from 'cheerio'
@@ -136,6 +136,57 @@ const NOT_A_BOOKING_RE = new RegExp(
     // "rehab" all appear in real announcements ("... after Fighter Z injury
     // forces a change"), so including them vetoes genuine fights.
     '\\b(?:surgery|weigh-in)\\b',
+  ].join('|'),
+  'i'
+)
+
+// Commentary and opinion: a fighter or pundit reacting to, explaining, or ruling
+// on something, rather than an announced fight. These only became bookable once a
+// publisher snippet supplied a date to an article that never announced a bout --
+// "David Haye gives his verdict on whether Usyk belongs among boxing's all-time
+// greats" carries no date in its Google title+description, so it was only ever
+// datable from the snippet, and it was then booked seven months out. The same
+// mechanism is what recovers a real date for a genuine report, so the gap is a
+// missing filter rather than a bad one.
+//
+// Same rule as above: every pattern must mean "this is not an announced fight",
+// never merely "this is low quality". Deliberately excluded, because each can
+// legitimately headline a real booking:
+//   - prediction and betting wording, for the reason given on NOT_A_BOOKING_RE
+//   - "calls out" and "names" (a challenge, or an announced opponent)
+//   - "says" / "thinks" (a fighter stating his own intentions)
+//   - "faces" / "set to" / "clears up" (a confirmed or clarified matchup)
+const COMMENTARY_RE = new RegExp(
+  [
+    // A verdict, whether an opinion piece or a result. Never a booking.
+    '\\bverdicts?\\b',
+    '\\bsums? up\\b',
+    '\\bopinion\\s*:',
+    // Camp and training news. Names a fighter and a date, announces no opponent.
+    '\\bchanges? camp\\b',
+    '\\bback in (?:the )?(?:gym|training)\\b',
+    // The matchup itself is still unsettled.
+    '\\bto be decided\\b',
+    '\\bweighing (?:his |her |their )?options\\b',
+    '\\bconsidering (?:his |her |their )?options\\b',
+    '\\bexplains? why\\b',
+    // Assorted opinion framing.
+    '\\bplaudits?\\b',
+    '\\bwelcomes? \\S+ trilogy\\b',
+    '\\b(?:takes? aim at|aims? at)\\b',
+    '\\bstrong words\\b',
+    '\\b(?:goes|going|went) off on\\b',
+    '\\brebuts?\\b',
+    '\\bmakes? a (?:stunning )?revelation\\b',
+    '\\bprime test\\b',
+    '\\ball-time greats?\\b',
+    '\\bbiggest threats?\\b',
+    // A governing-body ruling, and a bout talked apart rather than made.
+    '\\bfaces? (?:a )?ban\\b',
+    '\\btalk\\s+\\w+\\s+out of\\b',
+    // Punditry: "Roy Jones Jr names the fighter 'much more dangerous' ...". Kept
+    // this narrow on purpose -- "names Y as next opponent" is a real booking.
+    '\\bnames? the fighter\\b',
   ].join('|'),
   'i'
 )
@@ -801,6 +852,7 @@ async function main() {
       const feedText = `${item.title} ${item.description}`.trim()
       if (RESULT_WORD_RE.test(feedText)) continue
       if (NOT_A_BOOKING_RE.test(feedText)) continue
+      if (COMMENTARY_RE.test(feedText)) continue
       if (seenUrl.has(item.link)) continue
       seenUrl.add(item.link)
       if (!nameInTitle(feedText, fighter.clean, distinctiveSurnames)) continue
@@ -894,6 +946,10 @@ async function main() {
   const merged: ScheduledEntry[] = []
   for (const f of [...entries, ...existing]) {
     if (seen.has(fightKey(f))) continue
+    // A stored row is never re-validated against its source, so rows booked
+    // from a page that has since joined the event denylist would be carried
+    // forward forever. Retire them here instead.
+    if (isSkippedEventUrl(f.url)) continue
     if (isStaleYearRollover(f)) continue
     const ts = new Date(f.granularity === 'day' ? f.date : `${f.date}-01`)
     if (isNaN(ts.getTime()) || ts < keepFrom) continue

@@ -567,6 +567,21 @@ function isSkippedEventPage(title: string): boolean {
   return SKIP_EVENT_TITLES.has(stripWikiMarkup(title).replace(/_/g, ' ').replace(/\s+/g, ' ').trim().toLowerCase())
 }
 
+/**
+ * The same test applied to a stored row's source URL.
+ *
+ * The merge in update-news.ts is additive -- it carries every previously stored
+ * row forward and only ever adds to it -- so a page that is rejected today does
+ * not remove the rows it produced yesterday. Those rows would otherwise sit on
+ * the calendar indefinitely. Checking the URL here lets the next run retire them.
+ */
+export function isSkippedEventUrl(url: string | undefined): boolean {
+  if (!url) return false
+  const m = /wikipedia\.org\/wiki\/([^?#]+)/i.exec(url)
+  if (!m) return false
+  return isSkippedEventPage(decodeURIComponent(m[1]))
+}
+
 function promoListsFor(tokens: string[], locales: Record<string, string>, mmaOnly: boolean): string[] {
   const out: string[] = []
   for (const t of tokens) {
