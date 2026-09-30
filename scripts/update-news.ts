@@ -110,6 +110,71 @@ const FIGHT_WORD_RE = /(?:vs\.?|v\.|fight(?:s|ing)?|bout|return|defend(?:s|ing|e
 
 const RESULT_WORD_RE = /(?:results?|recap|wins?\b|beats?\b|defeats?\b|loses?\b|knockout|knocked|ko\b|tko\b|scorecard|highlights?|reactions?|breaks?\s+down|upset|finish(?:es|ed)?|dominates?|cruises?|stops?\b|drops?\b|rankings?\b)/i
 
+// A booking claims a fight happens on a date, so the publisher's own headline
+// has to say when. Google News descriptions are an <a href> wrapper that
+// repeats the headline and carries no date of its own, which means a date
+// present nowhere in the title was supplied by a Bing snippet or a scraped
+// body -- text the filters deliberately never see. That is precisely how
+// opinion pieces became bookings: "UFC Champion Carlos Ulberg Provides Updated
+// Return Fight Timeline" and "Terence Crawford wants to see Gervonta Davis face
+// one man on his return" state no date, were handed one by a snippet, and
+// landed on the calendar months out. Snippets may still refine a date the
+// publisher did state ("at UFC Qatar in November" refined to Nov. 21); they may
+// never invent one.
+//
+// Deliberately lexical, and deliberately applied to the title rather than to
+// title+description, so the ingest gate and the merge-time purge in
+// `isUnsupportedNewsRow` test the exact same string. If they disagreed, a row
+// admitted at ingest could be silently dropped minutes later by the purge.
+const OWN_DATE_RE = new RegExp(
+  [
+    // "Nov 7", "Nov. 7, 2026", "October 17th"
+    `(?:${MONTH_FULL_RE}|${MONTH_ABBR_RE})\\.?\\s+${DAY_CAP}`,
+    // "7 November 2026"
+    `\\b${DAY_CAP}\\s+${MONTH_FULL_RE}\\.?(?:\\s*,\\s*20\\d{2})?`,
+    // "in November", "for December", "on Nov. 14"
+    `\\b(?:in|during|this|for|around|by|on|through)\\s+${MONTH_ANY_RE}`,
+    // "2026-10-17"
+    `\\b20\\d{2}-\\d{1,2}-\\d{1,2}`,
+  ].join('|'),
+  'i'
+)
+
+// The other half of the same failure: a headline can carry a real date and
+// still not be about a fight. A hall of fame induction in October, a challenge
+// ("Brendan Allen calls out Dricus Du Plessis for October fight"), an offer, a
+// fight that was turned down, a retirement musing -- each states a date, so
+// OWN_DATE_RE admits it, and each was then booked on that date alone. Requiring
+// a named opponent or an explicit booking stops a date from standing in for a
+// fight that was never announced.
+//
+// Every term has to mean "a fight is on", never merely "this sounds official",
+// for the reason given on NOT_A_BOOKING_RE. "faces" and "in frame for" are
+// deliberately absent -- both appear in speculation more often than in bookings
+// -- and matchups phrased with "faces" are recovered by extractMatchup instead.
+const BOOKING_RE = new RegExp(
+  [
+    '\\bbooks?\\b',
+    '\\bbooked\\b',
+    '\\bset for\\b',
+    '\\bset to\\b',
+    // "Canelo vs. Mbilli fight is set with the ... title on the line". Narrow on
+    // purpose: this is the passive of "set the fight", not "set to", which
+    // COMMENTARY_RE's note already covers as a confirmed booking.
+    '\\bis set\\b',
+    '\\bscheduled\\b',
+    '\\bannounced\\b',
+    '\\bconfirmed\\b',
+    '\\bfinali[sz]ed\\b',
+    '\\bheadlines?\\b',
+    '\\btakes? on\\b',
+    '\\bdefends?\\b',
+    '\\bdraws?\\b',
+    '\\bsign(?:ed|s)?\\b',
+  ].join('|'),
+  'i'
+)
+
 // Headlines that are not a fight booking. Every pattern here has to mean "this
 // is not an announced fight", never merely "this article is low quality" — the
 // cost of a wrong pattern is a real fight silently missing from the calendar.
@@ -450,8 +515,22 @@ function extractDate(title: string, ref: Date): DateCandidate | null {
 function extractMatchup(title: string, fighterClean: string): { matchup: string; opponent: string } | null {
   const tokens = title.split(/\s+/)
   let vsIdx = -1
+  // "A to face B" puts a preposition between the subject and the verb, so the
+  // subject starts one token further left than the separator itself.
+  let skipLeft = 0
+  let dashForm = false
   for (let i = 0; i < tokens.length; i++) {
     if (/^vs\.?$/i.test(tokens[i]) || /^v\.$/i.test(tokens[i])) { vsIdx = i; break }
+    if (/^faces?$/i.test(tokens[i])) {
+      vsIdx = i
+      if (i > 0 && /^to$/i.test(tokens[i - 1])) skipLeft = 1
+      break
+    }
+    // "Rodolfo Vieira - Robert Brychek: betting tip". Fight records are routinely
+    // written name-dash-name, and NOT_A_BOOKING_RE deliberately keeps betting
+    // tips because they are sometimes the only outlet covering a real card. Only
+    // a standalone dash counts, so a hyphen inside a word cannot split it.
+    if (/^[-–—]$/.test(tokens[i])) { vsIdx = i; dashForm = true; break }
   }
   if (vsIdx === -1) return null
 
@@ -461,18 +540,26 @@ function extractMatchup(title: string, fighterClean: string): { matchup: string;
     return /^[A-ZÀ-ÿ]/.test(t)
   }
 
+  // "Brychek:" and "Covington." are name tokens with sentence punctuation stuck
+  // on; keep the punctuation out of the stored matchup.
+  const nameToken = (t: string): string => t.replace(/[:;,.!?]+$/, '')
+
   const leftTokens: string[] = []
-  for (let i = vsIdx - 1; i >= 0 && leftTokens.length < 3; i--) {
-    if (isNameToken(tokens[i])) leftTokens.unshift(tokens[i])
+  for (let i = vsIdx - 1 - skipLeft; i >= 0 && leftTokens.length < 3; i--) {
+    if (isNameToken(tokens[i])) leftTokens.unshift(nameToken(tokens[i]))
     else break
   }
   const rightTokens: string[] = []
   for (let i = vsIdx + 1; i < tokens.length && rightTokens.length < 3; i++) {
-    if (isNameToken(tokens[i])) rightTokens.push(tokens[i])
+    if (isNameToken(tokens[i])) rightTokens.push(nameToken(tokens[i]))
     else break
   }
 
   if (leftTokens.length === 0 || rightTokens.length === 0) return null
+  // The dash form is the loosest separator, so it has to earn its pairing: a
+  // name-dash-name record gives a full name on the right, whereas a bare
+  // capitalised word is a section label ("Ciryl Gane - Photos from UFC 300").
+  if (dashForm && rightTokens.length < 2) return null
   const left = leftTokens.join(' ')
   const right = rightTokens.join(' ')
   const fighterLower = fighterClean.toLowerCase()
@@ -810,6 +897,50 @@ function isStaleYearRollover(f: ScheduledEntry): boolean {
   return daysPast >= 0 && daysPast <= 90
 }
 
+// The two gates, factored out so ingest and the merge pass cannot drift apart.
+function assertsOwnDate(headline: string): boolean {
+  return OWN_DATE_RE.test(headline)
+}
+
+// A headline asserts a scheduled fight in one of two ways, and the two are
+// interchangeable only in combination:
+//
+//   dated && (paired || booked)  the publisher said when, and either named the
+//                                opponent or used an explicit booking word
+//   paired && booked            no date at all, but the headline announces one
+//                                specific pairing outright ("A vs B set for
+//                                ...") -- an unambiguous booking whose date
+//                                comes from the article rather than the title
+//
+// Requiring `dated` on its own is what threw away real fights, and requiring
+// only `dated` is what let the calendar fill up: OWN_DATE_RE admits "Takeru
+// Segawa To Be Inducted Into Hall Of Fame ... In October" and "Terence Crawford
+// wants to see Gervonta Davis face one man ... this December", neither of which
+// is a fight, while the two rules above together reject both and still keep
+// every headline in the keep set.
+//
+// `paired && booked` is what keeps "A.J. McKee vs. Razhabali Shaydullaev set
+// for PFL and RIZIN titles" -- a real booking that states no date.
+function isUnsupportedBooking(dated: boolean, paired: boolean, booked: boolean): boolean {
+  if (dated && (paired || booked)) return false
+  if (paired && booked) return false
+  return true
+}
+
+// News rows already on disk were admitted by an earlier version of this script
+// and are never re-read from their source, so a row that no longer clears the
+// ingest gates has to be retired here or it is carried forward forever. This is
+// the same self-healing guard as isSkippedEventUrl, and it is the only thing
+// that clears the rows the current data file already holds.
+//
+// Wikipedia rows are exempt on purpose: their dates come from a series or venue
+// page's own structure, not from a headline, so requiring a headline to assert
+// a date would delete legitimate scheduled fights.
+function isUnsupportedNewsRow(f: ScheduledEntry): boolean {
+  if (/wikipedia\.org/.test(f.url)) return false
+  return isUnsupportedBooking(assertsOwnDate(f.headline), Boolean(f.matchup), BOOKING_RE.test(f.headline))
+}
+
 async function main() {
   const ref = now()
   const rankings = await readRankings()
@@ -885,6 +1016,10 @@ async function main() {
       if (!dateCand) continue
 
       const matchup = extractMatchup(articleText, fighter.clean)
+      // A date is not a fight, and a pairing is not a date. Require the
+      // publisher to have done one of the two things that actually assert a
+      // scheduled bout -- see isUnsupportedBooking.
+      if (isUnsupportedBooking(assertsOwnDate(item.title), matchup !== null, BOOKING_RE.test(item.title))) continue
       const confidence = confidenceFor(dateCand.granularity, matchup !== null)
       const dateStr = dateCand.granularity === 'day'
         ? `${dateCand.year}-${String(dateCand.month + 1).padStart(2, '0')}-${String(dateCand.day).padStart(2, '0')}`
@@ -950,6 +1085,7 @@ async function main() {
     // from a page that has since joined the event denylist would be carried
     // forward forever. Retire them here instead.
     if (isSkippedEventUrl(f.url)) continue
+    if (isUnsupportedNewsRow(f)) continue
     if (isStaleYearRollover(f)) continue
     const ts = new Date(f.granularity === 'day' ? f.date : `${f.date}-01`)
     if (isNaN(ts.getTime()) || ts < keepFrom) continue
