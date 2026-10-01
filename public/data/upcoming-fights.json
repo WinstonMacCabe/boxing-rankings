@@ -1,6 +1,18 @@
 {
-  "lastUpdated": "2026-09-30T21:00:11.478Z",
+  "lastUpdated": "2026-10-01T00:29:09.094Z",
   "fights": [
+    {
+      "boxerName": "Canelo Álvarez",
+      "sport": "boxing",
+      "headline": "Canelo Alvarez set for WBC super middleweight title fight in October - Yahoo Sports",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQNnMtS3NFTmZQUVNIQlV4cmExa2xPdjVoSzh0Y085TmlSV2MybWJuWDR2V01rZlFJY3hXclZ2X0llb2ZMU1EzWU5DTEptWTZtRjZJMzVfSDBXQlFLRDV4YklCb3MtRkhWRHBMOFRKLUZnQWJrRTZ2dlhsekl4NFV3UW1DUQ?oc=5",
+      "source": "Yahoo Sports",
+      "publishedAt": "2026-09-30T12:02:39.000Z",
+      "date": "2026-10",
+      "granularity": "month",
+      "confidence": "low",
+      "detectedAt": "2026-10-01T00:29:32.748Z"
+    },
     {
       "boxerName": "Ermal Hadribeaj",
       "sport": "boxing",
@@ -14,18 +26,6 @@
       "opponent": "Sebastian Fundora",
       "confidence": "low",
       "detectedAt": "2026-09-30T21:00:48.644Z"
-    },
-    {
-      "boxerName": "Canelo Álvarez",
-      "sport": "boxing",
-      "headline": "On 30 April, Ring Magazine officially announced that Álvarez would challenge M’billi for his WBC title in his first title defence. On 28 June, it was reported that the fight date had been postponed to",
-      "url": "https://en.wikipedia.org/wiki/Canelo_%C3%81lvarez",
-      "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-09-30T21:01:10.059Z",
-      "date": "2026-10",
-      "granularity": "month",
-      "confidence": "low",
-      "detectedAt": "2026-09-30T21:01:10.059Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -42,6 +42,18 @@
       "detectedAt": "2026-09-30T21:00:47.781Z"
     },
     {
+      "boxerName": "Dmitry Bivol",
+      "sport": "boxing",
+      "headline": "Bivol was considering this in order to pursue a trilogy bout with Artur Beterbiev or a potential fight with David Benavidez. On 7 July, the WBO officially ordered the bout against Smith, giving both t",
+      "url": "https://en.wikipedia.org/wiki/Dmitry_Bivol",
+      "source": "Wikipedia (fighter page prose)",
+      "publishedAt": "2026-10-01T00:29:23.997Z",
+      "date": "2026-12",
+      "granularity": "month",
+      "confidence": "low",
+      "detectedAt": "2026-10-01T00:29:23.997Z"
+    },
+    {
       "boxerName": "David Benavidez",
       "sport": "boxing",
       "headline": "World champion David Benavidez's next opponent confirmed for December - DAZN",
@@ -52,18 +64,6 @@
       "granularity": "month",
       "confidence": "low",
       "detectedAt": "2026-09-30T21:00:26.145Z"
-    },
-    {
-      "boxerName": "Dmitry Bivol",
-      "sport": "boxing",
-      "headline": "Bivol was considering this in order to pursue a trilogy bout with Artur Beterbiev or a potential fight with David Benavidez. On 7 July, the WBO officially ordered the bout against Smith, giving both t",
-      "url": "https://en.wikipedia.org/wiki/Dmitry_Bivol",
-      "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-09-30T21:00:44.375Z",
-      "date": "2026-12",
-      "granularity": "month",
-      "confidence": "low",
-      "detectedAt": "2026-09-30T21:00:44.375Z"
     },
     {
       "boxerName": "Naoya Inoue",
@@ -89,7 +89,7 @@
       "matchup": "Dmitry Bivol vs Michael Eifert",
       "opponent": "Michael Eifert",
       "confidence": "low",
-      "detectedAt": "2026-09-30T21:00:41.052Z"
+      "detectedAt": "2026-10-01T00:29:23.644Z"
     }
   ]
 }
