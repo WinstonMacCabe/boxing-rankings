@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-01T00:29:09.094Z",
+  "lastUpdated": "2026-10-02T00:30:43.970Z",
   "fights": [
     {
       "boxerName": "Canelo Álvarez",
@@ -11,7 +11,7 @@
       "date": "2026-10",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-10-01T00:29:32.748Z"
+      "detectedAt": "2026-10-02T00:31:07.657Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -26,6 +26,20 @@
       "opponent": "Sebastian Fundora",
       "confidence": "low",
       "detectedAt": "2026-09-30T21:00:48.644Z"
+    },
+    {
+      "boxerName": "Jaron Ennis",
+      "sport": "boxing",
+      "headline": "Jaron Ennis Vs Josh Kelly Targets December Or January - boxingnews24.com",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNV01nSHN0VW5QOWtEVGtoTDhNLThsSHQzclp3Q2V5Z0RfdGh0SXJoWU1sRkR0Y0N3MXNiNHFQcExRZk45UUM1aWJJVTllQW8zdERtUXd0U3BTemxsMkZPLTdqNzYwSkFIVU1tZ3Q2NEhOcE5GeEZ0MWMtbXo0QWROT0JfNy1ybnFtMDlZd2x6S2FLUmU3bHc?oc=5",
+      "source": "boxingnews24.com",
+      "publishedAt": "2026-10-01T20:40:13.000Z",
+      "date": "2026-10-01",
+      "granularity": "day",
+      "matchup": "Jaron Ennis vs Josh Kelly Targets",
+      "opponent": "Josh Kelly Targets",
+      "confidence": "high",
+      "detectedAt": "2026-10-02T00:30:46.256Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -47,11 +61,11 @@
       "headline": "Bivol was considering this in order to pursue a trilogy bout with Artur Beterbiev or a potential fight with David Benavidez. On 7 July, the WBO officially ordered the bout against Smith, giving both t",
       "url": "https://en.wikipedia.org/wiki/Dmitry_Bivol",
       "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-10-01T00:29:23.997Z",
+      "publishedAt": "2026-10-02T00:30:59.868Z",
       "date": "2026-12",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-10-01T00:29:23.997Z"
+      "detectedAt": "2026-10-02T00:30:59.868Z"
     },
     {
       "boxerName": "David Benavidez",
@@ -89,7 +103,7 @@
       "matchup": "Dmitry Bivol vs Michael Eifert",
       "opponent": "Michael Eifert",
       "confidence": "low",
-      "detectedAt": "2026-10-01T00:29:23.644Z"
+      "detectedAt": "2026-10-02T00:30:59.254Z"
     }
   ]
 }
