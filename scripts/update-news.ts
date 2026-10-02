@@ -509,7 +509,10 @@ function extractDate(title: string, ref: Date): DateCandidate | null {
   for (const cand of dayMatches) {
     const r = tryDay(cand)
     if (r) return r
-    if (cand.year !== undefined) settledMonths.add(cand.month)
+    // A stale yearless day is still more specific than a month-only phrase in
+    // the same headline. Do not reinterpret "May 23" as a fresh "May 2027"
+    // booking after the actual May 23 occurrence has already passed.
+    settledMonths.add(cand.month)
   }
 
   for (const cand of monthYear) {

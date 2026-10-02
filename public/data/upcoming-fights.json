@@ -77,19 +77,5 @@
       "confidence": "low",
       "detectedAt": "2026-09-30T21:00:21.427Z"
     },
-    {
-      "boxerName": "Dmitry Bivol",
-      "sport": "boxing",
-      "headline": "Dmitry Bivol vs Michael Eifert finalized for May 23 Egypt card - Boxing News 24/7",
-      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQN3lJUDlLaW1xSl91WlhDS3g3Rmd3aGtqMFNGb3V3aE9uN0tYUEY1RTJBNEVFeVNSRVl4bUFsR2ZFbXBPbmlBeC05WEl2TUZCd1l5MmZzWllYWXJqYnhKcGhFUzVoWXFPQUlTM2xWV2h6bFJ1SWw1THo5cDA2emhZVU5TWDZRN0RLMlZtUGpfQkN3bWRSUC1WWGJKdkoyYUhIc3JZMGE1NFM3X2s?oc=5",
-      "source": "Boxing News 24/7",
-      "publishedAt": "2026-09-03T07:00:00.000Z",
-      "date": "2027-05",
-      "granularity": "month",
-      "matchup": "Dmitry Bivol vs Michael Eifert",
-      "opponent": "Michael Eifert",
-      "confidence": "low",
-      "detectedAt": "2026-10-02T00:30:59.254Z"
-    }
   ]
 }
