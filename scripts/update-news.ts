@@ -833,6 +833,22 @@ async function fetchArticleBody(url: string): Promise<string> {
   }
 }
 
+// A feed headline often gives only the month while the publisher's article
+// states the exact day in a booking sentence.  Keep this deliberately narrow:
+// ignore bylines and only inspect sentences that both contain a date and look
+// like an actual fight announcement.
+function bookingBodyDateText(body: string): string {
+  return body
+    .split(/(?<=[.!?])\s+/)
+    .filter(sentence => {
+      if (/\b(?:by|published|updated)\b[^.]{0,80}\b20\d{2}\b/i.test(sentence)) return false
+      return OWN_DATE_RE.test(sentence) &&
+        (BOOKING_RE.test(sentence) || /\b(?:vs\.?|v\.?|faces?|fight|bout|defend|challenge|opponent)\b/i.test(sentence)) &&
+        !NOT_A_BOOKING_RE.test(sentence)
+    })
+    .join(' ')
+}
+
 async function mapPool<T, R>(items: T[], limit: number, worker: (item: T) => Promise<R>): Promise<R[]> {
   const results: R[] = new Array(items.length)
   let idx = 0
@@ -1044,7 +1060,17 @@ async function main() {
       // Strip metadata suffixes often appended by news sites (e.g. FightNews "» September 23, 2026")
       // which confuse the date extractor into picking the publication date.
       const searchTitle = dateSource.split(' » ')[0]
-      const dateCand = extractDate(searchTitle, isNaN(published.getTime()) ? ref : published)
+      let dateCand = extractDate(searchTitle, isNaN(published.getTime()) ? ref : published)
+
+      // Refine a month-only feed date, or recover a date omitted from the
+      // headline, from a focused announcement sentence in the article body.
+      // The publication date/byline and speculative prose are excluded by
+      // bookingBodyDateText, so body scanning cannot turn a recap into a bout.
+      const bodyDateText = bookingBodyDateText(body)
+      if (bodyDateText) {
+        const bodyCand = extractDate(bodyDateText, isNaN(published.getTime()) ? ref : published)
+        if (bodyCand && (!dateCand || dateCand.granularity === 'month')) dateCand = bodyCand
+      }
       
       if (!dateCand) continue
 
@@ -1052,7 +1078,8 @@ async function main() {
       // A date is not a fight, and a pairing is not a date. Require the
       // publisher to have done one of the two things that actually assert a
       // scheduled bout -- see isUnsupportedBooking.
-      if (isUnsupportedBooking(assertsOwnDate(item.title), matchup !== null, BOOKING_RE.test(item.title))) continue
+      const bodyBooks = BOOKING_RE.test(bodyDateText)
+      if (isUnsupportedBooking(assertsOwnDate(item.title) || Boolean(bodyDateText), matchup !== null, BOOKING_RE.test(item.title) || bodyBooks)) continue
       const confidence = confidenceFor(dateCand.granularity, matchup !== null)
       const dateStr = dateCand.granularity === 'day'
         ? `${dateCand.year}-${String(dateCand.month + 1).padStart(2, '0')}-${String(dateCand.day).padStart(2, '0')}`
