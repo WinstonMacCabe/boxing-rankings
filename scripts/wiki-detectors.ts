@@ -403,7 +403,15 @@ export function scheduledInProse(
       const dateStr = cand.granularity === 'day'
         ? `${cand.year}-${String(cand.month + 1).padStart(2, '0')}-${String(cand.day).padStart(2, '0')}`
         : `${cand.year}-${String(cand.month + 1).padStart(2, '0')}`
-      const headline = stripWikiMarkup(context).replace(/\s+/g, ' ').trim().slice(0, 200)
+      // The bounded context may begin with a completed-fight recap and only
+      // reach the scheduling sentence on the next pass. Keep that context for
+      // detection, but use the actual announcement sentence for the headline.
+      const contextSentences = sentences.slice(i, contextEnd + 1)
+      const announcementIndex = contextSentences.findIndex(s =>
+        /\b(scheduled|planned|set|expected|booked|slated|schedule|announced|confirmed|reported|revealed|agreed)\b/i.test(s),
+      )
+      const announcement = announcementIndex >= 0 ? contextSentences[announcementIndex]! : context
+      const headline = stripWikiMarkup(announcement).replace(/\s+/g, ' ').trim().slice(0, 200)
       if (!headline) continue
 
       return {
