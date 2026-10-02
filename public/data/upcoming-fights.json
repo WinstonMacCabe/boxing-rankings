@@ -1,18 +1,6 @@
 {
-  "lastUpdated": "2026-10-02T00:30:43.970Z",
+  "lastUpdated": "2026-10-02T02:18:31.726Z",
   "fights": [
-    {
-      "boxerName": "Canelo Álvarez",
-      "sport": "boxing",
-      "headline": "Canelo Alvarez set for WBC super middleweight title fight in October - Yahoo Sports",
-      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQNnMtS3NFTmZQUVNIQlV4cmExa2xPdjVoSzh0Y085TmlSV2MybWJuWDR2V01rZlFJY3hXclZ2X0llb2ZMU1EzWU5DTEptWTZtRjZJMzVfSDBXQlFLRDV4YklCb3MtRkhWRHBMOFRKLUZnQWJrRTZ2dlhsekl4NFV3UW1DUQ?oc=5",
-      "source": "Yahoo Sports",
-      "publishedAt": "2026-09-30T12:02:39.000Z",
-      "date": "2026-10",
-      "granularity": "month",
-      "confidence": "low",
-      "detectedAt": "2026-10-02T00:31:07.657Z"
-    },
     {
       "boxerName": "Ermal Hadribeaj",
       "sport": "boxing",
@@ -25,7 +13,19 @@
       "matchup": "Sebastian Fundora vs Ermal Hadribeaj",
       "opponent": "Sebastian Fundora",
       "confidence": "low",
-      "detectedAt": "2026-09-30T21:00:48.644Z"
+      "detectedAt": "2026-10-02T02:19:28.629Z"
+    },
+    {
+      "boxerName": "Canelo Álvarez",
+      "sport": "boxing",
+      "headline": "Canelo Alvarez set for WBC super middleweight title fight in October - Yahoo Sports",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQNnMtS3NFTmZQUVNIQlV4cmExa2xPdjVoSzh0Y085TmlSV2MybWJuWDR2V01rZlFJY3hXclZ2X0llb2ZMU1EzWU5DTEptWTZtRjZJMzVfSDBXQlFLRDV4YklCb3MtRkhWRHBMOFRKLUZnQWJrRTZ2dlhsekl4NFV3UW1DUQ?oc=5",
+      "source": "Yahoo Sports",
+      "publishedAt": "2026-09-30T12:02:39.000Z",
+      "date": "2026-10",
+      "granularity": "month",
+      "confidence": "low",
+      "detectedAt": "2026-10-02T02:19:47.637Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -39,19 +39,21 @@
       "matchup": "Sebastian Fundora vs Ermal Hadribeaj",
       "opponent": "Sebastian Fundora",
       "confidence": "high",
-      "detectedAt": "2026-09-30T21:00:47.781Z"
+      "detectedAt": "2026-10-02T02:19:27.738Z"
     },
     {
-      "boxerName": "Dmitry Bivol",
+      "boxerName": "Jaron Ennis",
       "sport": "boxing",
-      "headline": "Bivol was considering this in order to pursue a trilogy bout with Artur Beterbiev or a potential fight with David Benavidez. On 7 July, the WBO officially ordered the bout against Smith, giving both t",
-      "url": "https://en.wikipedia.org/wiki/Dmitry_Bivol",
-      "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-10-02T00:30:59.868Z",
+      "headline": "Jaron Ennis Vs Josh Kelly Targets December Or January - Boxing News 24",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNV01nSHN0VW5QOWtEVGtoTDhNLThsSHQzclp3Q2V5Z0RfdGh0SXJoWU1sRkR0Y0N3MXNiNHFQcExRZk45UUM1aWJJVTllQW8zdERtUXd0U3BTemxsMkZPLTdqNzYwSkFIVU1tZ3Q2NEhOcE5GeEZ0MWMtbXo0QWROT0JfNy1ybnFtMDlZd2x6S2FLUmU3bHc?oc=5",
+      "source": "Boxing News 24",
+      "publishedAt": "2026-10-01T20:40:13.000Z",
       "date": "2026-12",
       "granularity": "month",
+      "matchup": "Jaron Ennis vs Josh Kelly Targets",
+      "opponent": "Josh Kelly Targets",
       "confidence": "low",
-      "detectedAt": "2026-10-02T00:30:59.868Z"
+      "detectedAt": "2026-10-02T02:18:35.030Z"
     },
     {
       "boxerName": "David Benavidez",
@@ -63,7 +65,19 @@
       "date": "2026-12",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-30T21:00:26.145Z"
+      "detectedAt": "2026-10-02T02:18:55.279Z"
+    },
+    {
+      "boxerName": "Dmitry Bivol",
+      "sport": "boxing",
+      "headline": "On 27 August, Olivieri confirmed that the parties had reached an agreement, with the fight reportedly scheduled for December 2026 in Russia.",
+      "url": "https://en.wikipedia.org/wiki/Dmitry_Bivol",
+      "source": "Wikipedia (fighter page prose)",
+      "publishedAt": "2026-10-02T02:19:27.325Z",
+      "date": "2026-12",
+      "granularity": "month",
+      "confidence": "low",
+      "detectedAt": "2026-10-02T02:19:27.325Z"
     },
     {
       "boxerName": "Naoya Inoue",
@@ -75,7 +89,7 @@
       "date": "2027-02",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-09-30T21:00:21.427Z"
-    },
+      "detectedAt": "2026-10-02T02:18:56.200Z"
+    }
   ]
 }
