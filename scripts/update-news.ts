@@ -201,6 +201,20 @@ const NOT_A_BOOKING_RE = new RegExp(
     // "rehab" all appear in real announcements ("... after Fighter Z injury
     // forces a change"), so including them vetoes genuine fights.
     '\\b(?:surgery|weigh-in)\\b',
+    // A story whose SUBJECT is that nothing is set yet. These are the mirror
+    // image of a booking and are never bookable, however firmly they name a
+    // month: "There is still no confirmed date or venue" is an explicit denial
+    // that contains "December", and that month used to become the fight date.
+    // Anchored on the negation so they cannot match a real announcement, which
+    // states a date rather than disavowing one.
+    '\\bno confirmed (?:date|venue|opponent|bout|fight)',
+    '\\b(?:still|remain|remains)\\s+no\\b',
+    '\\bno (?:date|venue|opponent) (?:has been |have been )?(?:confirmed|set|announced|agreed)',
+    // Spelled out rather than contracted: an apostrophe inside a single-quoted
+    // regex literal terminates the string, so "n't" cannot appear here.
+    '\\bdate[s]? (?:has|have|is|are) not (?:yet )?been (?:confirmed|set|announced|agreed|finali[sz]ed)\\b',
+    '\\bnot been (?:confirmed|set|announced|agreed|finali[sz]ed)\\b',
+    '\\bwithout a confirmed\\b',
   ].join('|'),
   'i'
 )
@@ -998,6 +1012,23 @@ async function main() {
       // filters above keep seeing exactly the Google metadata they always saw.
       const articleText = `${feedText} ${item.snippet ?? ''} ${body}`.trim()
 
+      // Dates are sourced from the publisher's metadata ONLY -- never the article
+      // body. The body carries two things that are not fight dates:
+      //
+      //   1. a byline date. "By Boxing News 24 Desk - 10/01/2026" was read as
+      //      October 1 and became the fight date for "Jaron Ennis vs Josh Kelly
+      //      Targets" -- the run date, one day out. It is also ambiguous
+      //      (10 January in most of the world, October 1 in the US), so which day
+      //      it resolved to was an accident of locale.
+      //   2. explicit denials that still name a month. The same article said
+      //      "in December or very early January" and then "There is still no
+      //      confirmed date or venue". December became the booking.
+      //
+      // OWN_DATE_RE is applied to `item.title` alone so ingest and the merge-time
+      // purge test one identical string; letting the DATE come from a different
+      // string than the gate reads is what let those two rules disagree.
+      const dateSource = `${feedText} ${item.snippet ?? ''}`.trim()
+
       // Year inference has to be anchored on when the article was written, not on
       // today. "on July 4" in a piece published 26 June 2026 means 4 July 2026 --
       // eight days later. Anchored on today that date reads as already past, the
@@ -1009,7 +1040,7 @@ async function main() {
       
       // Strip metadata suffixes often appended by news sites (e.g. FightNews "» September 23, 2026")
       // which confuse the date extractor into picking the publication date.
-      const searchTitle = articleText.split(' » ')[0]
+      const searchTitle = dateSource.split(' » ')[0]
       const dateCand = extractDate(searchTitle, isNaN(published.getTime()) ? ref : published)
       
       if (!dateCand) continue
