@@ -1,17 +1,17 @@
 {
-  "lastUpdated": "2026-10-03T00:30:51.068Z",
+  "lastUpdated": "2026-10-04T00:29:32.445Z",
   "fights": [
     {
       "boxerName": "Canelo Álvarez",
       "sport": "boxing",
-      "headline": "Canelo Alvarez set for WBC super middleweight title fight in October - Yahoo Sports",
+      "headline": "Canelo Alvarez set for WBC super middleweight title fight in October - sports.yahoo.com",
       "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQNnMtS3NFTmZQUVNIQlV4cmExa2xPdjVoSzh0Y085TmlSV2MybWJuWDR2V01rZlFJY3hXclZ2X0llb2ZMU1EzWU5DTEptWTZtRjZJMzVfSDBXQlFLRDV4YklCb3MtRkhWRHBMOFRKLUZnQWJrRTZ2dlhsekl4NFV3UW1DUQ?oc=5",
-      "source": "Yahoo Sports",
+      "source": "sports.yahoo.com",
       "publishedAt": "2026-09-30T12:02:39.000Z",
       "date": "2026-10",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-10-03T00:31:20.524Z"
+      "detectedAt": "2026-10-04T00:29:58.420Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -39,7 +39,7 @@
       "matchup": "Devin Haney vs Keyshawn Davis Start",
       "opponent": "Keyshawn Davis Start",
       "confidence": "high",
-      "detectedAt": "2026-10-03T00:30:57.189Z"
+      "detectedAt": "2026-10-04T00:29:38.006Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -65,7 +65,7 @@
       "date": "2026-12",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-10-03T00:30:53.273Z"
+      "detectedAt": "2026-10-04T00:29:35.032Z"
     },
     {
       "boxerName": "Dmitry Bivol",
@@ -73,11 +73,11 @@
       "headline": "On 27 August, Olivieri confirmed that the parties had reached an agreement, with the fight reportedly scheduled for December 2026 in Russia.",
       "url": "https://en.wikipedia.org/wiki/Dmitry_Bivol",
       "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-10-03T00:31:09.239Z",
+      "publishedAt": "2026-10-04T00:29:48.610Z",
       "date": "2026-12",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-10-03T00:31:09.239Z"
+      "detectedAt": "2026-10-04T00:29:48.610Z"
     },
     {
       "boxerName": "David Benavidez",
@@ -106,14 +106,14 @@
     {
       "boxerName": "Shakur Stevenson",
       "sport": "boxing",
-      "headline": "Ryan Garcia vs. Conor Benn set for September, Shakur Stevenson agrees to fight Devin Haney, Andy Ruiz comeback is official | Inside Boxing | July 16, 2026 - Yahoo Sports",
+      "headline": "Ryan Garcia vs. Conor Benn set for September, Shakur Stevenson agrees to fight Devin Haney, Andy Ruiz comeback is official | Inside Boxing | July 16, 2026 - sports.yahoo.com",
       "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9udlZPZ0RuRXd0U0R0ekFjWERUMHgwUFZEQUZWd2xDbk5HSWZMMHI0NG5HTGpIZFl6cXlXc2RudElXaVdZd210ZndVWnNvWVBKN0hNSkVfaEZoNkwwM29HRnlvT3Y0Q1k2ck95NFhXMHh2eGVMbF8xeEdSY3A?oc=5",
-      "source": "Yahoo Sports",
+      "source": "sports.yahoo.com",
       "publishedAt": "2026-10-02T19:42:51.000Z",
       "date": "2027-09",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-10-03T00:31:04.737Z"
+      "detectedAt": "2026-10-04T00:29:46.906Z"
     }
   ]
 }
