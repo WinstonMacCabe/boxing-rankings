@@ -1,17 +1,17 @@
 {
-  "lastUpdated": "2026-10-04T00:29:32.445Z",
+  "lastUpdated": "2026-10-05T00:29:24.748Z",
   "fights": [
     {
       "boxerName": "Canelo Álvarez",
       "sport": "boxing",
-      "headline": "Canelo Alvarez set for WBC super middleweight title fight in October - sports.yahoo.com",
+      "headline": "Canelo Alvarez set for WBC super middleweight title fight in October - Yahoo Sports",
       "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQNnMtS3NFTmZQUVNIQlV4cmExa2xPdjVoSzh0Y085TmlSV2MybWJuWDR2V01rZlFJY3hXclZ2X0llb2ZMU1EzWU5DTEptWTZtRjZJMzVfSDBXQlFLRDV4YklCb3MtRkhWRHBMOFRKLUZnQWJrRTZ2dlhsekl4NFV3UW1DUQ?oc=5",
-      "source": "sports.yahoo.com",
+      "source": "Yahoo Sports",
       "publishedAt": "2026-09-30T12:02:39.000Z",
       "date": "2026-10",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-10-04T00:29:58.420Z"
+      "detectedAt": "2026-10-05T00:29:49.448Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -39,7 +39,7 @@
       "matchup": "Devin Haney vs Keyshawn Davis Start",
       "opponent": "Keyshawn Davis Start",
       "confidence": "high",
-      "detectedAt": "2026-10-04T00:29:38.006Z"
+      "detectedAt": "2026-10-05T00:29:30.890Z"
     },
     {
       "boxerName": "Ermal Hadribeaj",
@@ -58,14 +58,14 @@
     {
       "boxerName": "Jaron Ennis",
       "sport": "boxing",
-      "headline": "Jaron 'Boots' Ennis and Josh Kelly set for unification 'in December or early January' - BoxingScene",
+      "headline": "Jaron 'Boots' Ennis and Josh Kelly set for unification 'in December or early January' - boxingscene.com",
       "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPdTl2ZnNtWEprWld5ZUF1dWYwNlAxUnhEMG14bUhSVVZkUGt6RTJyZEE3M1FPbWd6YzgtUGhRUHJMaVJJcExxN2ZTbTliMVJmdk5tdHFpM3dvYkY1U2JyOG9CNE9NT3NPdkhWT2lHM1FxYnhUTXdoMmxCUmsxOWJ2b29CR2Z1RURaYjZoQnZmVGYwVjRmSGNOMHhMOFVRQnJKTFVqUHRnR3dfdG1ZNU52MFJUSWdFdGlhVUE?oc=5",
-      "source": "BoxingScene",
+      "source": "boxingscene.com",
       "publishedAt": "2026-10-02T20:22:00.000Z",
       "date": "2026-12",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-10-04T00:29:35.032Z"
+      "detectedAt": "2026-10-05T00:29:27.415Z"
     },
     {
       "boxerName": "Dmitry Bivol",
@@ -73,11 +73,11 @@
       "headline": "On 27 August, Olivieri confirmed that the parties had reached an agreement, with the fight reportedly scheduled for December 2026 in Russia.",
       "url": "https://en.wikipedia.org/wiki/Dmitry_Bivol",
       "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-10-04T00:29:48.610Z",
+      "publishedAt": "2026-10-05T00:29:39.825Z",
       "date": "2026-12",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-10-04T00:29:48.610Z"
+      "detectedAt": "2026-10-05T00:29:39.825Z"
     },
     {
       "boxerName": "David Benavidez",
@@ -106,14 +106,14 @@
     {
       "boxerName": "Shakur Stevenson",
       "sport": "boxing",
-      "headline": "Ryan Garcia vs. Conor Benn set for September, Shakur Stevenson agrees to fight Devin Haney, Andy Ruiz comeback is official | Inside Boxing | July 16, 2026 - sports.yahoo.com",
+      "headline": "Ryan Garcia vs. Conor Benn set for September, Shakur Stevenson agrees to fight Devin Haney, Andy Ruiz comeback is official | Inside Boxing | July 16, 2026 - Yahoo Sports",
       "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9udlZPZ0RuRXd0U0R0ekFjWERUMHgwUFZEQUZWd2xDbk5HSWZMMHI0NG5HTGpIZFl6cXlXc2RudElXaVdZd210ZndVWnNvWVBKN0hNSkVfaEZoNkwwM29HRnlvT3Y0Q1k2ck95NFhXMHh2eGVMbF8xeEdSY3A?oc=5",
-      "source": "sports.yahoo.com",
+      "source": "Yahoo Sports",
       "publishedAt": "2026-10-02T19:42:51.000Z",
       "date": "2027-09",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-10-04T00:29:46.906Z"
+      "detectedAt": "2026-10-05T00:29:37.038Z"
     }
   ]
 }
