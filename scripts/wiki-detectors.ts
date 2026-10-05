@@ -207,6 +207,19 @@ function extractWikiDate(text: string, ref: Date, pastDays = 0): DateCandidate |
       }
     }
   }
+  // Wikipedia often omits the year when the surrounding sentence already
+  // establishes it: "announced ... on 11 December".
+  m = /^(\d{1,2})\s+([A-Za-z]{3,9}\.?)$/.exec(t)
+  if (m) {
+    const mi = monthIndex(m[2])
+    if (mi !== null) {
+      const d = parseInt(m[1], 10)
+      if (d >= 1 && d <= 31) {
+        const ts = new Date(ref.getFullYear(), mi, d)
+        if (isAllowed(ts)) return { ts, granularity: 'day', year: ts.getFullYear(), month: mi, day: d }
+      }
+    }
+  }
   // month-first: "October 24, 2026" or "October 2026"
   m = /^([A-Za-z]{3,9}\.?)\s+(\d{1,2}(?:st|nd|rd|th)?)?,?\s*(20\d{2})$/.exec(t)
   if (m) {
@@ -282,7 +295,18 @@ function findMostSpecificDateToken(text: string, ref = new Date(), pastDays = 0)
   const tokens = Array.from(plain.matchAll(/\b(?:20\d{2}-\d{1,2}-\d{1,2}|20\d{2}-\d{1,2}|\d{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]{3,9}\.?\s+20\d{2}|[A-Za-z]{3,9}\.?\s+\d{1,2}(?:st|nd|rd|th)?,?\s+20\d{2}|[A-Za-z]{3,9}\.?\s+20\d{2})\b/gi)
   )
     .map(m => m[0])
-  const valid = tokens.filter(token => extractWikiDate(token, ref, pastDays))
+  const yearlessTokens = Array.from(plain.matchAll(/\b\d{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]{3,9}\.?(?!\s+20\d{2})\b/gi), m => m[0])
+    .filter(token => {
+      const i = plain.indexOf(token)
+      const window = plain.slice(Math.max(0, i - 45), i + token.length + 12)
+      return /\b(face(?:d|s)?\s+off|fight|bout|scheduled|announced|confirmed|set|challenge|defend)\b[\s\S]{0,35}$/i.test(window)
+    })
+  // Do not reinterpret a historical yearless recap date as a booking in the
+  // current year. Accept it only when this bounded announcement context also
+  // states the current year explicitly ("On 24 September 2026 ... on 11 December").
+  const currentYearIsExplicit = new RegExp(`\\b${ref.getFullYear()}\\b`).test(plain)
+  const valid = [...tokens, ...(currentYearIsExplicit ? yearlessTokens : [])]
+    .filter(token => extractWikiDate(token, ref, pastDays))
   return valid.find(token => extractWikiDate(token, ref, pastDays)?.granularity === 'day')
     ?? valid[0]
 }
@@ -379,6 +403,7 @@ export function scheduledInProse(
   const surname = clean.split(/\s+/).slice(-1)[0] ?? clean
   const prose = stripToProse(wikitext)
   const sentences = prose.split(/(?<=[.!?])\s+/)
+  let best: { score: number; entry: WikiScheduledEntry } | null = null
   for (let i = 0; i < sentences.length; i++) {
     const sentence = sentences[i]
     if (!sentence) continue
@@ -427,7 +452,7 @@ export function scheduledInProse(
       const headline = stripWikiMarkup(announcement).replace(/\s+/g, ' ').trim().slice(0, 200)
       if (!headline) continue
 
-      return {
+      const entry: WikiScheduledEntry = {
         boxerName: fighter.name,
         sport: fighter.keyword,
         headline,
@@ -441,8 +466,15 @@ export function scheduledInProse(
       confidence: opponent && cand.granularity === 'day' ? 'high' : opponent ? 'medium' : 'low',
       detectedAt: new Date().toISOString(),
       }
+      const score =
+        (cand.granularity === 'day' ? 4 : 0) +
+        (opponent ? 3 : 0) +
+        (/(?:face off|face each other|fight on|fight for|challenge)/i.test(context) ? 4 : 0) +
+        (new RegExp(`\\b${ref.getFullYear()}\\b`).test(context) ? 2 : 0) +
+        (/(?:announced|confirmed|officially|set to|scheduled to)/i.test(context) ? 1 : 0)
+      if (!best || score > best.score) best = { score, entry }
   }
-  return null
+  return best?.entry ?? null
 }
 
 // ---------- Detector 2: record-table future row ----------

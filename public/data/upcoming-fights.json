@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-05T12:02:07.723Z",
+  "lastUpdated": "2026-10-05T13:25:39.826Z",
   "fights": [
     {
       "boxerName": "Canelo Álvarez",
@@ -56,16 +56,28 @@
       "detectedAt": "2026-10-02T02:19:27.738Z"
     },
     {
+      "boxerName": "Canelo Álvarez",
+      "sport": "boxing",
+      "headline": "On 30 April, Ring Magazine officially announced that Álvarez would challenge M’billi for his WBC title in his first title defence.",
+      "url": "https://en.wikipedia.org/wiki/Canelo_%C3%81lvarez",
+      "source": "Wikipedia (fighter page prose)",
+      "publishedAt": "2026-10-05T13:25:40.208Z",
+      "date": "2026-10-31",
+      "granularity": "day",
+      "confidence": "low",
+      "detectedAt": "2026-10-05T13:25:40.208Z"
+    },
+    {
       "boxerName": "Dmitry Bivol",
       "sport": "boxing",
       "headline": "On 27 August, Olivieri confirmed that the parties had reached an agreement, with the fight reportedly scheduled for December 2026 in Russia.",
       "url": "https://en.wikipedia.org/wiki/Dmitry_Bivol",
       "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-10-05T12:02:16.956Z",
+      "publishedAt": "2026-10-05T12:59:52.848Z",
       "date": "2026-12",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-10-05T12:02:16.956Z"
+      "detectedAt": "2026-10-05T12:59:52.848Z"
     },
     {
       "boxerName": "Jaron Ennis",
@@ -92,6 +104,18 @@
       "detectedAt": "2026-10-02T02:18:55.279Z"
     },
     {
+      "boxerName": "Tyson Fury",
+      "sport": "boxing",
+      "headline": "On 24 September 2026, it was announced Fury and Joshua would face off on 11 December at Principality Stadium in Cardiff, Wales, and that the WBA (Super) heavyweight title would be on the line, meaning",
+      "url": "https://en.wikipedia.org/wiki/Tyson_Fury",
+      "source": "Wikipedia (fighter page prose)",
+      "publishedAt": "2026-10-05T13:25:40.354Z",
+      "date": "2026-12-11",
+      "granularity": "day",
+      "confidence": "low",
+      "detectedAt": "2026-10-05T13:25:40.354Z"
+    },
+    {
       "boxerName": "Naoya Inoue",
       "sport": "boxing",
       "headline": "Report: Naoya Inoue vs. 'Bam' Rodriguez venue 'booked' for February - BoxingScene",
@@ -102,18 +126,6 @@
       "granularity": "month",
       "confidence": "low",
       "detectedAt": "2026-10-02T02:18:56.200Z"
-    },
-    {
-      "boxerName": "Shakur Stevenson",
-      "sport": "boxing",
-      "headline": "Ryan Garcia vs. Conor Benn set for September, Shakur Stevenson agrees to fight Devin Haney, Andy Ruiz comeback is official | Inside Boxing | July 16, 2026 - Yahoo Sports",
-      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9udlZPZ0RuRXd0U0R0ekFjWERUMHgwUFZEQUZWd2xDbk5HSWZMMHI0NG5HTGpIZFl6cXlXc2RudElXaVdZd210ZndVWnNvWVBKN0hNSkVfaEZoNkwwM29HRnlvT3Y0Q1k2ck95NFhXMHh2eGVMbF8xeEdSY3A?oc=5",
-      "source": "Yahoo Sports",
-      "publishedAt": "2026-10-02T19:42:51.000Z",
-      "date": "2027-09",
-      "granularity": "month",
-      "confidence": "low",
-      "detectedAt": "2026-10-05T00:29:37.038Z"
     }
   ]
 }
