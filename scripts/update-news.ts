@@ -23,6 +23,9 @@ function envInt(name: string, fallback: number): number {
 // both of these raised to sweep up older announcements for fights still ahead.
 // Nightly runs leave them alone: the only thing new in the last day is new.
 const NEWS_WINDOW_DAYS = envInt('NEWS_WINDOW_DAYS', 30)
+// Temporarily restrict active scanning to Wikipedia while retaining the
+// external-source implementations for a future re-enable.
+const WIKIPEDIA_ONLY = true
 const MAX_ITEMS_PER_FIGHTER = envInt('MAX_ITEMS_PER_FIGHTER', 25)
 const NEWS_WINDOW_MS = NEWS_WINDOW_DAYS * 24 * 60 * 60 * 1000
 // How far back a fight stays on the calendar once it has happened. A card is not
@@ -36,6 +39,16 @@ const ARTICLE_BODY_TIMEOUT_MS = 8000
 // a scan is slower than it needs to be.
 const BING_FEED_TIMEOUT_MS = 6000
 const WIKI_PAST_DAYS = envInt('WIKI_PAST_DAYS', 7)
+const DIRECT_SOURCE_DOMAINS = [
+  'ringmagazine.com',
+  'boxingnewsonline.net',
+  'boxemag.ouest-france.fr',
+  'champinon.info',
+  'boxrec.com',
+  'espn.com',
+  'wbcboxing.com',
+  'matchroomboxing.com',
+]
 
 const SPORT_KEYWORDS: Record<string, string> = {
   kickboxing: 'kickboxing',
@@ -634,36 +647,6 @@ interface RssItem {
   bodyUrl?: string
 }
 
-// High-value publisher pages whose direct URLs are stable but are not always
-// returned by Google/Bing for the fighter-name query. These are discovery
-// fallbacks, not date overrides: the page body still has to yield the booking
-// and date through the normal parser.
-const DIRECT_ARTICLE_FALLBACKS: Record<string, RssItem[]> = {
-  canelo: [
-    {
-      title: 'Canelo Alvarez vs Christian Mbilli - The Ring',
-      description: '',
-      link: 'https://www.ringmagazine.com/news/5sfn9dNL3anidcXu6lwavf',
-      bodyUrl: 'https://www.ringmagazine.com/news/5sfn9dNL3anidcXu6lwavf',
-      source: 'The Ring',
-      publishedAt: '2026-09-20T12:00:00.000Z',
-    },
-    {
-      title: 'Canelo Alvarez vs Christian Mbilli officially confirmed - Boxing News Online',
-      description: '',
-      link: 'https://boxingnewsonline.net/news/canelo-mbilli-officially-reannounced/',
-      bodyUrl: 'https://boxingnewsonline.net/news/canelo-mbilli-officially-reannounced/',
-      source: 'Boxing News Online',
-      publishedAt: '2026-09-29T12:00:00.000Z',
-    },
-  ],
-}
-
-function directArticleFallbacks(fighterClean: string): RssItem[] {
-  const key = normalizeNameText(fighterClean).split(' ')[0] ?? ''
-  return DIRECT_ARTICLE_FALLBACKS[key] ?? []
-}
-
 function parseFeed(xml: string): RssItem[] {
   const items: RssItem[] = []
   const re = /<item>([\s\S]*?)<\/item>/g
@@ -740,8 +723,8 @@ function storyKey(title: string): string {
  * unmatched Bing items are discarded by the merge, so this cannot introduce a
  * story the Google feed did not already have.
  */
-async function fetchBingFeed(fighterClean: string): Promise<RssItem[]> {
-  const q = encodeURIComponent(`"${fighterClean}"`)
+async function fetchBingFeed(fighterClean: string, domain?: string): Promise<RssItem[]> {
+  const q = encodeURIComponent(domain ? `"${fighterClean}" site:${domain}` : `"${fighterClean}"`)
   const url = `https://www.bing.com/news/search?q=${q}&format=RSS`
   try {
     const res = await fetch(url, {
@@ -816,6 +799,45 @@ function mergeBingIntoGoogle(google: RssItem[], bing: RssItem[], fighterName: st
   })]
 }
 
+async function fetchPublisherSearchResults(fighterClean: string): Promise<RssItem[]> {
+  const results: RssItem[] = []
+  await Promise.all(DIRECT_SOURCE_DOMAINS.map(async domain => {
+    try {
+      const q = encodeURIComponent(`site:${domain} "${fighterClean}" fight`)
+      const res = await fetch(`https://www.bing.com/search?q=${q}`, {
+        headers: { 'user-agent': 'Mozilla/5.0', accept: 'text/html,application/xhtml+xml' },
+        signal: AbortSignal.timeout(BING_FEED_TIMEOUT_MS),
+      })
+      if (!res.ok) return
+      const $ = loadHtml(await res.text())
+      $('a[href]').each((_, el) => {
+        const href = $(el).attr('href') ?? ''
+        const title = $(el).text().replace(/\s+/g, ' ').trim()
+        if (!/^https?:\/\//i.test(href) || !href.includes(domain) || !title) return
+        results.push({ title, description: '', link: href, bodyUrl: href, source: domain, publishedAt: new Date().toISOString() })
+      })
+    } catch { /* publisher search is best-effort */ }
+  }))
+  await Promise.all(DIRECT_SOURCE_DOMAINS.map(async domain => {
+    try {
+      const q = encodeURIComponent(`site:${domain} "${fighterClean}" next fight`)
+      const res = await fetch(`https://www.google.com/search?q=${q}&num=10`, {
+        headers: { 'user-agent': 'Mozilla/5.0', accept: 'text/html,application/xhtml+xml' },
+        signal: AbortSignal.timeout(BING_FEED_TIMEOUT_MS),
+      })
+      if (!res.ok) return
+      const $ = loadHtml(await res.text())
+      $('a[href]').each((_, el) => {
+        const href = $(el).attr('href') ?? ''
+        const title = $(el).text().replace(/\s+/g, ' ').trim()
+        if (!/^https?:\/\//i.test(href) || !href.includes(domain) || !title) return
+        results.push({ title, description: '', link: href, bodyUrl: href, source: domain, publishedAt: new Date().toISOString() })
+      })
+    } catch { /* supplementary discovery is best-effort */ }
+  }))
+  return results
+}
+
 async function fetchFeed(fighterClean: string, keyword: string): Promise<RssItem[]> {
   const q = encodeURIComponent(`"${fighterClean}" ${keyword}`)
   const url = `https://news.google.com/rss/search?q=${q}&hl=en-US&gl=US&ceid=US:en`
@@ -837,13 +859,34 @@ async function fetchFeed(fighterClean: string, keyword: string): Promise<RssItem
           continue
         }
         const google = parseFeed(xml)
+        // A name-only/date-oriented query reaches publisher announcements that
+        // the sport query misses when Google ranks a syndicated rewrite first.
+        const discoveryQueries = [
+          `"${fighterClean}" next fight date`,
+          ...DIRECT_SOURCE_DOMAINS.map(domain => `"${fighterClean}" site:${domain}`),
+        ]
+        const discoveryResults = await Promise.all(discoveryQueries.map(async query => {
+          try {
+            const discoveryQ = encodeURIComponent(query)
+            const discoveryRes = await fetch(`https://news.google.com/rss/search?q=${discoveryQ}&hl=en-US&gl=US&ceid=US:en`, {
+              headers: { 'user-agent': 'Mozilla/5.0', accept: 'application/rss+xml, application/xml, text/xml, */*' },
+              signal: AbortSignal.timeout(BING_FEED_TIMEOUT_MS),
+            })
+            return discoveryRes.ok ? parseFeed(await discoveryRes.text()) : []
+          } catch { return [] }
+        }))
+        const discovery = discoveryResults.flat()
         // Google gave us the story; Bing may still be able to give us its date and
         // a readable link. Strictly additive, and best-effort: if Bing is down the
         // run is byte-for-byte what it was before.
-        const bing = await fetchBingFeed(fighterClean)
-        const merged = mergeBingIntoGoogle(google, bing, fighterClean)
-        const seen = new Set(merged.map(item => item.link))
-        return [...merged, ...directArticleFallbacks(fighterClean).filter(item => !seen.has(item.link))]
+        const bingFeeds = await Promise.all([
+          fetchBingFeed(fighterClean),
+          ...DIRECT_SOURCE_DOMAINS.map(domain => fetchBingFeed(fighterClean, domain)),
+        ])
+        const bing = [...bingFeeds.flat(), ...(await fetchPublisherSearchResults(fighterClean))]
+        const merged = mergeBingIntoGoogle([...google, ...discovery], bing, fighterClean)
+        const seen = new Set<string>()
+        return merged.filter(item => item.link && !seen.has(item.link) && (seen.add(item.link), true))
       }
     } catch (err) {
       lastErr = err
@@ -1053,13 +1096,15 @@ async function main() {
 
   await mapPool(scanList, CONCURRENCY, async (fighter) => {
     let items: RssItem[] = []
-    try {
-      items = await fetchFeed(fighter.clean, fighter.keyword)
-      fetched++
-      totalItems += items.length
-    } catch {
-      failures.push(fighter.clean)
-      return
+    if (!WIKIPEDIA_ONLY) {
+      try {
+        items = await fetchFeed(fighter.clean, fighter.keyword)
+        fetched++
+        totalItems += items.length
+      } catch {
+        failures.push(fighter.clean)
+        return
+      }
     }
     const seenUrl = new Set<string>()
     for (const item of selectInWindowItems(items, cutoff, MAX_ITEMS_PER_FIGHTER)) {
@@ -1164,7 +1209,7 @@ async function main() {
     }
   })
 
-  if (fetched === 0) {
+  if (!WIKIPEDIA_ONLY && fetched === 0) {
     console.error(`[schedule-scan] all ${scanList.length} feeds failed. Leaving existing data untouched.`)
     process.exit(1)
   }

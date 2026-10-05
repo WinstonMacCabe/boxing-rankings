@@ -8,7 +8,7 @@ const BATCH_SIZE = 50
 const BATCH_DELAY = 100
 
 // Minimum thirdary score (wins/losses, or wins if undefeated) for inclusion.
-const BOXING_MIN_SCORE = 19.05
+const BOXING_MIN_SCORE = 17.84
 
 // Boxing records for fighters discovered via the MMA/sport crawl (mma-rankings).
 // Falls back to the committed GitHub copy if the deployed site is stale/unavailable.

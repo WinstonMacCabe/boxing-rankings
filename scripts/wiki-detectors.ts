@@ -274,6 +274,19 @@ function findDateToken(text: string, ref = new Date(), pastDays = 0): string | n
   return null
 }
 
+// When a short announcement spans multiple sentences, prefer a confirmed
+// day-level date over an earlier month-only estimate (for example, "end of
+// October" followed by "the date was confirmed as 31 October").
+function findMostSpecificDateToken(text: string, ref = new Date(), pastDays = 0): string | null {
+  const plain = stripWikiMarkup(text).replace(/\s+/g, ' ')
+  const tokens = Array.from(plain.matchAll(/\b(?:20\d{2}-\d{1,2}-\d{1,2}|20\d{2}-\d{1,2}|\d{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]{3,9}\.?\s+20\d{2}|[A-Za-z]{3,9}\.?\s+\d{1,2}(?:st|nd|rd|th)?,?\s+20\d{2}|[A-Za-z]{3,9}\.?\s+20\d{2})\b/gi)
+  )
+    .map(m => m[0])
+  const valid = tokens.filter(token => extractWikiDate(token, ref, pastDays))
+  return valid.find(token => extractWikiDate(token, ref, pastDays)?.granularity === 'day')
+    ?? valid[0]
+}
+
 function stripToProse(text: string): string {
   // Remove refs, templates, tables, HTML and attributes — but KEEP [[wikilinks]]
   // so the opponent can be read back out of the sentence. Mirrors stripWikiMarkup
@@ -393,7 +406,7 @@ export function scheduledInProse(
       // "==Championships== {|" garbage.
       if (/==|\{\||\|-|class="?wikitable|!scope/.test(context)) continue
       // Extract a date from the whole sentence.
-      const dateTok = findDateToken(context)
+      const dateTok = findMostSpecificDateToken(context, ref)
       if (!dateTok) continue
       const cand = extractWikiDate(dateTok, ref)
       if (!cand) continue
