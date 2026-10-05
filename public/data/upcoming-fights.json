@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-05T00:29:24.748Z",
+  "lastUpdated": "2026-10-05T12:02:07.723Z",
   "fights": [
     {
       "boxerName": "Canelo Álvarez",
@@ -56,6 +56,18 @@
       "detectedAt": "2026-10-02T02:19:27.738Z"
     },
     {
+      "boxerName": "Dmitry Bivol",
+      "sport": "boxing",
+      "headline": "On 27 August, Olivieri confirmed that the parties had reached an agreement, with the fight reportedly scheduled for December 2026 in Russia.",
+      "url": "https://en.wikipedia.org/wiki/Dmitry_Bivol",
+      "source": "Wikipedia (fighter page prose)",
+      "publishedAt": "2026-10-05T12:02:16.956Z",
+      "date": "2026-12",
+      "granularity": "month",
+      "confidence": "low",
+      "detectedAt": "2026-10-05T12:02:16.956Z"
+    },
+    {
       "boxerName": "Jaron Ennis",
       "sport": "boxing",
       "headline": "Jaron 'Boots' Ennis and Josh Kelly set for unification 'in December or early January' - boxingscene.com",
@@ -66,18 +78,6 @@
       "granularity": "month",
       "confidence": "low",
       "detectedAt": "2026-10-05T00:29:27.415Z"
-    },
-    {
-      "boxerName": "Dmitry Bivol",
-      "sport": "boxing",
-      "headline": "On 27 August, Olivieri confirmed that the parties had reached an agreement, with the fight reportedly scheduled for December 2026 in Russia.",
-      "url": "https://en.wikipedia.org/wiki/Dmitry_Bivol",
-      "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-10-05T00:29:39.825Z",
-      "date": "2026-12",
-      "granularity": "month",
-      "confidence": "low",
-      "detectedAt": "2026-10-05T00:29:39.825Z"
     },
     {
       "boxerName": "David Benavidez",
