@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Boxing Rankings",
-  description: "Ranking boxers by wins.",
+  description: "Pound-for-pound boxing rankings.",
 };
 
 export default function RootLayout({
