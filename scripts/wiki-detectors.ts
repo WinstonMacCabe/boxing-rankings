@@ -370,7 +370,7 @@ const NON_PERSON_OPPONENT = /(championship|title|ufc|fight night|bellator|one|gl
 // so a positional column read must skip them or it reads the attribute as the
 // opponent. Matched against the trimmed cell.
 const CELL_ATTRIBUTE_RE = /^(?:style|align|valign|colspan|rowspan|class|scope|bgcolor|width|height)\s*[=:]/i
-const LOCATION_OPPONENT = /(bangkok|jakarta|yokohama|tokyo|osaka|pattaya|phnom penh|cambodia|south africa|antwerp|rotterdam|amsterdam|paris|london|las vegas|los angeles|new york|glendale|salt lake|abu dhabi|dubai|riyadh|singapore|hong kong|beijing|manila|seoul|melbourne|sydney|moscow|chicago|miami|houston|dallas|atlanta|toronto)/i
+const LOCATION_OPPONENT = /(bangkok|jakarta|yokohama|tokyo|osaka|pattaya|phnom penh|siem reap|angkor|battambang|cambodia|south africa|antwerp|rotterdam|amsterdam|paris|london|las vegas|los angeles|new york|glendale|salt lake|abu dhabi|dubai|riyadh|singapore|hong kong|beijing|manila|seoul|melbourne|sydney|moscow|chicago|miami|houston|dallas|atlanta|toronto)/i
 
 // An opponent string must look like a person's name: no digits (event numbers
 // like "BKFC 94" / "RAF 14"), no commas ("Bangkok, Thailand"), and no obvious
