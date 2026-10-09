@@ -1,32 +1,6 @@
 {
-  "lastUpdated": "2026-10-08T00:31:37.182Z",
+  "lastUpdated": "2026-10-09T00:29:26.001Z",
   "fights": [
-    {
-      "boxerName": "Canelo Álvarez",
-      "sport": "boxing",
-      "headline": "Canelo Alvarez set for WBC super middleweight title fight in October - Yahoo Sports",
-      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQNnMtS3NFTmZQUVNIQlV4cmExa2xPdjVoSzh0Y085TmlSV2MybWJuWDR2V01rZlFJY3hXclZ2X0llb2ZMU1EzWU5DTEptWTZtRjZJMzVfSDBXQlFLRDV4YklCb3MtRkhWRHBMOFRKLUZnQWJrRTZ2dlhsekl4NFV3UW1DUQ?oc=5",
-      "source": "Yahoo Sports",
-      "publishedAt": "2026-09-30T12:02:39.000Z",
-      "date": "2026-10",
-      "granularity": "month",
-      "confidence": "low",
-      "detectedAt": "2026-10-05T00:29:49.448Z"
-    },
-    {
-      "boxerName": "Ermal Hadribeaj",
-      "sport": "boxing",
-      "headline": "Sebastian Fundora faces Ermal Hadribeaj in October - Fightmag",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPa1BHZF96cW9qelhMckp2T0dSR25iVUV0ZHNMWDlsSXJfa3dFUnBfaDd5SDRWN25YUDgwSm9ZdlpJNHZ4SmFQZVFKcnNiVmdaUVFxOVFJLWZ1ZUJQLXJsWHdpNGJsNTA3cUxuUDRnbG5PRFlsY1JjLUlnVzRfeWlfWl9n?oc=5",
-      "source": "Fightmag",
-      "publishedAt": "2026-08-27T07:00:00.000Z",
-      "date": "2026-10",
-      "granularity": "month",
-      "matchup": "Sebastian Fundora vs Ermal Hadribeaj",
-      "opponent": "Sebastian Fundora",
-      "confidence": "low",
-      "detectedAt": "2026-10-02T02:19:28.629Z"
-    },
     {
       "boxerName": "Devin Haney",
       "sport": "boxing",
@@ -61,11 +35,11 @@
       "headline": "On 30 April, Ring Magazine officially announced that Álvarez would challenge M’billi for his WBC title in his first title defence.",
       "url": "https://en.wikipedia.org/wiki/Canelo_%C3%81lvarez",
       "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-10-08T00:31:54.814Z",
+      "publishedAt": "2026-10-09T00:29:43.303Z",
       "date": "2026-10-31",
       "granularity": "day",
       "confidence": "low",
-      "detectedAt": "2026-10-08T00:31:54.814Z"
+      "detectedAt": "2026-10-09T00:29:43.303Z"
     },
     {
       "boxerName": "Dmitry Bivol",
@@ -73,11 +47,11 @@
       "headline": "On 27 August, Olivieri confirmed that the parties had reached an agreement, with the fight reportedly scheduled for December 2026 in Russia.",
       "url": "https://en.wikipedia.org/wiki/Dmitry_Bivol",
       "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-10-08T00:31:46.423Z",
+      "publishedAt": "2026-10-09T00:29:35.189Z",
       "date": "2026-12",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-10-08T00:31:46.423Z"
+      "detectedAt": "2026-10-09T00:29:35.189Z"
     },
     {
       "boxerName": "Jaron Ennis",
@@ -109,11 +83,11 @@
       "headline": "On 24 September 2026, it was announced Fury and Joshua would face off on 11 December at Principality Stadium in Cardiff, Wales, and that the WBA (Super) heavyweight title would be on the line, meaning",
       "url": "https://en.wikipedia.org/wiki/Tyson_Fury",
       "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-10-08T00:32:05.613Z",
+      "publishedAt": "2026-10-09T00:29:54.127Z",
       "date": "2026-12-11",
       "granularity": "day",
       "confidence": "low",
-      "detectedAt": "2026-10-08T00:32:05.613Z"
+      "detectedAt": "2026-10-09T00:29:54.127Z"
     },
     {
       "boxerName": "Naoya Inoue",
