@@ -411,6 +411,7 @@ export default function Home() {
             <a href="https://boxingpugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[17px] uppercase tracking-[0.05em] text-[#1d1d1f] underline decoration-2 underline-offset-8">Boxing</a>
             <a href="https://mmapugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[17px] uppercase tracking-[0.05em] text-black/40 transition-colors hover:text-[#1d1d1f]">MMA</a>
             <a href="https://generalspugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[17px] uppercase tracking-[0.05em] text-black/40 transition-colors hover:text-[#1d1d1f]">Generals</a>
+            <a href="https://gamespugilism.vercel.app" target="_blank" rel="noopener noreferrer" className="text-[17px] uppercase tracking-[0.05em] text-black/40 transition-colors hover:text-[#1d1d1f]">Games</a>
           </nav>
 
           <div className="pointer-events-none absolute left-1/2 hidden -translate-x-1/2 text-[30px] font-bold uppercase tracking-[0.08em] text-[#1d1d1f] sm:block">
