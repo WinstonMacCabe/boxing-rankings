@@ -78,7 +78,7 @@ function FighterCard({ fighter, rank, isWorst, isBest }: { fighter: BoxerRecord;
   const flag = getCountryFlag(fighter.nationality)
   const flagUrl = getCountryFlagUrl(fighter.nationality)
   const hasImage = Boolean(fighter.imageUrl && !imgError)
-  const rankChange = fighter.previousRank ? fighter.previousRank - rank : 0
+  const rankChange = fighter.rankChange ?? (fighter.previousRank ? fighter.previousRank - rank : 0)
 
   return (
     <div

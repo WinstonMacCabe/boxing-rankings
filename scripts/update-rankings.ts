@@ -11,6 +11,22 @@ const BATCH_DELAY = 100
 // Minimum thirdary score (wins/losses, or wins if undefeated) for inclusion.
 const BOXING_MIN_SCORE = 17.84
 
+function withPersistentRankChange(
+  ranked: BoxerRecord[],
+  previous: BoxerRecord[] | undefined
+): BoxerRecord[] {
+  const previousByName = new Map((previous ?? []).map((fighter, index) => [fighter.name, { fighter, rank: index + 1 }]))
+  return ranked.map((fighter, index) => {
+    const prior = previousByName.get(fighter.name)
+    const currentRank = index + 1
+    const movement = prior ? prior.rank - currentRank : undefined
+    return {
+      ...fighter,
+      rankChange: movement !== undefined && movement !== 0 ? movement : prior?.fighter.rankChange,
+    }
+  })
+}
+
 function delay(ms: number): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
@@ -140,7 +156,7 @@ async function main() {
       (b.kos ?? 0) - (a.kos ?? 0)
     )
   // No fighter cap — BOXING_MIN_SCORE filter determines inclusion
-  const thirdaryRanked: BoxerRecord[] = allThirdaryScored
+  const thirdaryRanked: BoxerRecord[] = withPersistentRankChange(allThirdaryScored, previous.thirdary)
 
   const thirdEligibleWorst = allThirdary
     .filter(f => f.imageUrl && (f.thirdaryScore ?? 0) > 0 && !f.isSenior)
@@ -148,7 +164,10 @@ async function main() {
   const thirdSeniorsWorst = allThirdary
     .filter(f => f.imageUrl && (f.thirdaryScore ?? 0) > 0 && f.isSenior)
     .sort((a, b) => (a.thirdaryScore ?? 0) - (b.thirdaryScore ?? 0) || b.losses - a.losses || (a.kos ?? 0) - (b.kos ?? 0))
-  const thirdaryWorstRanked = [...thirdEligibleWorst.slice(0, 50), ...thirdSeniorsWorst]
+  const thirdaryWorstRanked = withPersistentRankChange(
+    [...thirdEligibleWorst.slice(0, 50), ...thirdSeniorsWorst],
+    previous.thirdaryWorst
+  )
 
   // Archived rankings (best + worst) are frozen — preserved from previous run
   const archivedBest = previous.fighters
