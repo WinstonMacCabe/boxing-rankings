@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-20T00:30:08.625Z",
+  "lastUpdated": "2026-10-21T00:30:29.982Z",
   "fights": [
     {
       "boxerName": "Ermal Hadribeaj",
@@ -21,11 +21,11 @@
       "headline": "On 30 April, Ring Magazine officially announced that Álvarez would challenge M'billi for his WBC title in his first title defence.",
       "url": "https://en.wikipedia.org/wiki/Canelo_%C3%81lvarez",
       "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-10-20T00:30:26.344Z",
+      "publishedAt": "2026-10-21T00:30:47.737Z",
       "date": "2026-10-31",
       "granularity": "day",
       "confidence": "low",
-      "detectedAt": "2026-10-20T00:30:26.344Z"
+      "detectedAt": "2026-10-21T00:30:47.737Z"
     },
     {
       "boxerName": "Dmitry Bivol",
@@ -33,11 +33,11 @@
       "headline": "On 27 August, Olivieri confirmed that the parties had reached an agreement, with the fight reportedly scheduled for December 2026 in Russia.",
       "url": "https://en.wikipedia.org/wiki/Dmitry_Bivol",
       "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-10-20T00:30:18.134Z",
+      "publishedAt": "2026-10-21T00:30:39.627Z",
       "date": "2026-12",
       "granularity": "month",
       "confidence": "low",
-      "detectedAt": "2026-10-20T00:30:18.134Z"
+      "detectedAt": "2026-10-21T00:30:39.627Z"
     },
     {
       "boxerName": "Jaron Ennis",
@@ -69,11 +69,11 @@
       "headline": "On 24 September 2026, it was announced Fury and Joshua would face off on 11 December at Principality Stadium in Cardiff, Wales, and that the WBA (Super) heavyweight title would be on the line, meaning",
       "url": "https://en.wikipedia.org/wiki/Tyson_Fury",
       "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-10-20T00:30:37.623Z",
+      "publishedAt": "2026-10-21T00:30:58.934Z",
       "date": "2026-12-11",
       "granularity": "day",
       "confidence": "low",
-      "detectedAt": "2026-10-20T00:30:37.623Z"
+      "detectedAt": "2026-10-21T00:30:58.934Z"
     },
     {
       "boxerName": "Naoya Inoue",
