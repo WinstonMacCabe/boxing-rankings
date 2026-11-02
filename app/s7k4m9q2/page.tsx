@@ -68,7 +68,7 @@ export default function SecurityQuestion() {
       `}</style>
       <section className="announcement-card" aria-live="polite">
         <h1 className="announcement-title">Security question</h1>
-        <p className="announcement-question">For security reasons, how many people are in our family?</p>
+        <p className="announcement-question">how many people in our family</p>
         <form className="announcement-form" onSubmit={submit}>
           <label htmlFor="family-count" className="sr-only">Number of people in our family</label>
           <input
