@@ -295,18 +295,31 @@ function findMostSpecificDateToken(text: string, ref = new Date(), pastDays = 0)
   const tokens = Array.from(plain.matchAll(/\b(?:20\d{2}-\d{1,2}-\d{1,2}|20\d{2}-\d{1,2}|\d{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]{3,9}\.?\s+20\d{2}|[A-Za-z]{3,9}\.?\s+\d{1,2}(?:st|nd|rd|th)?,?\s+20\d{2}|[A-Za-z]{3,9}\.?\s+20\d{2})\b/gi)
   )
     .map(m => m[0])
-  const yearlessTokens = Array.from(plain.matchAll(/\b\d{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]{3,9}\.?(?!\s+20\d{2})\b/gi), m => m[0])
+  const yearlessTokens = Array.from(plain.matchAll(/\b\d{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]{3,9}\.?/gi), m => m[0])
+    .filter(token => !new RegExp(`${token.trim()}\\s+20\\d{2}`, 'i').test(plain))
     .filter(token => {
       const i = plain.indexOf(token)
-      const window = plain.slice(Math.max(0, i - 45), i + token.length + 12)
+      const window = plain.slice(Math.max(0, i - 45), i + token.length)
       return /\b(face(?:d|s)?\s+off|fight|bout|scheduled|announced|confirmed|set|challenge|defend)\b[\s\S]{0,35}$/i.test(window)
     })
   // Do not reinterpret a historical yearless recap date as a booking in the
   // current year. Accept it only when this bounded announcement context also
   // states the current year explicitly ("On 24 September 2026 ... on 11 December").
-  const currentYearIsExplicit = new RegExp(`\\b${ref.getFullYear()}\\b`).test(plain)
-  const valid = [...tokens, ...(currentYearIsExplicit ? yearlessTokens : [])]
+  const explicitYear = plain.match(/\b20\d{2}\b/)?.[0]
+  const currentYearIsExplicit = explicitYear !== undefined
+  const expandedYearlessTokens = explicitYear
+    ? yearlessTokens.map(token => `${token} ${explicitYear}`)
+    : []
+  const valid = [...tokens, ...(currentYearIsExplicit ? expandedYearlessTokens : [])]
     .filter(token => extractWikiDate(token, ref, pastDays))
+  if (explicitYear) {
+    const dayMonth = /\b(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]{3,9})\b/gi
+    for (const match of plain.matchAll(dayMonth)) {
+      const candidate = `${match[1]} ${match[2]} ${explicitYear}`
+      const parsed = extractWikiDate(candidate, ref, pastDays)
+      if (parsed?.granularity === 'day') return candidate
+    }
+  }
   return valid.find(token => extractWikiDate(token, ref, pastDays)?.granularity === 'day')
     ?? valid[0]
 }
@@ -336,7 +349,8 @@ function opponentFromSentence(sentence: string, clean: string): string | null {
     const cand = links[k]
     if (!cand || !looksLikeOpponent(cand, clean)) continue
     // Two-word name runs are the strongest signal; whitespace alone is weak.
-    if (/\s/.test(cand) || /^[A-Z][a-z]+ [A-Z][a-z]+/.test(cand)) return cand
+    if (/\s/.test(cand) || /^[A-Z][a-z]+ [A-Z][a-z]+/.test(cand) ||
+      new RegExp(`\\b(?:against|face|fight|challenge|meet|take on)\\s+\\[\\[[^\\]]*${cand.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&')}[^\\]]*\\]\\]`, 'i').test(sentence)) return cand
   }
   // Fallback: named verb + capitalized name run, trimming title descriptors
   // ("two-time champion Alexander Volkanovski" → "Alexander Volkanovski").
@@ -414,16 +428,27 @@ export function scheduledInProse(
     // fighters and says the bout was announced, while the next sentence supplies
     // a postponed or confirmed future date. Keep the lookahead bounded so prose
     // from a later paragraph cannot be joined accidentally.
-    let context = sentence
+    // A page may establish the year in a preceding estimate and give the
+    // exact yearless date in the next sentence ("scheduled for December 2026.
+    // On ... 12 December"). Keep one sentence of bounded lookbehind so the
+    // exact date can inherit that year.
+    let context = i > 0 &&
+      !/\b20\d{2}\b/.test(sentence) &&
+      /\b\d{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]{3,9}\b/i.test(sentence)
+      ? `${sentences[i - 1]} ${sentence}`
+      : sentence
     let contextEnd = i
     while (contextEnd < Math.min(i + 2, sentences.length - 1) &&
       (!/\b(scheduled|planned|set|expected|booked|slated|schedule|announced|confirmed|reported|revealed|agreed)\b/i.test(context) ||
-        !findDateToken(context))) {
+        !findDateToken(context) ||
+        extractWikiDate(findDateToken(context)!, ref)?.granularity !== 'day')) {
       contextEnd++
       context += ` ${sentences[contextEnd]}`
     }
     if (!/\b(scheduled|planned|set|expected|booked|slated|schedule|announced|confirmed|reported|revealed|agreed)\b/i.test(context)) continue
-    if (!/\b(face|fight|challenge|vs\.?|versus|take on|defend|rematch|return)\b/i.test(context)) continue
+    // Debut announcements often say "scheduled to make his debut against"
+    // without using "fight", "face", or "challenge".
+    if (!/\b(face|fight|challenge|against|vs\.?|versus|take on|defend|rematch|return)\b/i.test(context)) continue
 
       // A "sentence" that still contains section/table remnants (==headers==, {|
       // wikitable opener, |- row separators, class=") is structural markup, not

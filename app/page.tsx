@@ -78,7 +78,10 @@ function FighterCard({ fighter, rank, isWorst, isBest }: { fighter: BoxerRecord;
   const flag = getCountryFlag(fighter.nationality)
   const flagUrl = getCountryFlagUrl(fighter.nationality)
   const hasImage = Boolean(fighter.imageUrl && !imgError)
-  const rankChange = fighter.rankChange ?? (fighter.previousRank ? fighter.previousRank - rank : 0)
+  // Only show movement when the ranking update explicitly recorded a real move.
+  // Falling back to previousRank makes newly inserted fighters incorrectly push
+  // everyone below them down.
+  const rankChange = fighter.rankChange ?? 0
 
   return (
     <div

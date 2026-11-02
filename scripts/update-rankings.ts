@@ -15,11 +15,24 @@ function withPersistentRankChange(
   ranked: BoxerRecord[],
   previous: BoxerRecord[] | undefined
 ): BoxerRecord[] {
-  const previousByName = new Map((previous ?? []).map((fighter, index) => [fighter.name, { fighter, rank: index + 1 }]))
+  const prior = previous ?? []
+  const currentNames = new Set(ranked.map(fighter => fighter.name))
+  const previousByName = new Map(prior.map((fighter, index) => [fighter.name, { fighter, rank: index + 1 }]))
+  const commonNames = new Set(prior.map(fighter => fighter.name).filter(name => currentNames.has(name)))
+  const commonPreviousRank = new Map<string, number>()
+  let previousCommonRank = 0
+  for (const fighter of prior) {
+    if (commonNames.has(fighter.name)) previousCommonRank++, commonPreviousRank.set(fighter.name, previousCommonRank)
+  }
   return ranked.map((fighter, index) => {
     const prior = previousByName.get(fighter.name)
     const currentRank = index + 1
-    const movement = prior ? prior.rank - currentRank : undefined
+    const currentCommonRank = commonNames.has(fighter.name)
+      ? ranked.slice(0, index + 1).filter(candidate => commonNames.has(candidate.name)).length
+      : undefined
+    const movement = prior && currentCommonRank !== undefined
+      ? (commonPreviousRank.get(fighter.name)! - currentCommonRank)
+      : undefined
     return {
       ...fighter,
       rankChange: movement !== undefined && movement !== 0 ? movement : prior?.fighter.rankChange,
