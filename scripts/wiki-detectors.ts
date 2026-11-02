@@ -313,12 +313,26 @@ function findMostSpecificDateToken(text: string, ref = new Date(), pastDays = 0)
   const valid = [...tokens, ...(currentYearIsExplicit ? expandedYearlessTokens : [])]
     .filter(token => extractWikiDate(token, ref, pastDays))
   if (explicitYear) {
+    // Prefer the date in the strongest announcement sentence. Pages often
+    // retain an earlier estimate such as "on 30 December ... looking to fight"
+    // immediately before the confirmed booking: "it was announced ... on 12
+    // December". A page-wide first-match rule selected the estimate.
     const dayMonth = /\b(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]{3,9})\b/gi
+    const dated: { candidate: string; score: number; offset: number }[] = []
     for (const match of plain.matchAll(dayMonth)) {
       const candidate = `${match[1]} ${match[2]} ${explicitYear}`
       const parsed = extractWikiDate(candidate, ref, pastDays)
-      if (parsed?.granularity === 'day') return candidate
+      if (parsed?.granularity !== 'day') continue
+      const start = Math.max(0, (match.index ?? 0) - 180)
+      const sentence = plain.slice(start, Math.min(plain.length, (match.index ?? 0) + match[0].length + 120))
+      let score = 0
+      if (/\b(?:confirmed|officially announced|announced that|would fight|scheduled to|set to|agreed)\b/i.test(sentence)) score += 4
+      if (/\b(?:fight|bout|face|against|rematch|defend|challenge|opponent)\b/i.test(sentence)) score += 2
+      if (/\b(?:looking to|hoped to|planned to|targeting|reportedly)\b/i.test(sentence)) score -= 2
+      dated.push({ candidate, score, offset: match.index ?? 0 })
     }
+    dated.sort((a, b) => b.score - a.score || b.offset - a.offset)
+    if (dated[0]) return dated[0].candidate
   }
   return valid.find(token => extractWikiDate(token, ref, pastDays)?.granularity === 'day')
     ?? valid[0]
@@ -329,6 +343,7 @@ function stripToProse(text: string): string {
   // so the opponent can be read back out of the sentence. Mirrors stripWikiMarkup
   // except link markup is preserved.
   return text
+    .replace(/^={2,}[^\n=]+={2,}$/gm, ' ')
     .replace(/<ref[^>]*>[\s\S]*?<\/ref>/gi, ' ')
     .replace(/<ref[^>]*\/>/gi, ' ')
     .replace(/<br\s*\/?\s*>/gi, ' ')
@@ -414,7 +429,8 @@ export function scheduledInProse(
   ref: Date,
 ): WikiScheduledEntry | null {
   const clean = fighter.clean.toLowerCase()
-  const surname = clean.split(/\s+/).slice(-1)[0] ?? clean
+  const surnameParts = clean.split(/\s+/).filter(part => !/^(jr\.?|sr\.?|ii|iii|iv)$/i.test(part))
+  const surname = surnameParts[surnameParts.length - 1] ?? clean
   const prose = stripToProse(wikitext)
   const sentences = prose.split(/(?<=[.!?])\s+/)
   let best: { score: number; entry: WikiScheduledEntry } | null = null
@@ -423,7 +439,14 @@ export function scheduledInProse(
     if (!sentence) continue
     const sLow = sentence.toLowerCase()
     // Accept the full name OR the surname — prose usually uses just the last name.
-    if (!(sLow.includes(clean) || (surname && sLow.includes(surname)))) continue
+    // A follow-up sentence may use only a pronoun: "Mayweather announced ... .
+    // He would fight Pacquiao on September 19." Carry the immediately preceding
+    // named sentence into the bounded context so that this is still detected.
+    const pronounContinuation = i > 0 &&
+      /\b(?:he|she|they)\b/i.test(sentence) &&
+      (sentences[i - 1]!.toLowerCase().includes(clean) ||
+        (surname && sentences[i - 1]!.toLowerCase().includes(surname)))
+    if (!(sLow.includes(clean) || (surname && sLow.includes(surname)) || pronounContinuation)) continue
     // Announcements are often split across nearby sentences: the first names the
     // fighters and says the bout was announced, while the next sentence supplies
     // a postponed or confirmed future date. Keep the lookahead bounded so prose
@@ -469,11 +492,17 @@ export function scheduledInProse(
       // The bounded context may begin with a completed-fight recap and only
       // reach the scheduling sentence on the next pass. Keep that context for
       // detection, but use the actual announcement sentence for the headline.
-      const contextSentences = sentences.slice(i, contextEnd + 1)
-      const announcementIndex = contextSentences.findIndex(s =>
-        /\b(scheduled|planned|set|expected|booked|slated|schedule|announced|confirmed|reported|revealed|agreed)\b/i.test(s),
+      const contextSentences = sentences.slice(Math.max(0, i - (pronounContinuation ? 1 : 0)), contextEnd + 1)
+      const normalizedDate = dateTok.replace(/(?:st|nd|rd|th)\b/gi, '').toLowerCase()
+        .replace(/\b20\d{2}\b/g, '').trim()
+      const dateSentence = contextSentences.find(s =>
+        normalizedDate.split(/\s+/).every(part => s.toLowerCase().includes(part)) &&
+        /\b(?:scheduled|planned|set|expected|booked|slated|schedule|announced|confirmed|reported|revealed|agreed|fight|rematch|defend)\b/i.test(s),
       )
-      const announcement = announcementIndex >= 0 ? contextSentences[announcementIndex]! : context
+      const announcementIndex = contextSentences.findIndex(s =>
+        /\b(scheduled|planned|set|expected|booked|slated|schedule|announced|confirmed|reported|revealed|agreed|fight|rematch|defend)\b/i.test(s),
+      )
+      const announcement = dateSentence ?? (announcementIndex >= 0 ? contextSentences[announcementIndex]! : context)
       const headline = stripWikiMarkup(announcement).replace(/\s+/g, ' ').trim().slice(0, 200)
       if (!headline) continue
 
