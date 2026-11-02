@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-02T00:32:30.156Z",
+  "lastUpdated": "2026-11-02T01:08:55.630Z",
   "fights": [
     {
       "boxerName": "Canelo Álvarez",
@@ -12,6 +12,20 @@
       "granularity": "day",
       "confidence": "low",
       "detectedAt": "2026-10-30T00:30:03.792Z"
+    },
+    {
+      "boxerName": "Carlos Adames",
+      "sport": "boxing",
+      "headline": "Adames is scheduled to make his Zuffa Boxing debut against Gerome Warburton in a non-title catchweight 10-round bout at The Venue in Riyadh, Saudi Arabia, on November 14, 2026.",
+      "url": "https://en.wikipedia.org/wiki/Carlos_Adames",
+      "source": "Wikipedia (fighter page prose)",
+      "publishedAt": "2026-11-02T01:09:05.115Z",
+      "date": "2026-11-14",
+      "granularity": "day",
+      "matchup": "Carlos Adames vs Gerome Warburton",
+      "opponent": "Gerome Warburton",
+      "confidence": "high",
+      "detectedAt": "2026-11-02T01:09:05.115Z"
     },
     {
       "boxerName": "Dmitry Bivol",
@@ -50,16 +64,72 @@
       "detectedAt": "2026-10-02T02:18:55.279Z"
     },
     {
+      "boxerName": "Oleksandr Usyk",
+      "sport": "boxing",
+      "headline": "On 11 December, Wilder confirmed that negotiations had begun for a potential fight.",
+      "url": "https://en.wikipedia.org/wiki/Oleksandr_Usyk",
+      "source": "Wikipedia (fighter page prose)",
+      "publishedAt": "2026-11-02T01:09:04.418Z",
+      "date": "2026-12-11",
+      "granularity": "day",
+      "matchup": "Oleksandr Usyk vs Shelly Finkel",
+      "opponent": "Shelly Finkel",
+      "confidence": "high",
+      "detectedAt": "2026-11-02T01:09:04.418Z"
+    },
+    {
       "boxerName": "Tyson Fury",
       "sport": "boxing",
       "headline": "On 24 September 2026, it was announced Fury and Joshua would face off on 11 December at Principality Stadium in Cardiff, Wales, and that the WBA (Super) heavyweight title would be on the line, meaning",
       "url": "https://en.wikipedia.org/wiki/Tyson_Fury",
       "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-11-02T00:32:59.352Z",
+      "publishedAt": "2026-11-02T01:09:25.339Z",
       "date": "2026-12-11",
       "granularity": "day",
+      "matchup": "Tyson Fury vs Dolph Ziggler",
+      "opponent": "Dolph Ziggler",
+      "confidence": "high",
+      "detectedAt": "2026-11-02T01:09:25.339Z"
+    },
+    {
+      "boxerName": "Dmitry Bivol",
+      "sport": "boxing",
+      "headline": "On 12 October, it was announced that Bivol would defend his unified IBF, WBO, WBC and Ring light heavyweight titles against Smith on 12 December in Yekaterinburg, Russia.",
+      "url": "https://en.wikipedia.org/wiki/Dmitry_Bivol",
+      "source": "Wikipedia (fighter page prose)",
+      "publishedAt": "2026-11-02T01:09:05.472Z",
+      "date": "2026-12-12",
+      "granularity": "day",
+      "matchup": "Dmitry Bivol vs Smith",
+      "opponent": "Smith",
+      "confidence": "high",
+      "detectedAt": "2026-11-02T01:09:05.472Z"
+    },
+    {
+      "boxerName": "Naoya Inoue",
+      "sport": "boxing",
+      "headline": "Both boxers were scheduled on the same card on 27 December and won their respective fights.",
+      "url": "https://en.wikipedia.org/wiki/Naoya_Inoue",
+      "source": "Wikipedia (fighter page prose)",
+      "publishedAt": "2026-11-02T01:08:59.409Z",
+      "date": "2026-12-27",
+      "granularity": "day",
       "confidence": "low",
-      "detectedAt": "2026-11-02T00:32:59.352Z"
+      "detectedAt": "2026-11-02T01:08:59.409Z"
+    },
+    {
+      "boxerName": "Dmitry Bivol",
+      "sport": "boxing",
+      "headline": "On 30 December, his manager Vadim Kornilov announced that Bivol was looking to fight in Spring of 2026, followed by a bigger fight later in the year.",
+      "url": "https://en.wikipedia.org/wiki/Dmitry_Bivol",
+      "source": "Wikipedia (fighter page prose)",
+      "publishedAt": "2026-11-02T00:59:10.328Z",
+      "date": "2026-12-30",
+      "granularity": "day",
+      "matchup": "Dmitry Bivol vs Rico Verhoeven",
+      "opponent": "Rico Verhoeven",
+      "confidence": "high",
+      "detectedAt": "2026-11-02T00:59:10.328Z"
     },
     {
       "boxerName": "Naoya Inoue",
