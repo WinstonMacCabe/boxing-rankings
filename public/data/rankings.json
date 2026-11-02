@@ -1399,8 +1399,7 @@
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 36,
       "birthDate": "1936-03-26",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Bruno Arcari (boxer)",
@@ -1417,8 +1416,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 35,
       "birthDate": "1942",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Pedro Carrasco",
@@ -1435,8 +1433,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 35,
       "birthDate": "1943",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Jimmy Wilde",
@@ -1453,8 +1450,7 @@
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 34.25,
       "birthDate": "1892",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Sven Ottke",
@@ -1471,8 +1467,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 34,
       "birthDate": "1967-06-03",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Joan Guzmán",
@@ -1489,8 +1484,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 34,
       "birthDate": "1976-05-01",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Zsolt Erdei",
@@ -1507,8 +1501,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 34,
       "birthDate": "1974",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Naoya Inoue",
@@ -1525,8 +1518,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 33,
       "birthDate": "1993-04-10",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Devin Haney",
@@ -1543,8 +1535,7 @@
       "lastUpdated": "2026-11-02T01:45:47.126Z",
       "thirdaryScore": 33,
       "birthDate": "1998-11-17",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "David Benavidez",
@@ -1561,8 +1552,7 @@
       "lastUpdated": "2026-11-02T01:45:47.119Z",
       "thirdaryScore": 32,
       "birthDate": "1996-12-17",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Andre Ward",
@@ -1579,8 +1569,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 32,
       "birthDate": "1984-02-23",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Alessandro Riguccini",
@@ -1597,8 +1586,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 32,
       "birthDate": "1988",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Michael Spinks",
@@ -1615,8 +1603,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 31,
       "birthDate": "1956-07-22",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Henry Maske",
@@ -1633,8 +1620,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 31,
       "birthDate": "1964",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Gervonta Davis",
@@ -1651,8 +1637,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 30,
       "birthDate": "1994-11-07",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Billy Joe Saunders",
@@ -1669,8 +1654,7 @@
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 30,
       "birthDate": "1989-08-30",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Nicolino Locche",
@@ -1687,8 +1671,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 29.25,
       "birthDate": "1939",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Carl Jammes Martin",
@@ -1705,8 +1688,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 29,
       "birthDate": "1999",
-      "isSenior": false,
-      "rankChange": 1
+      "isSenior": false
     },
     {
       "name": "Christian M'billi",
@@ -1723,8 +1705,7 @@
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 29,
       "birthDate": "1995",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Cletus Seldin",
@@ -1741,8 +1722,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 29,
       "birthDate": "1986",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Taoufik Belbouli",
@@ -1759,8 +1739,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 29,
       "birthDate": "1954",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Carlos Monzón",
@@ -1777,8 +1756,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 29,
       "birthDate": "1942",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Jack McAuliffe (boxer)",
@@ -1795,8 +1773,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 28,
       "birthDate": "1866",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Mihai Leu",
@@ -1813,8 +1790,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 28,
       "birthDate": "1968",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Marcel Cerdan",
@@ -1831,8 +1807,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 27.5,
       "birthDate": "1916",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Edwin Valero",
@@ -1849,8 +1824,7 @@
       "lastUpdated": "2026-11-02T01:45:47.126Z",
       "thirdaryScore": 27,
       "birthDate": "1981",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "László Papp",
@@ -1867,8 +1841,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 27,
       "birthDate": "1926",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Arsen Goulamirian",
@@ -1885,8 +1858,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 27,
       "birthDate": "1987",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Michel Rivera",
@@ -1903,8 +1875,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 27,
       "birthDate": "1998",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Ali Raymi",
@@ -1921,8 +1892,7 @@
       "lastUpdated": "2026-11-02T01:45:47.126Z",
       "thirdaryScore": 26,
       "birthDate": "1973",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Terry Marsh (boxer)",
@@ -1939,8 +1909,7 @@
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 26,
       "birthDate": "1958",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Orzubek Nazarov",
@@ -1957,8 +1926,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 26,
       "birthDate": "1966",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Katie Taylor",
@@ -1975,8 +1943,7 @@
       "lastUpdated": "2026-11-02T01:45:47.126Z",
       "thirdaryScore": 26,
       "birthDate": "1986-07-02",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Oleksandr Usyk",
@@ -1993,8 +1960,7 @@
       "lastUpdated": "2026-11-02T01:45:47.126Z",
       "thirdaryScore": 25,
       "birthDate": "1987",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Shakur Stevenson",
@@ -2011,8 +1977,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 25,
       "birthDate": "1997-06-28",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Carlos Adames",
@@ -2029,8 +1994,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 25,
       "birthDate": "1994",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Dmitry Bivol",
@@ -2047,8 +2011,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 25,
       "birthDate": "1990-12-18",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Nikola Stevanović",
@@ -2065,8 +2028,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 25,
       "birthDate": "1987",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Nikolai Valuev",
@@ -2083,8 +2045,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 25,
       "birthDate": "1973-08-21",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Freddie Steele",
@@ -2101,8 +2062,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 25,
       "birthDate": "1912",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Laila Ali",
@@ -2119,8 +2079,7 @@
       "lastUpdated": "2026-11-02T01:45:47.126Z",
       "thirdaryScore": 24,
       "birthDate": "1977-12-30",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Rex Tso",
@@ -2137,8 +2096,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 24,
       "birthDate": "1987",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Malik Zinad",
@@ -2155,8 +2113,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 24,
       "birthDate": "1993",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Randy Caballero",
@@ -2173,8 +2130,7 @@
       "lastUpdated": "2026-11-02T01:45:47.119Z",
       "thirdaryScore": 24,
       "birthDate": "1990",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Mea Motu",
@@ -2190,8 +2146,7 @@
       "wikipediaUrl": "https://en.wikipedia.org/wiki/Mea_Motu",
       "lastUpdated": "2026-11-02T01:45:47.126Z",
       "thirdaryScore": 24,
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Dariusz Michalczewski",
@@ -2208,8 +2163,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 24,
       "birthDate": "1968",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Fabrice Tiozzo",
@@ -2226,8 +2180,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 24,
       "birthDate": "1969",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Jaime Munguía",
@@ -2244,8 +2197,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 23.5,
       "birthDate": "1996",
-      "isSenior": false,
-      "rankChange": 5
+      "isSenior": false
     },
     {
       "name": "Alexander Frenkel",
@@ -2262,8 +2214,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 23,
       "birthDate": "1985",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Liam Walsh (boxer)",
@@ -2280,8 +2231,7 @@
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 23,
       "birthDate": "1986-05-18",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Yoko Gushiken",
@@ -2298,8 +2248,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 23,
       "birthDate": "1955",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Ermal Hadribeaj",
@@ -2316,8 +2265,7 @@
       "lastUpdated": "2026-11-02T01:45:47.119Z",
       "thirdaryScore": 23,
       "birthDate": "1993-12-12",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Aslambek Idigov",
@@ -2334,8 +2282,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 23,
       "birthDate": "1995",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Vitali Klitschko",
@@ -2352,8 +2299,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 22.5,
       "birthDate": "1971",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Natascha Ragosina",
@@ -2370,8 +2316,7 @@
       "lastUpdated": "2026-11-02T01:45:47.126Z",
       "thirdaryScore": 22,
       "birthDate": "1976",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "István Kovács (boxer)",
@@ -2388,8 +2333,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 22,
       "birthDate": "1970",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Etinosa Oliha",
@@ -2406,8 +2350,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 22,
       "birthDate": "1998",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Leonard Doroftei",
@@ -2424,8 +2367,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 22,
       "birthDate": "1970",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Joe Louis",
@@ -2442,8 +2384,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 22,
       "birthDate": "1914-05-13",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Alessandro Mazzinghi",
@@ -2459,8 +2400,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 21.333333333333332,
       "birthDate": "1938",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Canelo Álvarez",
@@ -2477,8 +2417,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 21.333333333333332,
       "birthDate": "1990",
-      "isSenior": false,
-      "rankChange": 12
+      "isSenior": false
     },
     {
       "name": "Abdullah Mason",
@@ -2495,8 +2434,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 21,
       "birthDate": "2004",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Lester Martínez",
@@ -2513,8 +2451,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 21,
       "birthDate": "1995",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Marek Piotrowski",
@@ -2531,8 +2468,7 @@
       "lastUpdated": "2026-11-02T01:45:47.127Z",
       "thirdaryScore": 21,
       "birthDate": "1964",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Miguel Ángel Cuello",
@@ -2549,8 +2485,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 21,
       "birthDate": "1946",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Artur Beterbiev",
@@ -2567,8 +2502,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 21,
       "birthDate": "1985",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Filip Hrgović",
@@ -2585,8 +2519,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 21,
       "birthDate": "1992",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Vyacheslav Glazkov",
@@ -2603,8 +2536,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 21,
       "birthDate": "1984-10-15",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Mike Lee (boxer)",
@@ -2621,8 +2553,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 21,
       "birthDate": "1987",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Sarah Bormann",
@@ -2639,8 +2570,7 @@
       "lastUpdated": "2026-11-02T01:45:47.126Z",
       "thirdaryScore": 21,
       "birthDate": "1990",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Choi Hyun-mi",
@@ -2657,8 +2587,7 @@
       "lastUpdated": "2026-11-02T01:45:47.126Z",
       "thirdaryScore": 21,
       "birthDate": "1990",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Ewa Brodnicka",
@@ -2675,8 +2604,7 @@
       "lastUpdated": "2026-11-02T01:45:47.126Z",
       "thirdaryScore": 21,
       "birthDate": "1984-06-07",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Gennady Golovkin",
@@ -2693,8 +2621,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 21,
       "birthDate": "1982-04-08",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Willie Pep",
@@ -2711,8 +2638,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 20.818181818181817,
       "birthDate": "1922-09-19",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Marvelous Marvin Hagler",
@@ -2729,8 +2655,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 20.666666666666668,
       "birthDate": "1954-05-23",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Acelino Freitas",
@@ -2747,8 +2672,7 @@
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 20.5,
       "birthDate": "1975-09-21",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Lennox Lewis",
@@ -2765,8 +2689,7 @@
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 20.5,
       "birthDate": "1965",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Paul Williams (boxer)",
@@ -2783,8 +2706,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 20.5,
       "birthDate": "1981-07-27",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Dmitry Pirog",
@@ -2801,8 +2723,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 20,
       "birthDate": "1980-06-27",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Robin Sirwan Safar",
@@ -2819,8 +2740,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 20,
       "birthDate": "1992",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Richard Riakporhe",
@@ -2837,8 +2757,7 @@
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 20,
       "birthDate": "1990",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Daniele Scardina",
@@ -2855,8 +2774,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 20,
       "birthDate": "1992",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Frank Martin (boxer)",
@@ -2873,8 +2791,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 20,
       "birthDate": "1995",
-      "isSenior": false,
-      "rankChange": 15
+      "isSenior": false
     },
     {
       "name": "David Light (boxer)",
@@ -2891,8 +2808,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 20,
       "birthDate": "1991",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Gurcharan Singh (boxer)",
@@ -2909,8 +2825,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 20,
       "birthDate": "1977",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Ségolène Lefebvre",
@@ -2927,8 +2842,7 @@
       "lastUpdated": "2026-11-02T01:45:47.126Z",
       "thirdaryScore": 20,
       "birthDate": "1993",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Kelly Pavlik",
@@ -2945,8 +2859,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 20,
       "birthDate": "1982",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Mikey Garcia",
@@ -2963,8 +2876,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 20,
       "birthDate": "1987-12-15",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Harry Harris (boxer)",
@@ -2981,8 +2893,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 20,
       "birthDate": "1880",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Cecilia Brækhus",
@@ -2999,8 +2910,7 @@
       "lastUpdated": "2026-11-02T01:45:47.126Z",
       "thirdaryScore": 19.5,
       "birthDate": "1981-09-28",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Jim Driscoll",
@@ -3017,8 +2927,7 @@
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 19.333333333333332,
       "birthDate": "1880",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Tommy Gibbons",
@@ -3035,8 +2944,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 19.2,
       "birthDate": "1891-03-22",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Charly Suarez",
@@ -3053,8 +2961,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 19,
       "birthDate": "1988-08-14",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Jevgenijs Aleksejevs",
@@ -3071,8 +2978,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 19,
       "birthDate": "1993",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Servílio de Oliveira",
@@ -3089,8 +2995,7 @@
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 19,
       "birthDate": "1948",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Claressa Shields",
@@ -3107,8 +3012,7 @@
       "lastUpdated": "2026-11-02T01:45:47.126Z",
       "thirdaryScore": 19,
       "birthDate": "1995",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "James J. Jeffries",
@@ -3125,8 +3029,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 19,
       "birthDate": "1875-04-15",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Tervel Pulev",
@@ -3143,8 +3046,7 @@
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 19,
       "birthDate": "1983-01-10",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Brad Pitt (boxer)",
@@ -3160,8 +3062,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 19,
       "birthDate": "1981",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Joselito Velázquez",
@@ -3178,8 +3079,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 19,
       "birthDate": "1993",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Joe Cordina",
@@ -3196,8 +3096,7 @@
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 19,
       "birthDate": "1991-12-01",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Stefan Härtel",
@@ -3214,8 +3113,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 19,
       "birthDate": "1988",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Sergio Martínez (boxer)",
@@ -3232,8 +3130,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 19,
       "birthDate": "1975",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Yodsanan Sor Nanthachai",
@@ -3250,8 +3147,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 18.666666666666668,
       "birthDate": "1974",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Barney Ross",
@@ -3268,8 +3164,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 18.5,
       "birthDate": "1909",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Wanheng Menayothin",
@@ -3286,8 +3181,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 18.333333333333332,
       "birthDate": "1985",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Pongsaklek Wonjongkam",
@@ -3304,8 +3198,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 18.2,
       "birthDate": "1977",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Bakhodir Jalolov",
@@ -3322,8 +3215,7 @@
       "lastUpdated": "2026-11-02T01:45:47.126Z",
       "thirdaryScore": 18,
       "birthDate": "1994-07-08",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Usman Wazeer",
@@ -3340,8 +3232,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 18,
       "birthDate": "2000",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Souleymane Cissokho",
@@ -3358,8 +3249,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 18,
       "birthDate": "1991",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Magomed Abdusalamov",
@@ -3376,8 +3266,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 18,
       "birthDate": "1981",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Petro Ivanov",
@@ -3394,8 +3283,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 18,
       "birthDate": "1996-07-12",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "David Jiménez (boxer)",
@@ -3412,8 +3300,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 18,
       "birthDate": "1992",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Tyson Fury",
@@ -3430,8 +3317,7 @@
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 18,
       "birthDate": "1988",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Susi Kentikian",
@@ -3448,8 +3334,7 @@
       "lastUpdated": "2026-11-02T01:45:47.126Z",
       "thirdaryScore": 18,
       "birthDate": "1987-09-11",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Esteban Gallard",
@@ -3466,8 +3351,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 18,
       "birthDate": "1901",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     }
   ],
   "thirdaryWorst": [
@@ -3754,8 +3638,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 1,
       "birthDate": "1989-04-10",
-      "isSenior": false,
-      "rankChange": 2
+      "isSenior": false
     },
     {
       "name": "Uriah Hall",
@@ -3772,8 +3655,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 1,
       "birthDate": "1984",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Alexander Emelianenko",
@@ -3790,8 +3672,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 1,
       "birthDate": "1981",
-      "isSenior": false,
-      "rankChange": 1
+      "isSenior": false
     },
     {
       "name": "Ricco Rodriguez",
@@ -3808,8 +3689,7 @@
       "lastUpdated": "2026-11-02T01:45:47.127Z",
       "thirdaryScore": 1,
       "birthDate": "1977-08-19",
-      "isSenior": false,
-      "rankChange": 1
+      "isSenior": false
     },
     {
       "name": "Ross Pearson",
@@ -3826,8 +3706,7 @@
       "lastUpdated": "2026-11-02T01:45:47.127Z",
       "thirdaryScore": 1,
       "birthDate": "1984",
-      "isSenior": false,
-      "rankChange": 1
+      "isSenior": false
     },
     {
       "name": "Alexander Stetsurenko",
@@ -3844,8 +3723,7 @@
       "lastUpdated": "2026-11-02T01:45:47.127Z",
       "thirdaryScore": 1,
       "birthDate": "1983",
-      "isSenior": false,
-      "rankChange": -2
+      "isSenior": false
     },
     {
       "name": "Austin Arnett",
@@ -3862,8 +3740,7 @@
       "lastUpdated": "2026-11-02T01:45:47.119Z",
       "thirdaryScore": 1,
       "birthDate": "1991",
-      "isSenior": false,
-      "rankChange": 21
+      "isSenior": false
     },
     {
       "name": "Nick Diaz",
@@ -3880,8 +3757,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 1,
       "birthDate": "1983",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "George Sotiropoulos",
@@ -3898,8 +3774,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 1,
       "birthDate": "1977",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Alexander Volkanovski",
@@ -3916,8 +3791,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 1,
       "birthDate": "1988",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Alex Pereira",
@@ -3934,8 +3808,7 @@
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 1,
       "birthDate": "1987",
-      "isSenior": false,
-      "rankChange": 18
+      "isSenior": false
     },
     {
       "name": "Delicious Orie",
@@ -3952,8 +3825,7 @@
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 1,
       "birthDate": "1997-05-31",
-      "isSenior": false,
-      "rankChange": -2
+      "isSenior": false
     },
     {
       "name": "Andrew Flintoff",
@@ -3969,8 +3841,7 @@
       "wikipediaUrl": "https://en.wikipedia.org/wiki/Andrew_Flintoff",
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 1,
-      "isSenior": false,
-      "rankChange": -2
+      "isSenior": false
     },
     {
       "name": "Salahdine Parnasse",
@@ -3987,8 +3858,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 1,
       "birthDate": "1997",
-      "isSenior": false,
-      "rankChange": 17
+      "isSenior": false
     },
     {
       "name": "Satoshi Ishii",
@@ -4005,8 +3875,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 1,
       "birthDate": "1986",
-      "isSenior": false,
-      "rankChange": -3
+      "isSenior": false
     },
     {
       "name": "Carlos Ulberg",
@@ -4023,8 +3892,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 1,
       "birthDate": "1990-11-17",
-      "isSenior": false,
-      "rankChange": -3
+      "isSenior": false
     },
     {
       "name": "Artur Kyshenko",
@@ -4041,8 +3909,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 1,
       "birthDate": "1986",
-      "isSenior": false,
-      "rankChange": -3
+      "isSenior": false
     },
     {
       "name": "Therese Gunnarsson",
@@ -4059,8 +3926,7 @@
       "lastUpdated": "2026-11-02T01:45:47.126Z",
       "thirdaryScore": 1,
       "birthDate": "1983-11-30",
-      "isSenior": false,
-      "rankChange": 15
+      "isSenior": false
     },
     {
       "name": "Henry Cejudo",
@@ -4077,8 +3943,7 @@
       "lastUpdated": "2026-11-02T01:45:47.126Z",
       "thirdaryScore": 1,
       "birthDate": "1987-02-09",
-      "isSenior": false,
-      "rankChange": 12
+      "isSenior": false
     },
     {
       "name": "Benson Henderson",
@@ -4095,8 +3960,7 @@
       "lastUpdated": "2026-11-02T01:45:47.126Z",
       "thirdaryScore": 1,
       "birthDate": "1983-11-16",
-      "isSenior": false,
-      "rankChange": 12
+      "isSenior": false
     },
     {
       "name": "Dustin Jacoby",
@@ -4113,8 +3977,7 @@
       "lastUpdated": "2026-11-02T01:45:47.126Z",
       "thirdaryScore": 1,
       "birthDate": "1988-04-04",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Sean O'Malley (fighter)",
@@ -4131,8 +3994,7 @@
       "lastUpdated": "2026-11-02T01:45:47.127Z",
       "thirdaryScore": 1,
       "birthDate": "1994-10-24",
-      "isSenior": false,
-      "rankChange": 11
+      "isSenior": false
     },
     {
       "name": "Joe Schilling",
@@ -4149,8 +4011,7 @@
       "lastUpdated": "2026-11-02T01:45:47.127Z",
       "thirdaryScore": 1,
       "birthDate": "1984",
-      "isSenior": false,
-      "rankChange": -2
+      "isSenior": false
     },
     {
       "name": "Gabriel Gonzaga",
@@ -4167,8 +4028,7 @@
       "lastUpdated": "2026-11-02T01:45:47.127Z",
       "thirdaryScore": 1,
       "birthDate": "1979",
-      "isSenior": false,
-      "rankChange": 10
+      "isSenior": false
     },
     {
       "name": "Cédric Doumbé",
@@ -4185,8 +4045,7 @@
       "lastUpdated": "2026-11-02T01:45:47.127Z",
       "thirdaryScore": 1,
       "birthDate": "1992",
-      "isSenior": false,
-      "rankChange": -2
+      "isSenior": false
     },
     {
       "name": "Qiu Jianliang",
@@ -4203,8 +4062,7 @@
       "lastUpdated": "2026-11-02T01:45:47.127Z",
       "thirdaryScore": 1,
       "birthDate": "1990",
-      "isSenior": false,
-      "rankChange": -2
+      "isSenior": false
     },
     {
       "name": "Arkadiusz Wrzosek",
@@ -4221,8 +4079,7 @@
       "lastUpdated": "2026-11-02T01:45:47.127Z",
       "thirdaryScore": 1,
       "birthDate": "1992",
-      "isSenior": false,
-      "rankChange": -2
+      "isSenior": false
     },
     {
       "name": "Tomasz Sarara",
@@ -4238,8 +4095,7 @@
       "lastUpdated": "2026-11-02T01:45:47.127Z",
       "thirdaryScore": 1,
       "birthDate": "1985",
-      "isSenior": false,
-      "rankChange": -9
+      "isSenior": false
     },
     {
       "name": "Vladimir Mineev",
@@ -4256,8 +4112,7 @@
       "lastUpdated": "2026-11-02T01:45:47.127Z",
       "thirdaryScore": 1,
       "birthDate": "1990",
-      "isSenior": false,
-      "rankChange": -2
+      "isSenior": false
     },
     {
       "name": "Albert Tumenov",
@@ -4291,8 +4146,7 @@
       "lastUpdated": "2026-11-02T01:45:47.127Z",
       "thirdaryScore": 1,
       "birthDate": "1984-09-18",
-      "isSenior": false,
-      "rankChange": -3
+      "isSenior": false
     },
     {
       "name": "Jessica Penne",
@@ -4309,8 +4163,7 @@
       "lastUpdated": "2026-11-02T01:45:47.127Z",
       "thirdaryScore": 1,
       "birthDate": "1983",
-      "isSenior": false,
-      "rankChange": -3
+      "isSenior": false
     },
     {
       "name": "Harut Grigorian",
@@ -4327,8 +4180,7 @@
       "lastUpdated": "2026-11-02T01:45:47.127Z",
       "thirdaryScore": 1,
       "birthDate": "1989",
-      "isSenior": false,
-      "rankChange": 1
+      "isSenior": false
     },
     {
       "name": "Artem Levin",
@@ -4531,8 +4383,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 1,
       "birthDate": "1975",
-      "isSenior": true,
-      "rankChange": 4
+      "isSenior": true
     },
     {
       "name": "Pat Miletich",
@@ -4549,8 +4400,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 1,
       "birthDate": "1968",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Mikey Burnett",
@@ -4567,8 +4417,7 @@
       "lastUpdated": "2026-11-02T01:45:47.126Z",
       "thirdaryScore": 1,
       "birthDate": "1974",
-      "isSenior": true,
-      "rankChange": 2
+      "isSenior": true
     },
     {
       "name": "Doug Viney",
@@ -4585,8 +4434,7 @@
       "lastUpdated": "2026-11-02T01:45:47.127Z",
       "thirdaryScore": 1,
       "birthDate": "1976",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Samransak Muangsurin",
@@ -4603,8 +4451,7 @@
       "lastUpdated": "2026-11-02T01:45:47.127Z",
       "thirdaryScore": 1,
       "birthDate": "1959",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Cosme Rivera",
@@ -5536,8 +5383,7 @@
       "lastUpdated": "2026-11-02T01:45:47.127Z",
       "thirdaryScore": 2,
       "birthDate": "1954-09-10",
-      "isSenior": true,
-      "rankChange": 1
+      "isSenior": true
     },
     {
       "name": "Paul Sykes (boxer)",
@@ -5554,8 +5400,7 @@
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 2,
       "birthDate": "1946",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Anderson Silva",
@@ -5589,8 +5434,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 2,
       "birthDate": "1971-01-18",
-      "isSenior": true,
-      "rankChange": 2
+      "isSenior": true
     },
     {
       "name": "Kathy Long",
@@ -5606,8 +5450,7 @@
       "lastUpdated": "2026-11-02T01:45:47.126Z",
       "thirdaryScore": 2,
       "birthDate": "1964",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Michael McDonald (kickboxer)",
@@ -5624,8 +5467,7 @@
       "lastUpdated": "2026-11-02T01:45:47.127Z",
       "thirdaryScore": 2,
       "birthDate": "1965",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Roman Zentsov",
@@ -5659,8 +5501,7 @@
       "lastUpdated": "2026-11-02T01:45:47.126Z",
       "thirdaryScore": 2,
       "birthDate": "1976",
-      "isSenior": true,
-      "rankChange": 1
+      "isSenior": true
     },
     {
       "name": "Gogea Mitu",
@@ -5677,8 +5518,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 2,
       "birthDate": "1909-09-15",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Bob Olin",
@@ -7104,8 +6944,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 3,
       "birthDate": "1975-10-31",
-      "isSenior": true,
-      "rankChange": 2
+      "isSenior": true
     },
     {
       "name": "Perry Ubeda",
@@ -7122,8 +6961,7 @@
       "lastUpdated": "2026-11-02T01:45:47.127Z",
       "thirdaryScore": 3,
       "birthDate": "1971",
-      "isSenior": true,
-      "rankChange": 2
+      "isSenior": true
     },
     {
       "name": "Jason Suttie",
@@ -7140,8 +6978,7 @@
       "lastUpdated": "2026-11-02T01:45:47.127Z",
       "thirdaryScore": 3,
       "birthDate": "1973",
-      "isSenior": true,
-      "rankChange": -2
+      "isSenior": true
     },
     {
       "name": "John Morrissey",
@@ -7157,8 +6994,7 @@
       "lastUpdated": "2026-11-02T01:45:47.127Z",
       "thirdaryScore": 3,
       "birthDate": "1831-02-12",
-      "isSenior": true,
-      "rankChange": -2
+      "isSenior": true
     },
     {
       "name": "Memphis Pal Moore",
@@ -9178,8 +9014,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 4.363636363636363,
       "birthDate": "1968",
-      "isSenior": true,
-      "rankChange": 1
+      "isSenior": true
     },
     {
       "name": "Anthony Mundine",
@@ -9196,8 +9031,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 4.363636363636363,
       "birthDate": "1975",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Jake LaMotta",
@@ -12730,8 +12564,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 7.7,
       "birthDate": "1966",
-      "isSenior": true,
-      "rankChange": 1
+      "isSenior": true
     },
     {
       "name": "James Toney",
@@ -12748,8 +12581,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 7.7,
       "birthDate": "1968-08-24",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Pablo Chacón",
@@ -14023,8 +13855,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 10,
       "birthDate": "1962",
-      "isSenior": true,
-      "rankChange": 1
+      "isSenior": true
     },
     {
       "name": "Mills Lane",
@@ -14041,8 +13872,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 10,
       "birthDate": "1937",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Howard Winstone",
@@ -15027,8 +14857,7 @@
       "lastUpdated": "2026-11-02T01:45:47.126Z",
       "thirdaryScore": 13,
       "birthDate": "1974-08-18",
-      "isSenior": true,
-      "rankChange": 1
+      "isSenior": true
     },
     {
       "name": "Apidej Sit-Hirun",
@@ -15045,8 +14874,7 @@
       "lastUpdated": "2026-11-02T01:45:47.127Z",
       "thirdaryScore": 13,
       "birthDate": "1941",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Joe Gans",
@@ -15386,8 +15214,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 16,
       "birthDate": "1973",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Sean O'Grady (boxer)",
@@ -15404,8 +15231,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 16.2,
       "birthDate": "1959",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Veeraphol Sahaprom",
@@ -15422,8 +15248,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 16.5,
       "birthDate": "1968",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Kim Ki-soo",
@@ -15440,8 +15265,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 16.5,
       "birthDate": "1939",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Jeff Chandler (boxer)",
@@ -15458,8 +15282,7 @@
       "lastUpdated": "2026-11-02T01:45:47.119Z",
       "thirdaryScore": 16.5,
       "birthDate": "1956",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Christophe Tiozzo",
@@ -15476,8 +15299,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 16.5,
       "birthDate": "1963",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Percy Jones (boxer)",
@@ -15494,8 +15316,7 @@
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 16.666666666666668,
       "birthDate": "1892",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Nonpareil Jack Dempsey",
@@ -15512,8 +15333,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 17,
       "birthDate": "1862-12-15",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Marcus Davis",
@@ -15530,8 +15350,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 17,
       "birthDate": "1973",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Lucia Rijker",
@@ -15547,8 +15366,7 @@
       "lastUpdated": "2026-11-02T01:45:47.126Z",
       "thirdaryScore": 17,
       "birthDate": "1967-12-06",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Masao Ohba",
@@ -15565,8 +15383,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 17.5,
       "birthDate": "1949",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Julio César Chávez",
@@ -15583,8 +15400,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 17.833333333333332,
       "birthDate": "1962-07-12",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Esteban Gallard",
@@ -15601,8 +15417,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 18,
       "birthDate": "1901",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Barney Ross",
@@ -15619,8 +15434,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 18.5,
       "birthDate": "1909",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Yodsanan Sor Nanthachai",
@@ -15637,8 +15451,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 18.666666666666668,
       "birthDate": "1974",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Sergio Martínez (boxer)",
@@ -15655,8 +15468,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 19,
       "birthDate": "1975",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "James J. Jeffries",
@@ -15673,8 +15485,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 19,
       "birthDate": "1875-04-15",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Servílio de Oliveira",
@@ -15691,8 +15502,7 @@
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 19,
       "birthDate": "1948",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Tommy Gibbons",
@@ -15709,8 +15519,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 19.2,
       "birthDate": "1891-03-22",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Jim Driscoll",
@@ -15727,8 +15536,7 @@
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 19.333333333333332,
       "birthDate": "1880",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Harry Harris (boxer)",
@@ -15745,8 +15553,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 20,
       "birthDate": "1880",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Lennox Lewis",
@@ -15763,8 +15570,7 @@
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 20.5,
       "birthDate": "1965",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Acelino Freitas",
@@ -15781,8 +15587,7 @@
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 20.5,
       "birthDate": "1975-09-21",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Marvelous Marvin Hagler",
@@ -15799,8 +15604,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 20.666666666666668,
       "birthDate": "1954-05-23",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Willie Pep",
@@ -15817,8 +15621,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 20.818181818181817,
       "birthDate": "1922-09-19",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Miguel Ángel Cuello",
@@ -15835,8 +15638,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 21,
       "birthDate": "1946",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Marek Piotrowski",
@@ -15853,8 +15655,7 @@
       "lastUpdated": "2026-11-02T01:45:47.127Z",
       "thirdaryScore": 21,
       "birthDate": "1964",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Alessandro Mazzinghi",
@@ -15870,8 +15671,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 21.333333333333332,
       "birthDate": "1938",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Joe Louis",
@@ -15888,8 +15688,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 22,
       "birthDate": "1914-05-13",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Leonard Doroftei",
@@ -15906,8 +15705,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 22,
       "birthDate": "1970",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "István Kovács (boxer)",
@@ -15924,8 +15722,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 22,
       "birthDate": "1970",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Natascha Ragosina",
@@ -15942,8 +15739,7 @@
       "lastUpdated": "2026-11-02T01:45:47.126Z",
       "thirdaryScore": 22,
       "birthDate": "1976",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Vitali Klitschko",
@@ -15960,8 +15756,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 22.5,
       "birthDate": "1971",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Yoko Gushiken",
@@ -15978,8 +15773,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 23,
       "birthDate": "1955",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Fabrice Tiozzo",
@@ -15996,8 +15790,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 24,
       "birthDate": "1969",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Dariusz Michalczewski",
@@ -16014,8 +15807,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 24,
       "birthDate": "1968",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Freddie Steele",
@@ -16032,8 +15824,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 25,
       "birthDate": "1912",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Nikolai Valuev",
@@ -16050,8 +15841,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 25,
       "birthDate": "1973-08-21",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Orzubek Nazarov",
@@ -16068,8 +15858,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 26,
       "birthDate": "1966",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Terry Marsh (boxer)",
@@ -16086,8 +15875,7 @@
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 26,
       "birthDate": "1958",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Ali Raymi",
@@ -16104,8 +15892,7 @@
       "lastUpdated": "2026-11-02T01:45:47.126Z",
       "thirdaryScore": 26,
       "birthDate": "1973",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "László Papp",
@@ -16122,8 +15909,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 27,
       "birthDate": "1926",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Marcel Cerdan",
@@ -16140,8 +15926,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 27.5,
       "birthDate": "1916",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Mihai Leu",
@@ -16158,8 +15943,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 28,
       "birthDate": "1968",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Jack McAuliffe (boxer)",
@@ -16176,8 +15960,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 28,
       "birthDate": "1866",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Carlos Monzón",
@@ -16194,8 +15977,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 29,
       "birthDate": "1942",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Taoufik Belbouli",
@@ -16212,8 +15994,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 29,
       "birthDate": "1954",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Nicolino Locche",
@@ -16230,8 +16011,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 29.25,
       "birthDate": "1939",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Henry Maske",
@@ -16248,8 +16028,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 31,
       "birthDate": "1964",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Michael Spinks",
@@ -16266,8 +16045,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 31,
       "birthDate": "1956-07-22",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Zsolt Erdei",
@@ -16284,8 +16062,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 34,
       "birthDate": "1974",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Joan Guzmán",
@@ -16302,8 +16079,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 34,
       "birthDate": "1976-05-01",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Sven Ottke",
@@ -16320,8 +16096,7 @@
       "lastUpdated": "2026-11-02T01:45:47.123Z",
       "thirdaryScore": 34,
       "birthDate": "1967-06-03",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Jimmy Wilde",
@@ -16338,8 +16113,7 @@
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 34.25,
       "birthDate": "1892",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Pedro Carrasco",
@@ -16356,8 +16130,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 35,
       "birthDate": "1943",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Bruno Arcari (boxer)",
@@ -16374,8 +16147,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 35,
       "birthDate": "1942",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Éder Jofre",
@@ -16392,8 +16164,7 @@
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 36,
       "birthDate": "1936-03-26",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Naseem Hamed",
@@ -16410,8 +16181,7 @@
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 36,
       "birthDate": "1974",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Horacio Accavallo",
@@ -16428,8 +16198,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 37.5,
       "birthDate": "1934",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Artur Grigorian",
@@ -16446,8 +16215,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 38,
       "birthDate": "1967",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Duilio Loi",
@@ -16464,8 +16232,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 38.333333333333336,
       "birthDate": "1929",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Aaron Pryor",
@@ -16482,8 +16249,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 39,
       "birthDate": "1955-10-20",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "John L. Sullivan",
@@ -16500,8 +16266,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 42,
       "birthDate": "1858",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Riddick Bowe",
@@ -16518,8 +16283,7 @@
       "lastUpdated": "2026-11-02T01:45:47.119Z",
       "thirdaryScore": 43,
       "birthDate": "1967-08-10",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Samson Dutch Boy Gym",
@@ -16536,8 +16300,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 43,
       "birthDate": "1972",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Tommy Ryan",
@@ -16554,8 +16317,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 43.5,
       "birthDate": "1870",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Salvador Sánchez",
@@ -16572,8 +16334,7 @@
       "lastUpdated": "2026-11-02T01:45:47.124Z",
       "thirdaryScore": 44,
       "birthDate": "1959-01-26",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Joe Calzaghe",
@@ -16590,8 +16351,7 @@
       "lastUpdated": "2026-11-02T01:45:47.122Z",
       "thirdaryScore": 46,
       "birthDate": "1972",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Khaosai Galaxy",
@@ -16608,8 +16368,7 @@
       "lastUpdated": "2026-11-02T01:45:47.125Z",
       "thirdaryScore": 47,
       "birthDate": "1959",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Rocky Marciano",
@@ -16626,8 +16385,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 49,
       "birthDate": "1923-09-01",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Jimmy Barry",
@@ -16644,8 +16402,7 @@
       "lastUpdated": "2026-11-02T01:45:47.119Z",
       "thirdaryScore": 61,
       "birthDate": "1870-03-07",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Gene Tunney",
@@ -16662,8 +16419,7 @@
       "lastUpdated": "2026-11-02T01:45:47.121Z",
       "thirdaryScore": 80,
       "birthDate": "1897-05-25",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Packey McFarland",
@@ -16680,8 +16436,7 @@
       "lastUpdated": "2026-11-02T01:45:47.120Z",
       "thirdaryScore": 106,
       "birthDate": "1888-11-01",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     }
   ],
   "wbaChampions": [
