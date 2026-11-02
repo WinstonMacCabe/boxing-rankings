@@ -474,6 +474,14 @@ export function scheduledInProse(
     // Debut announcements often say "scheduled to make his debut against"
     // without using "fight", "face", or "challenge".
     if (!/\b(face|fight|challenge|against|vs\.?|versus|take on|defend|rematch|return)\b/i.test(context)) continue
+    // Do not turn historical speculation into a scheduled booking. Phrases
+    // about negotiations, options, or a completed card can contain a date and
+    // fight language but do not announce a bout. Keep them only when the same
+    // bounded context contains a firm booking signal.
+    if (/\bwon their respective fights\b/i.test(context)) continue
+    const speculative = /\b(?:potential fight|negotiations? had begun|looking to fight|option for (?:his|her|their) next fight|considering a fight)\b/i.test(context)
+    const firmBooking = /\b(?:scheduled (?:to|for)|set to|would fight|would defend|officially announced|fight official|against .{0,80}\bon\s+\d|face .{0,80}\bon\s+\d)\b/i.test(context)
+    if (speculative && !firmBooking) continue
 
       // A "sentence" that still contains section/table remnants (==headers==, {|
       // wikitable opener, |- row separators, class=") is structural markup, not
