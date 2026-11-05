@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-04T00:31:28.189Z",
+  "lastUpdated": "2026-11-05T00:30:29.092Z",
   "fights": [
     {
       "boxerName": "Canelo Álvarez",
@@ -19,13 +19,13 @@
       "headline": "Adames is scheduled to make his Zuffa Boxing debut against Gerome Warburton in a non-title catchweight 10-round bout at The Venue in Riyadh, Saudi Arabia, on November 14, 2026.",
       "url": "https://en.wikipedia.org/wiki/Carlos_Adames",
       "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-11-04T00:31:37.466Z",
+      "publishedAt": "2026-11-05T00:30:38.255Z",
       "date": "2026-11-14",
       "granularity": "day",
       "matchup": "Carlos Adames vs Gerome Warburton",
       "opponent": "Gerome Warburton",
       "confidence": "high",
-      "detectedAt": "2026-11-04T00:31:37.466Z"
+      "detectedAt": "2026-11-05T00:30:38.255Z"
     },
     {
       "boxerName": "Dmitry Bivol",
@@ -69,13 +69,13 @@
       "headline": "On 24 September 2026, it was announced Fury and Joshua would face off on 11 December at Principality Stadium in Cardiff, Wales, and that the WBA (Super) heavyweight title would be on the line, meaning",
       "url": "https://en.wikipedia.org/wiki/Tyson_Fury",
       "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-11-04T00:31:57.610Z",
+      "publishedAt": "2026-11-05T00:30:57.887Z",
       "date": "2026-12-11",
       "granularity": "day",
       "matchup": "Tyson Fury vs Dolph Ziggler",
       "opponent": "Dolph Ziggler",
       "confidence": "high",
-      "detectedAt": "2026-11-04T00:31:57.610Z"
+      "detectedAt": "2026-11-05T00:30:57.887Z"
     },
     {
       "boxerName": "Dmitry Bivol",
@@ -83,13 +83,13 @@
       "headline": "On 12 October, it was announced that Bivol would defend his unified IBF, WBO, WBC and Ring light heavyweight titles against Smith on 12 December in Yekaterinburg, Russia.",
       "url": "https://en.wikipedia.org/wiki/Dmitry_Bivol",
       "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-11-04T00:31:37.991Z",
+      "publishedAt": "2026-11-05T00:30:38.622Z",
       "date": "2026-12-12",
       "granularity": "day",
       "matchup": "Dmitry Bivol vs Smith",
       "opponent": "Smith",
       "confidence": "high",
-      "detectedAt": "2026-11-04T00:31:37.991Z"
+      "detectedAt": "2026-11-05T00:30:38.622Z"
     },
     {
       "boxerName": "Naoya Inoue",
