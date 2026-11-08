@@ -2402,8 +2402,7 @@
       "lastUpdated": "2026-11-08T00:31:21.586Z",
       "thirdaryScore": 22,
       "birthDate": "1914-05-13",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Alessandro Mazzinghi",
@@ -2419,8 +2418,7 @@
       "lastUpdated": "2026-11-08T00:31:21.589Z",
       "thirdaryScore": 21.333333333333332,
       "birthDate": "1938",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Canelo Álvarez",
@@ -2437,8 +2435,7 @@
       "lastUpdated": "2026-11-08T00:31:21.590Z",
       "thirdaryScore": 21.333333333333332,
       "birthDate": "1990",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Abdullah Mason",
@@ -2455,8 +2452,7 @@
       "lastUpdated": "2026-11-08T00:31:21.586Z",
       "thirdaryScore": 21,
       "birthDate": "2004",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Lester Martínez",
@@ -2473,8 +2469,7 @@
       "lastUpdated": "2026-11-08T00:31:21.589Z",
       "thirdaryScore": 21,
       "birthDate": "1995",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Marek Piotrowski",
@@ -2491,8 +2486,7 @@
       "lastUpdated": "2026-11-08T00:31:21.592Z",
       "thirdaryScore": 21,
       "birthDate": "1964",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Miguel Ángel Cuello",
@@ -2509,8 +2503,7 @@
       "lastUpdated": "2026-11-08T00:31:21.587Z",
       "thirdaryScore": 21,
       "birthDate": "1946",
-      "isSenior": true,
-      "rankChange": -1
+      "isSenior": true
     },
     {
       "name": "Artur Beterbiev",
@@ -2527,8 +2520,7 @@
       "lastUpdated": "2026-11-08T00:31:21.591Z",
       "thirdaryScore": 21,
       "birthDate": "1985",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Filip Hrgović",
@@ -2545,8 +2537,7 @@
       "lastUpdated": "2026-11-08T00:31:21.588Z",
       "thirdaryScore": 21,
       "birthDate": "1992",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Vyacheslav Glazkov",
@@ -2563,8 +2554,7 @@
       "lastUpdated": "2026-11-08T00:31:21.591Z",
       "thirdaryScore": 21,
       "birthDate": "1984-10-15",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Mike Lee (boxer)",
@@ -2581,8 +2571,7 @@
       "lastUpdated": "2026-11-08T00:31:21.586Z",
       "thirdaryScore": 21,
       "birthDate": "1987",
-      "isSenior": false,
-      "rankChange": -1
+      "isSenior": false
     },
     {
       "name": "Choi Hyun-mi",
@@ -9009,8 +8998,7 @@
       "lastUpdated": "2026-11-08T00:31:21.591Z",
       "thirdaryScore": 4.363636363636363,
       "birthDate": "1968",
-      "isSenior": true,
-      "rankChange": 1
+      "isSenior": true
     },
     {
       "name": "Anthony Mundine",
@@ -9027,8 +9015,7 @@
       "lastUpdated": "2026-11-08T00:31:21.587Z",
       "thirdaryScore": 4.363636363636363,
       "birthDate": "1975",
-      "isSenior": true,
-      "rankChange": 1
+      "isSenior": true
     },
     {
       "name": "Jake LaMotta",
@@ -9045,8 +9032,7 @@
       "lastUpdated": "2026-11-08T00:31:21.586Z",
       "thirdaryScore": 4.368421052631579,
       "birthDate": "1922-07-10",
-      "isSenior": true,
-      "rankChange": 1
+      "isSenior": true
     },
     {
       "name": "Joachim Alcine",
@@ -9063,8 +9049,7 @@
       "lastUpdated": "2026-11-08T00:31:21.588Z",
       "thirdaryScore": 4.375,
       "birthDate": "1976",
-      "isSenior": true,
-      "rankChange": 1
+      "isSenior": true
     },
     {
       "name": "Evander Holyfield",
@@ -9081,8 +9066,7 @@
       "lastUpdated": "2026-11-08T00:31:21.586Z",
       "thirdaryScore": 4.4,
       "birthDate": "1962-10-19",
-      "isSenior": true,
-      "rankChange": 1
+      "isSenior": true
     },
     {
       "name": "Curtis Cokes",
@@ -9099,8 +9083,7 @@
       "lastUpdated": "2026-11-08T00:31:21.585Z",
       "thirdaryScore": 4.428571428571429,
       "birthDate": "1937",
-      "isSenior": true,
-      "rankChange": 1
+      "isSenior": true
     },
     {
       "name": "Oliver McCall",
@@ -9117,8 +9100,7 @@
       "lastUpdated": "2026-11-08T00:31:21.586Z",
       "thirdaryScore": 4.428571428571429,
       "birthDate": "1965-04-21",
-      "isSenior": true,
-      "rankChange": -6
+      "isSenior": true
     },
     {
       "name": "Audley Harrison",
