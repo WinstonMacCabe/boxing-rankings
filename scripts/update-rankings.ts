@@ -11,6 +11,10 @@ const BATCH_DELAY = 100
 // Minimum thirdary score (wins/losses, or wins if undefeated) for inclusion.
 const BOXING_MIN_SCORE = 17.84
 
+function recordOf(f: { wins: number; losses: number; draws: number }): string {
+  return `${f.wins}-${f.losses}-${f.draws}`
+}
+
 function withPersistentRankChange(
   ranked: BoxerRecord[],
   previous: BoxerRecord[] | undefined
@@ -33,9 +37,18 @@ function withPersistentRankChange(
     const movement = prior && currentCommonRank !== undefined
       ? (commonPreviousRank.get(fighter.name)! - currentCommonRank)
       : undefined
+
+    // Only record a new movement if the fighter's own record changed.
+    // If their record is untouched, they only moved because someone else entered,
+    // left, or leapfrogged them, which should not create false move arrows.
+    const recordChanged = prior ? recordOf(fighter) !== recordOf(prior.fighter) : false
+    const rankChange = recordChanged && movement !== undefined && movement !== 0
+      ? movement
+      : prior?.fighter.rankChange
+
     return {
       ...fighter,
-      rankChange: movement !== undefined && movement !== 0 ? movement : prior?.fighter.rankChange,
+      rankChange,
     }
   })
 }
