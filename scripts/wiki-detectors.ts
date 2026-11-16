@@ -207,6 +207,7 @@ function extractWikiDate(text: string, ref: Date, pastDays = 0): DateCandidate |
       }
     }
   }
+  // month-first: "October 24, 2026" or "October 2026"
   // Wikipedia often omits the year when the surrounding sentence already
   // establishes it: "announced ... on 11 December".
   m = /^(\d{1,2})\s+([A-Za-z]{3,9}\.?)$/.exec(t)
@@ -313,26 +314,12 @@ function findMostSpecificDateToken(text: string, ref = new Date(), pastDays = 0)
   const valid = [...tokens, ...(currentYearIsExplicit ? expandedYearlessTokens : [])]
     .filter(token => extractWikiDate(token, ref, pastDays))
   if (explicitYear) {
-    // Prefer the date in the strongest announcement sentence. Pages often
-    // retain an earlier estimate such as "on 30 December ... looking to fight"
-    // immediately before the confirmed booking: "it was announced ... on 12
-    // December". A page-wide first-match rule selected the estimate.
     const dayMonth = /\b(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]{3,9})\b/gi
-    const dated: { candidate: string; score: number; offset: number }[] = []
     for (const match of plain.matchAll(dayMonth)) {
       const candidate = `${match[1]} ${match[2]} ${explicitYear}`
       const parsed = extractWikiDate(candidate, ref, pastDays)
-      if (parsed?.granularity !== 'day') continue
-      const start = Math.max(0, (match.index ?? 0) - 180)
-      const sentence = plain.slice(start, Math.min(plain.length, (match.index ?? 0) + match[0].length + 120))
-      let score = 0
-      if (/\b(?:confirmed|officially announced|announced that|would fight|scheduled to|set to|agreed)\b/i.test(sentence)) score += 4
-      if (/\b(?:fight|bout|face|against|rematch|defend|challenge|opponent)\b/i.test(sentence)) score += 2
-      if (/\b(?:looking to|hoped to|planned to|targeting|reportedly)\b/i.test(sentence)) score -= 2
-      dated.push({ candidate, score, offset: match.index ?? 0 })
+      if (parsed?.granularity === 'day') return candidate
     }
-    dated.sort((a, b) => b.score - a.score || b.offset - a.offset)
-    if (dated[0]) return dated[0].candidate
   }
   return valid.find(token => extractWikiDate(token, ref, pastDays)?.granularity === 'day')
     ?? valid[0]
@@ -355,6 +342,10 @@ function stripToProse(text: string): string {
 }
 
 function opponentFromSentence(sentence: string, clean: string): string | null {
+  // Opponent name may be preceded by a descriptor ("promotional newcomer",
+  // "former champion"): capture the capitalized name run immediately before "on <date>".
+  const beforeOn = /(?:face|fight|challenge|meet|take on|against|vs\.?)\s+(?:[a-z]+\s+)*?([A-Z][A-Za-z'-]{2,}(?:\s+[A-Z][A-Za-z'-]+){0,2})\s+on\b/.exec(sentence)
+  if (beforeOn?.[1] && looksLikeOpponent(beforeOn[1], clean)) return beforeOn[1].trim()
   // Prefer a wikilink opponent. Skip title/venue links (Championship, UFC 333…):
   // take the LAST link in the sentence (opponents come right before the date),
   // and reject obvious non-person tokens.
@@ -429,13 +420,14 @@ export function scheduledInProse(
   wikitext: string,
   fighter: WikiRosterFighter,
   ref: Date,
-): WikiScheduledEntry | null {
+): WikiScheduledEntry[] {
   const clean = fighter.clean.toLowerCase()
   const surnameParts = clean.split(/\s+/).filter(part => !/^(jr\.?|sr\.?|ii|iii|iv)$/i.test(part))
   const surname = surnameParts[surnameParts.length - 1] ?? clean
   const prose = stripToProse(wikitext)
   const sentences = prose.split(/(?<=[.!?])\s+/)
-  let best: { score: number; entry: WikiScheduledEntry } | null = null
+  const entries: WikiScheduledEntry[] = []
+  const seenDates = new Set<string>()
   for (let i = 0; i < sentences.length; i++) {
     const sentence = sentences[i]
     if (!sentence) continue
@@ -533,14 +525,16 @@ export function scheduledInProse(
       const score =
         (cand.granularity === 'day' ? 4 : 0) +
         (opponent ? 3 : 0) +
-        (/(?:face off|face each other|fight on|fight for|challenge)/i.test(context) ? 4 : 0) +
+        (/\b(?:face off|face each other|fight on|fight for|challenge)\b/i.test(context) ? 4 : 0) +
         (new RegExp(`\\b${ref.getFullYear()}\\b`).test(context) ? 2 : 0) +
         (/(?:announced|confirmed|officially|set to|scheduled to)/i.test(context) ? 1 : 0) +
         (/(?:confirmed|officially announced|would defend|fight official)/i.test(context) ? 5 : 0) -
         (/(?:looking to|option for|hoped to|planned to fight in spring|reportedly)/i.test(context) ? 5 : 0)
-      if (!best || score > best.score) best = { score, entry }
+      if (seenDates.has(dateStr)) continue
+      seenDates.add(dateStr)
+      entries.push(entry)
   }
-  return best?.entry ?? null
+  return entries
 }
 
 // ---------- Detector 2: record-table future row ----------
@@ -792,10 +786,10 @@ export async function scheduledInPromotionEvents(
       // Event row = a [[event-pipe|event display]] link + a date. Date appears as
       //   | {{dts|2026|Oct|24}} |  (after the event link)   OR
       //   | 2026-10-24 || [[Event Name]]  (before the event link)
-      const link = /\[{2}([^\]|]+)\|([^\]|]*?)\]{2}/.exec(row)
+      const link = /\[{2}([^\]|]+)(?:\|([^\]|]*?))?\]{2}/.exec(row)
       if (!link) continue
       const eventTitleRaw = stripWikiMarkup(link[1]).trim()
-      const display = stripWikiMarkup(link[2]).trim() || eventTitleRaw
+      const display = (link[2] ? stripWikiMarkup(link[2]).trim() : eventTitleRaw) || eventTitleRaw
       // Reject series pages before spending a fetch on them.
       if (isSkippedEventPage(eventTitleRaw)) continue
       const dts = /\{\{\s*dts\s*\|\s*(\d{4})\s*\|\s*([A-Za-z]{3,9})\s*\|\s*(\d{1,2})\s*\}\}/i.exec(row)
@@ -861,8 +855,7 @@ export async function scanFighterFromWikipedia(
 
   const out: WikiScheduledEntry[] = []
 
-  const prose = scheduledInProse(wikitext, fighter, ref)
-  if (prose) out.push(prose)
+  out.push(...scheduledInProse(wikitext, fighter, ref))
 
   out.push(...scheduledInRecordTable(wikitext, fighter, ref, pastDays))
 
