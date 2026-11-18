@@ -321,8 +321,13 @@ function findMostSpecificDateToken(text: string, ref = new Date(), pastDays = 0)
       if (parsed?.granularity === 'day') return candidate
     }
   }
-  return valid.find(token => extractWikiDate(token, ref, pastDays)?.granularity === 'day')
-    ?? valid[0]
+  // When a sentence carries more than one date (e.g. an announcement date and
+  // the fight date), prefer the LAST day-level future date: the fight date
+  // usually follows the announcement date ("announced on 2 Nov ... take on X
+  // on 24 Dec").
+  const dayLevel = valid.filter(token => extractWikiDate(token, ref, pastDays)?.granularity === 'day')
+  if (dayLevel.length) return dayLevel[dayLevel.length - 1]
+  return valid.length ? valid[valid.length - 1] : null
 }
 
 function stripToProse(text: string): string {
