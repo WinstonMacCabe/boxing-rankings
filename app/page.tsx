@@ -492,7 +492,7 @@ export default function Home() {
       </header>
 
       <main className="pb-12 pt-28">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto w-full px-4">
           <div className="mb-10 pt-6 text-center">
             <h1 className="text-[64px] font-bold uppercase leading-[1.02] tracking-[0.06em] text-[#1d1d1f]">Boxing</h1>
           </div>
