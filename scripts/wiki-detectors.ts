@@ -296,12 +296,14 @@ function findMostSpecificDateToken(text: string, ref = new Date(), pastDays = 0)
   const tokens = Array.from(plain.matchAll(/\b(?:20\d{2}-\d{1,2}-\d{1,2}|20\d{2}-\d{1,2}|\d{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]{3,9}\.?\s+20\d{2}|[A-Za-z]{3,9}\.?\s+\d{1,2}(?:st|nd|rd|th)?,?\s+20\d{2}|[A-Za-z]{3,9}\.?\s+20\d{2})\b/gi)
   )
     .map(m => m[0])
-  const yearlessTokens = Array.from(plain.matchAll(/\b\d{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]{3,9}\.?/gi), m => m[0])
-    .filter(token => !new RegExp(`${token.trim()}\\s+20\\d{2}`, 'i').test(plain))
+  const yearlessTokens = [
+    ...Array.from(plain.matchAll(/\b\d{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]{3,9}\.?/gi), m => m[0]),
+    ...Array.from(plain.matchAll(/\b[A-Za-z]{3,9}\.?\s+\d{1,2}(?:st|nd|rd|th)?/gi), m => m[0]),
+  ].filter(token => !new RegExp(`${token.trim()}\\s+20\\d{2}`, 'i').test(plain))
     .filter(token => {
       const i = plain.indexOf(token)
-      const window = plain.slice(Math.max(0, i - 45), i + token.length)
-      return /\b(face(?:d|s)?\s+off|fight|bout|scheduled|announced|confirmed|set|challenge|defend)\b[\s\S]{0,35}$/i.test(window)
+      const window = plain.slice(Math.max(0, i - 80), i + token.length)
+      return /\b(face(?:d|s)?(?:\s+off)?|fight|bout|scheduled|announced|confirmed|set|challenge|defend|take on|return)\b[\s\S]{0,80}$/i.test(window)
     })
   // Do not reinterpret a historical yearless recap date as a booking in the
   // current year. Accept it only when this bounded announcement context also
