@@ -298,7 +298,7 @@ function findMostSpecificDateToken(text: string, ref = new Date(), pastDays = 0)
     .map(m => m[0])
   const yearlessTokens = [
     ...Array.from(plain.matchAll(/\b\d{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]{3,9}\.?/gi), m => m[0]),
-    ...Array.from(plain.matchAll(/\b[A-Za-z]{3,9}\.?\s+\d{1,2}(?:st|nd|rd|th)?/gi), m => m[0]),
+    ...Array.from(plain.matchAll(/\b[A-Za-z]{3,9}\.?\s+\d{1,2}(?:st|nd|rd|th)?\b/gi), m => m[0]),
   ].filter(token => !new RegExp(`${token.trim()}\\s+20\\d{2}`, 'i').test(plain))
     .filter(token => {
       const i = plain.indexOf(token)
@@ -353,6 +353,18 @@ function opponentFromSentence(sentence: string, clean: string): string | null {
   // "former champion"): capture the capitalized name run immediately before "on <date>".
   const beforeOn = /(?:face|fight|challenge|meet|take on|against|vs\.?)\s+(?:[a-z]+\s+)*?([A-Z][A-Za-z'-]{2,}(?:\s+[A-Z][A-Za-z'-]+){0,2})\s+on\b/.exec(sentence)
   if (beforeOn?.[1] && looksLikeOpponent(beforeOn[1], clean)) return beforeOn[1].trim()
+  // "the unification fight between Benavidez and Cieślak was announced ... on
+  // December 5" — the opponent is the other name in the "between X and Y" pair.
+  const between = /\b(?:[Ff]ight|[Bb]out|[Mm]atch|[Cc]lash)\s+(?:[Bb]etween|[Oo]f)\s+([A-Z][\p{L}'-]{2,}(?:\s+[A-Z][\p{L}'-]+){0,2})\s+and\s+([A-Z][\p{L}'-]{2,}(?:\s+[A-Z][\p{L}'-]+){0,2})/u.exec(sentence)
+  if (between?.[1] && between[2]) {
+    const isSelf = (n: string) => {
+      const norm = normalizeForCompare(n)
+      const self = normalizeForCompare(clean)
+      return norm === self || self.endsWith(` ${norm}`) || norm.endsWith(` ${self}`)
+    }
+    const candidate = isSelf(between[1]) ? between[2] : between[1]
+    if (looksLikeOpponent(candidate, clean)) return candidate.trim()
+  }
   // Prefer a wikilink opponent. Skip title/venue links (Championship, UFC 333…):
   // take the LAST link in the sentence (opponents come right before the date),
   // and reject obvious non-person tokens.
@@ -413,7 +425,7 @@ function looksLikeOpponent(candidate: string, clean: string): boolean {
   if (LOCATION_OPPONENT.test(c)) return false
   // Single-word names (Muay Thai short names like "Buakaw", "Rodtang") are fine;
   // multi-word names just need a capitalized Leading word.
-  return /^[A-Z][A-Za-z.' -]{1,49}$/.test(c)
+  return /^[A-Z][\p{L}' .-]{1,49}$/u.test(c)
 }
 
 // ---------- Detector 1: fighter-page prose ----------
@@ -478,7 +490,7 @@ export function scheduledInProse(
     // fight language but do not announce a bout. Keep them only when the same
     // bounded context contains a firm booking signal.
     if (/\bwon their respective fights\b/i.test(context)) continue
-    const speculative = /\b(?:potential fight|negotiations? had begun|looking to fight|option for (?:his|her|their) next fight|considering a fight)\b/i.test(context)
+    const speculative = /\b(?:potential fight|negotiations? had begun|looking to fight|option for (?:his|her|their) next fight|considering a fight|it was reported that|return eyed for|could meet)\b/i.test(context)
     const firmBooking = /\b(?:scheduled (?:to|for)|set to|would fight|would defend|officially announced|fight official|against .{0,80}\bon\s+\d|face .{0,80}\bon\s+\d)\b/i.test(context)
     if (speculative && !firmBooking) continue
 
@@ -493,14 +505,14 @@ export function scheduledInProse(
       const cand = extractWikiDate(dateTok, ref)
       if (!cand) continue
 
-      const opponent = opponentFromSentence(context, fighter.clean)
-      const matchup = opponent ? `${fighter.clean} vs ${opponent}` : undefined
       const dateStr = cand.granularity === 'day'
         ? `${cand.year}-${String(cand.month + 1).padStart(2, '0')}-${String(cand.day).padStart(2, '0')}`
         : `${cand.year}-${String(cand.month + 1).padStart(2, '0')}`
       // The bounded context may begin with a completed-fight recap and only
       // reach the scheduling sentence on the next pass. Keep that context for
-      // detection, but use the actual announcement sentence for the headline.
+      // detection, but use the actual announcement sentence for the headline
+      // AND the opponent — otherwise an adjacent quote, promoter or past
+      // opponent gets booked ("the fight I've wanted", "working with Al Haymon").
       const contextSentences = sentences.slice(Math.max(0, i - (pronounContinuation ? 1 : 0)), contextEnd + 1)
       const normalizedDate = dateTok.replace(/(?:st|nd|rd|th)\b/gi, '').toLowerCase()
         .replace(/\b20\d{2}\b/g, '').trim()
@@ -514,6 +526,8 @@ export function scheduledInProse(
       const announcement = dateSentence ?? (announcementIndex >= 0 ? contextSentences[announcementIndex]! : context)
       const headline = stripWikiMarkup(announcement).replace(/\s+/g, ' ').trim().slice(0, 200)
       if (!headline) continue
+      const opponent = opponentFromSentence(announcement, fighter.clean)
+      const matchup = opponent ? `${fighter.clean} vs ${opponent}` : undefined
 
       const entry: WikiScheduledEntry = {
         boxerName: fighter.name,
