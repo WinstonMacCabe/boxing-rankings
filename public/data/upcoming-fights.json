@@ -62,8 +62,8 @@
       "publishedAt": "2026-11-20T00:29:54.476Z",
       "date": "2026-12-05",
       "granularity": "day",
-      "matchup": "David Benavidez vs Al Haymon",
-      "opponent": "Al Haymon",
+      "matchup": "David Benavidez vs Cieślak",
+      "opponent": "Cieślak",
       "confidence": "high",
       "detectedAt": "2026-11-20T00:29:54.476Z"
     },
@@ -80,20 +80,6 @@
       "detectedAt": "2026-11-20T00:30:19.359Z"
     },
     {
-      "boxerName": "David Benavidez",
-      "sport": "boxing",
-      "headline": "On August 18, 2026, it was reported that Benavidez would make a return to the ring on December 12 in Phoenix against veteran boxer Michał Cieślak (28–2, 22 KOs), the interim WBC cruiserweight champion",
-      "url": "https://en.wikipedia.org/wiki/David_Benavidez",
-      "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-11-20T00:29:54.475Z",
-      "date": "2026-12-12",
-      "granularity": "day",
-      "matchup": "David Benavidez vs I've",
-      "opponent": "I've",
-      "confidence": "high",
-      "detectedAt": "2026-11-20T00:29:54.475Z"
-    },
-    {
       "boxerName": "Dmitry Bivol",
       "sport": "boxing",
       "headline": "On 12 October, it was announced that Bivol would defend his unified IBF, WBO, WBA and Ring light heavyweight titles against Smith on 12 December in Yekaterinburg, Russia.",
@@ -106,34 +92,6 @@
       "opponent": "Smith",
       "confidence": "high",
       "detectedAt": "2026-11-20T00:29:59.718Z"
-    },
-    {
-      "boxerName": "Dmitry Bivol",
-      "sport": "boxing",
-      "headline": "On 27 August, Olivieri confirmed that the parties had reached an agreement, with the fight reportedly scheduled for December 2026 in Russia.",
-      "url": "https://en.wikipedia.org/wiki/Dmitry_Bivol",
-      "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-11-20T00:29:59.717Z",
-      "date": "2026-12-20",
-      "granularity": "day",
-      "matchup": "Dmitry Bivol vs Smith",
-      "opponent": "Smith",
-      "confidence": "high",
-      "detectedAt": "2026-11-20T00:29:59.718Z"
-    },
-    {
-      "boxerName": "Canelo Álvarez",
-      "sport": "boxing",
-      "headline": "And [Álvarez] in the main event [for] a world title, and it will be a surprise in Saudi Arabia, Inshallah.” Álvarez did activate the rematch clause against Crawford; however, Crawford announced his re",
-      "url": "https://en.wikipedia.org/wiki/Canelo_%C3%81lvarez",
-      "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-11-20T00:30:04.671Z",
-      "date": "2026-12-20",
-      "granularity": "day",
-      "matchup": "Canelo Álvarez vs Crawford",
-      "opponent": "Crawford",
-      "confidence": "high",
-      "detectedAt": "2026-11-20T00:30:04.671Z"
     },
     {
       "boxerName": "Naoya Inoue",
