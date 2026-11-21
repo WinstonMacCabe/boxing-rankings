@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-20T00:29:50.177Z",
+  "lastUpdated": "2026-11-21T00:32:00.757Z",
   "fights": [
     {
       "boxerName": "Carlos Adames",
@@ -21,13 +21,11 @@
       "headline": "On 27 August, Olivieri confirmed that the parties had reached an agreement, with the fight reportedly scheduled for December 2026 in Russia.",
       "url": "https://en.wikipedia.org/wiki/Dmitry_Bivol",
       "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-11-19T00:30:41.278Z",
+      "publishedAt": "2026-11-21T00:32:10.466Z",
       "date": "2026-12",
       "granularity": "month",
-      "matchup": "Dmitry Bivol vs Smith",
-      "opponent": "Smith",
-      "confidence": "medium",
-      "detectedAt": "2026-11-19T00:30:41.278Z"
+      "confidence": "low",
+      "detectedAt": "2026-11-21T00:32:10.466Z"
     },
     {
       "boxerName": "Jaron Ennis",
@@ -59,13 +57,13 @@
       "headline": "On October 22, the three-belt unification fight between Benavidez and Cieślak was announced to take place the Desert Diamond Arena in Glendale, Arizona, on December 5, 2026.",
       "url": "https://en.wikipedia.org/wiki/David_Benavidez",
       "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-11-20T00:29:54.476Z",
+      "publishedAt": "2026-11-21T00:32:05.171Z",
       "date": "2026-12-05",
       "granularity": "day",
       "matchup": "David Benavidez vs Cieślak",
       "opponent": "Cieślak",
       "confidence": "high",
-      "detectedAt": "2026-11-20T00:29:54.476Z"
+      "detectedAt": "2026-11-21T00:32:05.171Z"
     },
     {
       "boxerName": "Tyson Fury",
@@ -73,11 +71,11 @@
       "headline": "On 24 September 2026, it was announced Fury and Joshua would face off on 11 December at Principality Stadium in Cardiff, Wales, and that the WBA (Super) heavyweight title would be on the line, meaning",
       "url": "https://en.wikipedia.org/wiki/Tyson_Fury",
       "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-11-20T00:30:19.359Z",
+      "publishedAt": "2026-11-21T00:32:30.121Z",
       "date": "2026-12-11",
       "granularity": "day",
       "confidence": "low",
-      "detectedAt": "2026-11-20T00:30:19.359Z"
+      "detectedAt": "2026-11-21T00:32:30.121Z"
     },
     {
       "boxerName": "Dmitry Bivol",
@@ -85,13 +83,13 @@
       "headline": "On 12 October, it was announced that Bivol would defend his unified IBF, WBO, WBA and Ring light heavyweight titles against Smith on 12 December in Yekaterinburg, Russia.",
       "url": "https://en.wikipedia.org/wiki/Dmitry_Bivol",
       "source": "Wikipedia (fighter page prose)",
-      "publishedAt": "2026-11-20T00:29:59.718Z",
+      "publishedAt": "2026-11-21T00:32:10.467Z",
       "date": "2026-12-12",
       "granularity": "day",
       "matchup": "Dmitry Bivol vs Smith",
       "opponent": "Smith",
       "confidence": "high",
-      "detectedAt": "2026-11-20T00:29:59.718Z"
+      "detectedAt": "2026-11-21T00:32:10.467Z"
     },
     {
       "boxerName": "Naoya Inoue",
